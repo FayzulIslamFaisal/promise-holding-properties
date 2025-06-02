@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Anton } from "next/font/google";
 import "./globals.css";
 import HeaderSection from "@/components/home-page/Header-section";
 import FooterSection from "@/components/home-page/Footer-section";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: 'swap',
+  weight: ['100', '200','300', '400', '500', '600', '700', '800', '900'],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
+  display: 'swap',
+  style: ['normal'],
+  weight: ['400'],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +34,7 @@ export default function RootLayout({
       
       
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${anton.variable} antialiased bg-slate-900`}
       >
         <header>
           <HeaderSection />
