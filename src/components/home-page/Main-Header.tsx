@@ -12,6 +12,7 @@ const MainHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
+    <>
     <div className="container mx-auto px-4 py-4 relative z-10">
       <div className="flex justify-between items-center">
         {/* Logo */}
@@ -34,13 +35,12 @@ const MainHeader = () => {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <MobileNavMenu onMobileMenuToggle={setIsMobileMenuOpen} />
-      )}
-
     </div>
+    {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <MobileNavMenu onMobileMenuToggle={setIsMobileMenuOpen} isMobileMenuOpen={isMobileMenuOpen} />
+      )}
+    </>
   )
 }
 

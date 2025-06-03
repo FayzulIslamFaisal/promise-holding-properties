@@ -1,30 +1,64 @@
+"use client"
 import Link from 'next/link'
 import { Button } from '../ui/button'
-import { LogIn } from 'lucide-react'
+import { LogIn, X } from 'lucide-react'
+import Image from 'next/image'
+import clsx from 'clsx'
 
-const MobileNavMenu = ({onMobileMenuToggle}) => {
+
+const MobileNavMenu = ({onMobileMenuToggle, isMobileMenuOpen}) => {
+  const navLinks = {
+    home: { href: '/', label: 'Home' },
+    about: { href: '/about', label: 'About Us' },
+    services: { href: '/services', label: 'Services' },
+    contact: { href: '/contact', label: 'Contact' },
+};
+  
   return (
-    <div className="fixed top-36 left-0 z-50 h-screen w-[320px] bg-(--cus-bg-pr) p-4 lg:hidden shadow-lg overlay-header">
-          <nav className="flex flex-col space-y-4 mt-8 relative z-10">
-            <Link href="/" onClick={() => onMobileMenuToggle(false)} className="text-[var(--cus-tx-sec)] font-semibold hover:bg-(--cus-bg-sec) p-2 rounded tracking-wider">
-              Home
-            </Link>
-            <Link href="/about" onClick={() => onMobileMenuToggle(false)} className="text-[var(--cus-tx-sec)] font-semibold hover:bg-(--cus-bg-sec) p-2 rounded tracking-wider">
-              About Us
-            </Link>
-            <Link href="/services" onClick={() => onMobileMenuToggle(false)} className="text-[var(--cus-tx-sec)] font-semibold hover:bg-(--cus-bg-sec) p-2 rounded tracking-wider">
-              Services
-            </Link>
-            <Link href="/contact" onClick={() => onMobileMenuToggle(false)} className="text-[var(--cus-tx-sec)] font-semibold hover:bg-(--cus-bg-sec) p-2 rounded tracking-wider">
-              Contact
-            </Link>
+    <div
+      className={clsx(
+        "fixed top-0 left-0 z-50 h-screen w-full transition-all duration-300 linear lg:hidden  backdrop-blur-xs ",
+        isMobileMenuOpen
+          ? "translate-x-0 opacity-100 pointer-events-auto"
+          : "-translate-x-full opacity-0 pointer-events-none"
+      )}
+      onClick={() => onMobileMenuToggle(false)}
+    >
+      <div className="bg-(--cus-bg-pr) p-4 overlay-header relative w-[340px] h-full">
+        <div className="text-white relative z-10">
+          <div className="flex justify-end items-center">
+            <button className='cursor-pointer' onClick={() => onMobileMenuToggle(false)}><X size={28} /></button>
+          </div>
+            
+            <div className="pt-8">
+              <Image
+                  src="/assets/images/Promise-Holdings-Ltd-03.png"
+                  width={200}
+                  height={100}
+                  alt="logo"
+                />
+            </div>
+          </div>
+          <nav className="flex flex-col space-y-4  relative z-10 pt-8">
+            {Object.values(navLinks).map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => onMobileMenuToggle(false)}
+                className="font-semibold text-white p-2 rounded tracking-wider hover:bg-[var(--cus-bg-white)] hover:text-[var(--cus-tx-pr)]"
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
+          
           <div className="mt-6 relative z-10">
-            <Button className=" bg-[var(--cus-bg-accent)] text-[var(--cus-tx-sec)] :hover:bg-(--cus-bg-accent-hover) ">
-              <LogIn className="mr-2" /> Login
+            <Button className=" bg-[var(--cus-bg-accent)] text-[var(--cus-tx-sec)] :hover:bg-(--cus-bg-accent-hover) w-full">
+              <LogIn className="mr-2" /> Log Out
             </Button>
           </div>
         </div>
+    </div>
   )
 }
 

@@ -5,10 +5,10 @@ import MainHeader from './Main-Header'
 const HeaderSection = () => {
   return (
     <>
-      <div className="bg-(--cus-bg-sec) relative overlay-header">
+      <div className="bg-(--cus-bg-pr) relative overlay-top-header">
         <TopHeader />
       </div>
-      <div className="bg-(--cus-bg-pr) border-b-1 border-(--cus-tx-sec)/25 relative overlay-header">
+      <div className="bg-(--cus-bg-pr) relative overlay-header">
         <MainHeader />
       </div>
     </>
