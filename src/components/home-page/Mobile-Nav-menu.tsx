@@ -7,12 +7,12 @@ import clsx from 'clsx'
 
 
 const MobileNavMenu = ({onMobileMenuToggle, isMobileMenuOpen}) => {
-  const navLinks = {
-    home: { href: '/', label: 'Home' },
-    about: { href: '/about', label: 'About Us' },
-    services: { href: '/services', label: 'Services' },
-    contact: { href: '/contact', label: 'Contact' },
-};
+  const navLinks = [
+    { id:1, path: '/', label: 'Home' },
+    { id:2, path: '/about', label: 'About Us' },
+    { id:3, path: '/services', label: 'Services' },
+    { id:4, path: '/contact', label: 'Contact' },
+  ];
   
   return (
     <div
@@ -24,7 +24,7 @@ const MobileNavMenu = ({onMobileMenuToggle, isMobileMenuOpen}) => {
       )}
       onClick={() => onMobileMenuToggle(false)}
     >
-      <div className="bg-(--cus-bg-pr) p-4 overlay-header relative w-[340px] h-full">
+      <div className="bg-(--custom-bg-primary) p-4 overlay-header relative w-[340px] h-full">
         <div className="text-white relative z-10">
           <div className="flex justify-end items-center">
             <button className='cursor-pointer' onClick={() => onMobileMenuToggle(false)}><X size={28} /></button>
@@ -40,20 +40,20 @@ const MobileNavMenu = ({onMobileMenuToggle, isMobileMenuOpen}) => {
             </div>
           </div>
           <nav className="flex flex-col space-y-4  relative z-10 pt-8">
-            {Object.values(navLinks).map(({ href, label }) => (
+            {navLinks.map((item ) => (
               <Link
-                key={href}
-                href={href}
+                key={item.id}
+                href={item.path}
                 onClick={() => onMobileMenuToggle(false)}
-                className="font-semibold text-white p-2 rounded tracking-wider hover:bg-[var(--cus-bg-white)] hover:text-[var(--cus-tx-pr)]"
+                className="font-semibold text-white p-2 rounded tracking-wider hover:bg-[var(--custom-bg-white)] hover:text-[var(--custom-text-primary)]"
               >
-                {label}
+                {item?.label}
               </Link>
             ))}
           </nav>
           
           <div className="mt-6 relative z-10">
-            <Button className=" bg-[var(--cus-bg-accent)] text-[var(--cus-tx-sec)] :hover:bg-(--cus-bg-accent-hover) w-full">
+            <Button className=" bg-[var(--custom-bg-accent)] text-[var(--custom-text-secondary)] :hover:bg-(--custom-bg-accent-hover) w-full">
               <LogIn className="mr-2" /> Log Out
             </Button>
           </div>

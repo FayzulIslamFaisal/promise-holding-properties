@@ -147,16 +147,18 @@ body.light {
   background: var(--custom-body-bg);
 }
 @theme {
-  --cus-tx-pr: #000;
-  --cus-tx-sec: #fff;
-  --cus-tx-ter: #9ca3af;
-  --cus-tx-hover: #40E0D0;
+  --custom-text-primary: #000;
+  --custom-text-secondary: #fff;
+  --custom-text-third: #9ca3af;
+  --custom-text-hover: #40E0D0;
 
 
-  --cus-bg-pr: #0958A7;  
-  --cus-bg-sec: #43C6F2; 
-  --cus-bg-accent: #0F52BA; 
-  --cus-bg-white:#fff
+  --custom-bg-primary: #0958A7;  
+  --custom-bg-secondary: #43C6F2; 
+  --custom-bg-accent: #0F52BA;
+  --custom-bg-accent-hover: #000;
+  --custom-bg-white: #fff;
+  --custom-bg-black: #000;
 }
 
 @layer components {
