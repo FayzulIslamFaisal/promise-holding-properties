@@ -3,6 +3,7 @@ import { Inter, Anton } from "next/font/google";
 import "./globals.css";
 import HeaderSection from "@/components/home-page/Header-section";
 import FooterSection from "@/components/home-page/Footer-section";
+import CompanyFeatures from "@/components/home-page/CompanyFeatures";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,7 +44,10 @@ export default function RootLayout({
           {children}
         </main>
         <footer>
+          <>
+          <CompanyFeatures />
           <FooterSection />
+          </>
         </footer>
 
       </body>
