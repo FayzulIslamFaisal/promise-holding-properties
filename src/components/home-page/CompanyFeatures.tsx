@@ -31,19 +31,21 @@ const featureItems: FeatureItem[] = [
 ]
 
 const CompanyFeatures = () => {
-  return (
+ return (
     <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-14">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {featureItems.map(({ id, icon: Icon, title }) => (
             <div
               key={id}
-              className="group bg-(var(--custom-bg-white)) rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col items-center text-center hover:scale-[1.03] transform transition-transform"
+              className="group bg-[var(--custom-bg-white)] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center hover:scale-[1.03] transform"
             >
-              <div className="bg-[var(--custom-bg-accent)] text-[var(--custom-bg-white)] rounded-full p-4 mb-4 transition duration-300 group-hover:bg-[var(--custom-bg-black)] group-hover:text-white">
+              <div className="bg-gradient-to-r from-[var(--custom-bg-primary)] to-[var(--custom-bg-accent)] text-[var(--custom-text-secondary)] rounded-full p-4 mb-4 transition-all duration-300 group-hover:from-[var(--custom-bg-accent-hover)] group-hover:to-[var(--custom-bg-primary)]">
                 <Icon className="size-8" />
               </div>
-              <p className="text-[var(--custom-text-white)] text-sm font-semibold leading-snug">{title}</p>
+              <p className="text-[var(--custom-text-primary)] text-sm font-semibold leading-snug group-hover:text-[var(--custom-bg-accent)] transition-colors duration-300">
+                {title}
+              </p>
             </div>
           ))}
         </div>

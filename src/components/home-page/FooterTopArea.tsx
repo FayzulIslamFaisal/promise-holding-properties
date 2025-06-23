@@ -48,7 +48,12 @@ const FooterTopArea = () => {
                   key={index}
                   href={item.href}
                   target="_blank"
-                  className="bg-[var(--custom-bg-accent)] text-[var(--custom-bg-white)] hover:bg-[var(--custom-bg-black)] hover:text-white p-2 rounded-md transition-colors duration-300 shadow-md hover:shadow-lg"
+                  // className="bg-[var(--custom-bg-accent)] text-[var(--custom-bg-white)] hover:bg-[var(--custom-bg-black)] hover:text-white p-2 rounded-md transition-colors duration-300 shadow-md hover:shadow-lg"
+                  className="bg-[var(--custom-bg-accent)] text-[var(--custom-bg-white)] 
+                    hover:bg-[var(--custom-bg-black)] hover:text-white 
+                    p-2 rounded-md border border-[var(--custom-bg-accent)] transition-all duration-300 
+                    shadow-md hover:shadow-[0_4px_15px_rgba(255,255,255,0.6)] 
+                    hover:-translate-y-1 transform hover:border-[var(--custom-bg-white)]"
                 >
                   {item.icon}
                 </Link>
