@@ -53,7 +53,7 @@ const FooterTopArea = () => {
                     hover:bg-[var(--custom-bg-black)] hover:text-white 
                     p-2 rounded-md border border-[var(--custom-bg-accent)] transition-all duration-300 
                     shadow-md hover:shadow-[0_4px_15px_rgba(255,255,255,0.6)] 
-                    hover:-translate-y-1 transform hover:border-[var(--custom-bg-white)]"
+                    hover:-translate-y-1 transform hover:border-[var(--custom-border-primary)]"
                 >
                   {item.icon}
                 </Link>

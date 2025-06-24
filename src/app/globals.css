@@ -150,7 +150,8 @@ body.light {
   --custom-text-primary: #000;
   --custom-text-secondary: #fff;
   --custom-text-third: #9ca3af;
-  --custom-text-hover: #40E0D0;
+  --custom-text-hover: #FFFAFAE6;
+  --custom-border-primary: #FFFAFA80;
 
 
   --custom-bg-primary: #0958A7;  
@@ -162,6 +163,26 @@ body.light {
 }
 
 @layer components {
+  .btn-glow-accent {
+    @apply flex items-center gap-2 
+      bg-[var(--custom-bg-accent)] 
+      text-[var(--custom-text-secondary)] 
+      px-4 py-2 
+      rounded-md 
+      shadow-2xl
+      border 
+      border-[var(--custom-bg-accent)] 
+      hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] 
+      hover:border-[var(--custom-border-primary)] 
+      hover:bg-[var(--custom-bg-accent-hover)] 
+      transform 
+      hover:scale-105 
+      transition-all 
+      duration-300 
+      ease-in-out 
+      cursor-pointer;
+  }
+
   .overlay-header::after {
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
