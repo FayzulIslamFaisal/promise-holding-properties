@@ -1,131 +1,129 @@
+// "UpcomingProjects.tsx"
+
 'use client';
 
-import { ArrowRight, BellRing } from 'lucide-react';
+import { ArrowRight, BellRing, MoveRightIcon } from 'lucide-react';
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import { Button } from '../ui/button';
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
-interface Project {
+interface ProjectItem {
   id: number;
   name: string;
   imageUrl: string | StaticImageData;
   description: string;
 }
 
-const UpcomingProjects: React.FC = () => {
-  const projects: Project[] = [
-    {
-      id: 1,
-      name: 'Project 01',
-      imageUrl: '/assets/images/projects/project1.jpg',
-      description: 'Luxury apartments near the city center.',
-    },
-    {
-      id: 2,
-      name: 'Project 02',
-      imageUrl: '/assets/images/projects/project2.jpg',
-      description: 'Modern villas in a serene environment.',
-    },
-    {
-      id: 3,
-      name: 'Project 03',
-      imageUrl: '/assets/images/projects/project3.jpg',
-      description: 'Upcoming business plaza in the downtown area. ',
-    },
-    {
-      id: 4,
-      name: 'Project 04',
-      imageUrl: '/assets/images/projects/project4.jpg',
-      description: 'Eco-friendly housing project in the suburbs.',
-    },
-    {
-      id: 5,
-      name: 'Project 05',
-      imageUrl: '/assets/images/projects/project5.jpeg',
-      description: 'Innovative smart homes launching soon.',
-    },
-    {
-      id: 6,
-      name: 'Project 06',
-      imageUrl: '/assets/images/projects/project6.jpg',
-      description: 'A new standard in coastal living.',
-    },
-  ];
+interface SectionTitles {
+  title: string;
+  subTitle: string;
+}
+
+interface UpcomingProjectsProps {
+  sectionTitle: SectionTitles;
+  projects: ProjectItem[];
+}
+
+const UpcomingProjects: React.FC<UpcomingProjectsProps> = ({ sectionTitle, projects }) => {
 
   return (
-    <section className="py-12 bg-[var(--custom-bg-white)]">
-      <div className="container mx-auto px-4">
+    <section className=" bg-[var(--custom-bg-white)] ">
+      <div className="container mx-auto px-4  py-12 border-b-1 border-[var(--custom-bg-primary)]/10">
         <div className="flex flex-col xl:flex-row items-center gap-4 lg:gap-8">
-          {/* Left Column: Title */}
-          <div className="w-full lg:w-[100%] xl:w-[20%] flex flex-col items-center xl:items-start gap-4">
-            <div className="flex items-center gap-2">
-              <ArrowRight className="w-6 h-6 text-[var(--custom-text-primary)]" />
-              <h2 className="text-2xl xl:text-xl text-[var(--custom-text-primary)]">
-                Running Projects
+          {/* Left Column */}
+          <div className="w-full lg:w-[100%] xl:w-[20%] flex flex-col items-center xl:items-start gap-4 group">
+            <div className="flex items-center gap-2 transition-all duration-300 ease-in-out">
+              <ArrowRight className="w-6 h-6 text-black opacity-75 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-x-1" />
+              <h2 className="text-2xl xl:text-xl text-black opacity-75 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:tracking-wide">
+                {sectionTitle.title}
               </h2>
             </div>
-            <p className="text-[var(--custom-text-third)]">
-              Explore our current and upcoming initiatives
+            <p className="text-black opacity-75 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-[1px]">
+              {sectionTitle.subTitle}
             </p>
           </div>
 
-          {/* Right Column: Project Cards */}
+          {/* Right Column */}
           <div className="w-full lg:w-[100%] xl:w-[80%]">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4">
               {projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="group relative overflow-hidden rounded-lg border-2 border-[var(--custom-text-hover)] bg-[var(--custom-border-primary)] p-4 shadow-lg transition-all duration-300 hover:scale-102 hover:bg-[var(--custom-border-primary)]/100 hover:shadow-xl"
-                >
-                  {/* Image Section */}
-                  <div className="relative h-[250px] w-full overflow-hidden rounded-lg lg:h-[350px]">
-                    <Image
-                      src={project.imageUrl}
-                      alt={project.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-110"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      priority={project.id <= 3}
-                    />
-
-                    {/* Dark Overlay on Hover */}
-                    <div className="absolute inset-0 z-10 bg-[var(--custom-bg-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
-
-                    {/* Bottom Overlay Content */}
-                    <div className="absolute bottom-0 left-0 right-0 z-20 p-4 bg-gradient-to-t from-[var(--custom-bg-black)]/80 to-transparent transition-all duration-300">
-                      <h3 className="text-lg text-[var(--custom-text-secondary)]">
-                        {project.name}
-                      </h3>
-
-                      {/* Description with fade + slide animation */}
-                      
-                      <p
-                        className="
-                          mt-2 text-sm text-[var(--custom-text-secondary)]
-                          min-h-0 opacity-0 overflow-hidden
-                          group-hover:min-h-0 group-hover:opacity-100 group-hover:pb-2
-                          transition-all duration-300 ease-in-out
-                        "
-                      >
-                        {project.description}
-                      </p>
-
-                      {/* View Details Button */}
-                      <Button
-                        variant="unstyled"
-                        className="btn-glow-accent mt-2 flex items-center gap-2 text-[var(--custom-text-secondary)]"
-                      >
-                        <BellRing className="w-4 h-4 animate-pulse" />
-                        View Details
-                      </Button>
+                
+                <Card
+                    key={project.id}
+                    className="group relative rounded-lg border-2 border-[var(--custom-text-hover)] bg-[var(--custom-border-primary)]  shadow-lg transition-all duration-300 hover:scale-102 hover:shadow-xl h-[350px] py-0 "
+                  >
+                    <div className="absolute right-4 top-4 z-30 rounded-full bg-[var(--custom-bg-accent)] px-3 py-1 text-xs font-medium text-[var(--custom-text-secondary)]">
+                      New
                     </div>
-                  </div>
+                  
+                    <CardContent className="relative w-full h-full overflow-hidden p-3">
+                        <div className="relative w-full h-full overflow-hidden rounded-lg">
+                          <Image
+                            src={project.imageUrl}
+                            alt={project.name}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            priority={project.id <= 3}
+                          />
+                          <div className="absolute inset-0 bg-[var(--custom-bg-primary)] opacity-10 group-hover:opacity-25 transition-opacity duration-300" />
+                          
+                          {/* Wave effect container */}
+                          <div className="absolute bottom-0 left-0 right-0 h-50 overflow-hidden z-0">
+                            <svg 
+                              viewBox="0 0 500 50" 
+                              preserveAspectRatio="none" 
+                              className="w-full h-full text-[var(--custom-text-primary)]/50 group-hover:text-[var(--custom-bg-primary)]/25 transition-all duration-300 ease-in-out"
+                            >
+                              <path d="M0,12 C120,0 380,64 500,32 L500,100 L0,100 Z"
+                                  fill="currentColor"
+                                  fillOpacity="0.8"
+                                  className="transition-all duration-500 group-hover:fill-opacity-90 ease-in-out"
+                                  stroke="currentColor"
+                                  strokeWidth="0.5"
+                                  strokeOpacity="0.3"
+                                />
+                            </svg>
+                          </div>
+                          
+                          {/* Content overlay (moved above wave) */}
+                          <div className="absolute bottom-0 left-0 right-0 z-10 p-4">
+                            <CardTitle className="text-lg text-[var(--custom-text-secondary)]">
+                              {project.name}
+                            </CardTitle>
+                            <CardDescription
+                              className="
+                                mt-2 text-sm text-[var(--custom-text-secondary)]
+                                min-h-0 opacity-0 overflow-hidden
+                                group-hover:min-h-0 group-hover:opacity-100 group-hover:pb-2
+                                transition-all duration-300 ease-in-out
+                              "
+                            >
+                              {project.description}
+                            </CardDescription>
 
-                  {/* Top Right Badge */}
-                  <div className="absolute right-4 top-4 z-30 rounded-full bg-[var(--custom-bg-accent)] px-3 py-1 text-xs font-medium text-[var(--custom-text-secondary)]">
-                    New
-                  </div>
-                </div>
+                            <CardAction className="mt-2 flex justify-self-start">
+                              <Button
+                                variant="unstyled"
+                                className="btn-glow-accent flex items-center gap-2 text-[var(--custom-text-secondary)]"
+                              >
+                                <MoveRightIcon className="w-4 h-4 animate-pulse" />
+                                View Details
+                              </Button>
+                              
+                            </CardAction>
+                          </div>
+                        </div>
+                      </CardContent>
+                  </Card>
               ))}
             </div>
           </div>
@@ -136,3 +134,5 @@ const UpcomingProjects: React.FC = () => {
 };
 
 export default UpcomingProjects;
+
+
