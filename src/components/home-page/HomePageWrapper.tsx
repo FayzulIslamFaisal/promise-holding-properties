@@ -53,6 +53,18 @@ const HomePageWrapper = () => {
             imageUrl: '/assets/images/projects/project6.jpg',
             description: 'A new standard in coastal living.',
         },
+        {
+            id: 7,
+            name: 'Project 01',
+            imageUrl: '/assets/images/projects/project1.jpg',
+            description: 'Luxury apartments near the city center.',
+        },
+        {
+            id: 8,
+            name: 'Project 02',
+            imageUrl: '/assets/images/projects/project2.jpg',
+            description: 'Modern villas in a serene environment.',
+        },
     ];
     const upcomingProjects = [
         {
@@ -91,6 +103,18 @@ const HomePageWrapper = () => {
             imageUrl: '/assets/images/projects/project6.jpg',
             description: 'A new standard in coastal living.',
         },
+        {
+            id: 7,
+            name: 'Project 01',
+            imageUrl: '/assets/images/projects/project1.jpg',
+            description: 'Luxury apartments near the city center.',
+        },
+        {
+            id: 8,
+            name: 'Project 02',
+            imageUrl: '/assets/images/projects/project2.jpg',
+            description: 'Modern villas in a serene environment.',
+        },
     ]
     const completeProjects = [
         {
@@ -128,6 +152,18 @@ const HomePageWrapper = () => {
             name: 'Project 06',
             imageUrl: '/assets/images/projects/project12.jpg',
             description: 'A new standard in coastal living.',
+        },
+        {
+            id: 7,
+            name: 'Project 01',
+            imageUrl: '/assets/images/projects/project1.jpg',
+            description: 'Luxury apartments near the city center.',
+        },
+        {
+            id: 8,
+            name: 'Project 02',
+            imageUrl: '/assets/images/projects/project2.jpg',
+            description: 'Modern villas in a serene environment.',
         },
     ]
     
