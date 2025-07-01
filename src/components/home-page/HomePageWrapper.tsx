@@ -169,8 +169,10 @@ const HomePageWrapper = () => {
     
     return (
         <>
-            <div className="relative w-full h-[60vh] overlay-slider">
-                <Image src="/assets/images/slider/propertiest-01.webp" objectFit="cover" fill alt="logo" />
+            <div className="relative w-full h-[calc(100vh-400px)]">
+                <div className="relative w-full h-full overlay-slider">
+                    <Image src="/assets/images/slider/propertiest-01.webp" objectFit="cover" fill alt="logo" />
+                </div>
             </div>
             <UpcomingProjects sectionTitle={runningProjectTitle} projects={runningProjects}/>
             <UpcomingProjects sectionTitle={upcomingProjectTitle} projects={upcomingProjects}/>

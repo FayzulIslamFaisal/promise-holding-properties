@@ -11,7 +11,7 @@ const HeaderSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 140);
+      setIsScrolled(window.scrollY > 60);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -19,8 +19,8 @@ const HeaderSection = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled ? "shadow-lg" : "shadow-md"
+      className={`z-50 transition-all duration-500 ease-in-out ${
+        isScrolled ? "shadow-lg fixed top-0 left-0 right-0" : "shadow-md relative"
       }`}
     >
       {!isScrolled && (
@@ -36,7 +36,6 @@ const HeaderSection = () => {
         <MainHeader />
       </div>
     </header>
-
   )
 }
 
