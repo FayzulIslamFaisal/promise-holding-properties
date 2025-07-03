@@ -18,7 +18,7 @@ const HeroSliderItem = ({ slide }: Props) => {
           src={slide?.img ? slide.img : '/assets/images/slider/propertiest-01.webp'}
           alt={slide?.title}
           fill
-          className="w-full h-full object-cover"
+          className="object-cover"
           priority
         />
 
@@ -29,7 +29,7 @@ const HeroSliderItem = ({ slide }: Props) => {
 
         {/* Title Content */}
         <div className="absolute inset-0 z-20 flex items-center justify-center text-center px-4">
-          <h3 className="text-white text-xl md:text-3xl leading-tight">
+          <h3 className="text-white text-xl lg:text-2xl xl:text-4xl leading-tight">
             {slide.title}
           </h3>
         </div>

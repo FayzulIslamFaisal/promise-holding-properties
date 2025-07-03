@@ -16,26 +16,29 @@ interface Slide {
 }
 
 const slides: Slide[] = [
-  { id: 1, title: 'Creative Design', img: '/assets/images/slider/banner1.png' },
-  { id: 2, title: 'Next.js SwiperJS', img: '/assets/images/slider/banner2.png' },
-  { id: 3, title: 'Modern UI with Tailwind', img: '/assets/images/slider/banner3.png' },
-  { id: 4, title: 'Responsive Slider', img: '/assets/images/slider/banner4.png' },
-  { id: 5, title: 'Smooth Navigation', img: '/assets/images/slider/banner5.png' },
-  { id: 6, title: 'Smooth Navigation', img: '/assets/images/slider/banner6.png' },
-  { id: 7, title: 'Smooth Navigation', img: '/assets/images/slider/banner7.png' },
+  { id: 1, title: 'Explore Luxury Apartments in Prime Locations', img: '/assets/images/slider/banner8.png' },
+  { id: 2, title: 'Modern Duplex Homes with Stunning Views', img: '/assets/images/slider/banner9.png' },
+  { id: 3, title: 'Affordable Housing for Every Family', img: '/assets/images/slider/banner10.png' },
+  { id: 4, title: 'Invest in High-Rise Commercial Properties', img: '/assets/images/slider/banner11.png' },
+  { id: 5, title: 'Find Your Perfect Residential Plot Today', img: '/assets/images/slider/banner12.png' },
+  { id: 6, title: 'Smart Homes with Latest Automation Features', img: '/assets/images/slider/banner6.png' },
+  { id: 7, title: 'Secure & Gated Communities for Peaceful Living', img: '/assets/images/slider/banner7.png' },
 ];
 
 const HeroSlider = () => {
   return (
-    <div className="w-full h-[calc(100vh-400px)]">
+    <div className="w-full h-[calc(100vh-400px)] relative">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
         navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000}}
+        pagination={{
+          clickable: true,
+          el: '.custom-hero-swiper-pagination',
+        }}
+        autoplay={{ delay: 4000 }}
         loop={true}
         effect="fade"
-        spaceBetween={30}
+        spaceBetween={50}
         slidesPerView={1}
         className="h-full"
       >
@@ -45,6 +48,9 @@ const HeroSlider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Custom pagination container */}
+      <div className="custom-hero-swiper-pagination flex justify-center items-center"></div>
     </div>
   );
 };
