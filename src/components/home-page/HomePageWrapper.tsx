@@ -1,6 +1,7 @@
 // "HomePageWrapper.tsx"
 import Image from "next/image"
 import UpcomingProjects from "./UpcomingProjects"
+import HeroSlider from "./HeroSlider"
 
 const HomePageWrapper = () => {
     const runningProjectTitle = {
@@ -169,11 +170,7 @@ const HomePageWrapper = () => {
     
     return (
         <>
-            <div className="relative w-full h-[calc(100vh-400px)]">
-                <div className="relative w-full h-full overlay-slider">
-                    <Image src="/assets/images/slider/propertiest-01.webp" objectFit="cover" fill alt="logo" />
-                </div>
-            </div>
+            <HeroSlider />
             <UpcomingProjects sectionTitle={runningProjectTitle} projects={runningProjects}/>
             <UpcomingProjects sectionTitle={upcomingProjectTitle} projects={upcomingProjects}/>
             <UpcomingProjects sectionTitle={completeProjectTitle} projects={completeProjects}/>
