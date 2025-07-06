@@ -1,6 +1,8 @@
 import ProjectContactForm from "./ProjectContactForm";
+import PropertyAmenities from "./PropertyAmenities";
 import PropertyDescription from "./PropertyDescription";
 import PropertyFeatures from "./PropertyFeatures";
+import PropertyFloorPlans from "./PropertyFloorPlans";
 
 const ProjectInformation = () => {
   return (
@@ -24,6 +26,8 @@ const ProjectInformation = () => {
             <div className="rounded-lg shadow-lg overflow-hidden">
               <PropertyFeatures />
             </div>
+              <PropertyAmenities />
+              <PropertyFloorPlans />
           </div>
 
           {/* Right Column - Contact Form */}
