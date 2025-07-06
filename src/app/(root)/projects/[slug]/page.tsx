@@ -1,8 +1,9 @@
+import ProjectDetailsWrapp from "@/components/projectDetails/ProjectDetailsWrapp"
 
 
 const ProjectPage = ({ params }: { params: { slug: string } }) => {
   return (
-    <div className='container mx-auto px-4'>Project Page: {params?.slug}</div>
+    <ProjectDetailsWrapp/>
   )
 }
 

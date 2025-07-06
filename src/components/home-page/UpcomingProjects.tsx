@@ -2,7 +2,7 @@
 
 'use client';
 
-import { ArrowRight, BellRing, MoveRightIcon, Projector } from 'lucide-react';
+import { ArrowRight, BellRing, ExternalLink, MoveRightIcon, Projector } from 'lucide-react';
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import { Button } from '../ui/button';
@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import Link from 'next/link';
 
 interface ProjectItem {
   id: number;
@@ -111,14 +112,14 @@ const UpcomingProjects: React.FC<UpcomingProjectsProps> = ({ sectionTitle, proje
                             </CardDescription>
 
                             <CardAction className="mt-2 flex justify-self-start">
-                              <Button
-                                variant="unstyled"
+                              <Link
+                                href={`/projects/${project.id}`}
+                                target="_blank"
                                 className="btn-glow-accent flex items-center gap-2 text-[var(--custom-text-secondary)]"
-                              >
-                                <MoveRightIcon className="w-4 h-4 animate-pulse"/>
-                                View Details
-                              </Button>
-                              
+                                >
+                                <ExternalLink className="w-4 h-4 animate-pulse" />
+                                Explore More
+                              </Link>
                             </CardAction>
                           </div>
                         </div>
