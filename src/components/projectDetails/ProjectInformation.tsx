@@ -1,5 +1,6 @@
 import ProjectContactForm from "./ProjectContactForm";
 import PropertyAmenities from "./PropertyAmenities";
+import PropertyCalculator from "./PropertyCalculator";
 import PropertyDescription from "./PropertyDescription";
 import PropertyFeatures from "./PropertyFeatures";
 import PropertyFloorPlans from "./PropertyFloorPlans";
@@ -32,11 +33,10 @@ const ProjectInformation = () => {
 
           {/* Right Column - Contact Form */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <div className="rounded-lg shadow-lg overflow-hidden">
+              <div className="">
                 <ProjectContactForm />
+                <PropertyCalculator/>
               </div>
-            </div>
           </div>
         </div>
       </div>

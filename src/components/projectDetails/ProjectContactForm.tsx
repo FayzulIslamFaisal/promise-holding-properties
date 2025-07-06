@@ -26,7 +26,7 @@ const ProjectContactForm = () => {
   };
 
   return (
-    <Card className="sticky top-6">
+    <Card className="">
       <CardHeader>
         <CardTitle className="text-xl font-semibold text-gray-800">Contact Property</CardTitle>
       </CardHeader>
