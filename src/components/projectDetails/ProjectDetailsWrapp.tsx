@@ -1,8 +1,12 @@
+import ProjectInformation from "./ProjectInformation"
 import ProjectSlider from "./ProjectSlider"
 
 const ProjectDetailsWrapp = () => {
   return (
-    <ProjectSlider />
+    <>
+        <ProjectSlider />
+        <ProjectInformation />
+    </>
   )
     
 }
