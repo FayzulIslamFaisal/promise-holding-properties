@@ -1,8 +1,10 @@
+import ProjectSlider from "./ProjectSlider"
 
 const ProjectDetailsWrapp = () => {
   return (
-    <div>ProjectDetailsWrapp</div>
+    <ProjectSlider />
   )
+    
 }
 
 export default ProjectDetailsWrapp
