@@ -53,7 +53,7 @@ return (
                 </Label>
                 <div className="relative">
                   <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                    <Mail className="w-4 h-4 text-custom-text-third" />
+                    <Mail className="w-4 h-4 text-[var(--custom-text-primary)]" />
                   </div>
                   <Input
                     id="emailOrPhone"
@@ -62,7 +62,7 @@ return (
                     placeholder="Enter email or phone number"
                     value={formData.emailOrPhone}
                     onChange={(e) => handleInputChange('emailOrPhone', e.target.value)}
-                    className="pl-10 bg-[var(--custom-bg-white)]/20 border border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-custom-text-third focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
+                    className="pl-10 bg-[var(--custom-bg-white)]/50 border border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-[var(--custom-text-primary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
                     required
                   />
                 </div>
@@ -74,7 +74,7 @@ return (
                 </Label>
                 <div className="relative">
                   <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                    <Lock className="w-4 h-4 text-custom-text-third" />
+                    <Lock className="w-4 h-4 text-[var(--custom-text-primary)]" />
                   </div>
                   <Input
                     id="password"
@@ -83,7 +83,7 @@ return (
                     placeholder="Enter your password"
                     value={formData.password}
                     onChange={(e) => handleInputChange('password', e.target.value)}
-                    className="pl-10 bg-[var(--custom-bg-white)]/20 border border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-custom-text-third focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
+                    className="pl-10 bg-[var(--custom-bg-white)]/20 border border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-[var(--custom-text-primary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
                     required
                   />
                 </div>

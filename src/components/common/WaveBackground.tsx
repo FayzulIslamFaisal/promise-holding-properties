@@ -25,13 +25,13 @@ const WaveBackground = () => {
         >
           <defs>
             <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#43C6F2" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#0F52BA" stopOpacity="0.3" />
               <stop offset="50%" stopColor="#0958A7" stopOpacity="0.5" />
               <stop offset="100%" stopColor="#0F52BA" stopOpacity="0.3" />
             </linearGradient>
             <linearGradient id="wave2" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#0F52BA" stopOpacity="0.2" />
-              <stop offset="50%" stopColor="#43C6F2" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#0F52BA" stopOpacity="0.4" />
               <stop offset="100%" stopColor="#0958A7" stopOpacity="0.2" />
             </linearGradient>
           </defs>
