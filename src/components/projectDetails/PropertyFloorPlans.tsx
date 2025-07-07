@@ -37,7 +37,7 @@ const PropertyFloorPlans = () => {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="floor-plans" className="border-none">
           <AccordionTrigger className="px-6 py-4 hover:no-underline cursor-pointer">
-            <CardTitle className="text-xl text-[var(--custom-text-primary)] leading-1.5">Floor Title</CardTitle>
+            <CardTitle className="text-xl font-normal text-[var(--custom-text-primary)] leading-1.5">Floor Plans Details</CardTitle>
           </AccordionTrigger>
           <AccordionContent>
             <CardContent className="pt-0">
