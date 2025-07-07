@@ -197,10 +197,10 @@ const RegisterPage = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-custom-bg-accent hover:bg-custom-bg-accent-hover text-[var(--custom-text-secondary)] font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
+                variant="unstyled" className="btn-glow-accent w-full border-[var(--custom-border-primary)]"
+            >
                 Create Account
-              </Button>
+            </Button>
             </form>
 
             <div className="text-center pt-4 border-t border-[var(--custom-border-primary)]">

@@ -21,33 +21,28 @@ const PropertyAmenities = () => {
   ];
 
   return (
-    <Card className="mt-6 py-2">
-      <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="amenities" className="border-none">
-          <AccordionTrigger className="px-6 py-3 hover:no-underline cursor-pointer">
-            <CardTitle className="text-xl text-[var(--custom-text-primary)]/">Offices Amenities</CardTitle>
-          </AccordionTrigger>
-          <AccordionContent>
-            <CardContent className="pt-0">
-              <div className="border rounded-lg p-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-                  {amenities.map((amenity, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="p-1 rounded-sm bg-[var(--custom-bg-accent)]">
-                        <Check className="h-4 w-4 text-[var(--custom-text-secondary)]" />
-                      </div>
-                      <span className="text-sm font-medium text-[var(--custom-text-primary)]/75">
-                        {amenity}
-                      </span>
-                    </div>
-                  ))}
+    <Card className="mt-6 pb-6">
+      <CardTitle className="px-6 py-0 text-xl text-[var(--custom-text-primary)]">
+        Offices Amenities
+      </CardTitle>
+      <CardContent className="pt-0">
+        <div className="border rounded-lg p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+            {amenities.map((amenity, index) => (
+              <div key={index} className="flex items-center space-x-3">
+                <div className="p-1 rounded-sm bg-[var(--custom-bg-accent)]">
+                  <Check className="h-4 w-4 text-[var(--custom-text-secondary)]" />
                 </div>
+                <span className="text-sm font-medium text-[var(--custom-text-primary)]/75">
+                  {amenity}
+                </span>
               </div>
-            </CardContent>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+            ))}
+          </div>
+        </div>
+      </CardContent>
     </Card>
+
   );
 };
 
