@@ -24,7 +24,7 @@ const ProjectSlider = () => {
   const [hoveredSlide, setHoveredSlide] = useState<number | null>(null)
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[1920px] mx-auto">
       {/* Main Swiper */}
       <Swiper
         loop={true}

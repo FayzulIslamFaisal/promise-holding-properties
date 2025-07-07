@@ -28,7 +28,7 @@ const LoginPage = () => {
         }));
     };
 return (
-    <div className=" relative flex items-center justify-center px-4 pt[50px] md:pt-[100px] pb[50px] md:pb-[100px]">
+    <div className=" relative flex items-center justify-center px-4 pt-[50px] md:pt-[100px] pb-[50px] md:pb-[100px]">
       <WaveBackground />
 
       <div className="relative z-10 w-full max-w-md">

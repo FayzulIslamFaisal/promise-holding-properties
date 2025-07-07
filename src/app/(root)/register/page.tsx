@@ -40,7 +40,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center px-4 pt[30px] md:pt-[50px] pb[30px] md:pb-[50px]">
+    <div className="relative flex items-center justify-center px-4 pt-[30px] md:pt-[50px] pb-[30px] md:pb-[50px]">
       <WaveBackground />
       
       <div className="relative z-10 w-full max-w-md">
