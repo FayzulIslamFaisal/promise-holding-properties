@@ -1,3 +1,4 @@
+import ProjectBuildingCards from "./ProjectBuildingCards"
 import ProjectDetailInfo from "./ProjectDetailInfo"
 import ProjectInformation from "./ProjectInformation"
 import ProjectSlider from "./ProjectSlider"
@@ -7,6 +8,7 @@ const ProjectDetailsWrapp = () => {
     <>
         <ProjectSlider />
         <ProjectDetailInfo/>
+        <ProjectBuildingCards/>
         <ProjectInformation />
     </>
   )
