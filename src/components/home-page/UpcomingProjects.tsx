@@ -59,7 +59,7 @@ const UpcomingProjects: React.FC<UpcomingProjectsProps> = ({ sectionTitle, proje
                 
                 <Card
                     key={project.id}
-                    className="group relative rounded-lg border-2 border-[var(--custom-text-hover)] bg-[var(--custom-border-primary)]  shadow-lg transition-all duration-300 hover:scale-102 hover:shadow-xl h-[350px] py-0 "
+                    className="group relative rounded-lg border-2 border-[var(--custom-text-hover)] bg-[var(--custom-border-primary)]  shadow-lg transition-all duration-300 hover:scale-102 hover:shadow-xl h-[350px] py-0 hover:border-b-0"
                   >
                     <div className="absolute right-4 top-4 z-30 rounded-full bg-[var(--custom-bg-accent)] px-3 py-1 text-xs font-medium text-[var(--custom-text-secondary)]">
                       New
@@ -123,6 +123,8 @@ const UpcomingProjects: React.FC<UpcomingProjectsProps> = ({ sectionTitle, proje
                             </CardAction>
                           </div>
                         </div>
+                        {/* Hover border bottom */}
+                      <div className="absolute left-0 bottom-0 h-1 w-0 bg-[linear-gradient(to_right,var(--custom-bg-primary),var(--custom-bg-secondary),var(--custom-bg-accent))] group-hover:w-full transition-all duration-300"></div>
                       </CardContent>
                   </Card>
               ))}

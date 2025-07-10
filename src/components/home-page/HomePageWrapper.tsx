@@ -1,5 +1,4 @@
 // "HomePageWrapper.tsx"
-import Image from "next/image"
 import UpcomingProjects from "./UpcomingProjects"
 import HeroSlider from "./HeroSlider"
 
