@@ -46,7 +46,7 @@ const ProjectSlider = () => {
                 alt={`Slide ${item.id}`}
                 fill
                 className={`object-cover transition-transform duration-700 ease-out ${
-                  hoveredSlide === item.id ? "scale-120" : "scale-100"
+                  hoveredSlide === item.id ? "scale-110" : "scale-100"
                 }`}
               />
               {/* Optional overlay for better zoom visibility */}
