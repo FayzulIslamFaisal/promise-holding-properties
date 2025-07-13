@@ -18,9 +18,12 @@ interface Feature {
   label: string;
   value: string;
 }
+interface PropertyFeaturesProps {
+  buildingPage?: boolean;
+}
 
 
-const PropertyFeatures = () => {
+const PropertyFeatures = ({ buildingPage = false }: PropertyFeaturesProps) => {
   const features: Feature[] = [
   {
     icon: Home,
@@ -74,17 +77,17 @@ const PropertyFeatures = () => {
   },
 ];
 
-
   return (
     <section>
       <div className="container mx-auto">
-        <div className="py-12">
-          <Card className="gap-4 border-0 ">
+        <div className="">
+          <Card className="gap-4 border-0 shadow">
             <CardHeader>
-              <CardTitle className="text-2xl font-semibold text-[var(--custom-text-primary)]/75">Project and Features</CardTitle>
+              <CardTitle className="text-2xl font-semibold text-[var(--custom-text-primary)]/75">{buildingPage? "Building Features ":"Project Features"}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+              <div className={`grid grid-cols-2 gap-3 ${buildingPage ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5'}`}>
+                
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center flex-col justify-center sm:justify-start sm:flex-row gap-3 p-4 bg-[var(--custom-bg-accent)]/15 rounded-lg hover:bg-[var(--custom-bg-primary)]/25 transition-colors">
                       <div className={`p-2 rounded-full bg-[var(--custom-bg-white)] text-[var(--custom-bg-primary)]`}>
