@@ -1,9 +1,13 @@
 import ProjectDetailsWrapp from "@/components/projectDetails/ProjectDetailsWrapp"
 
-
-const ProjectPage = ({ params }: { params: { slug: string } }) => {
+interface ProjectSlug {
+  params: {
+    slug: string;
+  };
+}
+const ProjectPage = ({ params }: ProjectSlug) => {
   return (
-    <ProjectDetailsWrapp/>
+    <ProjectDetailsWrapp slug={params.slug}/>
   )
 }
 

@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Building2, Calendar, Home } from 'lucide-react'
+import Link from 'next/link'
 
 interface Project {
   id: number
@@ -157,10 +158,10 @@ export default function ProjectBuildingCards() {
                     <Calendar className="w-4 h-4" />
                     <span>Completion: {building.completion}</span>
                   </div>
-                  <Button variant="unstyled" className="btn-glow-accent w-full">
+                  <Link href="/building-details/1" className="btn-glow-accent w-full">
                     <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     <span>Explore Building</span>
-                </Button>
+                </Link>
                 </div>
 
                 {/* Hover Panel */}
@@ -186,10 +187,10 @@ export default function ProjectBuildingCards() {
                       ))}
                     </div>
 
-                    <Button variant="unstyled" className="btn-glow-accent w-full">
+                    <Link href="/building-details/1" className="btn-glow-accent w-full">
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       <span>Explore Building</span>
-                    </Button>
+                    </Link>
                   </div>
                 </div>
                 {/* Hover border bottom */}

@@ -4,7 +4,7 @@ import ProjectDetailInfo from "./ProjectDetailInfo"
 import ProjectSlider from "./ProjectSlider"
 import PropertyFeatures from "./PropertyFeatures"
 
-const ProjectDetailsWrapp = () => {
+const ProjectDetailsWrapp = ({slug}) => {
   return (
     <>
         <ProjectSlider />
