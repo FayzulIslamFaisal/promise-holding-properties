@@ -5,7 +5,6 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { ArrowRight, Building2, Calendar, Home } from 'lucide-react'
 import Link from 'next/link'
 

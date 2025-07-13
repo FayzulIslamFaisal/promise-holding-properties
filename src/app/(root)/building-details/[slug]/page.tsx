@@ -1,4 +1,5 @@
 // app/building/[id]/page.tsx (App Router example)
+import BuildingWrapper from "@/components/buildingDetails/BuildingWrapper";
 interface BuildingSlug {
   params: {
     slug: string;
@@ -6,10 +7,7 @@ interface BuildingSlug {
 }
 const BuildingDetailPage = ({ params }: BuildingSlug) => {
   return (
-    <div >
-      <h1>Building Detail Page</h1>
-      <p>Building ID: {params.slug}</p>
-    </div>
+    <BuildingWrapper slug={params.slug}/>
   );
 };
 
