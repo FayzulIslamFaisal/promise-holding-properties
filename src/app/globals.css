@@ -226,7 +226,7 @@ body.light {
   bottom: 35px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 150 !important;
+  z-index: 20 !important;
 }
 .custom-hero-swiper-pagination .swiper-pagination-bullet {
   width: 26px !important;
