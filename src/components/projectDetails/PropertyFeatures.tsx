@@ -200,7 +200,7 @@ const PropertyFeatures = ({ buildingPage = false }: PropertyFeaturesProps) => {
     <section>
       <div className="container mx-auto">
         <div className=" border-[var(--custom-bg-primary)]/10 border-b pb-12">
-          <Card className="gap-4 border-0 shadow border-[var(--custom-bg-primary)]/10 border">
+          <Card className="gap-4 shadow border-[var(--custom-bg-primary)]/10 border">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-[var(--custom-text-primary)]/75">{buildingPage? "Building Features ":"Project Features"}</CardTitle>
             </CardHeader>
