@@ -1,6 +1,4 @@
 import ProjectContactForm from "./ProjectContactForm";
-// import PropertyAmenities from "./PropertyAmenities";
-import PropertyCalculator from "./PropertyCalculator";
 import PropertyFeatures from "./PropertyFeatures";
 import PropertyFloorPlans from "./PropertyFloorPlans";
 
@@ -24,7 +22,6 @@ const ProjectInformation = () => {
           <div className="lg:col-span-1">
               <div className="">
                 <ProjectContactForm />
-                <PropertyCalculator/>
               </div>
           </div>
         </div>

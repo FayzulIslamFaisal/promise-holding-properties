@@ -1,8 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Button } from '../ui/button'
-import { AlignRight, LogIn, X } from 'lucide-react'
+import { AlignRight, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import NavMenuItem from './Nav-Menu-Item'
@@ -17,12 +16,14 @@ const MainHeader = () => {
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="w-1/2 lg:w-[25%]">
-          <Image
-            src="/assets/images/Promise-Holdings-Ltd-03.png"
-            width={200}
-            height={100}
-            alt="logo"
-          />
+          <Link href="/"  className="inline-block">
+            <Image
+              src="/assets/images/Promise-Holdings-Ltd-03.png"
+              width={200}
+              height={100}
+              alt="logo"
+            />
+          </Link>
         </div>
 
         {/* Desktop Nav */}

@@ -14,10 +14,10 @@ const ProjectDetailsWrapp = ({slug}: SlugProps) => {
     <>
         <ProjectSlider />
         <ProjectDetailInfo/>
-        <ProjectBuildingCards/>
         <div className="py-12">
           <PropertyFeatures buildingPage={false} />
         </div>
+        <ProjectBuildingCards/>
     </>
   )
     

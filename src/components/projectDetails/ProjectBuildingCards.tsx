@@ -110,7 +110,7 @@ export default function ProjectBuildingCards() {
     <section className="px-4" ref={sectionRef}>
       <div className="container mx-auto">
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 border-b border-[var(--custom-bg-primary)]/10 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 border-b border-[var(--custom-bg-primary)]/10 pb-12">
           {projectData.map((building, index) => (
             <Card
               key={building.id}
