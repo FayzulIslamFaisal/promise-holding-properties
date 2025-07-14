@@ -7,7 +7,7 @@ interface BuildingSlug {
 }
 const BuildingDetailPage = ({ params }: BuildingSlug) => {
   return (
-    <BuildingWrapper slug={params.slug}/>
+    <BuildingWrapper slug={params?.slug}/>
   );
 };
 

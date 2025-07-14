@@ -8,7 +8,7 @@ interface SlugProps {
 }
 
 const ProjectDetailsWrapp = ({slug}: SlugProps) => {
-  console.log("Project Slug==>",slug);
+  console.log("Project Slug==>" , slug);
   
   return (
     <>

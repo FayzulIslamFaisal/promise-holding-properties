@@ -1,5 +1,8 @@
-import ProjectInformation from "../projectDetails/ProjectInformation";
+// import ProjectInformation from "../projectDetails/ProjectInformation";
 import ProjectSlider from "../projectDetails/ProjectSlider";
+import PropertyFeatures from "../projectDetails/PropertyFeatures";
+import ProjectFloorCard from "./ProjectFloorCard";
+
 
 interface SlugProps {
   slug: string;
@@ -10,7 +13,10 @@ const BuildingWrapper = ({ slug }: SlugProps) => {
   return (
     <>
         <ProjectSlider/>
-        <ProjectInformation/>
+        <PropertyFeatures buildingPage={true} />
+        <ProjectFloorCard/>
+        {/* <ProjectInformation/> */}
+        
     </>
   )
 }

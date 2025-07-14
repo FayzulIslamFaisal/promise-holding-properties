@@ -205,7 +205,7 @@ const PropertyFeatures = ({ buildingPage = false }: PropertyFeaturesProps) => {
               <CardTitle className="text-2xl font-semibold text-[var(--custom-text-primary)]/75">{buildingPage? "Building Features ":"Project Features"}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className={`grid grid-cols-2 gap-3 ${buildingPage ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5'}`}>
+              <div className={`grid grid-cols-2 gap-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5`}>
                 
                 {(buildingPage ? buildingFeatures : features).map((feature, index) => (
                   <div key={index} className="flex items-center flex-col justify-center sm:justify-start sm:flex-row gap-3 p-4 bg-[var(--custom-bg-accent)]/15 rounded-lg hover:bg-[var(--custom-bg-primary)]/25 transition-colors relative h-full">
