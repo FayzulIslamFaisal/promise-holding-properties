@@ -15,8 +15,8 @@ interface Project {
   floors: number
   units: number
   type: string
-  amenities: string[]
   completion: string
+  description:string
 }
 
 const projectData: Project[] = [
@@ -27,8 +27,8 @@ const projectData: Project[] = [
     floors: 45,
     units: 320,
     type: "Residential",
-    amenities: ["Rooftop Pool", "Gym", "Concierge", "Sky Lounge"],
     completion: "Q4 2024",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 2,
@@ -37,8 +37,8 @@ const projectData: Project[] = [
     floors: 35,
     units: 180,
     type: "Commercial",
-    amenities: ["Business Center", "Conference Rooms", "Parking", "Retail"],
     completion: "Q2 2024",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 3,
@@ -47,8 +47,8 @@ const projectData: Project[] = [
     floors: 8,
     units: 64,
     type: "Mixed-Use",
-    amenities: ["Garden Terrace", "Café", "Co-working", "Art Gallery"],
     completion: "Q1 2024",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 4,
@@ -57,8 +57,8 @@ const projectData: Project[] = [
     floors: 3,
     units: 12,
     type: "Amenity",
-    amenities: ["Spa", "Fitness", "Yoga Studio", "Medical Center"],
     completion: "Q3 2024",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 5,
@@ -67,8 +67,8 @@ const projectData: Project[] = [
     floors: 20,
     units: 150,
     type: "Residential",
-    amenities: ["Private Balconies", "Pet Park", "Laundry Lounge", "Library"],
     completion: "Q1 2025",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 6,
@@ -77,8 +77,8 @@ const projectData: Project[] = [
     floors: 10,
     units: 60,
     type: "Commercial",
-    amenities: ["Startup Labs", "Tech Support", "Open Workspace", "Event Space"],
     completion: "Q3 2025",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 7,
@@ -87,8 +87,8 @@ const projectData: Project[] = [
     floors: 30,
     units: 240,
     type: "Residential",
-    amenities: ["Marina Access", "Infinity Pool", "Sun Deck", "Lounge Bar"],
     completion: "Q2 2025",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
   {
     id: 8,
@@ -97,8 +97,8 @@ const projectData: Project[] = [
     floors: 5,
     units: 25,
     type: "Mixed-Use",
-    amenities: ["Exhibition Hall", "Language Lab", "Cultural Café", "Workshop Studios"],
     completion: "Q4 2025",
+    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
   },
 ];
 
@@ -173,19 +173,7 @@ export default function ProjectBuildingCards() {
                     <h3 className="text-xl font-normal text-[var(--custom-text-primary)] group-hover:text-[var(--custom-text-primary)] transition-colors duration-300">
                         {building.name}
                   </h3>
-                    <p className="text-sm font-normal text-[var(--custom-text-primary)]"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.  </p>
-                    <div className="flex flex-wrap gap-1">
-                      {building.amenities.slice(0, 3).map((amenity) => (
-                        <Badge
-                          key={amenity}
-                          variant="default"
-                          className="text-xs border-[var(--custom-border-primary)]/30 text-[var(--custom-text-secondary)]"
-                        >
-                          {amenity}
-                        </Badge>
-                      ))}
-                    </div>
-
+                    <p className="text-sm font-normal text-[var(--custom-text-primary)]"> {building?.description}  </p>
                     <Link href="/building-details/1" className="btn-glow-accent w-full">
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       <span>Explore Building</span>
