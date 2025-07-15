@@ -18,87 +18,86 @@ interface Project {
   completion: string
   description:string
 }
-
 const projectData: Project[] = [
   {
     id: 1,
-    name: "Tower A - Residential",
+    name: "প্রমিস হোল্ডিংস টাওয়ার",
     image: "/assets/images/projects/project1.jpg",
     floors: 45,
     units: 320,
     type: "Residential",
     completion: "Q4 2024",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "ঢাকার কেন্দ্রস্থলে একটি বিলাসবহুল আবাসিক টাওয়ার আধুনিক সকল সুযোগ সুবিধাসহ।",
   },
   {
     id: 2,
-    name: "Tower B - Commercial",
+    name: "বেঙ্গল কমার্শিয়াল সেন্টার",
     image: "/assets/images/projects/project2.jpg",
     floors: 35,
     units: 180,
     type: "Commercial",
     completion: "Q2 2024",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "উচ্চ প্রযুক্তি ও পরিবেশবান্ধব একটি আধুনিক অফিস স্পেস, ব্যবসার জন্য উপযুক্ত।",
   },
   {
     id: 3,
-    name: "Garden Pavilion",
+    name: "গার্ডেন ভিলা",
     image: "/assets/images/projects/project3.jpg",
     floors: 8,
     units: 64,
     type: "Mixed-Use",
     completion: "Q1 2024",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "বাসস্থান ও দোকানের সমন্বয়ে তৈরি এক আধুনিক প্রকল্প, সবুজ পরিবেশে নির্মিত।",
   },
   {
     id: 4,
-    name: "Wellness Center",
+    name: "সেরেনিটি ওয়েলনেস সেন্টার",
     image: "/assets/images/projects/project4.jpg",
     floors: 3,
     units: 12,
     type: "Amenity",
     completion: "Q3 2024",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "ব্যক্তিগত উন্নয়ন ও সুস্থতার জন্য একটি নিরিবিলি প্রশান্তিপূর্ণ ওয়েলনেস সেন্টার।",
   },
   {
     id: 5,
-    name: "Skyline Lofts",
+    name: "স্কাইলাইন গার্ডেন ভিলা",
     image: "/assets/images/projects/project9.jpg",
     floors: 20,
     units: 150,
     type: "Residential",
     completion: "Q1 2025",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "ছাদের বাগান, প্রাকৃতিক আলো এবং আধুনিক ফ্যাসিলিটিসহ বিলাসবহুল ফ্ল্যাট।",
   },
   {
     id: 6,
-    name: "Innovation Hub",
+    name: "ঢাকা ইনোভেশন হাব",
     image: "/assets/images/projects/project6.jpg",
     floors: 10,
     units: 60,
     type: "Commercial",
     completion: "Q3 2025",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "উদ্ভাবনী প্রতিষ্ঠান এবং স্টার্টআপদের জন্য আধুনিক প্রযুক্তি নির্ভর হাব।",
   },
   {
     id: 7,
-    name: "Harbor View Residences",
+    name: "হাবর ভিউ রেসিডেন্স",
     image: "/assets/images/projects/project7.jpg",
     floors: 30,
     units: 240,
     type: "Residential",
     completion: "Q2 2025",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "নদী ও লেক সংলগ্ন আকর্ষণীয় অ্যাপার্টমেন্ট, প্রাকৃতিক দৃশ্যপটে নির্মিত।",
   },
   {
     id: 8,
-    name: "Cultural Exchange Center",
+    name: "কালচারাল এক্সচেঞ্জ সেন্টার",
     image: "/assets/images/projects/project8.jpg",
     floors: 5,
     units: 25,
     type: "Mixed-Use",
     completion: "Q4 2025",
-    description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit and premium amenities and premium amenities.A revolutionary mixed-use development that redefines urban",
+    description: "সংস্কৃতি, শিল্প এবং সম্প্রদায়ের জন্য একত্রিত হবার একটি আধুনিক স্থান।",
   },
 ];
 
@@ -174,7 +173,7 @@ export default function ProjectBuildingCards() {
                         {building.name}
                   </h3>
                     <p className="text-sm font-normal text-[var(--custom-text-primary)]"> {building?.description}  </p>
-                    <Link href="/building-details/1" className="btn-glow-accent w-full">
+                    <Link target='_blank' href="/building-details/1" className="btn-glow-accent w-full">
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       <span>Explore Building</span>
                     </Link>

@@ -2,6 +2,7 @@
 import ProjectSlider from "../projectDetails/ProjectSlider";
 import PropertyFeatures from "../projectDetails/PropertyFeatures";
 import ProjectFloorCard from "./ProjectFloorCard";
+import ProjectFloorSummary from "./ProjectFloorSummary";
 
 
 interface SlugProps {
@@ -13,8 +14,13 @@ const BuildingWrapper = ({ slug }: SlugProps) => {
   return (
     <>
         <ProjectSlider/>
-        <PropertyFeatures buildingPage={true} />
-        <ProjectFloorCard/>
+        <div className="pt-12">
+          <PropertyFeatures buildingPage={true} />
+        </div>
+        <ProjectFloorSummary/>
+        <div className="pt-12">
+          <ProjectFloorCard/>
+        </div>
         {/* <ProjectInformation/> */}
         
     </>
