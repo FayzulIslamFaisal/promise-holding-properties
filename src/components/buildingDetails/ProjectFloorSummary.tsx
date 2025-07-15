@@ -146,7 +146,7 @@ return (
     <section className="w-full pt-12 px-4 bg-[var(--custom-bg-gray)]">
       <div className="container mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-4xl tracking-tight text-[var(--custom-text-primary)]">Floor Summary</h2>
+          <h2 className="text-4xl tracking-tight text-[var(--custom-text-primary)]">Floor Plan Overview</h2>
           <p className="text-base md:text-lg text-[var(--custom-text-primary)]/75 mt-3 max-w-2xl mx-auto">
             Detailed overview of unit counts, features, and availability across the entire residential complex.
           </p>
