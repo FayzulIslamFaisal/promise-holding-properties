@@ -108,6 +108,12 @@ export default function ProjectBuildingCards() {
   return (
     <section className="px-4" ref={sectionRef}>
       <div className="container mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-normal tracking-tight text-[var(--custom-text-primary)]">Buildings List</h2>
+          <p className="text-base md:text-lg text-[var(--custom-text-primary)]/75 mt-3 max-w-2xl mx-auto">
+            Detailed overview of unit counts, features, and availability across the entire residential complex.
+          </p>
+        </div>
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 border-b border-[var(--custom-bg-primary)]/10 pb-12">
           {projectData.map((building, index) => (

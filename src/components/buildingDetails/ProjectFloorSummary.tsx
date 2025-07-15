@@ -156,11 +156,11 @@ return (
           {summaryCards.map(({ title, count, icon: Icon }, i) => (
             <Card
               key={i}
-              className="group relative transition-transform duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-xl  bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden"
+              className="group relative transition-transform duration-300 gap-3 ease-in-out transform hover:scale-105 shadow-md hover:shadow-xl  bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden"
             >
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--custom-text-primary)] flex items-center gap-2">
-                  <Icon className="h-4 w-4 text-[var(--custom-bg-primary)]" />
+              <CardHeader className="pb-0">
+                <CardTitle className="text-sm font-medium text-[var(--custom-text-primary)] flex items-center gap-3">
+                  <Icon className="h-8 w-8 text-[var(--custom-bg-primary)]" />
                   {title}
                 </CardTitle>
               </CardHeader>

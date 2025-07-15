@@ -40,7 +40,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 1,
     floorNumber: "Floor 5A",
     unitNumber: "Unit 501-504",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 4,
     bedrooms: 3,
     bathrooms: 2,
@@ -58,7 +58,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 2,
     floorNumber: "Floor 8B",
     unitNumber: "Unit 801-806",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 6,
     bedrooms: 2,
     bathrooms: 2,
@@ -76,7 +76,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 3,
     floorNumber: "Floor 12C",
     unitNumber: "Unit 1201-1202",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 2,
     bedrooms: 4,
     bathrooms: 3,
@@ -94,7 +94,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 4,
     floorNumber: "Floor 15A",
     unitNumber: "Unit 1501-1508",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 8,
     bedrooms: 1,
     bathrooms: 1,
@@ -112,7 +112,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 5,
     floorNumber: "Floor 20B",
     unitNumber: "Unit 2001-2004",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 4,
     bedrooms: 3,
     bathrooms: 2,
@@ -130,7 +130,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 6,
     floorNumber: "Floor 25A",
     unitNumber: "Unit 2501-2503",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 3,
     bedrooms: 4,
     bathrooms: 3,
@@ -148,7 +148,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 7,
     floorNumber: "Floor 30C",
     unitNumber: "Unit 3001",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 1,
     bedrooms: 5,
     bathrooms: 4,
@@ -166,7 +166,7 @@ const floorUnitsData: FloorUnit[] = [
     id: 8,
     floorNumber: "Floor 18B",
     unitNumber: "Unit 1801-1806",
-    image: "/placeholder.svg",
+    image: "/assets/images/projects/project8.jpg",
     totalUnits: 6,
     bedrooms: 2,
     bathrooms: 2,
@@ -186,11 +186,10 @@ export default function ProjectFloorCard() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   console.log("hoveredCard",hoveredCard);
   
-
-  return (
+ return (
     <section className="px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-normal text-[var(--custom-text-primary)] mb-4">
             Floor Units & Layouts
           </h2>
@@ -199,76 +198,75 @@ export default function ProjectFloorCard() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-12">
           {floorUnitsData.map((unit) => (
             <Card
               key={unit.id}
               onMouseEnter={() => setHoveredCard(unit.id)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="group py-0 relative bg-[var(--custom-bg-white)] border border-[var(--custom-border-primary)] transition-all duration-300 hover:bg-[var(--custom-bg-primary)]/5 cursor-pointer"
+              className="group py-0 relative transition-transform duration-300 ease-in-out hover:scale-[1.015] cursor-pointer animate-fade-in h-full bg-gradient-to-br from-[var(--custom-bg-primary)]/50 via-[var(--custom-bg-accent)]/40 to-[var(--custom-bg-secondary)]/30 " 
             >
-              <CardContent className="p-0 relative h-full">
-
-
-                <div className="relative p-6 bg-[url('/assets/images/projects/project8.jpg')] bg-cover bg-center rounded-t-lg"
-                  >
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 rounded-t-lg" />
-                    
-                    <div className="relative z-10">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-1">
-                            {unit.floorNumber}
-                          </h3>
-                          <p className="text-sm text-gray-200">{unit.unitNumber}</p>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                          <Badge className="bg-gray-500 text-white border-0">
-                            {unit.status}
-                          </Badge>
-                          <Badge className="bg-[var(--custom-bg-accent)] text-white border-0">
-                            {unit.floorPlan}
-                          </Badge>
-                        </div>
+              <CardContent
+                className="p-0 relative h-full text-white rounded-xl"
+              >
+                {/* Image Section */}
+                <div
+                  className="relative p-6 bg-[url('/assets/images/projects/project8.jpg')] bg-cover bg-center rounded-t-lg overflow-hidden transition-all duration-300 ease-in-out group-hover:brightness-90 group-hover:scale-[1.01]"
+                >
+                  <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 rounded-t-lg z-0" />
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-xl font-normal text-white mb-1">
+                          {unit.floorNumber}
+                        </h3>
+                        <p className="text-sm text-gray-200">{unit.unitNumber}</p>
                       </div>
-                      <div className="flex justify-between items-center">
-                        <div className="text-2xl font-bold text-white">{unit.price}</div>
-                        <div className="text-sm text-gray-200">{unit.area}</div>
+                      <div className="flex flex-col gap-2">
+                        <Badge className="bg-gray-500 text-white border-0">
+                          {unit.status}
+                        </Badge>
+                        <Badge className="bg-[var(--custom-bg-accent)] text-white border-0">
+                          {unit.floorPlan}
+                        </Badge>
                       </div>
                     </div>
+                    <div className="flex justify-between items-center">
+                      <div className="text-sm text-gray-200">{unit.area}</div>
+                    </div>
                   </div>
+                </div>
 
-
-                <div className="p-6 space-y-4">
+                {/* Content Section */}
+                <div className="p-6 space-y-4 bg-white text-[var(--custom-text-primary)] rounded-b-xl">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                    <div className="flex items-center gap-2 text-sm">
                       <Home className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                       <span>{unit.totalUnits} Units</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                    <div className="flex items-center gap-2 text-sm">
                       <Bed className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                       <span>{unit.bedrooms} Bedrooms</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                    <div className="flex items-center gap-2 text-sm">
                       <Bath className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                       <span>{unit.bathrooms} Bathrooms</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                    <div className="flex items-center gap-2 text-sm">
                       <Wind className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                       <span>{unit.balconies} Balconies</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                    <div className="flex items-center gap-2 text-sm">
                       <Sofa className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                       <span>{unit.drawingRoom} Drawing</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                    <div className="flex items-center gap-2 text-sm">
                       <UserCheck className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                       <span>{unit.guestRoom} Guest Room</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 text-sm text-[var(--custom-text-primary)]">
+                  <div className="flex items-center gap-2 text-sm">
                     <Square className="w-4 h-4 text-[var(--custom-bg-primary)]" />
                     <span>{unit.washrooms} Washrooms Total</span>
                   </div>
@@ -279,11 +277,29 @@ export default function ProjectFloorCard() {
                   >
                     <Eye className="w-4 h-4" />
                     <span>View Floor Plan</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
+                {/* Hover gradient line */}
+                <div
+                  className="absolute left-0 bottom-0 h-1 w-0 group-hover:w-full transition-all duration-300"
+                  style={{
+                    background:
+                      'linear-gradient(to right, var(--custom-bg-primary), var(--custom-bg-secondary), var(--custom-bg-accent))',
+                  }}
+                />
               </CardContent>
+
+              {/* Hover gradient line */}
+                <div
+                  className="absolute left-0 bottom-0 h-1 w-0 group-hover:w-full transition-all duration-300"
+                  style={{
+                    background:
+                      'linear-gradient(to right, var(--custom-bg-primary), var(--custom-bg-secondary), var(--custom-bg-accent))',
+                  }}
+                />
             </Card>
+
           ))}
         </div>
       </div>
