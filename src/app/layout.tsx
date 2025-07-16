@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Anton } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import HeaderSection from "@/components/home-page/Header-section";
 import FooterSection from "@/components/home-page/Footer-section";
@@ -12,12 +12,12 @@ const inter = Inter({
   weight: ['100', '200','300', '400', '500', '600', '700', '800', '900'],
 });
 
-const anton = Anton({
-  variable: "--font-anton",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  display: 'swap',
-  style: ['normal'],
-  weight: ['400'],
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ export default function RootLayout({
       
       
       <body
-        className={`${inter.variable} ${anton.variable} antialiased bg-slate-900`}
+        className={`${inter.variable} ${poppins.variable} antialiased bg-slate-900`}
       >
         <header>
           <HeaderSection />
