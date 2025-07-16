@@ -12,15 +12,15 @@ const MainHeader = () => {
 
   return (
     <>
-    <div className="container mx-auto px-4 py-4 relative z-10">
+    <div className="container mx-auto px-4 py-2 relative opacity-100">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="w-1/2 lg:w-[25%]">
           <Link href="/"  className="inline-block">
             <Image
-              src="/assets/images/Promise-Holdings-Ltd-03.png"
+              src="/assets/images/Web-Logo.png"
               width={200}
-              height={100}
+              height={50}
               alt="logo"
             />
           </Link>
