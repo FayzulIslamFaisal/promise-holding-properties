@@ -1,4 +1,9 @@
+"use client";
 import { InsightCard } from './InsightCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
 const insightsData = [
   {
@@ -42,29 +47,99 @@ const insightsData = [
     readTime: '4 min read',
     views: 980,
   },
+  {
+    id: '5',
+    title: 'Why Sustainable Living Is the Future of Real Estate',
+    category: 'Blog',
+    date: 'February 2025',
+    image: "/assets/images/projects/project7.jpg",
+    excerpt: 'Learn how eco-friendly building practices and sustainable communities are reshaping real estate trends.',
+    readTime: '6 min read',
+    views: 2175,
+  },
+  {
+    id: '6',
+    title: 'Top Investment Tips for First-Time Property Buyers',
+    category: 'Blog',
+    date: 'January 2025',
+    image: "/assets/images/projects/project8.jpg",
+    excerpt: 'A guide for first-time buyers to make smart and safe investments in the real estate market.',
+    readTime: '5 min read',
+    views: 1340,
+  },
+  {
+    id: '7',
+    title: 'Inside Look: Our Upcoming Premium Tower Design Reveal',
+    category: 'Events',
+    date: 'January 2025',
+    image: "/assets/images/projects/project9.jpg",
+    excerpt: 'Get a sneak peek into the design of our most anticipated premium residential tower yet.',
+    readTime: '4 min read',
+    views: 2890,
+    featured: true,
+  },
+  {
+    id: '8',
+    title: 'Creating Community: More Than Just Building Homes',
+    category: 'Blog',
+    date: 'December 2024',
+    image: "/assets/images/projects/project10.jpg",
+    excerpt: 'Discover how we’re fostering a sense of belonging and community in our residential developments.',
+    readTime: '6 min read',
+    views: 1730,
+  },
+  {
+    id: '9',
+    title: 'Modern Amenities That Define Luxury Living Today',
+    category: 'Property',
+    date: 'November 2024',
+    image: "/assets/images/projects/project11.jpg",
+    excerpt: 'Explore the must-have modern amenities that elevate the living experience in today’s luxury apartments.',
+    readTime: '5 min read',
+    views: 2410,
+  },
+  {
+    id: '10',
+    title: 'Reflecting on a Year of Real Estate Innovation',
+    category: 'Blog',
+    date: 'October 2024',
+    image: "/assets/images/projects/project12.jpg",
+    excerpt: 'A look back at the innovative projects, milestones, and trends that shaped the year.',
+    readTime: '7 min read',
+    views: 1980,
+  },
 ];
 
+
 export const InsightsSection: React.FC = () => {
- 
   return (
-    <section className="py-14 ">
+    <section className="py-14">
       <div className="container mx-auto px-4">
         <div className="mb-6 lg:mb-10">
-            <h2 className="text-4xl lg:text-5xl font-bold text-[var(--custom-text-white)]">
-                INSIGHTS
-            </h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--custom-text-white)]">
+            INSIGHTS
+          </h2>
         </div>
-        <div className={`grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 `}>
-          {insightsData.map((insight, index) => (
-            <div
-              key={insight.id}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+
+        <Swiper
+          spaceBetween={15}
+          slidesPerView={1}
+          navigation
+          modules={[Navigation]}
+          loop
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
+          }}
+        >
+          {insightsData.map((insight) => (
+            <SwiperSlide key={insight.id}>
               <InsightCard {...insight} />
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

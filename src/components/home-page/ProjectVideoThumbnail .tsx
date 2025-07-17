@@ -40,8 +40,11 @@ const ProjectVideoThumbnail = () => {
           </div>
         </div>
       </section>
-
-      <ProjectVideoModal open={open} onOpenChange={setOpen} />
+      {
+        open && (
+          <ProjectVideoModal open={open} onOpenChange={setOpen} />
+        )
+      }
     </>
   )
 }
