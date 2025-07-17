@@ -20,7 +20,7 @@ const NavMenuItem = () => {
           key={item.id}
           href={item.path}
           className="
-          text-[var(--custom-text-secondary)] 
+          text-[var(--custom-text-white)] 
             font-semibold 
             tracking-wide 
             text-[16px]
