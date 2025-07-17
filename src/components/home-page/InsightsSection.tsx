@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const insightsData = [
   {
@@ -113,12 +115,22 @@ const insightsData = [
 
 export const InsightsSection: React.FC = () => {
   return (
-    <section className="py-14">
-      <div className="container mx-auto px-4">
-        <div className="mb-6 lg:mb-10">
+    <section className="px-4">
+      <div className="container mx-auto py-14">
+        <div className="mb-6 lg:mb-10 flex items-center justify-between">
           <h2 className="text-4xl lg:text-5xl font-bold text-[var(--custom-text-white)]">
             INSIGHTS
           </h2>
+          <div className="">
+            <Link
+              href="/insights"
+              className="btn-glow-accent flex items-center gap-2"
+            >
+              <span>View All</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 animate-pulse" />
+            </Link>
+          </div>
+          
         </div>
 
         <Swiper
