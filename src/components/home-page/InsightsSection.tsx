@@ -3,7 +3,7 @@ import { InsightCard } from './InsightCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -136,8 +136,12 @@ export const InsightsSection: React.FC = () => {
         <Swiper
           spaceBetween={15}
           slidesPerView={1}
+          autoplay={{
+              delay: 3000, 
+              disableOnInteraction: false,
+          }}
           navigation
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           loop
           breakpoints={{
             0: { slidesPerView: 1 },
