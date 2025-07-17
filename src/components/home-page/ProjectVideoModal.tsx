@@ -1,44 +1,72 @@
-'use client'
+
+
+"use client";
 
 import {
   Dialog,
   DialogContent,
-} from '@/components/ui/dialog'
-import ReactPlayer from 'react-player'
-import { useEffect, useState } from 'react'
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import ReactPlayer from "react-player";
+import { useState, useRef, useEffect } from "react";
 
 interface VideoModalProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 const ProjectVideoModal = ({ open, onOpenChange }: VideoModalProps) => {
-  const [ready, setReady] = useState(false)
+  const playerRef = useRef<ReactPlayer>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      const timeout = setTimeout(() => setReady(true), 200)
-      return () => clearTimeout(timeout)
-    } else {
-      setReady(false)
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!open && playerRef.current) {
+      playerRef.current.seekTo(0);
     }
-  }, [open])
+  }, [open]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-screen h-auto border p-10 bg-amber-300">
-        <div className="relative w-full h-[60vh]">
-          <ReactPlayer
-            url="https://www.youtube.com/embed/kqq0JTjrXlM?si=7plOU1Snda88XVjy"
-            width="100%"
-            height="100%"
-            controls
-            playing={ready}
-          />
+      <DialogTrigger>Open</DialogTrigger>
+      <DialogContent className="sm:max-w-[80vw]">
+        <DialogHeader>
+          <DialogTitle>Video Preview</DialogTitle>
+        </DialogHeader>
+        
+        <div className="w-full aspect-video mt-4">
+          {isClient && (
+            <ReactPlayer
+              ref={playerRef}
+              url={`https://www.youtube.com/embed/pPl3ZZdTP3g?si=l2WFKR34nQ1bXrKz`}
+              width="100%"
+              height="100%"
+              controls={true}
+              playing={open}
+              playsinline
+              config={{
+                youtube: {
+                  playerVars: { 
+                    autoplay: 1,
+                    modestbranding: 1,
+                    rel: 0
+                  }
+                }
+              }}
+            />
+          )}
         </div>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
-export default ProjectVideoModal
+export default ProjectVideoModal;
+
+
+

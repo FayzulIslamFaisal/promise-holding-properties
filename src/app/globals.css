@@ -144,8 +144,10 @@ body.light {
   background: var(--custom-bg-body);
 }
 @theme {
-  --custom-text-primary: #1d1d1b;
-  --custom-text-secondary: #fff;
+  --custom-text-primary: #c7a250;
+  --custom-text-secondary: #1d1d1b;
+  --custom-text-black: #000;
+  --custom-text-white: #fff;
 
   --custom-bg-primary: #1d1d1b;  
   --custom-bg-accent: #c7a250;
@@ -153,10 +155,6 @@ body.light {
   --custom-bg-white: #fff;
   --custom-bg-black: #000;
   --custom-border-primary: #ffffff4d;
-
-  --custom-bg-white10: #ffffff1a;
-  --custom-bg-white20: #ffffff33;
-  --custom-bg-white40: #ffffff66;
   
 }
 
