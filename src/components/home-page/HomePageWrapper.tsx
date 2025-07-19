@@ -2,6 +2,7 @@
 
 import HeroSlider from "./HeroSlider"
 import { InsightsSection } from "./InsightsSection"
+import ProjectTestimonial from "./ProjectTestimonial"
 import ProjectVideoThumbnail from "./ProjectVideoThumbnail "
 
 const HomePageWrapper = () => {
@@ -9,6 +10,7 @@ const HomePageWrapper = () => {
         <>
             <HeroSlider />
             <ProjectVideoThumbnail/>
+            <ProjectTestimonial autoplay={false}/>
             <InsightsSection/>
         </>
     )
