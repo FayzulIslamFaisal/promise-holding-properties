@@ -19,7 +19,7 @@ const HeaderSection = () => {
 
   return (
     <header
-      className={`z-50 transition-all duration-300 ease-in-out bg-[var(--custom-bg-primary)] border-[var(--custom-border-primary)] border ${
+      className={`z-50 px-4 transition-all duration-300 ease-in-out bg-[var(--custom-bg-primary)] border-[var(--custom-border-primary)] border ${
         isScrolled ? "shadow-xl fixed top-0 left-0 right-0 bg-[var(--custom-bg-primary)] backdrop-blur-2xl opacity-90 " : "shadow-lg relative"
       }`}
     >

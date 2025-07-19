@@ -12,7 +12,7 @@ const MainHeader = () => {
 
   return (
     <>
-    <div className="container mx-auto px-4 py-2 relative opacity-100">
+    <div className="container mx-auto py-1 relative opacity-100">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="w-1/2 lg:w-[25%]">

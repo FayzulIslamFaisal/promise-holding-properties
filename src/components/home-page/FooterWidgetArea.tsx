@@ -23,9 +23,9 @@ const FooterWidgetArea = () => {
     ]
 
   return (
-    <div className="pt-8">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 border-b border-[var(--custom-bg-black)]/25 pb-8">
+    <div className="px-4 pt-6">
+      <div className="container mx-auto  relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 border-b border-[var(--custom-bg-accent)]/25 pb-8">
           {/* Company Info */}
           <div className="space-y-4">
             <p className="text-xl tracking-normal">

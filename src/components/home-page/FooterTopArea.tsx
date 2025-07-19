@@ -23,18 +23,21 @@ const FooterTopArea = () => {
   ]
 
   return (
-    <div className=" shadow-sm relative z-10">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+    <div className="px-4">
+      <div className="container mx-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border-b border-[var(--custom-bg-accent)]/25 pb-4 shadow-2xl">
           {/* Logo Area */}
           <div>
-            <Image
-              src="/assets/images/Promise-Holdings-Ltd-03.png"
-              width={200}
-              height={100}
-              alt="PromiseHoldings Logo"
-              className="object-contain"
-            />
+            <Link href="/" className="inline-block relative w-[200px] h-[70px]">
+              <Image
+                src="/assets/images/Web-Logo.png"
+                // width={200}
+                // height={60}
+                fill
+                alt="PromiseHoldings Logo"
+                className="object-scale-down w-full h-full"
+              />
+            </Link>
           </div>
 
           {/* Social Icons */}
