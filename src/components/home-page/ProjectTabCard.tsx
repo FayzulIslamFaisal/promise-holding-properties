@@ -1,0 +1,83 @@
+
+
+import { motion } from 'framer-motion';
+import { Badge } from '@/components/ui/badge';
+import { MapPin } from 'lucide-react';
+
+export interface Project {
+  id: string;
+  title: string;
+  location: string;
+  category: 'Running' | 'Upcoming' | 'Complete';
+  image: string;
+}
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const getBadgeVariant = (category: Project['category']) => {
+  switch (category) {
+    case 'Running':
+      return 'running';
+    case 'Upcoming':
+      return 'upcoming';
+    case 'Complete':
+      return 'complete';
+    default:
+      return 'secondary';
+  }
+};
+
+const ProjectTabCard = ({ project }: ProjectCardProps) => {
+  return (
+    <motion.div
+      className="relative h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
+      whileHover={{ scale: 1.02 }}
+      transition={{
+        duration: 0.3,
+        ease: "easeOut"
+      }}
+    >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
+        style={{ backgroundImage: `url(${project.image})` }}
+      />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-overlay" />
+      
+      {/* Content Overlay */}
+      <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
+        {/* Top: Category Badge */}
+        <div className="flex justify-start">
+          <Badge 
+            variant={getBadgeVariant(project.category)}
+            className="px-3 py-1.5 text-sm font-medium rounded-full shadow-lg"
+          >
+            {project.category} Project
+          </Badge>
+        </div>
+        
+        {/* Bottom: Project Info */}
+        <div className="space-y-3">
+          <h3 className="text-2xl font-bold leading-tight">
+            {project.title}
+          </h3>
+          <div className="flex items-center space-x-2 text-white/90">
+            <MapPin size={16} />
+            <span className="text-sm font-medium">{project.location}</span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Hover Shadow Effect */}
+      <motion.div
+        className="absolute inset-0 rounded-xl shadow-card-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ pointerEvents: 'none' }}
+      />
+    </motion.div>
+  );
+};
+export default ProjectTabCard
