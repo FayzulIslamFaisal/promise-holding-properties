@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState, useCallback } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react"
 import { EffectCreative, Autoplay, Parallax, Keyboard } from "swiper/modules"
 import { Maximize } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -25,9 +25,9 @@ const slides: SliderProps[] = [
 ]
 
 export default function SuperFlowSlider() {
-  const swiperRef = useRef<any>(null)
+  const swiperRef = useRef<SwiperClass | null>(null)
   const [progress, setProgress] = useState(0)
-  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [, setIsFullscreen] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
 

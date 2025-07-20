@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { LogIn, Mail, Lock, Phone } from 'lucide-react';
+import { LogIn, Mail, Lock } from 'lucide-react';
 import WaveBackground from '@/components/common/WaveBackground';
 import Link from 'next/link';
 
@@ -111,7 +111,7 @@ return (
 
             <div className="text-center pt-4 border-t border-[var(--custom-border-primary)]">
               <p className="text-[var(--custom-text-hover)]">
-                Don't have an account?{' '}
+                Don{' '}t have an account?{' '}
                 <Link
                   href="/register"
                   className="text-[var(--custom-text-secondary)] font-semibold hover:text-[var(--custom-text-hover)] transition-colors duration-300 underline decoration-2 underline-offset-4"
