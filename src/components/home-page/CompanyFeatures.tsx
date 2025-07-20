@@ -43,10 +43,10 @@ const CompanyFeatures = () => {
               
               {/* Main card content */}
               <div className="relative h-full bg-[var(--custom-bg-white)] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center group-hover:-translate-y-1 z-10 ">
-                <div className="bg-gradient-to-r from-[var(--custom-bg-primary)] to-[var(--custom-bg-accent)] text-[var(--custom-text-secondary)] rounded-full p-4 mb-4 transition-all duration-300 group-hover:from-[var(--custom-bg-accent-hover)] group-hover:to-[var(--custom-bg-primary)]">
+                <div className="bg-gradient-to-r from-[var(--custom-bg-primary)] to-[var(--custom-bg-accent)] text-[var(--custom-text-white)] rounded-full p-4 mb-4 transition-all duration-300 group-hover:from-[var(--custom-bg-accent)] group-hover:to-[var(--custom-bg-primary)]">
                   <Icon className="size-8" />
                 </div>
-                <p className="text-[var(--custom-text-primary)] text-sm font-semibold leading-snug">
+                <p className="text-[var(--custom-text-secondary)] text-sm font-semibold leading-snug">
                   {title}
                 </p>
               </div>

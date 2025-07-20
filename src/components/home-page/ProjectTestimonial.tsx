@@ -403,7 +403,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
                 <button
                   key={index}
                   onClick={() => setActive(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-4 h-4 cursor-pointer rounded-full transition-all duration-300 ${
                     isActive(index) 
                       ? 'bg-[var(--custom-bg-accent)] scale-125' 
                       : 'bg-[var(--custom-bg-white)]/80 hover:bg-[var(--custom-bg-white)]'
@@ -466,7 +466,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
                 onClick={handlePrev}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="group/button flex h-12 w-12 items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
+                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
               >
                 <ArrowLeft className="h-5 w-5 text-[var(--custom-bg-white)] transition-all duration-300 group-hover/button:text-[var(--custom-text-white)] group-hover/button:-translate-x-0.5" />
               </motion.button>
@@ -474,7 +474,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
                 onClick={handleNext}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="group/button flex h-12 w-12 items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
+                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
               >
                 <ArrowRight className="h-5 w-5 text-[var(--custom-bg-white)] transition-all duration-300 group-hover/button:text-[var(--custom-text-white)] group-hover/button:translate-x-0.5" />
               </motion.button>

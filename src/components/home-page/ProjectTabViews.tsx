@@ -139,7 +139,7 @@ const mockProjects: Project[] = [
   });
 
   return (
-    <section className="w-full px-4">
+    <section className="w-full px-4 pb-14 border-b border-[var(--custom-bg-accent)]/40">
       {/* Header */}
       <div className="text-center pt-14">
         <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-bg-white)] mb-6">

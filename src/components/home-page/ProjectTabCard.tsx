@@ -32,7 +32,7 @@ const getBadgeVariant = (category: Project['category']) => {
 const ProjectTabCard = ({ project }: ProjectCardProps) => {
   return (
     <motion.div
-      className="relative h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
+      className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
       whileHover={{ scale: 1.02 }}
       transition={{
         duration: 0.3,
@@ -41,27 +41,27 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
     >
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
         style={{ backgroundImage: `url(${project.image})` }}
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
       
       {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
+      <div className="absolute inset-0 flex flex-col justify-between  text-[var(--custom-text-white)]">
         {/* Top: Category Badge */}
-        <div className="flex justify-start">
+        <div className="flex justify-start pt-6 ps-6 ">
           <Badge 
             variant={getBadgeVariant(project.category)}
-            className="px-3 py-1.5 text-sm font-medium rounded-full shadow-lg"
+            className="px-3 py-1.5 text-sm font-medium rounded-full shadow-xl bg-[var(--custom-bg-accent)]/80 text-[var(--custom-text-white)]"
           >
             {project.category} Project
           </Badge>
         </div>
         
         {/* Bottom: Project Info */}
-        <div className="space-y-3">
+        <div className="space-y-3 bg-[var(--custom-bg-accent)]/30 backdrop-blur-4xl p-4 rounded-lg   ">
           <h3 className="text-2xl font-bold leading-tight">
             {project.title}
           </h3>
