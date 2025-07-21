@@ -32,8 +32,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-      
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-slate-900`}
       >

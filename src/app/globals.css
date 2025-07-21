@@ -181,4 +181,11 @@ body.light {
 
 }
 
+.custom-prev {
+  color: var(--custom-text-primary) !important;
+}
+.custom-next {
+  color: var(--custom-text-primary) !important;
+}
+
 

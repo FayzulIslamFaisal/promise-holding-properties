@@ -32,7 +32,16 @@ const ProjectVideoThumbnail = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
                 <div className="absolute inset-0 rounded-full bg-[var(--custom-bg-accent)] border-3 border-[var(--custom-bg-white)] opacity-50 animate-ping scale-110" />
-                  <div className="relative z-10 w-20 h-20 bg-[var(--custom-bg-accent)]/50 backdrop-blur-md hover:bg-[var(--custom-bg-accent)] transition-colors duration-300 rounded-full flex items-center justify-center shadow-xl">
+                  <div 
+                    className="relative z-10 w-20 h-20 
+                    bg-[var(--custom-bg-accent)]/40 
+                      backdrop-blur-xl backdrop-saturate-200 
+                      border border-[var(--custom-bg-white)]/10 
+                    hover:bg-[var(--custom-bg-accent)]/80 
+                      transition-all duration-300 
+                      rounded-full flex items-center justify-center 
+                      shadow-xl shadow-[var(--custom-bg-accent)]/20"
+                  >
                       <Play className="w-10 h-10 text-[var(--custom-text-white)]" />
                     </div>
                 </div>

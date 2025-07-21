@@ -140,7 +140,10 @@ export const InsightsSection: React.FC = () => {
               delay: 3000, 
               disableOnInteraction: false,
           }}
-          navigation
+          navigation={{
+            nextEl: '.custom-next',
+            prevEl: '.custom-prev',
+          }}
           modules={[Navigation, Autoplay]}
           loop
           breakpoints={{
@@ -155,6 +158,8 @@ export const InsightsSection: React.FC = () => {
               <InsightCard {...insight} />
             </SwiperSlide>
           ))}
+          <div className="swiper-button-prev custom-prev"></div>
+          <div className="swiper-button-next custom-next"></div>
         </Swiper>
       </div>
     </section>

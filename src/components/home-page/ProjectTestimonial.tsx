@@ -398,7 +398,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
             ))}
             
             {/* Floating indicator dots */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-40">
               {testimonials.map((_, index) => (
                 <button
                   key={index}

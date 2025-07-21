@@ -152,28 +152,28 @@ const mockProjects: Project[] = [
 
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full text-white">
-        <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto gap-2 h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
+        <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
           <TabsTrigger 
             value="all" 
-            className="rounded-lg text-sm font-medium cursor-pointer text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
           >
             All
           </TabsTrigger>
           <TabsTrigger 
             value="running" 
-            className="rounded-lg text-sm font-medium cursor-pointer text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
           >
             Running Project
           </TabsTrigger>
           <TabsTrigger 
             value="upcoming" 
-            className="rounded-lg text-sm font-medium cursor-pointer text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
           >
             Upcoming Project
           </TabsTrigger>
           <TabsTrigger 
             value="complete" 
-            className="rounded-lg text-sm font-medium cursor-pointer text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
           >
             Complete Project
           </TabsTrigger>
@@ -189,8 +189,12 @@ const mockProjects: Project[] = [
               delay: 3000, 
               disableOnInteraction: false,
           }}
-            navigation
+            navigation={{
+              nextEl: '.custom-next',
+              prevEl: '.custom-prev',
+            }}
             modules={[Navigation, Autoplay]}
+            
             loop
               breakpoints={{
                 320: {
@@ -221,6 +225,8 @@ const mockProjects: Project[] = [
                   <ProjectTabCard project={project} />
                 </SwiperSlide>
               ))}
+              <div className="swiper-button-prev custom-prev"></div>
+              <div className="swiper-button-next custom-next"></div>
             </Swiper>
           </div>
         </TabsContent>

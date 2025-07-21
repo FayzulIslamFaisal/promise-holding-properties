@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -101,12 +100,11 @@ return (
                 </Label>
               </div>
                     {/* <Button variant="unstyled" className="btn-glow-accent"></Button> */}
-              <Button
-                type="submit"
-                variant="unstyled" className="btn-glow-accent w-full border-[var(--custom-border-primary)]"
+              <Link
+                href="/dashboard" className="btn-glow-accent w-full border-[var(--custom-border-primary)]"
               >
                 Sign In
-              </Button>
+              </Link>
             </form>
 
             <div className="text-center pt-4 border-t border-[var(--custom-border-primary)]">
