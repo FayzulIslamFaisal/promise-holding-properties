@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
+import Link from 'next/link';
 
-export interface Project {
+ interface Project {
   id: string;
   title: string;
   location: string;
   category: 'Running' | 'Upcoming' | 'Complete';
   image: string;
+  slug: string;
 }
 
 interface ProjectCardProps {
@@ -31,6 +33,7 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
   const badgeClass = getBadgeClass(project.category);
 
   return (
+    <Link href={`/project-details/${project.slug}`}>
     <motion.div
       className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
       whileHover={{ scale: 1.02 }}
@@ -74,6 +77,7 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
         style={{ pointerEvents: 'none' }}
       />
     </motion.div>
+    </Link>
   );
 };
 

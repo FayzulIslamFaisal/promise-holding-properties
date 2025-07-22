@@ -19,12 +19,14 @@ interface Project {
   location: string;
   category: 'Running' | 'Upcoming' | 'Complete';
   image: string;
+  slug: string
 }
 
 const mockProjects: Project[] = [
   {
     id: '1',
     title: 'Nexus Corporate Tower',
+    slug: 'nexus-corporate-tower',
     location: 'New York, NY',
     category: 'Running',
     image: "/assets/images/projects/project1.jpg",
@@ -32,6 +34,7 @@ const mockProjects: Project[] = [
   {
     id: '2',
     title: 'Innovation Hub Office',
+    slug: 'innovation-hub-office',
     location: 'San Francisco, CA',
     category: 'Complete',
     image: "/assets/images/projects/project2.jpg",
@@ -39,6 +42,7 @@ const mockProjects: Project[] = [
   {
     id: '3',
     title: 'Skyline Residences',
+    slug: 'skyline-residences',
     location: 'Miami, FL',
     category: 'Upcoming',
     image: "/assets/images/projects/project3.jpg",
@@ -46,6 +50,7 @@ const mockProjects: Project[] = [
   {
     id: '4',
     title: 'Metro Shopping Center',
+    slug: 'metro-shopping-center',
     location: 'Los Angeles, CA',
     category: 'Running',
     image: "/assets/images/projects/project4.jpg",
@@ -53,6 +58,7 @@ const mockProjects: Project[] = [
   {
     id: '5',
     title: 'Green Valley Homes',
+    slug: 'green-valley-homes',
     location: 'Austin, TX',
     category: 'Complete',
     image: "/assets/images/projects/project5.jpeg",
@@ -60,6 +66,7 @@ const mockProjects: Project[] = [
   {
     id: '6',
     title: 'Tech Campus Plaza',
+    slug: 'tech-campus-plaza',
     location: 'Seattle, WA',
     category: 'Upcoming',
     image: "/assets/images/projects/project6.jpg",
@@ -67,6 +74,7 @@ const mockProjects: Project[] = [
   {
     id: '7',
     title: 'Harbor View Condos',
+    slug: 'harbor-view-condos',
     location: 'Boston, MA',
     category: 'Running',
     image: "/assets/images/projects/project7.jpg",
@@ -74,6 +82,7 @@ const mockProjects: Project[] = [
   {
     id: '8',
     title: 'Crystal Lake Villas',
+    slug: 'crystal-lake-villas',
     location: 'Denver, CO',
     category: 'Upcoming',
     image: "/assets/images/projects/project8.jpg",
@@ -81,6 +90,7 @@ const mockProjects: Project[] = [
   {
     id: '9',
     title: 'Sunset Business Park',
+    slug: 'sunset-business-park',
     location: 'Phoenix, AZ',
     category: 'Complete',
     image: "/assets/images/projects/project9.jpg",
@@ -88,6 +98,7 @@ const mockProjects: Project[] = [
   {
     id: '10',
     title: 'Riverfront Towers',
+    slug: 'riverfront-towers',
     location: 'Chicago, IL',
     category: 'Running',
     image: "/assets/images/projects/project10.jpg",
@@ -95,6 +106,7 @@ const mockProjects: Project[] = [
   {
     id: '11',
     title: 'Urban Heights Complex',
+    slug: 'urban-heights-complex',
     location: 'Philadelphia, PA',
     category: 'Upcoming',
     image: "/assets/images/projects/project11.jpg",
@@ -102,6 +114,7 @@ const mockProjects: Project[] = [
   {
     id: '12',
     title: 'Maplewood Townhomes',
+    slug: 'maplewood-townhomes',
     location: 'Nashville, TN',
     category: 'Complete',
     image: "/assets/images/projects/project12.jpg",
@@ -109,6 +122,7 @@ const mockProjects: Project[] = [
   {
     id: '13',
     title: 'Pinecrest Corporate Campus',
+    slug: 'pinecrest-corporate-campus',
     location: 'Charlotte, NC',
     category: 'Running',
     image: "/assets/images/projects/project13.jpg",
@@ -116,6 +130,7 @@ const mockProjects: Project[] = [
   {
     id: '14',
     title: 'Coastal Business Hub',
+    slug: 'coastal-business-hub',
     location: 'Tampa, FL',
     category: 'Upcoming',
     image: "/assets/images/projects/project14.jpg",
@@ -123,6 +138,7 @@ const mockProjects: Project[] = [
   {
     id: '15',
     title: 'Lakeside Shopping Mall',
+    slug: 'lakeside-shopping-mall',
     location: 'Orlando, FL',
     category: 'Complete',
     image: "/assets/images/projects/project15.jpg",
