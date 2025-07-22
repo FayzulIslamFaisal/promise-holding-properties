@@ -17,7 +17,7 @@ interface ProjectCardProps {
 const getBadgeClass = (category: Project['category']) => {
   switch (category) {
     case 'Running':
-      return 'bg-red-500 text-white';
+      return 'bg-yellow-500 text-white';
     case 'Upcoming':
       return 'bg-blue-500 text-white';
     case 'Complete':

@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Play } from 'lucide-react'
 import Image from 'next/image'
-import ProjectVideoModal from './ProjectVideoModal'
+// import ProjectVideoModal from './ProjectVideoModal'
 
 const ProjectVideoThumbnail = () => {
-  const [open, setOpen] = useState(false)
+  // const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -20,7 +20,7 @@ const ProjectVideoThumbnail = () => {
 
           <div
             className="relative w-full h-[300px] md:h-[500px] rounded-lg cursor-pointer border border-[var(--custom-border-primary)] overflow-hidden shadow-2xl group"
-            onClick={() => setOpen(true)}
+            // onClick={() => setOpen(true)}
           >
             <Image
               src="/assets/images/slider/banner1.png"
@@ -49,11 +49,11 @@ const ProjectVideoThumbnail = () => {
           </div>
         </div>
       </section>
-      {
+      {/* {
         open && (
           <ProjectVideoModal open={open} onOpenChange={setOpen} />
         )
-      }
+      } */}
     </>
   )
 }
