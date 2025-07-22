@@ -1,5 +1,3 @@
-
-
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
@@ -16,28 +14,27 @@ interface ProjectCardProps {
   project: Project;
 }
 
-const getBadgeVariant = (category: Project['category']) => {
+const getBadgeClass = (category: Project['category']) => {
   switch (category) {
     case 'Running':
-      return 'running';
+      return 'bg-red-500 text-white';
     case 'Upcoming':
-      return 'upcoming';
+      return 'bg-blue-500 text-white';
     case 'Complete':
-      return 'complete';
+      return 'bg-green-500 text-white';
     default:
-      return 'secondary';
+      return 'bg-gray-500 text-white';
   }
 };
 
 const ProjectTabCard = ({ project }: ProjectCardProps) => {
+  const badgeClass = getBadgeClass(project.category);
+
   return (
     <motion.div
       className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
       whileHover={{ scale: 1.02 }}
-      transition={{
-        duration: 0.3,
-        ease: "easeOut"
-      }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Background Image */}
       <div 
@@ -49,19 +46,18 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
       
       {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-between  text-[var(--custom-text-white)]">
+      <div className="absolute inset-0 flex flex-col justify-between text-[var(--custom-text-white)]">
         {/* Top: Category Badge */}
-        <div className="flex justify-start pt-6 ps-6 ">
+        <div className="flex justify-start pt-6 ps-6">
           <Badge 
-            variant={getBadgeVariant(project.category)}
-            className="px-3 py-1.5 text-sm font-medium rounded-full shadow-xl bg-[var(--custom-bg-accent)]/80 text-[var(--custom-text-white)]"
+            className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl ${badgeClass}`}
           >
             {project.category} Project
           </Badge>
         </div>
         
         {/* Bottom: Project Info */}
-        <div className="space-y-3 bg-[var(--custom-bg-accent)]/30 backdrop-blur-4xl p-4 rounded-lg   ">
+        <div className="space-y-3 bg-[var(--custom-bg-accent)]/30 backdrop-blur-4xl p-4 rounded-lg">
           <h3 className="text-2xl font-bold leading-tight">
             {project.title}
           </h3>
@@ -80,4 +76,5 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
     </motion.div>
   );
 };
-export default ProjectTabCard
+
+export default ProjectTabCard;

@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import {
@@ -10,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import ReactPlayer from "react-player";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface VideoModalProps {
   open: boolean;
@@ -18,7 +16,7 @@ interface VideoModalProps {
 }
 
 const ProjectVideoModal = ({ open, onOpenChange }: VideoModalProps) => {
-  const playerRef = useRef<ReactPlayer>(null);
+  const playerRef = useRef<InstanceType<typeof ReactPlayer> | null>(null);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -38,25 +36,25 @@ const ProjectVideoModal = ({ open, onOpenChange }: VideoModalProps) => {
         <DialogHeader>
           <DialogTitle>Video Preview</DialogTitle>
         </DialogHeader>
-        
+
         <div className="w-full aspect-video mt-4">
           {isClient && (
             <ReactPlayer
               ref={playerRef}
-              url={`https://www.youtube.com/embed/pPl3ZZdTP3g?si=l2WFKR34nQ1bXrKz`}
+              url="https://www.youtube.com/embed/pPl3ZZdTP3g?si=l2WFKR34nQ1bXrKz"
               width="100%"
               height="100%"
-              controls={true}
+              controls
               playing={open}
               playsinline
               config={{
                 youtube: {
-                  playerVars: { 
+                  playerVars: {
                     autoplay: 1,
                     modestbranding: 1,
-                    rel: 0
-                  }
-                }
+                    rel: 0,
+                  },
+                },
               }}
             />
           )}
@@ -67,6 +65,3 @@ const ProjectVideoModal = ({ open, onOpenChange }: VideoModalProps) => {
 };
 
 export default ProjectVideoModal;
-
-
-

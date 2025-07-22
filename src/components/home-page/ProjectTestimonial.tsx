@@ -2,7 +2,7 @@
 // "use client";
 
 // import { ArrowLeft, ArrowRight } from "lucide-react";
-// import { motion, AnimatePresence } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { useEffect, useState } from "react";
 // import Image from "next/image";
 
@@ -54,6 +54,12 @@
 //     },
 //   ];
 
+//   // Fixed rotations for each testimonial to prevent hydration mismatch
+//   const getRotationForIndex = (index: number) => {
+//     const rotations = [-8, 5, -3, 7, -10]; 
+//     return rotations[index] || 0;
+//   };
+
 //   const handleNext = () => {
 //     setActive((prev) => (prev + 1) % testimonials.length);
 //   };
@@ -66,12 +72,10 @@
 
 //   useEffect(() => {
 //     if (autoplay) {
-//       const interval = setInterval(handleNext, 3000); 
+//       const interval = setInterval(handleNext, 3000);
 //       return () => clearInterval(interval);
 //     }
-//   }, [autoplay]);
-
-//   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
+//   }, [autoplay, handleNext, testimonials.length]);
 
 //   return (
 //     <section className="px-4 bg-custom-bg-body">
@@ -90,69 +94,56 @@
 //         <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2 py-6">
 //           {/* Image Stack */}
 //           <div className="relative h-80 w-full group">
-//             <AnimatePresence>
-//               {testimonials.map((testimonial, index) => (
-//                 <motion.div
-//                   key={testimonial.src}
-//                   initial={{
-//                     opacity: 0,
-//                     scale: 0.9,
-//                     z: -100,
-//                     rotate: randomRotateY(),
-//                   }}
-//                   animate={{
-//                     opacity: isActive(index) ? 1 : 0.7,
-//                     scale: isActive(index) ? 1 : 0.95,
-//                     z: isActive(index) ? 0 : -100,
-//                     rotate: isActive(index) ? 0 : randomRotateY(),
-//                     zIndex: isActive(index)
-//                       ? 40
-//                       : testimonials.length + 2 - index,
-//                     y: isActive(index) ? [0, -80, 0] : 0,
-//                   }}
-//                   exit={{
-//                     opacity: 0,
-//                     scale: 0.9,
-//                     z: 100,
-//                     rotate: randomRotateY(),
-//                   }}
-//                   transition={{
-//                     duration: 0.4,
-//                     ease: "easeInOut",
-//                   }}
-//                   className="absolute inset-0 origin-bottom"
-//                 >
-//                   <div className="relative h-full w-full rounded-2xl overflow-hidden">
-//                     <Image
-//                       src={testimonial.src}
-//                       fill
-//                       alt={testimonial.name}
-//                       draggable={false}
-//                       className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+//             {testimonials.map((testimonial, index) => (
+//               <motion.div
+//                 key={testimonial.src}
+//                 initial={{
+//                   opacity: 0,
+//                   scale: 0.9,
+//                   rotate: getRotationForIndex(index),
+//                 }}
+//                 animate={{
+//                   opacity: isActive(index) ? 1 : 0.7,
+//                   scale: isActive(index) ? 1 : 0.95,
+//                   rotate: isActive(index) ? 0 : getRotationForIndex(index),
+//                   zIndex: isActive(index)
+//                     ? 40
+//                     : testimonials.length + 2 - index,
+//                 }}
+//                 transition={{
+//                   duration: 0.4,
+//                   ease: "easeInOut",
+//                 }}
+//                 className="absolute inset-0 origin-bottom"
+//               >
+//                 <div className="relative h-full w-full rounded-2xl overflow-hidden">
+//                   <Image
+//                     src={testimonial.src}
+//                     fill
+//                     alt={testimonial.name}
+//                     draggable={false}
+//                     className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+//                   />
+//                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/60 via-transparent to-[var(--custom-bg-white)]" />
+//                   {isActive(index) && (
+//                     <motion.div 
+//                       className="absolute inset-0 border-2 border-[var(--custom-bg-accent)] rounded-2xl"
+//                       initial={{ opacity: 0 }}
+//                       animate={{ opacity: 1 }}
+//                       transition={{ duration: 0.3 }}
 //                     />
-//                     {/* Gradient overlay for better contrast */}
-//                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/60 via-transparent to-[var(--custom-bg-white)]" />
-//                     {/* Golden border for active image */}
-//                     {isActive(index) && (
-//                       <motion.div 
-//                         className="absolute inset-0 border-2 border-[var(--custom-bg-accent)] rounded-2xl"
-//                         initial={{ opacity: 0 }}
-//                         animate={{ opacity: 1 }}
-//                         transition={{ duration: 0.3 }}
-//                       />
-//                     )}
-//                   </div>
-//                 </motion.div>
-//               ))}
-//             </AnimatePresence>
+//                   )}
+//                 </div>
+//               </motion.div>
+//             ))}
             
 //             {/* Floating indicator dots */}
-//             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
+//             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-40">
 //               {testimonials.map((_, index) => (
 //                 <button
 //                   key={index}
 //                   onClick={() => setActive(index)}
-//                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
+//                   className={`w-4 h-4 cursor-pointer rounded-full transition-all duration-300 ${
 //                     isActive(index) 
 //                       ? 'bg-[var(--custom-bg-accent)] scale-125' 
 //                       : 'bg-[var(--custom-bg-white)]/80 hover:bg-[var(--custom-bg-white)]'
@@ -166,13 +157,11 @@
 //           <div className="flex flex-col justify-between py-4">
 //             <motion.div
 //               key={active}
-//               initial={{ y: 20, opacity: 0 }}
-//               animate={{ y: 0, opacity: 1 }}
-//               exit={{ y: -20, opacity: 0 }}
-//               transition={{ duration: 0.2, ease: "easeInOut" }}
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               transition={{ duration: 0.4, ease: "easeInOut" }}
 //               className="space-y-6"
 //             >
-//               {/* Quote icon */}
 //               <motion.div 
 //                 className="text-6xl text-[var(--custom-text-primary)]/60 font-serif leading-none"
 //                 initial={{ scale: 0 }}
@@ -182,34 +171,15 @@
 //                 &ldquo;
 //               </motion.div>
               
-//               {/* Quote text with word-by-word animation */}
-//               <motion.p className="text-lg leading-relaxed text-[var(--custom-text-white)]">
-//                 {testimonials[active].quote.split(" ").map((word, index) => (
-//                   <motion.span
-//                     key={index}
-//                     initial={{
-//                       filter: "blur(10px)",
-//                       opacity: 0,
-//                       y: 5,
-//                     }}
-//                     animate={{
-//                       filter: "blur(0px)",
-//                       opacity: 1,
-//                       y: 0,
-//                     }}
-//                     transition={{
-//                       duration: 0.2,
-//                       ease: "easeInOut",
-//                       delay: 0.02 * index,
-//                     }}
-//                     className="inline-block"
-//                   >
-//                     {word}&nbsp;
-//                   </motion.span>
-//                 ))}
+//               <motion.p 
+//                 className="text-lg leading-relaxed text-[var(--custom-text-white)]"
+//                 initial={{ opacity: 0 }}
+//                 animate={{ opacity: 1 }}
+//                 transition={{ duration: 0.4, delay: 0.1 }}
+//               >
+//                 {testimonials[active].quote}
 //               </motion.p>
               
-//               {/* Author info */}
 //               <div className="space-y-2">
 //                 <motion.h3 
 //                   className="text-2xl font-bold text-[var(--custom-text-white)]"
@@ -236,7 +206,7 @@
 //                 onClick={handlePrev}
 //                 whileHover={{ scale: 1.1 }}
 //                 whileTap={{ scale: 0.95 }}
-//                 className="group/button flex h-12 w-12 items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
+//                 className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
 //               >
 //                 <ArrowLeft className="h-5 w-5 text-[var(--custom-bg-white)] transition-all duration-300 group-hover/button:text-[var(--custom-text-white)] group-hover/button:-translate-x-0.5" />
 //               </motion.button>
@@ -244,7 +214,7 @@
 //                 onClick={handleNext}
 //                 whileHover={{ scale: 1.1 }}
 //                 whileTap={{ scale: 0.95 }}
-//                 className="group/button flex h-12 w-12 items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
+//                 className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--custom-border-primary)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/30 transition-all duration-300 hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
 //               >
 //                 <ArrowRight className="h-5 w-5 text-[var(--custom-bg-white)] transition-all duration-300 group-hover/button:text-[var(--custom-text-white)] group-hover/button:translate-x-0.5" />
 //               </motion.button>
@@ -332,10 +302,11 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
 
   useEffect(() => {
     if (autoplay) {
-      const interval = setInterval(handleNext, 3000);
+      const next = () => setActive((prev) => (prev + 1) % testimonials.length);
+      const interval = setInterval(next, 3000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, testimonials.length]);
 
   return (
     <section className="px-4 bg-custom-bg-body">

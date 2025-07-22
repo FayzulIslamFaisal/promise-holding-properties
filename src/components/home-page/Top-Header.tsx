@@ -10,7 +10,7 @@ const TopHeader = () => {
           <p><PhoneOutgoing className="inline-block mr-1" /> 09647 444 444</p>
         </div>
         <div>
-          <Button variant="unstyled" className="btn-glow-accent">
+          <Button variant="default" className="btn-glow-accent">
             <BellRing className="w-4 h-4 animate-pulse" />
             Get a Quote
         </Button>

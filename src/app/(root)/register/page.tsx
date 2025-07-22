@@ -75,7 +75,6 @@ const RegisterPage = () => {
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     className="pl-10 bg-[var(--custom-bg-white)]/50 border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-[var(--custom-text-primary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
-                    
                   />
                 </div>
               </div>
@@ -96,7 +95,6 @@ const RegisterPage = () => {
                     value={formData.phoneNumber}
                     onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                     className="pl-10 bg-[var(--custom-bg-white)]/50 border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-[var(--custom-text-primary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
-                    
                   />
                 </div>
               </div>
@@ -117,7 +115,6 @@ const RegisterPage = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     className="pl-10 bg-[var(--custom-bg-white)]/50 border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-[var(--custom-text-primary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
-                    
                   />
                 </div>
               </div>
@@ -166,7 +163,6 @@ const RegisterPage = () => {
                     value={formData.confirmPassword}
                     onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                     className="pl-10 pr-10 bg-[var(--custom-bg-white)]/50 border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] placeholder:text-[var(--custom-text-primary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300"
-                    
                   />
                   <button
                     type="button"
@@ -182,7 +178,10 @@ const RegisterPage = () => {
                 <Label htmlFor="gender" className="text-[var(--custom-text-secondary)] font-medium">
                   Gender
                 </Label>
-                <Select value={formData.gender} className="w-full" onValueChange={(value) => handleInputChange('gender', value)}>
+                <Select 
+                  value={formData.gender} 
+                  onValueChange={(value) => handleInputChange('gender', value)}
+                >
                   <SelectTrigger className="bg-[var(--custom-bg-white)]/50 w-full border-[var(--custom-border-primary)] text-[var(--custom-text-secondary)] focus:bg-[var(--custom-bg-white)]/30 transition-all duration-300">
                     <SelectValue placeholder="Select your gender" />
                   </SelectTrigger>
@@ -197,10 +196,11 @@ const RegisterPage = () => {
 
               <Button
                 type="submit"
-                variant="unstyled" className="btn-glow-accent w-full border-[var(--custom-border-primary)]"
-            >
+                variant="default" 
+                className="btn-glow-accent w-full border-[var(--custom-border-primary)]"
+              >
                 Create Account
-            </Button>
+              </Button>
             </form>
 
             <div className="text-center pt-4 border-t border-[var(--custom-border-primary)]">

@@ -29,7 +29,7 @@ const NavMenuItem = () => {
         </Link>
         ))}
       </nav>
-      <Button variant="unstyled" className="btn-glow-accent">
+      <Button variant="default" className="btn-glow-accent">
         <LogIn className="mr-2 animate-pulse" /> Login
       </Button>
     </div>
