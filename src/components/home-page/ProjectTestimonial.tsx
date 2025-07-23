@@ -345,9 +345,9 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
                   duration: 0.4,
                   ease: "easeInOut",
                 }}
-                className="absolute inset-0 origin-bottom"
+                className="absolute inset-2 origin-bottom"
               >
-                <div className="relative h-full w-full rounded-2xl overflow-hidden">
+                <div className="relative h-full w-full rounded-2xl overflow-hidden mx-4">
                   <Image
                     src={testimonial.src}
                     fill
@@ -391,10 +391,10 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="space-y-6"
+              className="space-y-4"
             >
               <motion.div 
-                className="text-6xl text-[var(--custom-text-primary)]/60 font-serif leading-none"
+                className="text-6xl text-[var(--custom-text-primary)]/60 font-serif mb-0 pb-0"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
