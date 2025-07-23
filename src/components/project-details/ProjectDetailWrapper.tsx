@@ -1,22 +1,76 @@
+import { Laptop,
+  Utensils,
+  DoorOpen,
+  Camera,
+  ShieldCheck,
+  ParkingCircle,
+  Church,
+  Waves,
+  Dumbbell,
+  Baby, } from "lucide-react";
+import ProjectBanner from "./ProjectBanner";
+import { ProjectFeature } from "./ProjectFeature";
+import ProjectInfo from "./ProjectInfo";
+
 // components/project-details/ProjectDetailWrapper.tsx
-import Image from "next/image";
 interface ProjectDetailWrapperProps {
   slug: string;
 }
+interface Project {
+  title: string;
+  icon: React.ReactNode;
+}
 const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
     console.log("Project slug:", slug);
+
+  const projects: Project[] = [
+   {
+    icon: <Laptop className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "IT Support",
+  },
+  {
+    icon: <Utensils className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Kitchen",
+  },
+  {
+    icon: <DoorOpen className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Emergency Exit",
+  },
+  {
+    icon: <Camera className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "CCTV",
+  },
+  {
+    icon: <ShieldCheck className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Security",
+  },
+  {
+    icon: <ParkingCircle className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Parking",
+  },
+  {
+    icon: <Church className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Prayer Space",
+  },
+  {
+    icon: <Waves className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Swimming Pool",
+  },
+  {
+    icon: <Dumbbell className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Gymnasium",
+  },
+  {
+    icon: <Baby className="w-10 h-10 text-[var(--custom-text-secondary)]" />,
+    title: "Children's Play Area",
+  },
+  ]
   return (
-    <div className="mb-14">
-      <div className="w-full h-[calc(100vh-120px)] relative">
-        <Image
-          src={`/assets/images/slider/banner11.png`}
-          alt={slug}
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20" />
-      </div>
-    </div>
+    <>
+      <ProjectBanner slug={slug} />
+      <ProjectInfo />
+      <ProjectFeature items={projects}/>
+    </>
   )
 }
 
