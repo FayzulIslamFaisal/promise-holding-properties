@@ -11,6 +11,7 @@ import { Laptop,
 import ProjectBanner from "./ProjectBanner";
 import { ProjectFeature } from "./ProjectFeature";
 import ProjectInfo from "./ProjectInfo";
+import ImageGallery from "./ImageGallery";
 
 // components/project-details/ProjectDetailWrapper.tsx
 interface ProjectDetailWrapperProps {
@@ -70,6 +71,7 @@ const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
       <ProjectBanner slug={slug} />
       <ProjectInfo />
       <ProjectFeature items={projects}/>
+      <ImageGallery />
     </>
   )
 }
