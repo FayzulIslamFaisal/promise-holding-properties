@@ -96,7 +96,7 @@ const ProjectInfo = ({
 
     <section className="px-4">
       <div className="container mx-auto">
-        <div className="grid col-span-1 lg:grid-cols-2 gap-6 pt-14 pb-14">
+        <div className="grid col-span-1 lg:grid-cols-2 gap-6 pt-10 pb-10 md:pb-14 md:pt-14">
           {/* Left Side - Image */}
           <div className="relative overflow-hidden rounded-xl group h-[500px] lg:h-full">
             <div className="absolute inset-0 bg-[var(--custom-bg-accent)]/20 rounded-xl group-hover:bg-[var(--custom-bg-accent)]/10 transition-opacity duration-700 z-10" />

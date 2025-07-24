@@ -21,7 +21,7 @@ export const ProjectFeature = ({
 
   return (
     <section className="px-4 ">
-    <div className="container mx-auto pt-12 pb-14 border-t border-b border-[var(--custom-bg-accent)]/40">
+    <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14 border-t border-b border-[var(--custom-bg-accent)]/40">
         <div className="pb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold capitalize text-[var(--custom-bg-white)]">
                 Features

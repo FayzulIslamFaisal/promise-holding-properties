@@ -12,7 +12,7 @@ const ProjectBanner = ({ slug }: ProjectDetailWrapperProps) => {
     visible: { opacity: 1, y: 0 },
   }
   return (
-    <div className="pb-14 border-b border-[var(--custom-bg-accent)]/40">
+    <div className="pb-10 md:pb-14 border-b border-[var(--custom-bg-accent)]/40">
       <div className="w-full h-[calc(100vh-230px)] relative overflow-hidden">
         <video
           src="https://vrbn.io/wp-content/uploads/2022/11/LandingPage_Reel_Website_v006.mp4" 
