@@ -76,7 +76,7 @@ const ProjectLocationMap = () => {
   });
 
   return (
-    <section>
+    <section className="pt-10 pb-10 md:pb-14 md:pt-14 border-b border-[var(--custom-bg-accent)]/40 mb-10">
       <div className="mx-auto w-full">
         <div className="w-full relative md:h-[600px] h-[300px] overflow-hidden">
           <MapContainer
