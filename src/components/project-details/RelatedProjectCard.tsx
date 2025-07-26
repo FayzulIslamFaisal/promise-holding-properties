@@ -65,7 +65,7 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
           <h3 className="text-2xl font-bold leading-tight">
             {project.title}
           </h3>
-          <div className="flex items-center space-x-2 text-white/90">
+          <div className="flex items-center space-x-2 text-[var(--custom-text-white)]/90">
             <MapPin size={16} />
             <span className="text-sm font-medium">{project.location}</span>
           </div>
