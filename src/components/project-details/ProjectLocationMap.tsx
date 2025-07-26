@@ -3,38 +3,72 @@
 
 import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
-import type { Icon } from 'leaflet';
+import type { MapContainerProps, TileLayerProps, MarkerProps, PopupProps } from 'react-leaflet';
+import type { Icon, IconOptions } from 'leaflet';
+
+// Type for the icon prototype fix
+interface IconDefaultPrototype {
+  _getIconUrl?: string;
+}
 
 const ProjectLocationMap = () => {
   const [MapComponents, setMapComponents] = useState<{
-    MapContainer: any;
-    TileLayer: any;
-    Marker: any;
-    Popup: any;
-    Icon: typeof Icon;
+    MapContainer: React.ComponentType<MapContainerProps>;
+    TileLayer: React.ComponentType<TileLayerProps>;
+    Marker: React.ComponentType<MarkerProps>;
+    Popup: React.ComponentType<PopupProps>;
+  } | null>(null);
+
+  const [Leaflet, setLeaflet] = useState<{
+    Icon: new (options: IconOptions) => Icon;
+    IconDefault: {
+      prototype: IconDefaultPrototype;
+      mergeOptions: (options: IconOptions) => void;
+    };
   } | null>(null);
 
   useEffect(() => {
     (async () => {
-      // Dynamically import both react-leaflet and leaflet
       const L = await import('leaflet');
-      const { MapContainer, TileLayer, Marker, Popup } = await import('react-leaflet');
+      const RL = await import('react-leaflet');
       
-      // Fix for default marker icons
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
-      L.Icon.Default.mergeOptions({
+      // Type-safe fix for default marker icons
+      const iconDefault = L.Icon.Default as unknown as {
+        prototype: IconDefaultPrototype;
+        mergeOptions: (options: IconOptions) => void;
+      };
+      
+      delete iconDefault.prototype._getIconUrl;
+      iconDefault.mergeOptions({
         iconRetinaUrl: '/marker-icon-2x.png',
         iconUrl: '/marker-icon.png',
         shadowUrl: '/marker-shadow.png',
       });
 
-      setMapComponents({ MapContainer, TileLayer, Marker, Popup, Icon: L.Icon });
+      setMapComponents({
+        MapContainer: RL.MapContainer,
+        TileLayer: RL.TileLayer,
+        Marker: RL.Marker,
+        Popup: RL.Popup
+      });
+      setLeaflet({ 
+        Icon: L.Icon,
+        IconDefault: iconDefault
+      });
     })();
   }, []);
 
-  if (!MapComponents) return <div className="h-[300px] md:h-[600px] flex items-center justify-center">Loading map...</div>;
+  if (!MapComponents || !Leaflet) {
+    return (
+      <div className="h-[300px] md:h-[600px] flex items-center justify-center">
+        Loading map...
+      </div>
+    );
+  }
 
-  const { MapContainer, TileLayer, Marker, Popup, Icon } = MapComponents;
+  const { MapContainer, TileLayer, Marker, Popup } = MapComponents;
+  const { Icon } = Leaflet;
+
   const customIcon = new Icon({
     iconUrl: '/marker-icon.png',
     iconSize: [25, 41],
