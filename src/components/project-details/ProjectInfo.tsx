@@ -160,14 +160,14 @@ const ProjectInfo = ({
               </div>
 
               {/* CTA Section */}
-              <div className="pt-2 flex justify-center " >
+              {/* <div className="pt-2 flex justify-center " >
                 <Link href={`#`} className="btn-glow-accent bg-[var(--custom-bg-primary)] w-full sm:w-1/2 flex justify-center">
                   <span className="flex items-center gap-2 justify-center">
                     Learn More
                     <MoveRight className="animate-pulse" />
                   </span>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </Card>
         </div>
