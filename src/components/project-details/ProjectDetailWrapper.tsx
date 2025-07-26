@@ -20,11 +20,13 @@ import { Laptop,
 
 import dynamic from 'next/dynamic';
 import ProjectInfo from "./ProjectInfo";
+// import RelatedProject from "./RelatedProject";
 const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
 const ProjectBanner = dynamic(() => import('./ProjectBanner'));
 const ProjectFeature = dynamic(() => import('./ProjectFeature'));
 const BuildingDrawingSlider = dynamic(() => import('./BuildingDrawingSlider'));
 const ImageGallery = dynamic(() => import('./ImageGallery'));
+const RelatedProject = dynamic(() => import('./RelatedProject'));
 
 
 interface ProjectDetailWrapperProps {
@@ -87,6 +89,7 @@ const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
       <BuildingDrawingSlider />
       <ImageGallery />
       <ProjectLocationMap />
+      <RelatedProject />
     </>
   )
 }

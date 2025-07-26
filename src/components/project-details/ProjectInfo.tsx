@@ -8,11 +8,11 @@ import {
   Car,
   ArrowUpDown,
   Users,
-  MoveRight,
+  // MoveRight,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 interface PropertyDetail {
   icon: React.ReactNode;

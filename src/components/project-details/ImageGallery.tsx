@@ -46,7 +46,7 @@ const ImageGallery=()=> {
   return (
     <section className="px-4">
       <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14 border-b border-[var(--custom-bg-accent)]/40">
-        <h1 className="text-3xl font-bold mb-10 text-white">Image Gallery</h1>
+        <h1 className="text-3xl font-bold mb-10 text-[var(--custom-text-white)]">Image Gallery</h1>
 
         <Swiper
           spaceBetween={10}
