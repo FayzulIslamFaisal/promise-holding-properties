@@ -10,6 +10,8 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 
 import RelatedProjectCard from './RelatedProjectCard';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -148,7 +150,21 @@ const RelatedProject = () => {
     <div>
       <section className="px-4">
         <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14">
-          <h2 className="text-3xl font-bold mb-10 text-[var(--custom-text-white)]">Related Projects</h2>
+          <div className="mb-6 lg:mb-10 flex items-center justify-between">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--custom-text-white)]">
+            Related Projects
+          </h2>
+          <div className="">
+            <Link
+              href="#"
+              className="btn-glow-accent flex items-center gap-2"
+            >
+              <span>View All</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 animate-pulse" />
+            </Link>
+          </div>
+          
+        </div>
           {/* Project Swiper */}
 
             <Swiper
