@@ -1,3 +1,5 @@
+
+// components/project-details/ProjectDetailWrapper.tsx
 import { Laptop,
   Utensils,
   DoorOpen,
@@ -8,13 +10,23 @@ import { Laptop,
   Waves,
   Dumbbell,
   Baby, } from "lucide-react";
-import ProjectBanner from "./ProjectBanner";
-import { ProjectFeature } from "./ProjectFeature";
-import ProjectInfo from "./ProjectInfo";
-import ImageGallery from "./ImageGallery";
-import BuildingDrawingSlider from "./BuildingDrawingSlider";
 
-// components/project-details/ProjectDetailWrapper.tsx
+
+// import ProjectLocationMap from "./ProjectLocationMap";
+// import ProjectBanner from "./ProjectBanner";
+// import ProjectFeature from "./ProjectFeature";
+// import BuildingDrawingSlider from "./BuildingDrawingSlider";
+// import ImageGallery from "./ImageGallery";
+
+import dynamic from 'next/dynamic';
+import ProjectInfo from "./ProjectInfo";
+const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
+const ProjectBanner = dynamic(() => import('./ProjectBanner'));
+const ProjectFeature = dynamic(() => import('./ProjectFeature'));
+const BuildingDrawingSlider = dynamic(() => import('./BuildingDrawingSlider'));
+const ImageGallery = dynamic(() => import('./ImageGallery'));
+
+
 interface ProjectDetailWrapperProps {
   slug: string;
 }
@@ -74,6 +86,7 @@ const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
       <ProjectFeature items={projects}/>
       <BuildingDrawingSlider />
       <ImageGallery />
+      <ProjectLocationMap />
     </>
   )
 }

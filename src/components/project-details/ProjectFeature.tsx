@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 import type React from "react"
 
-export const ProjectFeature = ({
+const ProjectFeature = ({
   items,
   className,
 }: {
@@ -63,6 +63,7 @@ export const ProjectFeature = ({
     </section>
   )
 }
+export default ProjectFeature;
 
 const Card = ({
   className,

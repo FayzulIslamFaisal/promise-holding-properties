@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -30,7 +29,7 @@ const imagesGalleryItems: ImageGalleryItem[] = [
   { id: 8, src: "/assets/images/projects/project9.jpg", alt: "Gallery Image 8" },
 ];
 
-export default function ImageGallery() {
+const ImageGallery=()=> {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -102,3 +101,4 @@ export default function ImageGallery() {
     </section>
   );
 }
+export default ImageGallery;
