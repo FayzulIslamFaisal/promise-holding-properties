@@ -113,7 +113,7 @@ const insightsData = [
 ];
 
 
-export const InsightsSection: React.FC = () => {
+const InsightsSection: React.FC = () => {
   return (
     <section className="px-4">
       <div className="container mx-auto py-14">
@@ -165,3 +165,4 @@ export const InsightsSection: React.FC = () => {
     </section>
   );
 };
+export default InsightsSection;
