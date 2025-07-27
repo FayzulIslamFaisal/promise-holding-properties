@@ -4,6 +4,7 @@ import "./globals.css";
 import HeaderSection from "@/components/home-page/Header-section";
 import FooterSection from "@/components/home-page/Footer-section";
 import CompanyFeatures from "@/components/home-page/CompanyFeatures";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,6 +36,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-slate-900`}
       >
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+        >
         <header>
           <HeaderSection />
         </header>
@@ -47,7 +54,7 @@ export default function RootLayout({
           <FooterSection />
           </>
         </footer>
-
+        </ThemeProvider>
       </body>
     </html>
   );

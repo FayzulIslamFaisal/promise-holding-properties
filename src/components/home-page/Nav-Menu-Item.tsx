@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "../ui/button"
 import { LogIn } from "lucide-react"
+import ModeToggle from "../ModeToggle";
 
 
 const NavMenuItem = () => {
@@ -29,9 +30,13 @@ const NavMenuItem = () => {
         </Link>
         ))}
       </nav>
-      <Button variant="default" className="btn-glow-accent">
-        <LogIn className="mr-2 animate-pulse" /> Login
-      </Button>
+      <div className=" flex items-center gap-4">
+        <ModeToggle />
+        <Button variant="default" className="btn-glow-accent">
+          <LogIn className="mr-2 animate-pulse" /> Login
+        </Button>
+      </div>
+      
     </div>
   )
 }
