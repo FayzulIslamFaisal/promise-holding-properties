@@ -76,7 +76,20 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
-  --custom-body-bg: #fff;
+
+
+  --custom-text-primary:oklch(72.95% 0.110 85.13);
+  --custom-text-secondary:oklch(23.00% 0.004 106.69);
+  --custom-text-black:oklch(0.00% 0.000 0);
+  --custom-text-white: oklch(100.00% 0.000 0);
+
+  --custom-bg-primary: oklch(23.00% 0.004 106.69);  
+  --custom-bg-accent:oklch(72.95% 0.110 85.13);
+  --custom-bg-body:oklch(22.64% 0.000 0);
+  --custom-bg-white:oklch(100.00% 0.000 0);
+  --custom-bg-black:oklch(0.00% 0.000 0);
+  --custom-border-primary: oklch(100% 0 none / 30%);
+
 }
 
 .dark {
@@ -111,7 +124,15 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
-  --custom-body-bg: #1f2a3d;
+
+
+  --custom-bg-body: oklch(100.00% 0.000 0);
+  --custom-text-black:oklch(100.00% 0.000 0);
+  --custom-text-white: oklch(0.00% 0.000 0);
+
+  --custom-bg-white:oklch(0.00% 0.000 0);
+  --custom-bg-black:oklch(100.00% 0.000 0);
+  
 }
 
 @layer base {
@@ -143,7 +164,7 @@ body.dark {
 body.light {
   background: var(--custom-bg-body);
 }
-@theme {
+/* @theme {
   --custom-text-primary: #c7a250;
   --custom-text-secondary: #1d1d1b;
   --custom-text-black: #000;
@@ -155,7 +176,7 @@ body.light {
   --custom-bg-white: #fff;
   --custom-bg-black: #000;
   --custom-border-primary: #ffffff4d;
-}
+} */
 
 @layer components {
   .btn-glow-accent {
