@@ -158,10 +158,10 @@ const mockProjects: Project[] = [
     <section className="w-full px-4 pb-14 border-b border-[var(--custom-bg-accent)]/40">
       {/* Header */}
       <div className="text-center pt-14">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-bg-white)] mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-black)] dark:text-[var(--custom-text-white)] mb-6">
           Our Projects
         </h1>
-        <p className="text-lg text-[var(--custom-bg-white)]/80 mx-auto pb-6">
+        <p className="text-lg text-[var(--custom-text-black)]/80 dark:text-[var(--custom-text-white)]/80 mx-auto pb-6">
           Discover our portfolio of innovative construction and architectural projects
         </p>
       </div>
@@ -171,25 +171,25 @@ const mockProjects: Project[] = [
         <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
           <TabsTrigger 
             value="all" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] dark:text-[--custom-text-black] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-black)] dark:data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-white)] dark:data-[state=active]:text-[var(--custom-text-black)] data-[state=active]:shadow-md"
           >
             All
           </TabsTrigger>
           <TabsTrigger 
             value="running" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] dark:text-[--custom-text-black] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-black)] dark:data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-white)] dark:data-[state=active]:text-[var(--custom-text-black)] data-[state=active]:shadow-md"
           >
             Running Project
           </TabsTrigger>
           <TabsTrigger 
             value="upcoming" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] dark:text-[--custom-text-black] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-black)] dark:data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-white)] dark:data-[state=active]:text-[var(--custom-text-black)] data-[state=active]:shadow-md"
           >
             Upcoming Project
           </TabsTrigger>
           <TabsTrigger 
             value="complete" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-secondary)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--custom-text-white)] dark:text-[--custom-text-black] transition-all duration-200 data-[state=active]:bg-[var(--custom-bg-black)] dark:data-[state=active]:bg-[var(--custom-bg-white)] data-[state=active]:text-[var(--custom-text-white)] dark:data-[state=active]:text-[var(--custom-text-black)] data-[state=active]:shadow-md"
           >
             Complete Project
           </TabsTrigger>

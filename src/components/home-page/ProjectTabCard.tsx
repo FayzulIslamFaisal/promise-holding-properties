@@ -53,14 +53,14 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
         {/* Top: Category Badge */}
         <div className="flex justify-start pt-6 ps-6">
           <Badge 
-            className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl ${badgeClass}`}
+            className={`px-3 py-1.5 text-sm font-medium rounded-full dark:bg-[var(--custom-bg-accent)] dark:hover:bg-[var(--custom-bg-primary)] shadow-xl ${badgeClass}`}
           >
             {project.category} Project
           </Badge>
         </div>
         
         {/* Bottom: Project Info */}
-        <div className="space-y-3 bg-[var(--custom-bg-accent)]/30 backdrop-blur-4xl p-4 rounded-lg">
+        <div className="space-y-3 dark:bg-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-primary)]/30 backdrop-blur-4xl p-4 rounded-lg">
           <h3 className="text-2xl font-bold leading-tight">
             {project.title}
           </h3>
