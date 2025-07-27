@@ -78,8 +78,8 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
 
-  --custom-text-primary:oklch(72.95% 0.110 85.13);
-  --custom-text-secondary:oklch(23.00% 0.004 106.69);
+  --custom-text-secondary:oklch(72.95% 0.110 85.13);
+  --custom-text-primary:oklch(23.00% 0.004 106.69);
   --custom-text-black:oklch(0.00% 0.000 0);
   --custom-text-white: oklch(100.00% 0.000 0);
 
@@ -127,8 +127,8 @@
 
 
   --custom-bg-body: oklch(22.64% 0.000 0);
-  --custom-text-primary:oklch(72.95% 0.110 85.13);
-  --custom-text-secondary:oklch(23.00% 0.004 106.69);
+  --custom-text-secondary:oklch(72.95% 0.110 85.13);
+  --custom-text-primary:oklch(23.00% 0.004 106.69);
   --custom-text-black:oklch(0.00% 0.000 0);
   --custom-text-white: oklch(100.00% 0.000 0);
 

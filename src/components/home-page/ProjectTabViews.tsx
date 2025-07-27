@@ -158,7 +158,7 @@ const mockProjects: Project[] = [
     <section className="w-full px-4 pb-14 border-b border-[var(--custom-bg-accent)]/40">
       {/* Header */}
       <div className="text-center pt-14">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-black)] dark:text-[var(--custom-text-white)] mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-6">
           Our Projects
         </h1>
         <p className="text-lg text-[var(--custom-text-black)]/80 dark:text-[var(--custom-text-white)]/80 mx-auto pb-6">
