@@ -85,7 +85,7 @@
 
   --custom-bg-primary: oklch(23.00% 0.004 106.69);  
   --custom-bg-accent:oklch(72.95% 0.110 85.13);
-  --custom-bg-body:oklch(22.64% 0.000 0);
+  --custom-bg-body:oklch(100.00% 0.000 0);
   --custom-bg-white:oklch(100.00% 0.000 0);
   --custom-bg-black:oklch(0.00% 0.000 0);
   --custom-border-primary: oklch(100% 0 none / 30%);
@@ -126,12 +126,17 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 
 
-  --custom-bg-body: oklch(100.00% 0.000 0);
-  --custom-text-black:oklch(100.00% 0.000 0);
-  --custom-text-white: oklch(0.00% 0.000 0);
+  --custom-bg-body: oklch(22.64% 0.000 0);
+  --custom-text-primary:oklch(72.95% 0.110 85.13);
+  --custom-text-secondary:oklch(23.00% 0.004 106.69);
+  --custom-text-black:oklch(0.00% 0.000 0);
+  --custom-text-white: oklch(100.00% 0.000 0);
 
-  --custom-bg-white:oklch(0.00% 0.000 0);
-  --custom-bg-black:oklch(100.00% 0.000 0);
+  --custom-bg-primary: oklch(23.00% 0.004 106.69);  
+  --custom-bg-accent:oklch(72.95% 0.110 85.13);
+  --custom-border-primary: oklch(100% 0 none / 30%);
+  --custom-bg-white:oklch(100.00% 0.000 0 );
+  --custom-bg-black:oklch(0.00% 0.000 0);
   
 }
 

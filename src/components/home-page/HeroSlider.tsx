@@ -81,7 +81,7 @@ export default function SuperFlowSlider() {
       className="relative w-full h-[calc(100vh-94px)] overflow-hidden"
     >
       {/* Overlay background for dim effect */}
-      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-20 dark:bg-[var(--custom-bg-accent)]/10 pointer-events-none" />
 
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
