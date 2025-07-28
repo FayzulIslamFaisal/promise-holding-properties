@@ -19,7 +19,7 @@ const HomePageWrapper = () => {
             <HeroSlider />
             <ProjectTabViews/>
             <ProjectVideoThumbnail/>
-            <ProjectTestimonial autoplay={false}/>
+            <ProjectTestimonial autoplay={true}/>
             <InsightsSection/>
         </>
     )

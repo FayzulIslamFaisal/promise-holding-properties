@@ -46,7 +46,7 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/50 dark:from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 dark:via-[var(--custom-bg-accent)]/30 to-[var(--custom-bg-white)]/10 dark:to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
       
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-between text-[var(--custom-text-white)]">
