@@ -118,8 +118,8 @@ const InsightsSection: React.FC = () => {
     <section className="px-4">
       <div className="container mx-auto py-14">
         <div className="mb-6 lg:mb-10 flex items-center justify-between">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--custom-text-white)]">
-            INSIGHTS
+          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+             Insights
           </h2>
           <div className="">
             <Link
@@ -130,7 +130,6 @@ const InsightsSection: React.FC = () => {
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 animate-pulse" />
             </Link>
           </div>
-          
         </div>
 
         <Swiper
