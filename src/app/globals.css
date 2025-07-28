@@ -208,10 +208,10 @@ body.light {
 }
 
 .custom-prev {
-  color: var(--custom-text-primary) !important;
+  color: var(--custom-text-secondary) !important;
 }
 .custom-next {
-  color: var(--custom-text-primary) !important;
+  color: var(--custom-text-secondary) !important;
 }
 
 
