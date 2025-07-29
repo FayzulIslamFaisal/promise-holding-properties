@@ -123,7 +123,7 @@ const InsightsSection: React.FC = () => {
           </h2>
           <div className="">
             <Link
-              href="/insights"
+              href="/media-center"
               className="btn-glow-accent flex items-center gap-2"
             >
               <span>View All</span>
