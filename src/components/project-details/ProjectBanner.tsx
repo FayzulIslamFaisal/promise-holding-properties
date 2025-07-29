@@ -23,7 +23,7 @@ const ProjectBanner = ({ slug }: ProjectDetailWrapperProps) => {
           className="absolute inset-0 w-full h-full object-cover"
           aria-label={`Project banner video for ${slug}`}
         />
-        <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/30" />
+        <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 dark:bg-[var(--custom-bg-accent)]/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-4">
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-[var(--custom-text-white)] mb-6"

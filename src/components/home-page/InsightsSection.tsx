@@ -124,6 +124,7 @@ const InsightsSection: React.FC = () => {
           <div className="">
             <Link
               href="/media-center"
+              target="_blank"
               className="btn-glow-accent flex items-center gap-2"
             >
               <span>View All</span>
