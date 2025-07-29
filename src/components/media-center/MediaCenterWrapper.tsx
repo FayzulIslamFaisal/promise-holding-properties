@@ -1,12 +1,14 @@
 // @components/media-center/MediaCenterWrapper.tsx
 
 import MediaCenterBanner from "./MediaCenterBanner"
+import MediaCenterContent from "./MediaCenterContent"
 
 const MediaCenterWrapper = () => {
   return (
-    <div>
+    <>
       <MediaCenterBanner />
-    </div>
+      <MediaCenterContent />
+    </>
   )
 }
 
