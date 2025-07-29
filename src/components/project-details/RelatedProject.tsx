@@ -149,9 +149,9 @@ const RelatedProject = () => {
   return (
     <div>
       <section className="px-4">
-        <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14">
+        <div className="container mx-auto pt-10 pb-10 md:pb-12 md:pt-12 border-b border-[var(--custom-bg-accent)]/40">
           <div className="mb-6 lg:mb-10 flex items-center justify-between">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--custom-text-white)]">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-[var(--custom-bg-white)] text-[var(--custom-bg-primary)]">
             Related Projects
           </h2>
           <div className="">
