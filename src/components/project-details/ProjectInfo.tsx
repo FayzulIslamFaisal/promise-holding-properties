@@ -99,7 +99,7 @@ const ProjectInfo = ({
         <div className="grid col-span-1 lg:grid-cols-2 gap-6 pt-10 pb-10 md:pb-14 md:pt-14">
           {/* Left Side - Image */}
           <div className="relative overflow-hidden rounded-xl group h-[500px] lg:h-full">
-            <div className="absolute inset-0 bg-[var(--custom-bg-accent)]/20 rounded-xl group-hover:bg-[var(--custom-bg-accent)]/10 transition-opacity duration-700 z-10" />
+            <div className="absolute inset-0 rounded-xl bg-[var(--custom-bg-primary)]/20  group-hover:bg-[var(--custom-bg-primary)]/10 dark:bg-[var(--custom-bg-accent)]/20  dark:group-hover:bg-[var(--custom-bg-accent)]/10 transition-opacity duration-700 z-10" />
             <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-700 rounded-xl">
               <Image
                 src={image}
@@ -111,19 +111,19 @@ const ProjectInfo = ({
           </div>
 
           {/* Right Side - Content */}
-          <Card className="p-4 lg:p-8 flex flex-col justify-center border-[var(--custom-border-primary)] bg-[var(--custom-border-primary)] h-full relative">
+          <Card className="p-4 lg:p-8 flex flex-col justify-center border-[var(--custom-border-primary)] shadow-2xl bg-[var(--custom-border-primary)] h-full relative">
             <div className="space-y-4">
               {/* Header Section */}
               <div className="space-y-4 animate-slide-up">
-                <h2 className="text-3xl lg:text-4xl font-bold text-[var(--custom-text-white)] ">
+                <h2 className="text-3xl lg:text-4xl font-bold dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)]  ">
                   {title}
                 </h2>
-                <p className="text-lg text-[var(--custom-text-white)]/80">
+                <p className="text-lg dark:text-[var(--custom-text-white)]/80 text-[var(--custom-text-primary)]/80">
                   {description}
                 </p>
-                <div className="flex items-center gap-3 text-foreground/80">
-                  <MapPin className="w-8 h-8 mt-1 text-[var(--custom-text-white)] flex-shrink-0" />
-                  <span className="text-sm text-[var(--custom-text-white)]">{address}</span>
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-8 h-8 mt-1 dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)] flex-shrink-0" />
+                  <span className="text-sm dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)]">{address}</span>
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ const ProjectInfo = ({
                 className="space-y-6 animate-scale-in"
                 style={{ animationDelay: "0.2s" }}
               >
-                <h3 className="text-xl font-semibold text-[var(--custom-text-white)] uppercase ">
+                <h3 className="text-xl font-semibold dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)] uppercase ">
                   At a Glance
                 </h3>
 
