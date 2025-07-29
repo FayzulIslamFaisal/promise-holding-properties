@@ -22,13 +22,13 @@ interface MediaCenterContentCardProps {
 const MediaCenterContentCard: React.FC<MediaCenterContentCardProps> = ({ newsletter }) => {
   return (
     <Card
-      className="group cursor-pointer py-0 transition-all duration-300 hover:scale-105 overflow-hidden border border-[var(--custom-bg-accent)]/50 shadow-2xl hover:shadow-3xl"
+      className="group cursor-pointer py-0 transition-all duration-300 hover:scale-102 overflow-hidden border border-[var(--custom-bg-accent)]/50 shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
     >
       <CardContent className="p-0 relative h-full bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)] pb-4 md:pb-6">
         {/* Cover Image with Badge */}
         <div className="p-4 md:p-6">
             <div
-            className="relative overflow-hidden w-full h-[300px] md:h-[400px] rounded-lg border border-[var(--custom-bg-white)]/40 shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            className="relative overflow-hidden w-full h-[300px] md:h-[400px] rounded-lg border border-[var(--custom-bg-white)]/40 shadow-xl group-hover:shadow-2xl transition-shadow duration-300"
             >
             <Image
                 src={newsletter.coverImage || "/placeholder.svg"}
@@ -42,6 +42,7 @@ const MediaCenterContentCard: React.FC<MediaCenterContentCardProps> = ({ newslet
             >
                 {newsletter.tags}
             </Badge>
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/60 dark:from-[var(--custom-bg-accent)]/60 via-[var(--custom-bg-primary)]/40  dark:via-[var(--custom-bg-primary)]/40 to-[var(--custom-bg-white)]/10 dark:to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
             </div>
         </div>
 
