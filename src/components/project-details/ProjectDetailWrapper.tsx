@@ -20,6 +20,7 @@ import { Laptop,
 
 import dynamic from 'next/dynamic';
 import ProjectInfo from "./ProjectInfo";
+import ContactForm from "./ContactForm";
 // import RelatedProject from "./RelatedProject";
 const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
 const ProjectBanner = dynamic(() => import('./ProjectBanner'));
@@ -89,6 +90,7 @@ const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
       <BuildingDrawingSlider />
       <ImageGallery />
       <ProjectLocationMap />
+      <ContactForm/>
       <RelatedProject />
     </>
   )
