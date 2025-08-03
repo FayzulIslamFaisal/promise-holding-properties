@@ -1,10 +1,11 @@
 import React from 'react'
+import RelatedProjectBanner from './RelatedProjectBanner'
 
 const RelatedProjectWrapper = () => {
   return (
-    <div>
-      <h1>All Related Projects</h1>
-    </div>
+    <>
+    <RelatedProjectBanner />
+    </>
   )
 }
 
