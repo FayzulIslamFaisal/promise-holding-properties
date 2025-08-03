@@ -17,16 +17,17 @@ import { Laptop,
 // import ProjectFeature from "./ProjectFeature";
 // import BuildingDrawingSlider from "./BuildingDrawingSlider";
 // import ImageGallery from "./ImageGallery";
+// import ContactForm from "./ContactForm";
+// import RelatedProject from "./RelatedProject";
 
 import dynamic from 'next/dynamic';
 import ProjectInfo from "./ProjectInfo";
-import ContactForm from "./ContactForm";
-// import RelatedProject from "./RelatedProject";
 const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
 const ProjectBanner = dynamic(() => import('./ProjectBanner'));
 const ProjectFeature = dynamic(() => import('./ProjectFeature'));
 const BuildingDrawingSlider = dynamic(() => import('./BuildingDrawingSlider'));
 const ImageGallery = dynamic(() => import('./ImageGallery'));
+const ContactForm = dynamic(() => import('./ContactForm'));
 const RelatedProject = dynamic(() => import('./RelatedProject'));
 
 
