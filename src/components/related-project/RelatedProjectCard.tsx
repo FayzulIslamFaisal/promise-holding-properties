@@ -13,6 +13,7 @@ interface RelatedProject {
   date: string;
   coverImage: string;
   tags: string;
+  slug: string;
 }
 
 interface RelatedProjectCardProps {
@@ -57,10 +58,10 @@ const RelatedProjectCard: React.FC<RelatedProjectCardProps> = ({ relatedProject 
           {/* View relatedProject Link */}
           <div className="flex items-center justify-between">
             <Link
-              href="#"
+              href={`/project-details/${relatedProject.slug}`}
               className="btn-glow-accent"
             >
-              View relatedProject
+              View Project
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
