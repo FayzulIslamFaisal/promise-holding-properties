@@ -2,71 +2,40 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { ArrowRight } from "lucide-react"
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
+    fullName: "",
+    phoneNumber: "",
     email: "",
     message: "",
   })
 
-  const [errors, setErrors] = useState({
-    name: "",
-    phone: "",
-    email: "",
-  })
+  const [focusedField, setFocusedField] = useState<string | null>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
+  const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [field]: value,
     }))
-
-    // Clear error when user starts typing
-    if (errors[name as keyof typeof errors]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }))
-    }
   }
 
-  const validateForm = () => {
-    const newErrors = {
-      name: "",
-      phone: "",
-      email: "",
-    }
+  const handleFocus = (field: string) => {
+    setFocusedField(field)
+  }
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Please enter your full name"
-    }
+  const handleBlur = () => {
+    setFocusedField(null)
+  }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Enter your valid phone number"
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Please enter a valid email address"
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
-    }
-
-    setErrors(newErrors)
-    return !Object.values(newErrors).some((error) => error !== "")
+  const isLabelFloating = (field: string, value: string) => {
+    return focusedField === field || value.length > 0
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (validateForm()) {
-      console.log("Form submitted:", formData)
-      // Handle form submission here
-    }
+    console.log("Form submitted:", formData)
   }
 
   return (
@@ -79,57 +48,94 @@ const ContactForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-3 max-w-full lg:max-w-[1024px] mx-auto">
-        <div className="">
-          <Input
-            id="name"
-            name="name"
+        <div className="relative">
+          <input
             type="text"
-            value={formData.name}
-            onChange={handleInputChange}
-            className="border-b border-[var(--custom-bg-accent)] dark:border-[var(--custom-bg-white)] px-4 md:py-6 py-4 w-full dark:text-[var(--custom-text-white)] text-[var(--custom-text-black)] placeholder:text-[var(--custom-text-primary)] dark:placeholder:text-[var(--custom-text-white)] "
-            placeholder="Name *"
+            id="fullName"
+            value={formData.fullName}
+            onChange={(e) => handleInputChange("fullName", e.target.value)}
+            onFocus={() => handleFocus("fullName")}
+            onBlur={handleBlur}
+            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
-          {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+          <label
+            htmlFor="fullName"
+            className={`absolute left-0 transition-all duration-200 pointer-events-none ${
+              isLabelFloating("fullName", formData.fullName)
+                ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
+                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+            }`}
+          >
+            Full Name
+          </label>
         </div>
 
-        <div className="">
-          <Input
-            id="phone"
-            name="phone"
+        <div className="relative">
+          <input
             type="tel"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className="border-b border-[var(--custom-bg-accent)] dark:border-[var(--custom-bg-white)] px-4 md:py-6 py-4 w-full dark:text-[var(--custom-text-white)] text-[var(--custom-text-black)] placeholder:text-[var(--custom-text-primary)] dark:placeholder:text-[var(--custom-text-white)] "
-            placeholder="Phone *"
+            id="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+            onFocus={() => handleFocus("phoneNumber")}
+            onBlur={handleBlur}
+            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
-          {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+          <label
+            htmlFor="phoneNumber"
+            className={`absolute left-0 transition-all duration-200 pointer-events-none ${
+              isLabelFloating("phoneNumber", formData.phoneNumber)
+                ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
+                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+            }`}
+          >
+            Phone Number
+          </label>
         </div>
 
-        <div className="">
-          <Input
-            id="email"
-            name="email"
+        <div className="relative">
+          <input
             type="email"
+            id="email"
             value={formData.email}
-            onChange={handleInputChange}
-            className="border-b border-[var(--custom-bg-accent)] dark:border-[var(--custom-bg-white)] px-4 md:py-6 py-4 w-full dark:text-[var(--custom-text-white)] text-[var(--custom-text-black)] placeholder:text-[var(--custom-text-primary)] dark:placeholder:text-[var(--custom-text-white)] "
-            placeholder="Email *"
+            onChange={(e) => handleInputChange("email", e.target.value)}
+            onFocus={() => handleFocus("email")}
+            onBlur={handleBlur}
+            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
-          {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+          <label
+            htmlFor="email"
+            className={`absolute left-0 transition-all duration-200 pointer-events-none ${
+              isLabelFloating("email", formData.email)
+                ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
+                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+            }`}
+          >
+            Email Address
+          </label>
         </div>
 
-        <div className="">
-          <Textarea
+        <div className="relative">
+          <textarea
             id="message"
-            name="message"
             value={formData.message}
-            onChange={handleInputChange}
-            rows={4}
-            className="border-b border-[var(--custom-bg-accent)] dark:border-[var(--custom-bg-white)] px-4 md:py-6 py-4 w-full dark:text-[var(--custom-text-white)] text-[var(--custom-text-black)] placeholder:text-[var(--custom-text-primary)] dark:placeholder:text-[var(--custom-text-white)] "
-            placeholder="Message..."
+            onChange={(e) => handleInputChange("message", e.target.value)}
+            onFocus={() => handleFocus("message")}
+            onBlur={handleBlur}
+            rows={2}
+            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] transition-all duration-200 outline-none peer"
           />
+          <label
+            htmlFor="message"
+            className={`absolute left-0 transition-all duration-200 pointer-events-none ${
+              isLabelFloating("message", formData.message)
+                ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
+                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+            }`}
+          >
+            Your Message
+          </label>
         </div>
-
+      
         <div className="pt-4 flex justify-center gap-2">
           <Button
             type="submit"
