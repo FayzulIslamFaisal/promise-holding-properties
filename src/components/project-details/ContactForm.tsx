@@ -143,7 +143,7 @@ const ContactForm = () => {
             className="btn-glow-accent"
           >
             <span className="text-sm font-medium">Submit</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 animate-pulse" />
             
           </Button>
         </div>

@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+
+
+  # Production example (uncomment when needed)
+  # frontend-prod:
+  #   build:
+  #     context: .
+  #     target: production
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=production
+  #   restart: always
+  #   networks:
+  #     - app-network
