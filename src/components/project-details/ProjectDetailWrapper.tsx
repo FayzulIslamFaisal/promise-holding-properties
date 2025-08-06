@@ -85,7 +85,7 @@ const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
   ]
   return (
     <>
-      <ProjectBanner slug={slug} />
+      <ProjectBanner  />
       <ProjectInfo />
       <ProjectFeature items={projects}/>
       <BuildingDrawingSlider />

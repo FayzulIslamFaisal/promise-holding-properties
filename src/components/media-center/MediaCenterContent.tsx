@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
-const MediaCenterContentCard = dynamic(() => import('./MediaCenterContentCard'));
-
+import MediaCenterContentCard from "./MediaCenterContentCard";
 interface Newsletter {
   id: string
   title: string

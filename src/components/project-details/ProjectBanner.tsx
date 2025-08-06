@@ -1,12 +1,8 @@
 "use client"
 import { motion } from "framer-motion"
 
-interface ProjectDetailWrapperProps {
-  slug: string
-}
 
-const ProjectBanner = ({ slug }: ProjectDetailWrapperProps) => {
-  console.log("Project slug:", slug)
+const ProjectBanner = () => {
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -21,7 +17,7 @@ const ProjectBanner = ({ slug }: ProjectDetailWrapperProps) => {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          aria-label={`Project banner video for ${slug}`}
+          aria-label={`Project banner video for `}
         />
         <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 dark:bg-[var(--custom-bg-accent)]/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-4">
