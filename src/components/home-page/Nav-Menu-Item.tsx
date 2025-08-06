@@ -2,9 +2,11 @@ import Link from "next/link"
 import { Button } from "../ui/button"
 import { LogIn } from "lucide-react"
 import ModeToggle from "../ModeToggle";
+import { usePathname } from "next/navigation";
 
 
 const NavMenuItem = () => {
+  const pathname = usePathname()
   const navLinks = [
     { id:1, path: '/', label: 'Home' },
     { id:3, path: '/about', label: 'About Us' },
@@ -15,20 +17,22 @@ const NavMenuItem = () => {
   return (
     <div className="hidden lg:flex w-[75%] items-center justify-between">
       <nav className="flex items-center gap-10">
-        {navLinks.map((item ) => (
-
-        <Link 
+        {navLinks.map((item ) => {
+        const isActive = pathname === item.path
+        return (
+          <Link 
           key={item.id}
           href={item.path}
-          className="
-          text-[var(--custom-text-white)]
+          className={`
             font-semibold 
             tracking-wide 
             text-[16px]
-            duration-300 linear"
+            duration-300 linear 
+            ${isActive ? "text-[var(--custom-text-secondary)] font-bold border-b-2 border-[var(--custom-bg-accent)]" : "text-[var(--custom-text-white)] font-semibold"}
+          `}
           >{item?.label}
         </Link>
-        ))}
+        )})}
       </nav>
       <div className=" flex items-center gap-4">
         <ModeToggle />
