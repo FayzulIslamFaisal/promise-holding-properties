@@ -7,8 +7,8 @@ import ModeToggle from "../ModeToggle";
 const NavMenuItem = () => {
   const navLinks = [
     { id:1, path: '/', label: 'Home' },
-    { id:2, path: '/product', label: 'Products' },
     { id:3, path: '/about', label: 'About Us' },
+    { id:2, path: '/project', label: 'Projects' },
     { id:4, path: '/services', label: 'Services' },
     { id:5, path: '/contact', label: 'Contact' },
   ];

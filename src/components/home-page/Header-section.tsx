@@ -1,7 +1,11 @@
 "use client";
 import { useEffect, useState } from 'react';
 import React from 'react';
-import MainHeader from './Main-Header';
+// import MainHeader from './Main-Header';
+import dynamic from 'next/dynamic';
+const MainHeader = dynamic(() => import('./Main-Header'), {
+  ssr: false,
+});
 
 const HeaderSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
