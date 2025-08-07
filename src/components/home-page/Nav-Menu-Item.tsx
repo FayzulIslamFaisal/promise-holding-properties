@@ -9,10 +9,11 @@ const NavMenuItem = () => {
   const pathname = usePathname()
   const navLinks = [
     { id:1, path: '/', label: 'Home' },
-    { id:3, path: '/about', label: 'About Us' },
-    { id:2, path: '/project', label: 'Projects' },
-    { id:4, path: '/services', label: 'Services' },
-    { id:5, path: '/contact', label: 'Contact' },
+    { id:2, path: '/about', label: 'About' },
+    { id:3, path: '/project', label: 'Projects' },
+    { id:4, path: '/landowner', label: 'Landowner' },
+    { id:5, path: '/services', label: 'Services' },
+    { id:6, path: '/contact', label: 'Contact' },
   ];
   return (
     <div className="hidden lg:flex w-[75%] items-center justify-between">

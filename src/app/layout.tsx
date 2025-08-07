@@ -6,6 +6,7 @@ import FooterSection from "@/components/home-page/Footer-section";
 import CompanyFeatures from "@/components/home-page/CompanyFeatures";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -42,18 +43,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-        <header>
-          <HeaderSection />
-        </header>
-        <main>
-          {children}
-        </main>
-        <footer>
-          <>
-          <CompanyFeatures />
-          <FooterSection />
-          </>
-        </footer>
+            <header>
+              <HeaderSection />
+            </header>
+            <main>
+              {children}
+            </main>
+            <footer>
+              <>
+              <CompanyFeatures />
+              <FooterSection />
+              </>
+            </footer>
         </ThemeProvider>
       </body>
     </html>
