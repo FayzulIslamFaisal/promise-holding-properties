@@ -67,58 +67,60 @@ const certifications: SliderProps[] = [
 const LandownerSlider = () => {
   return (
     <>
-    <div className="py-8 md:py-10 container mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold capitalize text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">The essence of your Excellence</h2>
-    </div>
-    <div className="relative w-full h-[450px] lg:h-[600px]">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('/assets/images/landowner/landownerSliderBg.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 backdrop-filter dark:bg-[var(--custom-bg-accent)]/20 z-10" />
+    <section className="border-b border-[var(--custom-bg-accent)]/40 pb-10 md:pb-14">
+      <div className="py-8 md:py-10 container mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold capitalize text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">The essence of your Excellence</h2>
       </div>
+      <div className="relative w-full h-[450px] lg:h-[600px]">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('/assets/images/landowner/landownerSliderBg.jpg')",
+          }}
+        >
+          <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 backdrop-filter dark:bg-[var(--custom-bg-accent)]/20 z-10" />
+        </div>
 
-      <div className="relative z-20 flex items-center justify-center h-full">
-        <div className="w-full container mx-auto px-4">
-          <Swiper
-            spaceBetween={15}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-            modules={[Navigation, Autoplay]}
-            loop
-            breakpoints={{
-              0: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 5 },
-            }}
-          >
-            {certifications.map((card) => (
-              <SwiperSlide key={card.id}>
-                <LandownerSliderCard card={card} Icon={card.icon} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="relative z-20 flex items-center justify-center h-full">
+          <div className="w-full container mx-auto px-4">
+            <Swiper
+              spaceBetween={15}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              navigation={{
+                nextEl: ".custom-next",
+                prevEl: ".custom-prev",
+              }}
+              modules={[Navigation, Autoplay]}
+              loop
+              breakpoints={{
+                0: { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1280: { slidesPerView: 5 },
+              }}
+            >
+              {certifications.map((card) => (
+                <SwiperSlide key={card.id}>
+                  <LandownerSliderCard card={card} Icon={card.icon} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-          {/* Custom Navigation Buttons */}
-          <div className="custom-prev absolute left-2 top-1/2 z-30 -translate-y-1/2 cursor-pointer bg-[var(--custom-bg-primary)]/60 hover:bg-[var(--custom-bg-primary)]/80 rounded-full p-2 backdrop-blur-md transition-all">
-            <ChevronLeft color="white" />
-          </div>
-          <div className="custom-next absolute right-2 top-1/2 z-30 -translate-y-1/2 cursor-pointer bg-[var(--custom-bg-primary)]/60 hover:bg-[var(--custom-bg-primary)]/80 rounded-full p-2 backdrop-blur-md transition-all">
-            <ChevronRight color="white" />
+            {/* Custom Navigation Buttons */}
+            <div className="custom-prev absolute left-2 top-1/2 z-30 -translate-y-1/2 cursor-pointer bg-[var(--custom-bg-primary)]/60 hover:bg-[var(--custom-bg-primary)]/80 rounded-full p-2 backdrop-blur-md transition-all">
+              <ChevronLeft color="white" />
+            </div>
+            <div className="custom-next absolute right-2 top-1/2 z-30 -translate-y-1/2 cursor-pointer bg-[var(--custom-bg-primary)]/60 hover:bg-[var(--custom-bg-primary)]/80 rounded-full p-2 backdrop-blur-md transition-all">
+              <ChevronRight color="white" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
     </>
   );
 };
