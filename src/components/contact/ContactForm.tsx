@@ -57,14 +57,14 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("reason", e.target.value)}
             onFocus={() => handleFocus("reason")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="reason"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("reason", formData.reason)
                 ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
-                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                : "top-6 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
             }`}
           >
             Reason for Contacting *
@@ -78,14 +78,14 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("fullName", e.target.value)}
             onFocus={() => handleFocus("fullName")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="fullName"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("fullName", formData.fullName)
                 ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
-                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                : "top-6 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
             }`}
           >
             Full Name *
@@ -100,14 +100,14 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
             onFocus={() => handleFocus("phoneNumber")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="phoneNumber"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("phoneNumber", formData.phoneNumber)
                 ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
-                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                : "top-6 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
             }`}
           >
             Phone Number *
@@ -122,14 +122,14 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("email", e.target.value)}
             onFocus={() => handleFocus("email")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-6 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="email"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("email", formData.email)
                 ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
-                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                : "top-6 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
             }`}
           >
             Email Address 
@@ -144,14 +144,14 @@ const ContactForm = () => {
             onFocus={() => handleFocus("message")}
             onBlur={handleBlur}
             rows={2}
-            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b-2 border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="message"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("message", formData.message)
                 ? "top-2 text-xs text-[var(--custom-text-secondary)] font-medium"
-                : "top-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                : "top-6 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
             }`}
           >
             Your Message
