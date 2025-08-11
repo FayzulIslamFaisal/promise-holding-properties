@@ -10,9 +10,10 @@ import {
   ThumbsUp,
   Clock,
 } from "lucide-react";
+import { ReactNode } from "react";
 
 type HighlightItem = {
-  icon: JSX.Element;
+  icon: ReactNode;
   label: string;
 };
 
