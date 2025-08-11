@@ -1,10 +1,11 @@
+import CustomerForm from "./CustomerForm"
 
 
 const CustomerEnquiryWrapper = () => {
   return (
-    <div>
-      <h1>Customer Enquiry</h1>
-    </div>
+    <>
+      <CustomerForm />
+    </>
   )
 }
 
