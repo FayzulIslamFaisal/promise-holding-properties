@@ -14,9 +14,9 @@ const CustomerBanner = () => {
             <div className="absolute inset-0 z-20 flex items-center justify-center text-center">
                 <div className="max-w-full px-4 md:max-w-4xl mx-auto">
                     <h1 className="text-[var(--custom-text-white)] text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-4">
-                        Customer Inquiry
+                       Find Your Dream Property With Us
                     </h1>
-                    <p className="text-[var(--custom-text-white)] text-lg md:text-xl "> Unite with us in pursuit of Excellence</p>
+                    <p className="text-[var(--custom-text-white)] text-lg md:text-xl "> Explore exclusive listings, tailored to match your lifestyle and budget.</p>
                 </div>
             </div>
         </div>
