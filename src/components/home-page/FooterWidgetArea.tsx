@@ -7,13 +7,20 @@ import {
   PhoneCallIcon,
   SendHorizontalIcon,
 } from 'lucide-react'
+import Link from 'next/link';
+
+interface QuickLink {
+  id: number;
+  title: string;
+  path: string;
+}
 
 const FooterWidgetArea = () => {
-    const quickLinks: string[] = [
-        'Pricing Plans',
-        'Our Services',
-        'About Us',
-        'Contact Us',
+    const quickLinks: QuickLink[] = [
+      { id: 1, title: 'Customer Enquiry', path: '/customer' },
+      { id: 2, title: 'Our Services', path: '/our-services' },
+      { id: 3, title: 'About Us', path: '/about-us' },
+      { id: 4, title: 'Contact Us', path: '/contact' },
     ],
     companyLinks: string[] = [
         'Property For Sale',
@@ -54,13 +61,15 @@ const FooterWidgetArea = () => {
           <div className="space-y-4">
             <h4 className="text-lg tracking-wider">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
-              {quickLinks.map((item, index) => (
+              {quickLinks.map((item) => (
                 <li
-                  key={index}
-                  className="hover:text-white transition-colors duration-300 cursor-pointer flex items-center gap-1"
+                  key={item?.id}
+                  className="hover:text-white transition-colors duration-300"
                 >
-                  <ChevronRight className="size-4" />
-                  {item}
+                  <Link href={item?.path} className="flex items-center gap-1">
+                    <ChevronRight className="size-4" />
+                    {item?.title}
+                  </Link>
                 </li>
               ))}
             </ul>
