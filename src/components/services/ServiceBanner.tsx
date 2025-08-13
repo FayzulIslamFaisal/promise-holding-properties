@@ -1,11 +1,11 @@
-import Image from "next/image"
+import Image from 'next/image'
 
-const LandownerBanner = () => {
+const ServiceBanner = () => {
   return (
     <section className=" pb-10 md:pb-14 border-b border-[var(--custom-bg-accent)]/40 ">
         <div className="relative h-[calc(100vh-200px)] md:h-[calc(100vh-200px)]">
             <Image
-                src="/assets/images/landowner/banner.jpg"
+                src="/assets/images/service/banner.png"
                 alt="Media Center Banner"
                 fill
                 className="object-cover"
@@ -14,9 +14,9 @@ const LandownerBanner = () => {
             <div className="absolute inset-0 z-20 flex items-center justify-center text-center">
                 <div className="max-w-full px-4 md:max-w-4xl mx-auto">
                     <h1 className="text-[var(--custom-text-white)] text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-4">
-                        Landowner
+                       Premium Services
                     </h1>
-                    <p className="text-[var(--custom-text-white)] text-lg md:text-xl ">Unite with us in pursuit of Excellence</p>
+                    <p className="text-[var(--custom-text-white)] text-lg md:text-xl ">Elevating your real estate experience with unparalleled expertise and luxury service</p>
                 </div>
             </div>
         </div>
@@ -24,6 +24,8 @@ const LandownerBanner = () => {
   )
 }
 
-export default LandownerBanner
+export default ServiceBanner
+
+
 
 

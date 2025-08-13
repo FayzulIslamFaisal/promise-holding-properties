@@ -2,7 +2,7 @@ import Image from "next/image"
 const ContactBanner = () => {
   return (
     <section className=" pb-10 md:pb-14 border-b border-[var(--custom-bg-accent)]/40 ">
-        <div className="relative h-[calc(100vh-250px)] md:h-[calc(100vh-200px)]">
+        <div className="relative h-[calc(100vh-200px)] md:h-[calc(100vh-200px)]">
             <Image
                 src="/assets/images/contact/banner.jpg"
                 alt="Media Center Banner"
