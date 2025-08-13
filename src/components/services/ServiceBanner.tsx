@@ -5,7 +5,7 @@ const ServiceBanner = () => {
     <section className=" pb-10 md:pb-14 border-b border-[var(--custom-bg-accent)]/40 ">
         <div className="relative h-[calc(100vh-200px)] md:h-[calc(100vh-200px)]">
             <Image
-                src="/assets/images/service/banner.png"
+                src="/assets/images/service/banner2.png"
                 alt="Media Center Banner"
                 fill
                 className="object-cover"
