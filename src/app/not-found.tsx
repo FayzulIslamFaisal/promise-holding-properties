@@ -17,15 +17,15 @@ const NotFound = () => {
 
       {/* Overlay content */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--custom-text-white)] z-20">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[var(--custom-text-white)]">
           Oops! Page Not Found
         </h2>
-        <p className="text-lg md:text-xl mb-6 text-[var(--custom-text-white)] z-20">
+        <p className="text-lg md:text-xl mb-6 text-[var(--custom-text-white)]">
           The page you{"'"}re looking for doesn’t exist or has been moved.
         </p>
         <Link
           href="/"
-          className="bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] py-4 px-6 rounded-md transition flex items-center gap-2 z-20"
+          className="bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] py-4 px-6 rounded-md transition flex items-center gap-2"
         >
           <RotateCcw className="w-5 h-5" />
           Back to Home
