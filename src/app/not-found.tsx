@@ -17,11 +17,11 @@ const NotFound = () => {
 
       {/* Overlay content */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[var(--custom-text-white)]">
-          Oops! Page Not Found
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[var(--custom-text-white)]">
+          Oops! 404 Page Not Found
         </h2>
         <p className="text-lg md:text-xl mb-6 text-[var(--custom-text-white)]">
-          The page you{"'"}re looking for doesn’t exist or has been moved.
+          The page you{"'"}re looking for doesn{"’"}t exist or has been moved.
         </p>
         <Link
           href="/"

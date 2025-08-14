@@ -1,3 +1,4 @@
+import ChooseServiceplane from "./ChooseServiceplane"
 import OurServices from "./OurServices"
 import ServiceBanner from "./ServiceBanner"
 
@@ -6,6 +7,7 @@ const ServiceWrapper = () => {
     <>
       <ServiceBanner />
       <OurServices />
+      <ChooseServiceplane />
     </>
   )
 }

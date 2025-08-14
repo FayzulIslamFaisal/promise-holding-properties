@@ -13,7 +13,7 @@ const OurServiceCard: React.FC<{ service: Service }> = ({ service }) => {
   const ServiceIcon = service.icon;
 
   return (
-    <Card className="group relative py-0 overflow-hidden border border-[var(--custom-bg-accent)]/40 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)]">
+    <Card className="group relative py-0 overflow-hidden border border-[var(--custom-bg-accent)]/40 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-[var(--custom-bg-accent)]/10 dark:bg-[var(--custom-bg-primary)]">
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--custom-bg-primary)]/10 to-from-[var(--custom-bg-accent)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <CardContent className="p-8 relative z-10">
