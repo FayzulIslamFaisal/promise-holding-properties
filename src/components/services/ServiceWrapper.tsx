@@ -1,4 +1,5 @@
 import ChooseServiceplane from "./ChooseServiceplane"
+import GetStartedService from "./GetStartedService"
 import OurServices from "./OurServices"
 import ServiceBanner from "./ServiceBanner"
 
@@ -8,6 +9,7 @@ const ServiceWrapper = () => {
       <ServiceBanner />
       <OurServices />
       <ChooseServiceplane />
+      <GetStartedService />
     </>
   )
 }
