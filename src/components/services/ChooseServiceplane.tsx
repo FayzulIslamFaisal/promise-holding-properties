@@ -20,7 +20,7 @@ const whyChooseUs: string[] = [
 const features: Feature[] = [
   { id: 1, icon: Shield, title: "Trusted", description: "Proven reliability" },
   { id: 2, icon: Award, title: "Award-Winning", description: "Industry recognition" },
-  { id: 3, icon: Clock, title: "24/7 Support", description: "Always available" },
+  { id: 3, icon: Clock, title: "Verified Properties", description: "Always available" },
   { id: 4, icon: TrendingUp, title: "Results-Driven", description: "Measurable success" },
 ];
 

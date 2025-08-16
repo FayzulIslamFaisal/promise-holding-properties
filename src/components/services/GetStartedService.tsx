@@ -40,7 +40,7 @@ const GetStartedService = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
           {features.map(({ id, icon: Icon, title, description }) => (
             <div
               key={id}
@@ -60,17 +60,16 @@ const GetStartedService = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 md:mb-8">
           <Button
-            size="lg"
-            className="bg-gradient-to-r from-slate-900 to-slate-700 hover:from-slate-800 hover:to-slate-600 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            variant={"default"}
+            className="btn-glow-accent"
           >
             Schedule Consultation
           </Button>
           <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:-translate-y-1 bg-transparent"
+            variant="default"
+            className="btn-glow-accent"
           >
             View Our Portfolio
           </Button>

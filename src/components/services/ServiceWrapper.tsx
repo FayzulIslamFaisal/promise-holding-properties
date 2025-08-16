@@ -2,6 +2,7 @@ import ChooseServiceplane from "./ChooseServiceplane"
 import GetStartedService from "./GetStartedService"
 import OurServices from "./OurServices"
 import ServiceBanner from "./ServiceBanner"
+import ServiceFAQSection from "./ServiceFAQSection"
 
 const ServiceWrapper = () => {
   return (
@@ -9,6 +10,7 @@ const ServiceWrapper = () => {
       <ServiceBanner />
       <OurServices />
       <ChooseServiceplane />
+      <ServiceFAQSection />
       <GetStartedService />
     </>
   )
