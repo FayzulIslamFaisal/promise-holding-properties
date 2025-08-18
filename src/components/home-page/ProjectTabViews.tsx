@@ -167,7 +167,7 @@ const mockProjects: Project[] = [
       </div>
 
       {/* Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full text-white">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full text-[var(--custom-text-white)]">
         <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
           <TabsTrigger 
             value="all" 
@@ -200,7 +200,7 @@ const mockProjects: Project[] = [
           <div className="w-full">
             <Swiper
               slidesPerView={1}
-              spaceBetween={24}
+              spaceBetween={10}
               autoplay={{
               delay: 3000, 
               disableOnInteraction: false,
@@ -215,26 +215,26 @@ const mockProjects: Project[] = [
               breakpoints={{
                 320: {
                   slidesPerView: 1,
-                  spaceBetween: 16,
+                  spaceBetween: 10,
                 },
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 20,
+                  spaceBetween: 10,
                 },
                 768: {
                   slidesPerView: 3,
-                  spaceBetween: 24,
+                  spaceBetween: 15,
                 },
-                1024: {
+                1199: {
                   slidesPerView: 4,
-                  spaceBetween: 24,
+                  spaceBetween: 15,
                 },
-                1280: {
+                1380: {
                   slidesPerView: 5,
-                  spaceBetween: 24,
+                  spaceBetween: 15,
                 },
               }}
-              className="!overflow-visible px-6 md:px-8"
+              className="w-full"
             >
               {filteredProjects.map((project) => (
                 <SwiperSlide key={project.id} className="!h-auto">
