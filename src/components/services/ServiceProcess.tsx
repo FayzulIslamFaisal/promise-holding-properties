@@ -51,7 +51,7 @@ const ServiceProcess = () => {
 
                   {/* Content */}
                   <div className="pt-2">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] flex items-center gap-4">{step.title} <CheckCircle className="h-6 w-6 text-[var(--custom-text-secondary)]" /></h3>
+                    <h3 className="text-lg md:text-2xl font-semibold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] flex items-center gap-4">{step.title} <CheckCircle className="h-6 w-6 text-[var(--custom-text-secondary)]" /></h3>
                     <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]/60 text-md sm:text-lg">{step.description}</p>
                   </div>
                 </div>

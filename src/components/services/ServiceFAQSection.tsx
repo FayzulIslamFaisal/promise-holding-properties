@@ -61,26 +61,26 @@ const ServiceFAQSection: React.FC = () => {
   return (
     <section className="px-4">
       <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Frequently Asked Questions
+        <div className="text-center mb-6 md:mb-10">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-5">
+            Frequently Asked <span className="text-[var(--custom-text-secondary)]">Questions</span> 
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] max-w-2xl mx-auto">
             Find answers to common questions about our real estate services.
           </p>
         </div>
-        <div className="max-w-[100%] md:max-w-[70%] mx-auto">
+        <div className="max-w-[100%] lg:max-w-[70%] mx-auto p-4 border border-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] rounded-lg shadow-2xl">
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq) => (
             <AccordionItem
               key={faq.id}
               value={`item-${faq.id}`}
-              className="bg-card border border-border rounded-lg px-6"
+              className="border-b rounded-lg border-[var(--custom-bg-accent)]/30 px-6 mb-0 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)]"
             >
-              <AccordionTrigger className="text-left text-lg font-semibold text-card-foreground hover:no-underline focus:outline-none">
+              <AccordionTrigger className="text-left text-md md:text-lg font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-secondary)] hover:no-underline focus:outline-none">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pt-2 pb-4">
+              <AccordionContent className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-base pt-2 pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
