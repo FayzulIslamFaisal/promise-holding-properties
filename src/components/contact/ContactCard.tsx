@@ -90,8 +90,8 @@ export default function ContactCard() {
         className="container mx-auto "
       >
         <div className="text-center group mb-8">
-          <h2 className="text-3xl md:text-4xl capitalize font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] tracking-wide">
-             get in touch
+          <h2 className="text-2xl md:text-4xl lg:text-6xl capitalize font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] tracking-wide">
+             get in <span className="text-[var(--custom-text-secondary)]">touch</span> 
           </h2>
           <div className="w-24 h-1 bg-[var(--custom-bg-accent)] mx-auto mt-4 rounded-full group-hover:w-32 transition-all duration-300"></div>
         </div>
@@ -99,7 +99,7 @@ export default function ContactCard() {
         {contactItems.map((item, index) => (
             <Card
                 key={index}
-                className="bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)] border-[var(--custom-bg-accent)]/40 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group mb-2 h-full"
+                className="bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-[var(--custom-bg-accent)]/40 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group mb-2 h-full"
             >
                 <CardContent className="space-y-6">
                     <motion.div
