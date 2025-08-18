@@ -63,20 +63,20 @@ const GetStartedService = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 md:mb-8">
           <Button
             variant={"default"}
-            className="btn-glow-accent"
+            className="btn-glow-accent py-4 "
           >
             Schedule Consultation
           </Button>
           <Button
             variant="default"
-            className="btn-glow-accent"
+            className="btn-glow-accent py-4 "
           >
             View Our Portfolio
           </Button>
         </div>
 
         {/* Footer Message */}
-        <p className="text-center text-slate-500 text-lg">
+        <p className="text-center text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-lg">
           Join thousands of satisfied clients who trust us with their real estate needs
         </p>
       </div>

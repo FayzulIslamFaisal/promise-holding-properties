@@ -23,7 +23,7 @@ const MediaCenterContentCard: React.FC<MediaCenterContentCardProps> = ({ newslet
     <Card
       className="group cursor-pointer py-0 transition-all duration-300 hover:scale-102 overflow-hidden border border-[var(--custom-bg-accent)]/50 shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
     >
-      <CardContent className="p-0 relative h-full bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)] pb-4 md:pb-6">
+      <CardContent className="p-0 relative h-full bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] pb-4 md:pb-6">
         {/* Cover Image with Badge */}
         <div className="p-4 md:p-6">
             <div
