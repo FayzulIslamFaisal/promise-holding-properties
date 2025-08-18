@@ -23,7 +23,7 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
     <Card
       className="group cursor-pointer py-0 transition-all duration-300 hover:scale-102 overflow-hidden border border-[var(--custom-bg-accent)]/50 shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
     >
-      <CardContent className="p-0 relative h-full bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)] pb-4 md:pb-6">
+      <CardContent className="p-0 relative h-full group-hover:bg-[var(--custom-bg-accent)]/20 bg-[var(--custom-bg-accent)]/10 dark:bg-[var(--custom-bg-primary)] pb-4 md:pb-6 transition-all duration-300">
         {/* Cover Image with Badge */}
         <div className="p-4 md:p-6">
             <div
@@ -47,7 +47,7 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
 
         {/* Content */}
         <div className=" pt-0 px-4 md:px-6">
-          <h3 className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-lg font-semibold mb-3 leading-tight">
+          <h3 className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] md:text-lg text-base font-semibold mb-3 leading-tight">
             {allProject.title}
           </h3>
           <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-sm font-medium mb-4">
