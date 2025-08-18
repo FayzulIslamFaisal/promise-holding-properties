@@ -5,7 +5,7 @@ const CustomerFaq = () => {
   return (
     <section className="px-4">
         <div className="container mx-auto border-b border-[var(--custom-bg-accent)]/40 py-10 md:py-14">
-            <Card className="rounded-2xl border border-[var(--custom-bg-accent)]/20 py-0 shadow-sm dark:bg-[var(--custom-bg-primary)] bg-[var(--custom-bg-white)]">
+            <Card className="rounded-2xl border border-[var(--custom-bg-accent)]/20 py-0 shadow-sm dark:bg-[var(--custom-bg-primary)] bg-[var(--custom-bg-accent)]/10">
                 <CardContent className="p-5 sm:p-6 md:p-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* FAQs */}

@@ -80,7 +80,7 @@ const CustomerHighLights = () => {
   return (
     <section className="w-full flex items-start justify-center px-4 py-10 md:py-14 border-b border-[var(--custom-bg-accent)]/40">
       <div className="container mx-auto">
-        <Card className="rounded-2xl border border-[var(--custom-bg-accent)]/20 py-0 shadow-sm bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)]">
+        <Card className="rounded-2xl border border-[var(--custom-bg-accent)]/20 py-0 shadow-sm bg-[var(--custom-bg-accent)]/10 dark:bg-[var(--custom-bg-primary)]">
           <CardContent className="p-5 sm:p-6 md:p-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {highlightData.map((highlight, colIndex) => (
