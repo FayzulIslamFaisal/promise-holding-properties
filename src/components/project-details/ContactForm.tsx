@@ -56,7 +56,7 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("fullName", e.target.value)}
             onFocus={() => handleFocus("fullName")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-accent)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="fullName"
@@ -78,7 +78,7 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
             onFocus={() => handleFocus("phoneNumber")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-accent)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="phoneNumber"
@@ -100,7 +100,7 @@ const ContactForm = () => {
             onChange={(e) => handleInputChange("email", e.target.value)}
             onFocus={() => handleFocus("email")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-accent)] focus:border-[var(--custom-bg-accent)] focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="email"
@@ -122,7 +122,7 @@ const ContactForm = () => {
             onFocus={() => handleFocus("message")}
             onBlur={handleBlur}
             rows={2}
-            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-white)] focus:border-[var(--custom-bg-accent)] transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] bg-transparent border-b border-[var(--custom-bg-primary)] dark:border-[var(--custom-bg-accent)] focus:border-[var(--custom-bg-accent)] transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="message"
