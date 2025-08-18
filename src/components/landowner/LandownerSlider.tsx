@@ -69,7 +69,7 @@ const LandownerSlider = () => {
     <>
     <section className="border-b border-[var(--custom-bg-accent)]/40 pb-10 md:pb-14">
       <div className="py-8 md:py-10 container mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold capitalize text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">The essence of your Excellence</h2>
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold capitalize text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">The essence of <span className="text-[var(--custom-text-secondary)]">your Excellence</span> </h2>
       </div>
       <div className="relative w-full h-[450px] lg:h-[600px]">
         <div
