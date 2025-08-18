@@ -61,7 +61,7 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
         
         {/* Bottom: Project Info */}
         <div className="space-y-3 dark:bg-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-primary)]/30 backdrop-blur-4xl p-4 rounded-lg">
-          <h3 className=" 2xl:text-2xl lg:text-xl md:text-lg text-base font-bold leading-tight">
+          <h3 className="2xl:text-2xl lg:text-lg md:text-md text-base font-bold leading-tight">
             {project.title}
           </h3>
           <div className="flex items-center space-x-2 text-white/90">

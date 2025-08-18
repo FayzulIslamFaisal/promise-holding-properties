@@ -78,9 +78,9 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
   }, [autoplay, testimonials.length]);
 
   return (
-    <section className="px-4 bg-custom-bg-body">
-      <div className="container mx-auto antialiased pb-14 pt-12 border-b border-[var(--custom-bg-accent)]/40">
-        <div className="mb-12">
+    <section className="px-4 ">
+      <div className="container mx-auto antialiased py-10 md:py-14 border-b border-[var(--custom-bg-accent)]/40">
+        <div className="mb-8 md:mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,9 +91,9 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
           </motion.h2>
         </div>
         
-        <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2 py-6">
+        <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 h-full pb-0 md:pb-10">
           {/* Image Stack */}
-          <div className="relative h-80 w-full group">
+          <div className="relative h-80 w-[80%] md:w-[90%] mx-auto group">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.src}
@@ -154,7 +154,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
           </div>
 
           {/* Text section */}
-          <div className="flex flex-col justify-between py-4">
+          <div className="flex flex-col justify-between">
             <motion.div
               key={active}
               initial={{ opacity: 0 }}
@@ -201,7 +201,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
             </motion.div>
 
             {/* Navigation buttons */}
-            <div className="flex gap-4 pt-12 md:pt-0">
+            <div className="flex gap-4 pt-6  md:pt-0">
               <motion.button
                 onClick={handlePrev}
                 whileHover={{ scale: 1.1 }}

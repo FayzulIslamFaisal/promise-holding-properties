@@ -10,7 +10,7 @@ const ProjectVideoThumbnail = () => {
   return (
     <>
       <section className="px-4">
-        <div className="container mx-auto  group py-14 border-b border-[var(--custom-bg-accent)]/50">
+        <div className="container mx-auto  group py-10 md:py-14 border-b border-[var(--custom-bg-accent)]/50">
           <div className="text-center dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)] ">
             <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold mb-6 lg:mb-10">
               Explore Our Promise Assets Projects

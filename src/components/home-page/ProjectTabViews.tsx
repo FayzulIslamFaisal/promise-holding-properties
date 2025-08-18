@@ -155,9 +155,9 @@ const mockProjects: Project[] = [
   });
 
   return (
-    <section className="w-full px-4 pb-14 border-b border-[var(--custom-bg-accent)]/40">
+    <section className="w-full px-4 md:pb-14 pb-10 border-b border-[var(--custom-bg-accent)]/40">
       {/* Header */}
-      <div className="text-center pt-14">
+      <div className="text-center md:pt-14 pt-10">
         <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-6">
           Our Projects
         </h1>
@@ -222,6 +222,10 @@ const mockProjects: Project[] = [
                   spaceBetween: 10,
                 },
                 768: {
+                  slidesPerView: 2,
+                  spaceBetween: 15,
+                },
+                992: {
                   slidesPerView: 3,
                   spaceBetween: 15,
                 },
@@ -234,7 +238,7 @@ const mockProjects: Project[] = [
                   spaceBetween: 15,
                 },
               }}
-              className="w-full"
+              className="w-full overflow-hidden"
             >
               {filteredProjects.map((project) => (
                 <SwiperSlide key={project.id} className="!h-auto">

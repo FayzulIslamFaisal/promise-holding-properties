@@ -65,7 +65,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
             <span className="text-[var(--custom-text-white)]">{date}</span>
           </div>
 
-          <h3 className="text-2xl font-bold dark:text-[var(--custom-text-white)]/80 text-[var(--custom-text-white)] mb-2 line-clamp-2 transition-colors duration-300 group-hover:text-[var(--custom-text-white)]">
+          <h3 className="2xl:text-2xl lg:text-lg md:text-md text-base font-bold dark:text-[var(--custom-text-white)]/80 text-[var(--custom-text-white)] mb-2 line-clamp-2 transition-colors duration-300 group-hover:text-[var(--custom-text-white)]">
             {title}
           </h3>
 
