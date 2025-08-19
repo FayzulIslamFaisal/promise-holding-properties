@@ -214,4 +214,78 @@ body.light {
   color: var(--custom-text-secondary) !important;
 }
 
+/* === Privacy Policy Section Animations === */
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Gradient Shift Animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Privacy Policy Specific Styles */
+.privacy-gradient {
+  background: radial-gradient(ellipse at center, 
+    rgba(99, 102, 241, 0.1) 0%, 
+    rgba(99, 102, 241, 0) 50%, 
+    rgba(99, 102, 241, 0) 100%);
+}
+
+.glass-morphism {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-morphism {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 

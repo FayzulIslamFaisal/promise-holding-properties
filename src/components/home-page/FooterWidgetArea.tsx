@@ -14,19 +14,40 @@ interface QuickLink {
   title: string;
   path: string;
 }
+interface CompanyLink {
+  id: number;
+  title: string;
+  path: string;
+}
 
 const FooterWidgetArea = () => {
     const quickLinks: QuickLink[] = [
-      { id: 1, title: 'Customer Enquiry', path: '/customer' },
-      { id: 2, title: 'Our Services', path: '/services' },
-      { id: 3, title: 'About Us', path: '/about-us' },
-      { id: 4, title: 'Contact Us', path: '/contact' },
+      { id: 1, title: "Customer Enquiry", path: "/customer" },
+      { id: 2, title: "Our Services", path: "/services" },
+      { id: 3, title: "About Us", path: "/about-us" },
+      { id: 4, title: "Contact Us", path: "/contact" },
     ],
-    companyLinks: string[] = [
-        'Property For Sale',
-        'Property For Rent',
-        'Property For Buy',
-        'Our Agents',
+    companyLinks: CompanyLink[] = [
+       { 
+        id: 1,
+        title: "Privacy Policy", 
+        path: "/privacy-policy" 
+      },
+      { 
+        id: 2,
+        title: "terms & conditions", 
+        path: "/terms-conditions" 
+      },
+      { 
+        id: 3,
+        title: "Property For Buy", 
+        path: "/properties?type=buy" 
+      },
+      { 
+        id: 4,
+        title: "Our Agents", 
+        path: "/agents" 
+      },
     ]
 
   return (
@@ -64,7 +85,7 @@ const FooterWidgetArea = () => {
               {quickLinks.map((item) => (
                 <li
                   key={item?.id}
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-[var(--custom-text-white)] transition-colors duration-300"
                 >
                   <Link href={item?.path} className="flex items-center gap-1">
                     <ChevronRight className="size-4" />
@@ -79,13 +100,15 @@ const FooterWidgetArea = () => {
           <div className="space-y-4">
             <h4 className="text-lg tracking-wider">Our Company</h4>
             <ul className="space-y-2 text-gray-400">
-              {companyLinks.map((item, index) => (
+              {companyLinks.map((item) => (
                 <li
-                  key={index}
-                  className="hover:text-white transition-colors duration-300 cursor-pointer flex items-center gap-1"
+                  key={item.id}
+                  className="hover:text-[var(--custom-text-white)] transition-colors duration-300 cursor-pointer flex items-center gap-1"
                 >
-                  <ChevronRight className="size-4" />
-                  {item}
+                  <Link href={item.path} className="flex items-center gap-1">
+                    <ChevronRight className="size-4" />
+                    {item.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -107,12 +130,12 @@ const FooterWidgetArea = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-white focus:outline-none focus:ring-1 focus:ring-gray-100/25 w-full pr-12 transition duration-200 shadow-sm hover:shadow-md"
+                  className="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-[var(--custom-text-white)] focus:outline-none focus:ring-1 focus:ring-gray-100/25 w-full pr-12 transition duration-200 shadow-sm hover:shadow-md"
                   placeholder="Enter your email"
                 />
                 <button
                   type="submit"
-                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-[var(--custom-bg-accent)] hover:bg-[var(--custom-bg-accent-hover)] text-white px-3 py-2 rounded transition duration-200"
+                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-[var(--custom-bg-accent)] hover:bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] px-3 py-2 rounded transition duration-200"
                 >
                   <SendHorizontalIcon className="size-4 inline-block" />
                 </button>
