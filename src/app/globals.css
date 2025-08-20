@@ -288,4 +288,9 @@ body.light {
   color: transparent;
 }
 
+.highlight-box {
+  background: var(--custom-bg-body);
+  border-left: 5px solid var(--custom-bg-accent);
+}
+
 
