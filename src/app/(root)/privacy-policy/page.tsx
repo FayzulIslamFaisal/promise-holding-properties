@@ -122,24 +122,25 @@ const PrivacyPolicyPage = () => {
                 1. Information We Collect
               </h2>
             </div>
+            <p>We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support.</p>
             
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
               <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                <h4 className="font-bold text-base text-[var(--custom-text-white)] mb-2">Service Delivery</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Service Delivery</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
                    We collect information to provide better services to all our users. The types of information we collect depend on how you use our services.
                 </p>
               </div>
 
               <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                <h4 className="font-bold text-base text-[var(--custom-text-white)] mb-2">Communication</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Communication</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
                   We collect information about how you interact with our services, including the pages you visit, the features you use, and the time spent on our platform.
                 </p>
               </div>
               <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                <h4 className="font-bold text-base text-[var(--custom-text-white)] mb-2">Usage Data</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Usage Data</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
                  We collect information about how you interact with our services, including the pages you visit, the features you use, and the time spent on our platform.
                 </p>
               </div>
@@ -167,6 +168,27 @@ const PrivacyPolicyPage = () => {
                 <li className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">Ensure the security of our services</li>
               </ul>
             </div>
+
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
+              <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Third-Party Services</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+                  Our service may contain links to third-party websites or integrate with external services. We are not responsible for the privacy practices of these third parties.
+                </p>
+              </div>
+              <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Cookies and Tracking</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+                  You can control cookie settings through your browser preferences. Note that disabling certain cookies may affect site functionality.
+                </p>
+              </div>
+              <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Policy Changes</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+                 We may update this privacy policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the Last Updated date.
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
@@ -183,19 +205,17 @@ const PrivacyPolicyPage = () => {
               </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                <h4 className="font-bold text-base text-[var(--custom-text-white)] mb-2">With Your Consent</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">With Your Consent</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
                    We collect information to provide better services to all our users. The types of information we collect depend on how you use our services.
                 </p>
               </div>
-
               <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-                <h4 className="font-bold text-base text-[var(--custom-text-white)] mb-2">For Legal Reasons</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">For Legal Reasons</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
                   We collect information about how you interact with our services, including the pages you visit, the features you use, and the time spent on our platform.
                 </p>
               </div>
-              
             </div>
           </CardContent>
         </Card>
@@ -234,13 +254,27 @@ const PrivacyPolicyPage = () => {
                 5. Data Security
               </h2>
             </div>
-            <div className="space-y-4 bg-[var(--custom-bg-body)] border border-[var(--custom-bg-accent)]/30 p-4 rounded-lg">
+            <div className="space-y-2 bg-[var(--custom-bg-body)] border border-[var(--custom-bg-accent)]/30 p-4 rounded-lg">
               <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-base">
                 We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.
               </p>
               <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-base">
                 While we strive to protect your information, no security system is impenetrable, and we cannot guarantee the security of our systems 100%.
               </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mt-6">
+              <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Encryption</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+                   All data transmissions are encrypted using TLS 1.3, ensuring secure communication between you and our servers.
+                </p>
+              </div>
+              <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+                <h4 className="font-bold text-base text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-2">Access Controls</h4>
+                <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+                  Strict authentication and authorization protocols are in place to ensure that only authorized individuals have access to your data.
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
