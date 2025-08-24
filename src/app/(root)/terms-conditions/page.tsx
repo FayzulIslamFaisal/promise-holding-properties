@@ -1,433 +1,118 @@
-import { Card } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import {
-  Shield,
-  Home,
-  Users,
-  FileText,
-  AlertCircle,
-  CreditCard,
-  Copyright,
-  Settings,
-  Gavel,
-  Phone,
-  CheckCircle,
-  Building,
-  Key,
-  UserCheck,
-  Briefcase,
-  Lock,
-  Eye,
-} from "lucide-react";
 
-const TermsConditions = () => {
-  const sections = [
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+import { Building2, Shield, Users, FileText, CreditCard, Scale, Phone, AlertTriangle, Lock, Eye } from "lucide-react"
+
+const termsData = [
     {
       id: "introduction",
       title: "Introduction",
-      icon: Home,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Welcome to our real estate platform. These Terms and Conditions{" "}
-            {"Terms"} govern your use of our website, services, and platform. By
-            accessing or using our services, you acknowledge that you have read,
-            understood, and agree to be bound by these Terms.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            Our platform connects buyers, sellers, agents, and brokers in the
-            real estate market, providing comprehensive property listings,
-            market insights, and professional services.
-          </p>
-        </div>
-      ),
+      icon: <FileText className="h-5 w-5" />,
+      content:
+        "Welcome to our real estate platform. These Terms and Conditions govern your use of our website and services. By accessing or using our platform, you acknowledge that you have read, understood, and agree to be bound by these terms.",
     },
     {
       id: "acceptance",
       title: "Acceptance of Terms",
-      icon: CheckCircle,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            By creating an account, browsing our website, or using any of our
-            services, you explicitly agree to these Terms and our Privacy
-            Policy. If you do not agree with any part of these Terms, you must
-            discontinue use of our platform immediately.
-          </p>
-          <div className="bg-real-estate-teal-light p-4 rounded-lg border-l-4 border-real-estate-teal">
-            <p className="text-sm font-medium text-real-estate-navy">
-              Your continued use of our services constitutes ongoing acceptance
-              of any updates to these Terms.
-            </p>
-          </div>
-        </div>
-      ),
+      icon: <Shield className="h-5 w-5" />,
+      content:
+        "By using our website, creating an account, or engaging with our services, you expressly agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our services.",
     },
     {
       id: "eligibility",
       title: "Eligibility",
-      icon: UserCheck,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            To use our services, you must be at least 18 years old and legally
-            capable of entering into binding contracts. You represent and
-            warrant that all information you provide is accurate and current.
-          </p>
-          <ul className="space-y-2 text-muted-foreground">
-            <li className="flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-real-estate-teal mt-1 flex-shrink-0" />
-              Must be 18 years or older
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-real-estate-teal mt-1 flex-shrink-0" />
-              Legally authorized to enter contracts
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-real-estate-teal mt-1 flex-shrink-0" />
-              Provide accurate and truthful information
-            </li>
-          </ul>
-        </div>
-      ),
+      icon: <Users className="h-5 w-5" />,
+      content:
+        "You must be at least 18 years old and legally capable of entering into binding contracts to use our services. By using our platform, you represent and warrant that you meet these eligibility requirements and that all information you provide is accurate and complete.",
     },
     {
       id: "website-use",
       title: "Use of Website / Services",
-      icon: Building,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Our platform is designed for legitimate real estate activities. You
-            agree to use our services only for lawful purposes and in accordance
-            with these Terms.
-          </p>
-          <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">Permitted Uses:</h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>• Searching and viewing property listings</li>
-              <li>• Contacting licensed agents and brokers</li>
-              <li>• Scheduling property viewings</li>
-              <li>• Accessing market data and reports</li>
-            </ul>
-          </div>
-        </div>
-      ),
+      icon: <Building2 className="h-5 w-5" />,
+      content:
+        "Our platform is designed to facilitate real estate transactions and provide property-related information. You may use our services for lawful purposes only. You agree not to use the platform for any fraudulent, abusive, or illegal activities, including but not limited to unauthorized data scraping or system interference.",
     },
     {
       id: "property-listings",
       title: "Property Listings Disclaimer",
-      icon: Key,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Property information is provided by third-party sources including
-            agents, brokers, and MLS systems. While we strive for accuracy, we
-            cannot guarantee the completeness or accuracy of all listing
-            information.
-          </p>
-          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-semibold text-amber-800 mb-1">
-                  Important Notice
-                </h4>
-                <p className="text-sm text-amber-700">
-                  Always verify property details, pricing, and availability
-                  directly with the listing agent before making any decisions or
-                  commitments.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
+      icon: <AlertTriangle className="h-5 w-5" />,
+      content:
+        "Property listings on our platform are provided by third-party agents, brokers, and property owners. While we strive to ensure accuracy, we do not guarantee the completeness, accuracy, or timeliness of any listing information. All property details, prices, and availability are subject to change without notice.",
     },
     {
       id: "user-responsibilities",
       title: "User Responsibilities",
-      icon: Users,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            As a user of our platform, you are responsible for maintaining the
-            security of your account and for all activities that occur under
-            your account.
-          </p>
-          <div className="grid gap-3">
-            <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
-              <Shield className="h-5 w-5 text-real-estate-teal flex-shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-medium text-foreground mb-1">
-                  Account Security
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Keep your login credentials secure and notify us immediately
-                  of any unauthorized access.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
-              <FileText className="h-5 w-5 text-real-estate-teal flex-shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-medium text-foreground mb-1">
-                  Accurate Information
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Provide truthful and current information in all communications
-                  and transactions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
+      icon: <Users className="h-5 w-5" />,
+      content:
+        "As a user, you are responsible for maintaining the confidentiality of your account credentials, providing accurate information, and complying with all applicable laws. You must not share your account with others, post false or misleading information, or engage in any activity that could harm our platform or other users.",
     },
     {
       id: "broker-disclaimer",
       title: "Broker / Agent Disclaimer",
-      icon: Briefcase,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Our platform connects users with licensed real estate professionals.
-            We are not a real estate brokerage and do not represent buyers or
-            sellers in real estate transactions.
-          </p>
-          <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">
-              Professional Relationships:
-            </h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>• All agents and brokers are independent third parties</li>
-              <li>• We do not provide real estate advice or representation</li>
-              <li>
-                • Direct all transaction-related questions to your chosen agent
-              </li>
-              <li>
-                • Verify agent licensing through appropriate regulatory bodies
-              </li>
-            </ul>
-          </div>
-        </div>
-      ),
+      icon: <Building2 className="h-5 w-5" />,
+      content:
+        "We are not a licensed real estate broker or agent. We provide a platform that connects users with licensed professionals. All real estate transactions must be conducted through licensed brokers or agents in accordance with local and state regulations. We do not provide real estate advice or representation.",
     },
     {
       id: "payment-booking",
       title: "Payment, Booking & Refund",
-      icon: CreditCard,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Certain premium services on our platform may require payment. All
-            payments are processed securely through our authorized payment
-            processors.
-          </p>
-          <div className="space-y-4">
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">
-                Payment Terms:
-              </h4>
-              <ul className="space-y-1 text-muted-foreground text-sm">
-                <li>• Payments are due upon service activation</li>
-                <li>• All fees are non-refundable unless otherwise stated</li>
-                <li>• Subscription services auto-renew unless cancelled</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">
-                Refund Policy:
-              </h4>
-              <p className="text-muted-foreground text-sm">
-                Refunds are considered on a case-by-case basis within 30 days of
-                service purchase, subject to our refund policy terms.
-              </p>
-            </div>
-          </div>
-        </div>
-      ),
+      icon: <CreditCard className="h-5 w-5" />,
+      content:
+        "Payment terms vary by service and will be clearly disclosed before any transaction. Booking fees, if applicable, are non-refundable unless otherwise specified. Refund policies for specific services will be outlined in the relevant service agreement. All payments are processed securely through our approved payment processors.",
     },
     {
       id: "intellectual-property",
       title: "Intellectual Property",
-      icon: Copyright,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            All content on our platform, including but not limited to text,
-            graphics, logos, images, and software, is the property of our
-            company or our licensors and is protected by intellectual property
-            laws.
-          </p>
-          <div className="bg-real-estate-navy-light p-4 rounded-lg">
-            <h4 className="font-medium text-foreground mb-2">Usage Rights:</h4>
-            <p className="text-sm text-muted-foreground">
-              You may use our platform for personal, non-commercial purposes
-              only. Any reproduction, distribution, or commercial use requires
-              explicit written permission.
-            </p>
-          </div>
-        </div>
-      ),
+      icon: <Shield className="h-5 w-5" />,
+      content:
+        "All content on our platform, including but not limited to text, graphics, logos, images, and software, is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works from our content without explicit written permission. User-generated content remains the property of the respective users.",
     },
     {
-      id: "third-party",
+      id: "third-party-services",
       title: "Third-Party Services",
-      icon: Settings,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            Our platform may integrate with third-party services such as mapping
-            providers, mortgage calculators, and market data services. We are
-            not responsible for the availability, accuracy, or content of these
-            services.
-          </p>
-          <div className="space-y-2 text-muted-foreground text-sm">
-            <p>
-              • Third-party services are governed by their own terms and privacy
-              policies
-            </p>
-            <p>• We do not endorse or guarantee third-party service quality</p>
-            <p>• Use of third-party services is at your own risk</p>
-          </div>
-        </div>
-      ),
+      icon: <Building2 className="h-5 w-5" />,
+      content:
+        "Our platform may integrate with third-party services such as mapping tools, payment processors, and property databases. We are not responsible for the availability, accuracy, or performance of these third-party services. Your use of such services is subject to their respective terms and conditions.",
     },
     {
-      id: "liability",
+      id: "limitation-liability",
       title: "Limitation of Liability",
-      icon: Shield,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            To the maximum extent permitted by law, our company shall not be
-            liable for any indirect, incidental, special, or consequential
-            damages arising from your use of our platform or services.
-          </p>
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-semibold text-red-800 mb-1">Disclaimer</h4>
-                <p className="text-sm text-red-700">
-                  Our platform is provided {"as is"} without warranties of any
-                  kind. We do not guarantee uninterrupted access or error-free
-                  operation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
+      icon: <Scale className="h-5 w-5" />,
+      content:
+        "To the fullest extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our platform. Our total liability shall not exceed the amount paid by you for our services in the twelve months preceding the claim.",
     },
     {
       id: "termination",
       title: "Termination of Use",
-      icon: AlertCircle,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            We reserve the right to suspend or terminate your access to our
-            platform at any time, with or without cause, and with or without
-            notice.
-          </p>
-          <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">
-              Grounds for Termination:
-            </h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>• Violation of these Terms and Conditions</li>
-              <li>• Fraudulent or illegal activities</li>
-              <li>• Misuse of platform features or services</li>
-              <li>• Failure to pay applicable fees</li>
-            </ul>
-          </div>
-        </div>
-      ),
+      icon: <AlertTriangle className="h-5 w-5" />,
+      content:
+        "We reserve the right to terminate or suspend your access to our platform at any time, with or without cause, and with or without notice. Upon termination, your right to use our services will cease immediately, and you must discontinue all use of our platform.",
     },
     {
       id: "amendments",
       title: "Amendments / Changes to Terms",
-      icon: FileText,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            We may update these Terms from time to time to reflect changes in
-            our services, legal requirements, or business practices. Material
-            changes will be communicated through our platform or via email.
-          </p>
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <p className="text-sm text-blue-700">
-              <strong>Effective Date:</strong> Changes become effective 30 days
-              after posting, unless otherwise specified. Your continued use
-              constitutes acceptance of the updated Terms.
-            </p>
-          </div>
-        </div>
-      ),
+      icon: <FileText className="h-5 w-5" />,
+      content:
+        "We reserve the right to modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on our website. Your continued use of our platform after any changes constitutes acceptance of the new terms. We recommend reviewing these terms periodically.",
     },
     {
       id: "governing-law",
       title: "Governing Law",
-      icon: Gavel,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            These Terms are governed by and construed in accordance with the
-            laws of the jurisdiction in which our company is incorporated,
-            without regard to conflict of law principles.
-          </p>
-          <div className="space-y-2 text-muted-foreground text-sm">
-            <p>• Any disputes will be resolved through binding arbitration</p>
-            <p>
-              • Jurisdiction: [Your Jurisdiction] courts have exclusive
-              jurisdiction
-            </p>
-            <p>
-              • Severability: Invalid provisions do not affect remaining terms
-            </p>
-          </div>
-        </div>
-      ),
+      icon: <Scale className="h-5 w-5" />,
+      content:
+        "These Terms and Conditions shall be governed by and construed in accordance with the laws of the jurisdiction in which our company is incorporated. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in that jurisdiction.",
     },
     {
       id: "contact",
       title: "Contact Information",
-      icon: Phone,
-      content: (
-        <div className="space-y-4">
-          <p className="text-muted-foreground leading-relaxed">
-            If you have any questions about these Terms and Conditions, please
-            contact us through the following channels:
-          </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="space-y-2">
-              <h4 className="font-semibold text-foreground">
-                Legal Department
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                legal@yourrealestate.com
-              </p>
-              <p className="text-sm text-muted-foreground">1-800-REAL-EST</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-foreground">
-                Business Address
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                123 Real Estate Plaza
-                <br />
-                Suite 456
-                <br />
-                Your City, State 12345
-              </p>
-            </div>
-          </div>
-        </div>
-      ),
+      icon: <Phone className="h-5 w-5" />,
+      content:
+        "If you have any questions about these Terms and Conditions, please contact us at legal@yourrealestate.com or call us at (555) 123-4567. Our legal team is available Monday through Friday, 9:00 AM to 5:00 PM EST.",
     },
-  ];
+  ]
+
+const TermsConditions = () => {
+ 
   return (
     <>
       <section>
@@ -472,58 +157,42 @@ const TermsConditions = () => {
         </div>
       </section>
 
-      <section>
-        <div className="container mx-auto px-4 py-16">
-          <Card className="p-6 mb-8 shadow-lg">
-            <h2 className="text-2xl font-bold mb-6 text-center">
-              Table of Contents
-            </h2>
-            <div className="grid gap-2 md:grid-cols-2">
-              {sections.map((section, index) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
-                >
-                  <span className="text-sm font-medium text-real-estate-teal w-6">
-                    {index + 1}.
-                  </span>
-                  <section.icon className="h-4 w-4 text-real-estate-teal flex-shrink-0" />
-                  <span className="text-sm font-medium">{section.title}</span>
-                </a>
-              ))}
-            </div>
-          </Card>
-
-          <div className="space-y-6">
-            {sections.map((section, index) => (
-              <Card
-                key={section.id}
-                id={section.id}
-                className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-real-estate-teal-light rounded-full">
-                      <section.icon className="h-6 w-6 text-real-estate-teal" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-sm font-bold text-real-estate-teal">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <h2 className="text-2xl font-bold text-foreground">
-                        {section.title}
-                      </h2>
-                    </div>
-                    <Separator className="mb-4" />
-                    {section.content}
-                  </div>
-                </div>
+      <section className="px-4 ">
+        <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/20">
+          <div className="grid gap-6">
+            {termsData.map((section, index) => (
+              <Card key={section.id} className="gap-2 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-accent)]/30 dark:border-[var(--custom-bg-accent)]/20 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <CardHeader className="pb-0">
+                  <CardTitle className="flex items-center text-xl gap-4">
+                    <div className="p-3 rounded-lg text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)]">{section.icon}</div>
+                    <span className="font-semibold text-lg md:text-2xl border-b border-[var(--custom-text-secondary)]/40 pb-1">
+                      {index + 1}. {section.title}
+                    </span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] leading-relaxed">{section.content}</p>
+                </CardContent>
               </Card>
             ))}
           </div>
+
+          {/* Additional Information */}
+          <Card className="mt-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-accent)]/30 dark:border-[var(--custom-bg-accent)]/20 shadow-sm hover:shadow-md transition-shadow duration-200">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <AlertTriangle className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-lg p-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-[var(--custom-text-secondary)] text-lg md:text-2xl mb-2">Important Notice</h3>
+                  <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] leading-relaxed">
+                    These terms and conditions constitute a legally binding agreement. If you have any questions or
+                    concerns about these terms, please consult with a legal professional or contact our legal department
+                    before using our services.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </>
