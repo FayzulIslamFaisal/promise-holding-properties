@@ -46,7 +46,7 @@ const OurStory: React.FC = () => {
     <section className="px-4">
       <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
         {/* Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
             {storyData.title}
           </h2>
