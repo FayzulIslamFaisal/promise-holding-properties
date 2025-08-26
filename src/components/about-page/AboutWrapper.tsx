@@ -1,4 +1,5 @@
 import AboutBanner from "./AboutBanner"
+import OurServices from "./OurServices"
 import OurStory from "./OurStory"
 import OurValues from "./OurValues"
 import TeamMember from "./TeamMember"
@@ -12,6 +13,7 @@ const AboutWrapper = () => {
         <OurValues />
         <TeamMember />
         <WhyChoose />
+        <OurServices />
     </>
   )
 }
