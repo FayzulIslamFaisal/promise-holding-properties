@@ -53,18 +53,15 @@ const OurValues = () => {
             {valuesData.map((value) => (
             <Card
                 key={value.id}
-                className="text-center group p-4 md:p-8 bg-[var(--custom-bg-accent)]/10 
-                hover:bg-[var(--custom-bg-accent)]/20 border border-[var(--custom-bg-accent)]/30 
-                dark:bg-[var(--custom-bg-primary)] 
-                transition-all duration-300 ease-in-out transform 
-                hover:scale-103 hover:shadow-[0_6px_10px_rgba(255,255,255,0.3)]"
+                className="text-center group p-4 md:p-8 "
+                variant={"hoverEffect"}
                 >
                 <CardContent className="px-2">
                     <div
                         className="inline-block p-2 mx-auto mb-2 bg-[var(--custom-bg-accent)] rounded-xl 
                         transition-all duration-300 ease-in-out 
                         drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)] 
-                        group-hover:drop-shadow-[0_6px_12px_rgba(255,255,255,0.8)] 
+                        group-hover:drop-shadow-[0_6px_12px_rgba(255,255,255,0.4)] 
                         group-hover:scale-105 group-hover:animate-pulse"
                     >
                     {value.icon}

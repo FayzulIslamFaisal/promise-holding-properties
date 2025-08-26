@@ -1,6 +1,7 @@
 import AboutBanner from "./AboutBanner"
 import OurStory from "./OurStory"
 import OurValues from "./OurValues"
+import TeamMember from "./TeamMember"
 
 const AboutWrapper = () => {
   return (
@@ -8,6 +9,7 @@ const AboutWrapper = () => {
         <AboutBanner />
         <OurStory />
         <OurValues />
+        <TeamMember />
     </>
   )
 }
