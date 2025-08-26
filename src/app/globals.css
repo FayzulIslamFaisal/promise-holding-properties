@@ -204,8 +204,13 @@ body.light {
       ease-in-out 
       cursor-pointer;
   }
-
+ 
+  .darkLight-text-color {
+    @apply text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)];
+  }
 }
+
+
 
 .custom-prev {
   color: var(--custom-text-secondary) !important;
@@ -292,5 +297,7 @@ body.light {
   background: var(--custom-bg-body);
   border-left: 5px solid var(--custom-bg-accent);
 }
+
+
 
 

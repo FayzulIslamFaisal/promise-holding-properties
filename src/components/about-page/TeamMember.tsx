@@ -43,9 +43,9 @@ const TeamMember = () => {
     <section className=" px-4">
         <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Meet Our Team</h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 darkLight-text-color">Meet Our Team</h2>
+            <div className="w-24 h-1 bg-[var(--custom-bg-accent)] mx-auto mb-8"></div>
+            <p className="text-xl darkLight-text-color max-w-3xl mx-auto">
               Experienced professionals dedicated to your success
             </p>
           </div>
@@ -55,11 +55,11 @@ const TeamMember = () => {
               <Card key={member.id} variant={"hoverEffect"} className="text-center group p-6 ">
                 <CardContent className="p-0">
                   <div className="relative w-40 h-40 mx-auto mb-6">
-                    <Image src={member.image || "/placeholder.svg"} className="rounded-full object-cover" fill alt={member.name} />
+                    <Image src={member.image || "/assets/images/placeholder.png"} className="rounded-full object-cover dark:shadow-[0_6px_4px_rgba(255,255,255,0.5)] shadow-[0_6px_4px_rgba(0,0,0,0.5)]" fill alt={member.name} />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">{member.name}</h3>
-                  <p className="text-primary font-medium mb-4">{member.designation}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                  <h3 className="text-xl font-semibold mb-2 darkLight-text-color">{member.name}</h3>
+                  <p className="darkLight-text-color text-basefont-medium mb-4">{member.designation}</p>
+                  <p className="text-sm darkLight-text-color leading-relaxed">{member.bio}</p>
                 </CardContent>
               </Card>
             ))}

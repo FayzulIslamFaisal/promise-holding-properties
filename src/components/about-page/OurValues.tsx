@@ -40,11 +40,11 @@ const OurValues = () => {
         <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
         {/* Title */}
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 darkLight-text-color">
                 Our Values
             </h2>
             <div className="w-24 h-1 bg-[var(--custom-text-secondary)] mx-auto mb-3"></div>
-            <p className="text-xl text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mx-auto">
+            <p className="text-xl darkLight-text-color mx-auto">
               The principles that guide everything we do
             </p>
         </div>
@@ -66,10 +66,10 @@ const OurValues = () => {
                     >
                     {value.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+                    <h3 className="text-xl font-semibold mb-2 darkLight-text-color">
                     {value.title}
                     </h3>
-                    <p className="text-[var(--custom-text-primary)] text-base dark:text-[var(--custom-text-white)] leading-relaxed">
+                    <p className=" text-base darkLight-text-color leading-relaxed">
                     {value.description}
                     </p>
                 </CardContent>

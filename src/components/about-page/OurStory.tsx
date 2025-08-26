@@ -47,7 +47,7 @@ const OurStory: React.FC = () => {
       <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
         {/* Title */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 darkLight-text-color">
             {storyData.title}
           </h2>
           <div className="w-24 h-1 bg-[var(--custom-text-secondary)] mx-auto "></div>
@@ -56,13 +56,13 @@ const OurStory: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side */}
           <div>
-            <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-6 darkLight-text-color">
               {storyData.subtitle}
             </h3>
             {storyData.description.map((para, index) => (
               <p
                 key={index}
-                className="text-lg leading-relaxed text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-6 last:mb-0"
+                className="text-lg leading-relaxed darkLight-text-color mb-6 last:mb-0"
               >
                 {para}
               </p>
@@ -84,7 +84,7 @@ const OurStory: React.FC = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-[var(--custom-text-primary)] text-base dark:text-[var(--custom-text-white)]">
+                  <p className="text-base darkLight-text-color">
                     {card.content}
                   </p>
                 </CardContent>
