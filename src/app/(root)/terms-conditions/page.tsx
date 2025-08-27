@@ -161,7 +161,7 @@ const TermsConditions = () => {
         <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/20">
           <div className="grid gap-6">
             {termsData.map((section, index) => (
-              <Card key={section.id} className="gap-2 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-accent)]/30 dark:border-[var(--custom-bg-accent)]/20 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <Card key={section.id} className="gap-2 " variant={"hoverEffect"}>
                 <CardHeader className="pb-0">
                   <CardTitle className="flex items-center text-xl gap-4">
                     <div className="p-3 rounded-lg text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)]">{section.icon}</div>
@@ -171,20 +171,20 @@ const TermsConditions = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] leading-relaxed">{section.content}</p>
+                  <p className="darkLight-text-color  leading-relaxed">{section.content}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
           {/* Additional Information */}
-          <Card className="mt-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-accent)]/30 dark:border-[var(--custom-bg-accent)]/20 shadow-sm hover:shadow-md transition-shadow duration-200">
+          <Card className="mt-8 " variant={"hoverEffect"}>
             <CardContent className="pt-6">
               <div className="flex items-start gap-4">
                 <AlertTriangle className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-lg p-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-[var(--custom-text-secondary)] text-lg md:text-2xl mb-2">Important Notice</h3>
-                  <p className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] leading-relaxed">
+                  <p className="text-sm darkLight-text-color  leading-relaxed">
                     These terms and conditions constitute a legally binding agreement. If you have any questions or
                     concerns about these terms, please consult with a legal professional or contact our legal department
                     before using our services.
