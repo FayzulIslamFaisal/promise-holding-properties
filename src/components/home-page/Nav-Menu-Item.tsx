@@ -17,7 +17,7 @@ const NavMenuItem = () => {
   ];
   return (
     <div className="hidden lg:flex w-[75%] items-center justify-between">
-      <nav className="flex items-center gap-10">
+      <nav className="flex items-center gap-6 xl:gap-10">
         {navLinks.map((item ) => {
         const isActive = pathname === item.path
         return (
