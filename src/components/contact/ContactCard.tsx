@@ -14,7 +14,7 @@ interface ContactItem {
 export default function ContactCard() {
   const contactItems: ContactItem[] = [
   {
-    icon: <MapPin className="w-5 h-5" />,
+    icon: <MapPin className="w-10 h-10" />,
     title: "Corporate Office",
     details: [
       "Khaja Super Market, 2nd to 7th Floor,",
@@ -23,37 +23,37 @@ export default function ContactCard() {
     ]
   },
   {
-    icon: <Mail className="w-5 h-5" />,
+    icon: <Mail className="w-10 h-10" />,
     title: "Email",
     details: ["info@promiseassets.com"] // Update to your actual email if needed
   },
   {
-    icon: <Phone className="w-5 h-5" />,
+    icon: <Phone className="w-10 h-10" />,
     title: "Sales Enquiry",
     details: ["09647 444 444"]
   },
   {
-    icon: <Phone className="w-5 h-5" />,
+    icon: <Phone className="w-10 h-10" />,
     title: "Joint Venture Development",
     details: ["09647 444 444"]
   },
   {
-    icon: <Phone className="w-5 h-5" />,
+    icon: <Phone className="w-10 h-10" />,
     title: "General Enquiry",
     details: ["09647 444 444"]
   },
   {
-    icon: <Phone className="w-5 h-5" />,
+    icon: <Phone className="w-10 h-10" />,
     title: "International Callers",
     details: ["+8809647444444"]
   },
   {
-    icon: <MessageCircle className="w-5 h-5" />,
+    icon: <MessageCircle className="w-10 h-10" />,
     title: "WhatsApp",
     details: ["+09647 444 444"] // You can update if needed
   },
   {
-    icon: <Mail className="w-5 h-5" />,
+    icon: <Mail className="w-10 h-10" />,
     title: "Project Name",
     details: ["Promise Assets"]
   }
@@ -99,15 +99,16 @@ export default function ContactCard() {
         {contactItems.map((item, index) => (
             <Card
                 key={index}
-                className="bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-[var(--custom-bg-accent)]/40 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group mb-2 h-full"
+                className="hover:-translate-y-2 group mb-2 h-full"
+                variant={"hoverEffect"}
             >
                 <CardContent className="space-y-6">
                     <motion.div
                         variants={itemVariants}
                         className="flex items-center flex-col justify-center text-center gap-4 "
                     >
-                        <div className="flex-shrink-0 w-12 h-12 bg-[var(--custom-bg-accent)] rounded-full flex items-center justify-center text-[var(--custom-text-white)] shadow-md">
-                        {item.icon}
+                        <div className="flex-shrink-0 p-2 w-16 h-16 bg-[var(--custom-bg-accent)] rounded-full flex items-center justify-center text-[var(--custom-text-white)] shadow-md">
+                         <span className="group-hover:animate-pulse">{item.icon}</span>
                         </div>
 
                         <div className="flex-1 min-w-0">
