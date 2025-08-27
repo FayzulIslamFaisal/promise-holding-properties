@@ -71,7 +71,7 @@ const PrivacyPolicyPage = () => {
 
     <section className="px-4 ">
       <div className="container mx-auto md:py-14 py-10 border-b border-[var(--custom-bg-accent)]/40 ">
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30 ">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"}>
           <CardContent className="p-8">
             <div className="flex items-start gap-4">
               <Eye className="h-10 w-10 text-[var(--custom-text-secondary)] mt-1 flex-shrink-0" />
@@ -91,7 +91,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"}>
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-4 dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
               Quick Navigation
@@ -114,10 +114,10 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30" id="info">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="info">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <FileText className="h-10 w-10 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />
+              <FileText className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
               <h2 className="text-2xl font-bold dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
                 1. Information We Collect
               </h2>
@@ -148,10 +148,10 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30" id="use">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="use">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <Users className="h-10 w-10 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />
+              <Users className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
               <h2 className="text-2xl font-bold dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
                 2. How We Use Your Data
               </h2>
@@ -192,10 +192,10 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30" id="sharing">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="sharing">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <Lock className="h-10 w-10 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />
+              <Lock className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
               <h2 className="text-2xl font-bold dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
                 3. Data Sharing & Disclosure
               </h2>
@@ -220,10 +220,10 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30" id="rights">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="rights">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <Shield className="h-10 w-10 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />
+              <Shield className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
               <h2 className="text-2xl font-bold dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
                 4. Your Rights & Choices
               </h2>
@@ -246,10 +246,10 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30" id="security">
+        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="security">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <Lock className="h-10 w-10 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />
+              <Lock className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
               <h2 className="text-2xl font-bold dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
                 5. Data Security
               </h2>
@@ -279,10 +279,10 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className=" bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] border-1 border-[var(--custom-bg-accent)]/30" id="contact">
+        <Card className="group py-0 " variant={"hoverEffect"} id="contact">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <Mail className="h-10 w-10 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />
+              <Mail className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
               <h2 className="text-2xl font-bold dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
                 6. Contact Information
               </h2>
@@ -291,12 +291,12 @@ const PrivacyPolicyPage = () => {
               <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-base">
                 If you have questions about this Privacy Policy or our privacy practices, please contact us at:
               </p>
-              <div className="highlight-box p-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+              <div className="highlight-box p-4 rounded-lg transition-all duration-300 group-hover:shadow-lg">
                 <Link href={"mailto:promiseassets@gmail.com"} className=" flex items-center mb-1 gap-2 dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)] text-base">
-                  <MailCheck className="h-6 w-6 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />  promiseassets@gmail.com
+                  <MailCheck className="h-6 w-6 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />  promiseassets@gmail.com
                 </Link>
                 <p className="font-medium flex items-center gap-2">
-                  <MapPinPlus className="h-6 w-6 text-[var(--custom-text-primary)] bg-[var(--custom-bg-white)]/80 rounded-md p-1 mt-1 flex-shrink-0" />Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207.
+                  <MapPinPlus className="h-6 w-6 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207.
                 </p>
               </div>
               <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-base">
