@@ -21,9 +21,10 @@ interface AllProjectCardProps {
 const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) => {
   return (
     <Card
-      className="group cursor-pointer py-0 transition-all duration-300 hover:scale-102 overflow-hidden border border-[var(--custom-bg-accent)]/50 shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+      className="group py-0"
+      variant={"hoverEffect"}
     >
-      <CardContent className="p-0 relative h-full group-hover:bg-[var(--custom-bg-accent)]/20 bg-[var(--custom-bg-accent)]/10 dark:bg-[var(--custom-bg-primary)] pb-4 md:pb-6 transition-all duration-300">
+      <CardContent className="p-0 relative h-full pb-4 md:pb-6 ">
         {/* Cover Image with Badge */}
         <div className="p-4 md:p-6">
             <div
@@ -46,24 +47,23 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
         </div>
 
         {/* Content */}
-        <div className=" pt-0 px-4 md:px-6">
+        <div className="pt-0 px-4 md:px-6 pb-13">
           <h3 className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] md:text-lg text-base font-semibold mb-3 leading-tight">
             {allProject.title}
           </h3>
-          <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-sm font-medium mb-4">
+          <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-sm font-medium">
             {allProject.date}
           </p>
-
-          {/* View allProject Link */}
-          <div className="flex items-center justify-between">
-            <Link
-              href={`/project-details/${allProject.slug}`}
-              className="btn-glow-accent"
-            >
-              View Project
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+        </div>
+        {/* Button fixed bottom */}
+        <div className="flex items-center justify-between absolute bottom-4 md:bottom-6 left-4 md:left-6">
+          <Link
+            href={`/project-details/${allProject.slug}`}
+            className="btn-glow-accent inline-flex items-center gap-1"
+          >
+            View Project
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </CardContent>
     </Card>
