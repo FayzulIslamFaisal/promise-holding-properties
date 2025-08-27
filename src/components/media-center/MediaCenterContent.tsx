@@ -126,7 +126,7 @@ const MediaCenterContent = () => {
   return (
     <section className=" px-4 dark:bg-[var(--custom-bg-body)] bg-[var(--custom-bg-white)]" >
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-10 md:py-14 border-b border-[var(--custom-bg-accent)]/40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
           {newsletters.map((newsletter) => (
             <MediaCenterContentCard key={newsletter.id} newsletter={newsletter} />
           ))}
