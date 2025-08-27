@@ -161,7 +161,7 @@ const TermsConditions = () => {
         <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/20">
           <div className="grid gap-6">
             {termsData.map((section, index) => (
-              <Card key={section.id} className="gap-2 " variant={"hoverEffect"}>
+              <Card key={section.id} className="gap-2 hover:scale-100" variant={"hoverEffect"}>
                 <CardHeader className="pb-0">
                   <CardTitle className="flex items-center text-xl gap-4">
                     <div className="p-3 rounded-lg text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)]">{section.icon}</div>
@@ -178,7 +178,7 @@ const TermsConditions = () => {
           </div>
 
           {/* Additional Information */}
-          <Card className="mt-8 " variant={"hoverEffect"}>
+          <Card className="mt-8 hover:scale-100 " variant={"hoverEffect"}>
             <CardContent className="pt-6">
               <div className="flex items-start gap-4">
                 <AlertTriangle className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-lg p-1 flex-shrink-0" />

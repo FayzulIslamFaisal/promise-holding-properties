@@ -71,7 +71,7 @@ const PrivacyPolicyPage = () => {
 
     <section className="px-4 ">
       <div className="container mx-auto md:py-14 py-10 border-b border-[var(--custom-bg-accent)]/40 ">
-        <Card className="group py-0 mb-8" variant={"hoverEffect"}>
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"}>
           <CardContent className="p-8">
             <div className="flex items-start gap-4">
               <Eye className="h-10 w-10 text-[var(--custom-text-secondary)] mt-1 flex-shrink-0" />
@@ -91,7 +91,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 mb-8" variant={"hoverEffect"}>
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"}>
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-4 dark:text-[var(--custom-text-secondary)] text-[var(--custom-text-primary)]">
               Quick Navigation
@@ -114,7 +114,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="info">
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"} id="info">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <FileText className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
@@ -148,7 +148,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="use">
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"} id="use">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <Users className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
@@ -192,7 +192,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="sharing">
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"} id="sharing">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <Lock className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
@@ -220,7 +220,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="rights">
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"} id="rights">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <Shield className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
@@ -246,7 +246,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 mb-8" variant={"hoverEffect"} id="security">
+        <Card className="hover:scale-100 group py-0 mb-8" variant={"hoverEffect"} id="security">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <Lock className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
@@ -279,7 +279,7 @@ const PrivacyPolicyPage = () => {
           </CardContent>
         </Card>
 
-        <Card className="group py-0 " variant={"hoverEffect"} id="contact">
+        <Card className="hover:scale-100 group py-0 " variant={"hoverEffect"} id="contact">
           <CardContent className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <Mail className="h-10 w-10 text-[var(--custom-text-white)] bg-[var(--custom-bg-accent)] rounded-md p-1 mt-1 flex-shrink-0" />
