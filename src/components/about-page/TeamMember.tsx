@@ -1,13 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-
 interface TeamMember {
   id: number;
   name: string;
@@ -66,8 +59,8 @@ const TeamMember = () => {
     <section className="px-4">
       <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 darkLight-text-color">
-            Meet Our Team
+          <h2 className="text-4xl capitalize md:text-5xl font-bold mb-6 darkLight-text-color">
+            Meet Our management
           </h2>
           <div className="w-24 h-1 bg-[var(--custom-bg-accent)] mx-auto mb-8"></div>
           <p className="text-xl darkLight-text-color max-w-3xl mx-auto">
@@ -75,32 +68,10 @@ const TeamMember = () => {
           </p>
         </div>
 
-        {/* Swiper Carousel */}
-        <Swiper
-          modules={[Autoplay, Navigation]}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            nextEl: '.custom-next',
-            prevEl: '.custom-prev',
-          }}
-          loop
-          spaceBetween={15}
-          slidesPerView={1}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 },
-          }}
-          className="w-full h-full"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 ">
           {teamMembers.map((member) => (
-            <SwiperSlide key={member.id} className="h-auto">
               <Card
+                key={member.id}
                 variant={"hoverEffect"}
                 className="text-center group p-6 min-h-[400px] h-full my-3"
               >
@@ -126,11 +97,8 @@ const TeamMember = () => {
                   </p>
                 </CardContent>
               </Card>
-            </SwiperSlide>
-          ))}
-          <div className="swiper-button-prev custom-prev"></div>
-          <div className="swiper-button-next custom-next"></div>
-        </Swiper>
+            ))}
+        </div>
       </div>
     </section>
   );
