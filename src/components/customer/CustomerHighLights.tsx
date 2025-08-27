@@ -80,14 +80,14 @@ const CustomerHighLights = () => {
   return (
     <section className="w-full flex items-start justify-center px-4 py-10 md:py-14 border-b border-[var(--custom-bg-accent)]/40">
       <div className="container mx-auto">
-        <Card className="rounded-2xl border border-[var(--custom-bg-accent)]/20 py-0 shadow-sm bg-[var(--custom-bg-accent)]/10 dark:bg-[var(--custom-bg-primary)]">
+        <Card className="py-0" variant={"hoverEffect"}>
           <CardContent className="p-5 sm:p-6 md:p-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {highlightData.map((highlight, colIndex) => (
                 <div key={colIndex}>
                   <h2
                     id={`highlight-${colIndex}`}
-                    className="text-lg md:text-xl font-semibold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-4"
+                    className="text-lg md:text-xl font-semibold darkLight-text-color mb-4"
                   >
                     {highlight?.title}
                   </h2>
@@ -97,7 +97,7 @@ const CustomerHighLights = () => {
                         <span className="inline-flex h-10 w-10 text-center justify-center items-center rounded-full bg-[var(--custom-bg-accent)]">
                           {item?.icon}
                         </span>
-                        <span className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-sm md:text-base">
+                        <span className="darkLight-text-color text-sm md:text-base">
                           {item?.label}
                         </span>
                       </li>
