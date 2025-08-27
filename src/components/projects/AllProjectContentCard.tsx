@@ -48,10 +48,10 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
 
         {/* Content */}
         <div className="pt-0 px-4 md:px-6 pb-13">
-          <h3 className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] md:text-lg text-base font-semibold mb-3 leading-tight">
+          <h3 className="darkLight-text-color md:text-lg text-base font-semibold mb-3 leading-tight">
             {allProject.title}
           </h3>
-          <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-sm font-medium">
+          <p className="darkLight-text-color text-sm font-medium">
             {allProject.date}
           </p>
         </div>

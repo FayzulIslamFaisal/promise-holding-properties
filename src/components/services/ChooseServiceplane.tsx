@@ -32,7 +32,7 @@ const ChooseServiceplane: React.FC = () => {
         <div className="grid lg:grid-cols-2 md:gap-12 gap-8 items-center">
             <div>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-8">
-                Why Choose <span className="text-[var(--custom-text-secondary)]">Our Team</span>
+                Why Choose <span className="text-[var(--custom-text-secondary)]">Our Services</span>
             </h2>
             <p className="text-xl text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] leading-relaxed mb-8">
                 Experience the difference that comes with working alongside industry leaders who are committed to your success.
