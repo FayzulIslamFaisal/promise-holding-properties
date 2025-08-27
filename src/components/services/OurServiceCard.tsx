@@ -19,7 +19,7 @@ const OurServiceCard: React.FC<{ service: Service }> = ({ service }) => {
       <CardContent className="p-8 relative z-10">
         <div className="mb-6">
           <div className="w-16 h-16 bg-[var(--custom-bg-accent)] rounded-2xl flex items-center justify-center mb-4 transition-all duration-500">
-            <ServiceIcon className="w-10 h-10 darkLight-text-color group-hover:animate-pulse" />
+            <ServiceIcon className="w-10 h-10 darkLight-text-color text-[var(--custom-bg-white)] group-hover:animate-pulse" />
           </div>
         </div>
 
