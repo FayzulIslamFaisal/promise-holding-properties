@@ -208,6 +208,9 @@ body.light {
   .darkLight-text-color {
     @apply text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)];
   }
+  .darkLight-body-bg-color {
+    @apply bg-[var(--custom-bg-body)] dark:bg-[var(--custom-bg-body)];
+  }
 }
 
 

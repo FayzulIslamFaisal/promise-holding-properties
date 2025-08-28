@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Mail, Lock, Eye, EyeOff } from "lucide-react"
+import Link from "next/link"
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -14,29 +15,29 @@ export default function LoginForm() {
   return (
     <form className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="login-email">Email Address</Label>
+        <Label className="dark:text-[var(--custom-text-white)] text-[var(--custom-text-white)]" htmlFor="login-email">Email Address</Label>
         <div className="relative">
-          <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-          <Input id="login-email" type="email" placeholder="Enter your email" className="pl-10 h-12" />
+          <Mail className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
+          <Input id="login-email" type="email" placeholder="Enter your email" className="pl-10 h-12 bg-[var(--custom-bg-body)] darkLight-text-color" />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="login-password">Password</Label>
+        <Label className="dark:text-[var(--custom-text-white)] text-[var(--custom-text-white)]" htmlFor="login-password">Password</Label>
         <div className="relative">
-          <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+          <Lock className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input
             id="login-password"
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            className="pl-10 pr-10 h-12"
+            className="pl-10 pr-10 h-12 bg-[var(--custom-bg-body)] darkLight-text-color"
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-3"
+            className="absolute right-3 top-[50%] translate-y-[-50%]"
           >
-            {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            {showPassword ? <EyeOff className="h-4 w-4 cursor-pointer" /> : <Eye className="h-4 w-4 cursor-pointer" />}
           </button>
         </div>
       </div>
@@ -48,16 +49,16 @@ export default function LoginForm() {
             checked={rememberMe}
             onCheckedChange={(value: boolean | "indeterminate") => setRememberMe(value === true)}
           />
-          <Label htmlFor="remember" className="text-sm text-muted-foreground">
+          <Label className="dark:text-[var(--custom-text-white)] text-[var(--custom-text-white)] text-sm cursor-pointer" htmlFor="remember" >
             Remember me
           </Label>
         </div>
-        <button type="button" className="text-sm text-accent hover:text-accent/80">
+        <Link href="#" type="button" className="text-sm text-[var(--custom-text-white)]">
           Forgot Password?
-        </button>
+        </Link>
       </div>
 
-      <Button className="w-full h-12">Sign In</Button>
+      <Button value={"default"} className="w-full h-12 cursor-pointer ">Sign In</Button>
     </form>
   )
 }
