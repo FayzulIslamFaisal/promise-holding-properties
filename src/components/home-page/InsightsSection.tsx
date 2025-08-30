@@ -116,9 +116,9 @@ const insightsData = [
 const InsightsSection: React.FC = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto md:py-14 py-10 border-b border-[var(--custom-bg-accent)]/40">
+      <div className="container mx-auto  py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
         <div className="mb-6 lg:mb-10 flex items-center justify-between">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl capitalize font-bold darkLight-text-color">
              Insights
           </h2>
           <div className="">
