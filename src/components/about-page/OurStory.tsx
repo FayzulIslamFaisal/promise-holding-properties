@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, Users, LucideIcon } from "lucide-react"
+import SectionTitle from "../common/SectionTitle"
 
 // Interfaces
 interface StoryCard {
@@ -44,15 +45,12 @@ const OurStory: React.FC = () => {
 
   return (
     <section className="px-4">
-      <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
+      <div className="container mx-auto sectionSpaceBorder">
         {/* Title */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 darkLight-text-color">
-            {storyData.title}
-          </h2>
-          <div className="w-24 h-1 bg-[var(--custom-text-secondary)] mx-auto "></div>
-        </div>
-
+          <SectionTitle 
+              title={storyData.subtitle}
+              border_b={true}
+          />
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side */}
           <div>
