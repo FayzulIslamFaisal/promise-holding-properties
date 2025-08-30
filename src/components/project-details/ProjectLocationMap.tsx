@@ -84,6 +84,7 @@ const ProjectLocationMap = () => {
             zoom={13}
             scrollWheelZoom={false}
             style={{ width: '100%', height: '100%' }}
+            className="z-10"
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -97,7 +98,7 @@ const ProjectLocationMap = () => {
             </Marker>
           </MapContainer>
 
-          <div className="absolute inset-0 z-50 w-full h-full bg-[var(--custom-bg-accent)]/50 pointer-events-none" />
+          <div className="absolute inset-0 z-20 w-full h-full bg-[var(--custom-bg-primary)]/40 pointer-events-none" />
         </div>
       </div>
     </section>
