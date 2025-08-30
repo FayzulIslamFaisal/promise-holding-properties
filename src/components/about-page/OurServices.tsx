@@ -50,7 +50,7 @@ const OurServices = () => {
 
           <div className="grid md:grid-cols-2 gap-5">
             {services.map((service) => (
-              <Card key={service.id} className="p-8 gap-4" variant={"hoverEffect"}>
+              <Card key={service.id} className="p-8 gap-4 highlight-box" variant={"hoverEffect"}>
                 <CardHeader className="pb-0 px-0">
                   <CardTitle className="flex items-center gap-4 text-xl">
                     {service.icon}

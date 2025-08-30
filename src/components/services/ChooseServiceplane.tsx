@@ -60,7 +60,7 @@ const ChooseServiceplane: React.FC = () => {
                 return (
                   <Card
                     key={feature.id}
-                    className="group relative py-4 gap-2" variant={"hoverEffect"}
+                    className="group relative py-4 gap-2 highlight-box" variant={"hoverEffect"}
                   >
                     <CardHeader className="pb-0 mb-0">
                       <div className="w-14 h-14 p-2 mb-2 bg-[var(--custom-bg-accent)] rounded-md">

@@ -74,7 +74,7 @@ const OurStory: React.FC = () => {
             {storyData.cards.map((card) => (
               <Card
                 key={card.id}
-                className="p-4 gap-2 group"
+                className="p-4 gap-2 group highlight-box"
                 variant={"hoverEffect"}
               >
                 <CardHeader className="pb-0">
