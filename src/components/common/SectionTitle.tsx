@@ -9,13 +9,15 @@ const SectionTitle: React.FC<TitleSubtitleProps> = ({ title, subtitle, border_b=
     const firstPart = titleParts[0];
     const secondPart = titleParts.slice(1).join(' ');
   return (
-    <div>
-      <h1 className="text-2xl sm:text-3xl md:text-4xl capitalize font-bold darkLight-text-color">
-        <span >{firstPart}</span>
-        {secondPart && <span className="text-[var(--custom-text-secondary)]"> {secondPart}</span>}
-      </h1>
-      {border_b && <div className="w-20 h-1 bg-primary my-2 rounded"></div>}
-      {subtitle && <p className="text-base darkLight-text-color">{subtitle}</p>}
+    <div className="text-center mb-6 md:mb-10">
+        <div className="mb-3 md:mb-5">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 capitalize font-bold darkLight-text-color">
+                <span >{firstPart} {" "}</span>
+                {secondPart && <span className="text-[var(--custom-text-secondary)]">{secondPart}</span>}
+            </h1>
+            {border_b && <div className="w-24 h-1 bg-[var(--custom-text-secondary)] mx-auto"></div>}
+        </div>
+        {subtitle && <p className="text-base darkLight-text-color">{subtitle}</p>}
     </div>
   )
 }

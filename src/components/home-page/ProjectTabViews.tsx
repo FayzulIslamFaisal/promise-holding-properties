@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 
 import ProjectTabCard from './ProjectTabCard';
+import SectionTitle from '../common/SectionTitle';
 interface Project {
   id: string;
   title: string;
@@ -156,16 +157,9 @@ const mockProjects: Project[] = [
 
   return (
     <section className="w-full px-4 md:pb-14 pb-10 border-b border-[var(--custom-bg-accent)]/40">
-      {/* Header */}
       <div className="text-center md:pt-14 pt-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-6">
-          Our Projects
-        </h1>
-        <p className="text-lg text-[var(--custom-text-black)]/80 dark:text-[var(--custom-text-white)]/80 mx-auto pb-6">
-          Discover our portfolio of innovative construction and architectural projects
-        </p>
+        <SectionTitle title="Our Projects" subtitle="Discover our portfolio of innovative construction and architectural projects" border_b={true}/>
       </div>
-
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full text-[var(--custom-text-white)]">
         <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
