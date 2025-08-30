@@ -75,13 +75,13 @@ const AboutTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
       }, [autoplay, testimonials.length]);
   return (
     <section className="px-4 ">
-      <div className="container mx-auto antialiased py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-        <div className="mb-8 md:mb-12">
+      <div className="container mx-auto antialiased sectionSpaceBorder">
+        <div className="mb-8 md:mb-14">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-4xl lg:text-5xl font-bold capitalize darkLight-text-color relative"
+            className="text-3xl sm:text-4xl md:text-5xl text-center font-bold capitalize darkLight-text-color relative"
           >
             testimonials
           </motion.h2>

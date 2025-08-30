@@ -1,5 +1,6 @@
 import { Home, Key, Settings, TrendingUp } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
+import SectionTitle from "../common/SectionTitle"
 
 interface Service {
   id: number    
@@ -39,14 +40,13 @@ const services: Service[] = [
 const OurServices = () => {
   return (
     <section className="px-4">
-        <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 darkLight-text-color">Our Services</h2>
-            <div className="w-24 h-1 bg-[var(--custom-bg-accent)] mx-auto mb-6"></div>
-            <p className="text-xl darkLight-text-color max-w-3xl mx-auto">
-              Comprehensive real estate solutions tailored to your needs
-            </p>
-          </div>
+        <div className="container mx-auto sectionSpaceBorder">
+          
+          <SectionTitle
+              title="Our Services"
+              border_b={true}
+              subtitle="Comprehensive real estate solutions tailored to your needs"
+          />
 
           <div className="grid md:grid-cols-2 gap-5">
             {services.map((service) => (

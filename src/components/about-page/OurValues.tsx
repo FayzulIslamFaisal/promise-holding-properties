@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardContent } from '../ui/card'
 import { Award, Heart, Lightbulb, Shield } from 'lucide-react'
+import SectionTitle from '../common/SectionTitle'
 
 interface ValueData {
   id: number
@@ -37,18 +38,12 @@ const OurValues = () => {
   ]
   return (
     <section className=" px-4 ">
-        <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-        {/* Title */}
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 darkLight-text-color">
-                Our Values
-            </h2>
-            <div className="w-24 h-1 bg-[var(--custom-text-secondary)] mx-auto mb-3"></div>
-            <p className="text-xl darkLight-text-color mx-auto">
-              The principles that guide everything we do
-            </p>
-        </div>
-
+        <div className="container mx-auto sectionSpaceBorder">
+        <SectionTitle
+              title="Our Values"
+              border_b={true}
+              subtitle="The principles that guide everything we do..."
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
             {valuesData.map((value) => (
             <Card

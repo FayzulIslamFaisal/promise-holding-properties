@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
+import SectionTitle from "../common/SectionTitle";
 interface TeamMember {
   id: number;
   name: string;
@@ -57,16 +58,13 @@ const teamMembers: TeamMember[] = [
 const TeamMember = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl capitalize md:text-5xl font-bold mb-6 darkLight-text-color">
-            Meet Our management
-          </h2>
-          <div className="w-24 h-1 bg-[var(--custom-bg-accent)] mx-auto mb-8"></div>
-          <p className="text-xl darkLight-text-color max-w-3xl mx-auto">
-            Experienced professionals dedicated to your success
-          </p>
-        </div>
+      <div className="container mx-auto sectionSpaceBorder">
+        
+        <SectionTitle
+              title="Our management"
+              border_b={true}
+              subtitle="Experienced professionals dedicated to your success"
+          />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 ">
           {teamMembers.map((member) => (
