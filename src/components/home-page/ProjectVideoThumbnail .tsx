@@ -11,7 +11,7 @@ const ProjectVideoThumbnail = () => {
   return (
     <>
       <section className="px-4">
-        <div className="container mx-auto  group py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/50">
+        <div className="container mx-auto  group sectionSpaceBorder">
           <div className="text-center">
             <SectionTitle 
               title="Explore Our Projects" 

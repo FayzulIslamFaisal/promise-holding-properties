@@ -156,7 +156,7 @@ const mockProjects: Project[] = [
   });
 
   return (
-    <section className="w-full px-4 md:pb-14 pb-10 border-b border-[var(--custom-bg-accent)]/40">
+    <section className="w-full px-4 sectionSpaceBorder pt-0">
       <div className="text-center md:pt-14 pt-10">
         <SectionTitle title="Our Projects" subtitle="Discover our portfolio of innovative construction and architectural projects" border_b={true}/>
       </div>

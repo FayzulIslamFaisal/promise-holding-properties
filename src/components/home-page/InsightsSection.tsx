@@ -116,7 +116,7 @@ const insightsData = [
 const InsightsSection: React.FC = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto  py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
+      <div className="container mx-auto sectionSpaceBorder">
         <div className="mb-6 lg:mb-10 flex items-center justify-between">
           <h2 className="text-3xl sm:text-4xl md:text-5xl capitalize font-bold darkLight-text-color">
              Insights

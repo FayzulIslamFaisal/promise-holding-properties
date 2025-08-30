@@ -79,7 +79,7 @@ const ProjectTestimonial = ({ autoplay = false }: { autoplay?: boolean }) => {
 
   return (
     <section className="px-4 ">
-      <div className="container mx-auto antialiased py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
+      <div className="container mx-auto antialiased sectionSpaceBorder">
         <div className="mb-8 md:mb-14">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
