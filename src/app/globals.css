@@ -216,6 +216,9 @@ body.light {
   .bg-primaryAccent {
     @apply bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)];
   }
+  .bannerText {
+    @apply text-[var(--custom-text-white)] capitalize text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4;
+  }
 }
 
 
