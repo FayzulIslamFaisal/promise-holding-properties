@@ -5,6 +5,7 @@ interface Newsletter {
   date: string
   coverImage: string
   tags: string
+  slug?: string
 }
 
 const newsletters: Newsletter[] = [
@@ -14,6 +15,7 @@ const newsletters: Newsletter[] = [
     date: "July 2025",
     coverImage: "/assets/images/projects/project1.jpg",
     tags: "Architecture",
+    slug: "architectural-excellence-sustainable-development",
   },
   {
     id: "2",
@@ -21,6 +23,7 @@ const newsletters: Newsletter[] = [
     date: "June 2025",
     coverImage: "/assets/images/projects/project2.jpg",
     tags: "Real Estate",
+    slug: "premium-residential-projects-market-insights",
   },
   {
     id: "3",
@@ -28,6 +31,7 @@ const newsletters: Newsletter[] = [
     date: "May 2025",
     coverImage: "/assets/images/projects/project3.jpg",
     tags: "Interior Design",
+    slug: "interior-design-trends-luxury-living-spaces",
   },
   {
     id: "4",
@@ -35,6 +39,7 @@ const newsletters: Newsletter[] = [
     date: "April 2025",
     coverImage: "/assets/images/projects/project4.jpg",
     tags: "Urban Planning",
+    slug: "urban-planning-community-development",
   },
   {
     id: "5",
@@ -42,6 +47,7 @@ const newsletters: Newsletter[] = [
     date: "March 2025",
     coverImage: "/assets/images/projects/project5.jpeg",
     tags: "Technology",
+    slug: "smart-homes-technology-meets-comfort",
   },
   {
     id: "6",
@@ -49,6 +55,7 @@ const newsletters: Newsletter[] = [
     date: "February 2025",
     coverImage: "/assets/images/projects/project6.jpg",
     tags: "Sustainability",
+    slug: "future-green-architecture",
   },
   {
     id: "7",
@@ -56,6 +63,7 @@ const newsletters: Newsletter[] = [
     date: "January 2025",
     coverImage: "/assets/images/projects/project7.jpg",
     tags: "Commercial",
+    slug: "commercial-real-estate-trends-watch",
   },
   {
     id: "8",
@@ -63,6 +71,7 @@ const newsletters: Newsletter[] = [
     date: "December 2024",
     coverImage: "/assets/images/projects/project8.jpg",
     tags: "Luxury",
+    slug: "luxury-condominiums-redefining-urban-living",
   },
   {
     id: "9",
@@ -70,6 +79,7 @@ const newsletters: Newsletter[] = [
     date: "November 2024",
     coverImage: "/assets/images/projects/project9.jpg",
     tags: "Innovation",
+    slug: "revolutionizing-construction-ai-robotics",
   },
   {
     id: "10",
@@ -77,6 +87,7 @@ const newsletters: Newsletter[] = [
     date: "October 2024",
     coverImage: "/assets/images/projects/project10.jpg",
     tags: "Art & Culture",
+    slug: "cultural-spaces-blending-art-architecture",
   },
   {
     id: "11",
@@ -84,6 +95,7 @@ const newsletters: Newsletter[] = [
     date: "September 2024",
     coverImage: "/assets/images/projects/project11.jpg",
     tags: "Social Impact",
+    slug: "affordable-housing-solutions-for-all",
   },
   {
     id: "12",
@@ -91,6 +103,7 @@ const newsletters: Newsletter[] = [
     date: "August 2024",
     coverImage: "/assets/images/projects/project12.jpg",
     tags: "Landscape",
+    slug: "landscape-architecture-urban-settings",
   },
   {
     id: "13",
@@ -98,6 +111,7 @@ const newsletters: Newsletter[] = [
     date: "July 2024",
     coverImage: "/assets/images/projects/project13.jpg",
     tags: "Heritage",
+    slug: "reviving-heritage-buildings-modern-touch",
   },
   {
     id: "14",
@@ -105,6 +119,7 @@ const newsletters: Newsletter[] = [
     date: "June 2024",
     coverImage: "/assets/images/projects/project14.jpg",
     tags: "Minimalism",
+    slug: "minimalist-home-design-principles",
   },
   {
     id: "15",
@@ -112,6 +127,7 @@ const newsletters: Newsletter[] = [
     date: "May 2024",
     coverImage: "/assets/images/projects/project15.jpg",
     tags: "Infrastructure",
+    slug: "future-proof-cities-resilient-infrastructure",
   },
   {
     id: "16",
@@ -119,6 +135,7 @@ const newsletters: Newsletter[] = [
     date: "April 2024",
     coverImage: "/assets/images/projects/project16.jpg",
     tags: "Public Space",
+    slug: "public-spaces-bring-people-together",
   },
 ];
 

@@ -12,6 +12,7 @@ interface Newsletter {
   date: string;
   coverImage: string;
   tags: string;
+  slug?: string;
 }
 
 interface MediaCenterContentCardProps {
@@ -49,7 +50,7 @@ const MediaCenterContentCard: React.FC<MediaCenterContentCardProps> = ({ newslet
             </div>
             <div className="flex items-center justify-between absolute bottom-0 left-6 ">
                 <Link
-                  href={`/newsletter/${newsletter.id}`}
+                  href={`/media-center/${newsletter.slug}`}
                   className="btn-glow-accent"
                 >
                   View Newsletter
