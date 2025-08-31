@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import SectionTitle from "../common/SectionTitle"
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -41,13 +42,8 @@ const ContactForm = () => {
 
   return (
     <section className="px-4">
-    <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14 border-b border-[var(--custom-bg-accent)]/40">
-      <div className="text-center mb-4 md:mb-6">
-        <h2 className="text-2xl md:text-4xl lg:text-6xl capitalize font-bold dark:text-[var(--custom-bg-white)] text-[var(--custom-bg-primary)]">
-          Contact <span className="text-[var(--custom-text-secondary)]">Us</span>  
-        </h2>
-      </div>
-
+    <div className="container mx-auto sectionSpaceBorder">
+      <SectionTitle title="Contact Us" subtitle="We're here to help!"  border_b={true} />
       <form onSubmit={handleSubmit} className="space-y-3 max-w-full lg:max-w-[1024px] mx-auto">
         <div className="relative">
           <input
