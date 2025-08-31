@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import LandownerSliderCard from "./LandownerSliderCard";
+import SectionTitle from "../common/SectionTitle";
 
 interface SliderProps {
   id: number;
@@ -67,9 +68,9 @@ const certifications: SliderProps[] = [
 const LandownerSlider = () => {
   return (
     <>
-    <section className="border-b border-[var(--custom-bg-accent)]/40 pb-10 md:pb-14">
-      <div className="py-8 md:py-10 container mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold capitalize text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]">The essence of <span className="text-[var(--custom-text-secondary)]">your Excellence</span> </h2>
+    <section className="sectionSpaceBorder">
+      <div className=" container mx-auto text-center">
+        <SectionTitle title="essence of excellence" border_b={true} />
       </div>
       <div className="relative w-full h-[450px] lg:h-[600px]">
         <div
