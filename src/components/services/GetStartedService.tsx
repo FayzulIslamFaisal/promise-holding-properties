@@ -1,6 +1,7 @@
 import { Button } from "../ui/button"
 import { PhoneCall, Headphones, CheckCircle2 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
+import SectionTitle from "../common/SectionTitle"
 
 const features = [
   {
@@ -26,20 +27,9 @@ const features = [
 const GetStartedService = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
+      <div className="container mx-auto sectionSpaceBorder">
         
-        {/* Heading */}
-        <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold darkLight-text-color mb-6">
-            Ready to{" "}
-            <span className="text-[var(--custom-text-secondary)]">Get Started?</span>
-          </h2>
-          <p className="text-xl darkLight-text-color pb-2 leading-relaxed max-w-full md:max-w-3xl mx-auto">
-            Take the next step in your real estate journey. Our expert team is ready to provide personalized solutions
-            tailored to your specific needs.
-          </p>
-        </div>
-
+        <SectionTitle title="Ready to Get Started" subtitle="Take the next step in your real estate journey"  border_b={true} />
         {/* Feature Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 md:mb-8">
           {features.map(({ id, icon: Icon, title, description }) => (

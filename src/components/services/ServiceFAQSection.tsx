@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import SectionTitle from "../common/SectionTitle";
 
 interface Faq {
   id: number;
@@ -60,15 +61,8 @@ const faqs: Faq[] = [
 const ServiceFAQSection: React.FC = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-        <div className="text-center mb-6 md:mb-10">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-5">
-            Frequently Asked <span className="text-[var(--custom-text-secondary)]">Questions</span> 
-          </h2>
-          <p className="text-xl text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] max-w-2xl mx-auto">
-            Find answers to common questions about our real estate services.
-          </p>
-        </div>
+      <div className="container mx-auto sectionSpaceBorder">
+        <SectionTitle title="Frequently Asked Questions" subtitle="Have a question? We've got answers!"  border_b={true} />
         <div className="max-w-[100%] lg:max-w-[70%] mx-auto p-4 border border-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] rounded-lg shadow-2xl">
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq) => (

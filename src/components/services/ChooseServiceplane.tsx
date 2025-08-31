@@ -1,6 +1,7 @@
 import { Award, Check, Clock, Shield, TrendingUp } from "lucide-react";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import SectionTitle from "../common/SectionTitle";
 
 interface Feature {
   icon: React.ElementType;
@@ -28,29 +29,23 @@ const features: Feature[] = [
 const ChooseServiceplane: React.FC = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto  border-b border-[var(--custom-bg-accent)]/40 py-10 md:py-12">
+      <div className="container mx-auto  sectionSpaceBorder">
         {/* Left Side */}
         <div className="grid lg:grid-cols-2 md:gap-12 gap-8 items-center">
             <div>
-            <h2 className="text-4xl md:text-5xl font-bold darkLight-text-color mb-8">
-                Why Choose <span className="text-[var(--custom-text-secondary)]">Our Services</span>
-            </h2>
-            <p className="text-xl darkLight-text-color leading-relaxed mb-8">
-                Experience the difference that comes with working alongside industry leaders who are committed to your success.
-            </p>
-
-            <div className="space-y-4">
-                {whyChooseUs.map((item, index) => (
-                <div key={index} className="flex items-start gap-4 group">
-                    <div className="flex-shrink-0 w-8 h-8 bg-[var(--custom-bg-accent)] rounded-full flex items-center justify-center mt-1 group-hover:bg-[var(--custom-bg-accent)]/80 transition-colors duration-300">
-                    <Check className="w-4 h-4 darkLight-text-color" />
-                    </div>
-                    <p className="text-lg darkLight-text-color leading-relaxed">
-                    {item}
-                    </p>
-                </div>
-                ))}
-            </div>
+              <SectionTitle title="Choose Our Services"  border_b={false} />
+              <div className="space-y-4">
+                  {whyChooseUs.map((item, index) => (
+                  <div key={index} className="flex items-start gap-4 group">
+                      <div className="flex-shrink-0 w-8 h-8 bg-[var(--custom-bg-accent)] rounded-full flex items-center justify-center mt-1 group-hover:bg-[var(--custom-bg-accent)]/80 transition-colors duration-300">
+                      <Check className="w-4 h-4 darkLight-text-color" />
+                      </div>
+                      <p className="text-lg darkLight-text-color leading-relaxed">
+                      {item}
+                      </p>
+                  </div>
+                  ))}
+              </div>
             </div>
 
             {/* Right Side - Features */}

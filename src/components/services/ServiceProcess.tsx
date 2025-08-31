@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react"
+import SectionTitle from "../common/SectionTitle"
 
 const steps = [
   {
@@ -30,14 +31,8 @@ const steps = [
 const ServiceProcess = () => {
   return (
     <section className="px-4">
-      <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] mb-4">How It <span className="text-[var(--custom-text-secondary)]">Works</span> </h2>
-          <p className="text-xl text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] max-w-full md:max-w-2xl mx-auto">
-            Our streamlined process ensures a smooth and hassle-free real estate experience.
-          </p>
-        </div>
-
+      <div className="container mx-auto sectionSpaceBorder">
+        <SectionTitle title="How It Works" subtitle="Our streamlined process ensures a smooth and hassle-free real estate experience." border_b={true} />
           <div className="relative max-w-[100%] md:max-w-[60%] mx-auto">
             {/* Progress Line */}
             <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-border hidden md:block" />
