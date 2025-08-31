@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { MapPin, Mail, Phone, MessageCircle } from 'lucide-react'
 import { motion } from "framer-motion"
 import React from "react"
+import SectionTitle from "../common/SectionTitle"
 
 interface ContactItem {
   icon: React.ReactNode
@@ -82,20 +83,15 @@ export default function ContactCard() {
   }
 
   return (
-    <section className="px-4 pt-10 md:pt-14">
+    <section className="px-4 pt-10 md:pt-12">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
         className="container mx-auto "
       >
-        <div className="text-center group mb-8">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl capitalize font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] tracking-wide">
-             get in <span className="text-[var(--custom-text-secondary)]">touch</span> 
-          </h2>
-          <div className="w-24 h-1 bg-[var(--custom-bg-accent)] mx-auto mt-4 rounded-full group-hover:w-32 transition-all duration-300"></div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center border-b border-[var(--custom-bg-accent)]/40 pb-10 md:pb-14">
+          <SectionTitle title="get in touch"  border_b={true} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center pt-0 sectionSpaceBorder">
         {contactItems.map((item, index) => (
             <Card
                 key={index}
