@@ -1,5 +1,6 @@
 import { Briefcase, Home, TrendingUp, Users } from "lucide-react";
 import OurServiceCard from "./OurServiceCard";
+import SectionTitle from "../common/SectionTitle";
 
 interface Service {
   id: number;
@@ -53,15 +54,7 @@ const OurServices = () => {
   return (
     <section className="px-4">
       <div className="container mx-auto border-b border-[var(--custom-bg-accent)]/40 py-10 md:py-12">
-        <div className="text-center mb-6 md:mb-9 ">
-          <h2 className="darkLight-text-color text-2xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4">
-            Our <span className="text-[var(--custom-text-secondary)]">Services</span>
-          </h2>
-          <p className="darkLight-text-color text-lg lg:text-xl">
-            Elevating your real estate experience with unparalleled expertise and luxury service
-          </p>
-        </div>
-
+        <SectionTitle title="Our Services" subtitle="Comprehensive real estate solutions tailored to your needs" border_b={true} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
           {services.map((service) => (
             <OurServiceCard key={service.id} service={service} />
