@@ -1,9 +1,15 @@
 import InsightWrapper from "@/components/insight/InsightWrapper";
-
-
-const InsightPage = ({ params }: { params: { slug: string } }) => {
-    const { slug } = params
-    console.log(slug);
+interface SlugProps {
+  params: { slug: string; }
+}
+const InsightPage = async({
+  params,
+}: {
+  params: Promise<SlugProps['params']>
+}) => {
+  const { slug } = await params;
+  console.log(slug);
+  
   return (
     <InsightWrapper />
   )
