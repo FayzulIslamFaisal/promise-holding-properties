@@ -78,7 +78,7 @@ const highlightData: HighlightColumn[] = [
 
 const CustomerHighLights = () => {
   return (
-    <section className="w-full flex items-start justify-center px-4 py-10 md:py-14 border-b border-[var(--custom-bg-accent)]/40">
+    <section className="w-full flex items-start justify-center px-4 sectionSpaceBorder">
       <div className="container mx-auto">
         <Card className="py-0" variant={"hoverEffect"}>
           <CardContent className="p-5 sm:p-6 md:p-8">

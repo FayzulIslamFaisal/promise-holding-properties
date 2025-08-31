@@ -4,8 +4,8 @@ import Link from "next/link"
 const CustomerFaq = () => {
   return (
     <section className="px-4">
-        <div className="container mx-auto border-b border-[var(--custom-bg-accent)]/40 py-10 md:py-14">
-            <Card className="py-0" variant={"hoverEffect"}>
+        <div className="container mx-auto sectionSpaceBorder">
+            <Card className="py-0"  variant={"hoverEffect"}>
                 <CardContent className="p-5 sm:p-6 md:p-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* FAQs */}

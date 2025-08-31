@@ -44,7 +44,7 @@ const CustomerForm = () => {
 
   return (
     <section className="px-4">
-        <div className="container mx-auto py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40">
+        <div className="container mx-auto sectionSpaceBorder">
             <form
             onSubmit={handleSubmit}
             className="space-y-3 max-w-full mx-auto"
