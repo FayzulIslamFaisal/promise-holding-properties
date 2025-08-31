@@ -5,9 +5,9 @@ import Image from 'next/image'
 const InsightImageBox = () => {
   return (
     <Card className="mb-8 group overflow-hidden py-0 rounded-lg p-4 md:p-6 bg-primaryAccent">
-        <div className="w-full overflow-hidden h-[400px] md:h-[500px] relative border border-[var(--custom-bg-accent)]/40 shadow-xl group-hover:shadow-2xl rounded-lg transition-shadow duration-300">
+        <div className="w-full overflow-hidden h-[calc(100vh-100px)]  relative border border-[var(--custom-bg-accent)]/40 shadow-xl group-hover:shadow-2xl rounded-lg transition-shadow duration-300">
             <Image
-                src="/assets/images/landowner/banner.jpg"
+                src="/assets/images/media-center/img2.jpg"
                 alt="কৃত্রিম বুদ্ধিমত্তার ভবিষ্যৎ"
                 fill
                 className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"

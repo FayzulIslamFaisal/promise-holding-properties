@@ -5,7 +5,7 @@ const InsightBanner = () => {
     <section className="sectionSpaceBorder pt-0">
         <div className="relative h-[calc(100vh-200px)] md:h-[calc(100vh-200px)]">
             <Image
-                src="/assets/images/slider/banner7.png"
+                src="/assets/images/media-center/img1.jpg"
                 alt="Media Center Banner"
                 fill
                 className="object-cover"
