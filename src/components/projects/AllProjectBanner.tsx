@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const AllProjectBanner = () => {
   return (
-    <section className="sectionSpaceBorder">
+    <section className="sectionSpaceBorder pt-0">
         <div className="relative h-[calc(100vh-200px)] md:h-[calc(100vh-200px)]">
             <Image
                 src="/assets/images/slider/banner7.png"

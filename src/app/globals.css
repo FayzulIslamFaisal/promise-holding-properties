@@ -186,16 +186,16 @@ body.light {
 @layer components {
   .btn-glow-accent {
     @apply flex items-center gap-2 
-      bg-[var(--custom-bg-accent)] 
+      bg-[var(--custom-bg-black)] 
       text-[var(--custom-text-white)] 
       px-4 py-2 
       rounded-md 
       shadow-2xl
       border 
-      border-[var(--custom-border-primary)] 
+      border-[var(--custom-bg-accent)]/40 
       hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] 
       hover:border-[var(--custom-bg-accent)] 
-      hover:bg-[var(--custom-bg-black)] 
+      hover:bg-[var(--custom-bg-accent)] 
       hover:text-[var(--custom-text-white)]
       transform 
       hover:scale-105 

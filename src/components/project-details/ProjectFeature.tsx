@@ -4,6 +4,7 @@
 import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
+import SectionTitle from "../common/SectionTitle"
 
 const ProjectFeature = ({
   items,
@@ -20,12 +21,12 @@ const ProjectFeature = ({
 
   return (
     <section className="px-4 ">
-    <div className="container mx-auto pt-10 pb-10 md:pb-12 md:pt-12 border-t border-b border-[var(--custom-bg-accent)]/40">
-        <div className="pb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold capitalize dark:text-[var(--custom-bg-white)] text-[var(--custom-bg-primary)]">
-                Features
-            </h2>
-        </div>
+    <div className="container mx-auto sectionSpaceBorder">
+        
+        <SectionTitle
+          title="Our Features"
+          border_b={true}
+        />
         <div className={cn("grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 bg-[var(--custom-border-primary)] rounded-3xl", className)}>
             {items.map((item, index) => (
                 <div
