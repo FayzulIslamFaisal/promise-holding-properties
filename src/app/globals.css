@@ -192,7 +192,7 @@ body.light {
       rounded-md 
       shadow-2xl
       border 
-      border-[var(--custom-bg-accent)]/40 
+      border-[var(--custom-bg-accent)]/50 
       hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] 
       hover:border-[var(--custom-bg-accent)] 
       hover:bg-[var(--custom-bg-accent)] 
