@@ -46,7 +46,7 @@ const FooterWidgetArea = () => {
       { 
         id: 4,
         title: "Our Agents", 
-        path: "/agents" 
+        path: "/agent-list" 
       },
     ]
 
