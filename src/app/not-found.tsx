@@ -13,10 +13,10 @@ const NotFound = () => {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 z-10 dark:bg-[var(--custom-bg-primary)]/40 bg-[var(--custom-bg-accent)]/20 backdrop-blur-sm" />
+      <div className="absolute inset-0 z-1 dark:bg-[var(--custom-bg-primary)]/40 bg-[var(--custom-bg-accent)]/20 backdrop-blur-sm" />
 
       {/* Overlay content */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+      <div className="absolute inset-0 z-2 flex flex-col items-center justify-center text-center px-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[var(--custom-text-white)]">
           Oops! 404 Page Not Found
         </h2>

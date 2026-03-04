@@ -45,7 +45,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
       </div>
 
       {/* Overlay content */}
-      <div className="relative z-10 flex flex-col justify-between h-full p-6">
+      <div className="relative z-1 flex flex-col justify-between h-full p-6">
         {/* Top badges */}
         <div className="flex justify-between items-start">
           <Badge className="bg-[var(--custom-bg-accent)]/90 dark:bg-[var(--custom-bg-primary)]/90 text-[var(--custom-text-white)] backdrop-blur-sm border-0">

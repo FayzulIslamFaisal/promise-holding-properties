@@ -33,7 +33,7 @@ const ProjectVideoThumbnail = () => {
               <div className="relative">
                 <div className="absolute inset-0 rounded-full bg-[var(--custom-bg-accent)] border-3 border-[var(--custom-bg-white)] opacity-50 animate-ping scale-110" />
                   <div 
-                    className="relative z-10 w-20 h-20 
+                    className="relative z-1 w-20 h-20 
                       dark:bg-[var(--custom-bg-primary)]/80
                       hover:dark:bg-[var(--custom-bg-primary)]/100 
                       bg-[var(--custom-bg-white)]

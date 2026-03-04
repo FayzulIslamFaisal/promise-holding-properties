@@ -11,7 +11,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: 'swap',
-  weight: ['100', '200','300', '400', '500', '600', '700', '800', '900'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 const poppins = Poppins({
@@ -43,18 +43,16 @@ export default function RootLayout({
           enableSystem={false}
           defaultTheme="dark"
         >
-            <header>
-              <HeaderSection />
-            </header>
-            <main>
-              {children}
-            </main>
-            <footer>
-              <>
+          <HeaderSection />
+          <main>
+            {children}
+          </main>
+          <footer>
+            <>
               <CompanyFeatures />
               <FooterSection />
-              </>
-            </footer>
+            </>
+          </footer>
         </ThemeProvider>
       </body>
     </html>

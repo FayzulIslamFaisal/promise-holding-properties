@@ -81,7 +81,7 @@ export default function SuperFlowSlider() {
       className="relative w-full h-[calc(100vh-94px)] overflow-hidden"
     >
       {/* Overlay background for dim effect */}
-      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-20 dark:bg-[var(--custom-bg-accent)]/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-2 dark:bg-[var(--custom-bg-accent)]/20 pointer-events-none" />
 
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -138,7 +138,7 @@ export default function SuperFlowSlider() {
       </Swiper>
 
       {/* Fullscreen button */}
-      <div className="absolute top-8 left-8 z-30">
+      <div className="absolute top-8 left-8 z-3">
         <Button
           variant="ghost"
           size="icon"
@@ -150,7 +150,7 @@ export default function SuperFlowSlider() {
       </div>
 
       {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 w-full z-20">
+      <div className="absolute bottom-0 left-0 w-full z-3">
         <div className="h-2 bg-black/20 backdrop-blur-sm overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[var(--custom-bg-accent)] via-[var(--custom-bg-primary)] to-[var(--custom-bg-white)] transition-all duration-100 ease-linear relative"

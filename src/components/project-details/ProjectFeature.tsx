@@ -75,7 +75,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-[var(--custom-bg-primary)]/90 border border-transparent group-hover:border-[var(--custom-bg-accent)]/70 relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-[var(--custom-bg-primary)]/90 border border-transparent group-hover:border-[var(--custom-bg-accent)]/70 relative z-1",
         className,
       )}
     >

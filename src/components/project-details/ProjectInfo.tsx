@@ -99,7 +99,7 @@ const ProjectInfo = ({
         <div className="grid col-span-1 lg:grid-cols-2 gap-6 ">
           {/* Left Side - Image */}
           <div className="relative overflow-hidden rounded-xl group h-[500px] lg:h-full">
-            <div className="absolute inset-0 rounded-xl bg-[var(--custom-bg-primary)]/20  group-hover:bg-[var(--custom-bg-primary)]/10 dark:bg-[var(--custom-bg-accent)]/20  dark:group-hover:bg-[var(--custom-bg-accent)]/10 transition-opacity duration-700 z-10" />
+            <div className="absolute inset-0 rounded-xl bg-[var(--custom-bg-primary)]/20  group-hover:bg-[var(--custom-bg-primary)]/10 dark:bg-[var(--custom-bg-accent)]/20  dark:group-hover:bg-[var(--custom-bg-accent)]/10 transition-opacity duration-700 z-1" />
             <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-700 rounded-xl">
               <Image
                 src={image}
