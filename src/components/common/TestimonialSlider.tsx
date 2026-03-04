@@ -113,7 +113,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center" }: Testimon
                                     scale: isActive(index) ? 1 : 0.95,
                                     rotate: isActive(index) ? 0 : getRotationForIndex(index),
                                     zIndex: isActive(index)
-                                        ? 50
+                                        ? 8
                                         : testimonials.length + 1 - index,
                                 }}
                                 transition={{
@@ -144,14 +144,14 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center" }: Testimon
                         ))}
 
                         {/* Floating indicator dots */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[60]">
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[9]">
                             {testimonials.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setActive(index)}
                                     className={`w-4 h-4 cursor-pointer rounded-full transition-all duration-300 ${isActive(index)
-                                            ? 'bg-[var(--custom-bg-accent)] scale-125'
-                                            : 'bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-white)]/40 dark:bg-[var(--custom-bg-white)]/80 dark:hover:bg-[var(--custom-bg-white)]'
+                                        ? 'bg-[var(--custom-bg-accent)] scale-125'
+                                        : 'bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-white)]/40 dark:bg-[var(--custom-bg-white)]/80 dark:hover:bg-[var(--custom-bg-white)]'
                                         }`}
                                 />
                             ))}
