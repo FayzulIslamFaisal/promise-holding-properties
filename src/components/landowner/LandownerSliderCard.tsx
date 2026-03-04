@@ -16,16 +16,16 @@ const LandownerSliderCard = ({ card, Icon }: Props) => {
   return (
     <Card className="group relative h-70 py-0 border-0 bg-transparent cursor-pointer transition-all duration-500 hover:scale-102 overflow-hidden">
       {/* Glassmorphism Background */}
-      <div className="absolute inset-0 bg-[var(--custom-bg-white)]/10 backdrop-blur-md rounded-xl border border-[var(--custom-bg-white)]/20 transition-all duration-500 group-hover:bg-[var(--custom-bg-primary)]/20 group-hover:border-[var(--custom-bg-white)]/40 z-10" />
+      <div className="absolute inset-0 bg-[var(--custom-bg-white)]/10 backdrop-blur-md rounded-xl border border-[var(--custom-bg-white)]/20 transition-all duration-500 group-hover:bg-[var(--custom-bg-primary)]/20 group-hover:border-[var(--custom-bg-white)]/40 z-1" />
 
       {/* Glowing Border Layer */}
-      <div className="absolute inset-0 z-10 rounded-xl">
+      <div className="absolute inset-0 z-1 rounded-xl">
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--custom-bg-primary)]/40 via-[var(--custom-bg-accent)]/20 to-[var(--custom-bg-primary)]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="absolute inset-[1px] rounded-xl bg-[var(--custom-bg-white)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
 
       {/* Content */}
-      <CardContent className="relative z-20 h-full flex flex-col items-center justify-center px-6 py-8 text-center">
+      <CardContent className="relative z-1 h-full flex flex-col items-center justify-center px-6 py-8 text-center">
         <div className="mb-6 p-4 rounded-full bg-[var(--custom-bg-white)]/10 backdrop-blur-sm border border-[var(--custom-bg-white)]/20 transition-all duration-500 group-hover:bg-bg-[var(--custom-bg-primary)]/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-white/40">
           <Icon className="w-8 h-8 text-[var(--custom-bg-white)] transition-all duration-500 group-hover:text-[var(--custom-bg-white)]" />
         </div>

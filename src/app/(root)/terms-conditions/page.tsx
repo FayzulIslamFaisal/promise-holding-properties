@@ -132,7 +132,7 @@ const TermsConditions = () => {
           <div className="absolute bottom-20 right-20">
             <FileText className="w-10 h-10 text-[var(--custom-text-secondary)] animate-float animation-delay-1000" />
           </div>
-          <div className="relative z-10 text-center max-w-full sm:max-w-4xl mx-auto px-6">
+          <div className="relative z-1 text-center max-w-full sm:max-w-4xl mx-auto px-6">
             <div className="glass-morphism rounded-3xl p-8 md:p-12 border border-[var(--custom-text-white)]/20">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-[var(--custom-text-white)]">
                 Terms & Conditions

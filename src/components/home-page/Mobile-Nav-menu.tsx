@@ -21,7 +21,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
   return (
     <div
       className={clsx(
-        "fixed top-0 left-0 z-50 h-screen w-full transition-all duration-300 linear lg:hidden backdrop-blur-xs",
+        "fixed top-0 left-0 z-4 h-screen w-full transition-all duration-300 linear lg:hidden backdrop-blur-xs",
         isMobileMenuOpen
           ? "translate-x-0 opacity-100 pointer-events-auto"
           : "-translate-x-full opacity-0 pointer-events-none"
@@ -29,7 +29,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
       onClick={() => onMobileMenuToggle(false)}
     >
       <div className="bg-[var(--custom-bg-primary)] p-4 overlay-header relative w-[340px] h-full">
-        <div className="text-[var(--custom-text-white)] relative z-10">
+        <div className="text-[var(--custom-text-white)] relative z-1">
           <div className="flex justify-end items-center">
             <button 
               className='cursor-pointer' 
@@ -52,7 +52,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
           </div>
         </div>
         
-        <nav className="flex flex-col space-y-4 relative z-10 pt-8">
+        <nav className="flex flex-col space-y-4 relative z-1 pt-8">
           {navLinks.map((item) => (
             <Link
               key={item.id}
@@ -68,7 +68,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
           ))}
         </nav>
         
-        <div className="mt-6 relative z-10">
+        <div className="mt-6 relative z-1">
           <Button className="bg-[var(--custom-bg-accent)] text-[var(--custom-text-secondary)] hover:bg-[var(--custom-bg-accent-hover)] w-full">
             <LogIn className="mr-2" /> Log Out
           </Button>

@@ -16,7 +16,7 @@ const OurServiceCard: React.FC<{ service: Service }> = ({ service }) => {
     <Card className="group relative py-0" variant={"hoverEffect"}>
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--custom-bg-primary)]/10 to-from-[var(--custom-bg-accent)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <CardContent className="p-8 relative z-10">
+      <CardContent className="p-8 relative z-1">
         <div className="mb-6">
           <div className="w-16 h-16 bg-[var(--custom-bg-accent)] rounded-2xl flex items-center justify-center mb-4 transition-all duration-500">
             <ServiceIcon className="w-10 h-10 darkLight-text-color text-[var(--custom-bg-white)] group-hover:animate-pulse" />
