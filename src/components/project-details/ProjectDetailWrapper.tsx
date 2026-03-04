@@ -27,7 +27,7 @@ const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
 const ProjectBanner = dynamic(() => import('./ProjectBanner'));
 const ProjectFeature = dynamic(() => import('./ProjectFeature'));
 const BuildingDrawingSlider = dynamic(() => import('./BuildingDrawingSlider'));
-const ImageGallery = dynamic(() => import('./ImageGallery'));
+// const ImageGallery = dynamic(() => import('./ImageGallery'));
 const ContactForm = dynamic(() => import('./ContactForm'));
 const RelatedProject = dynamic(() => import('./RelatedProject'));
 
