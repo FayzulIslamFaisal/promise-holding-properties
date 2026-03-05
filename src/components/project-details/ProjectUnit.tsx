@@ -114,7 +114,7 @@ const ProjectUnit = () => {
           border_b={true}
         />
 
-        <Swiper
+        {/* <Swiper
           spaceBetween={10}
           slidesPerView={1}
           loop={true}
@@ -135,34 +135,37 @@ const ProjectUnit = () => {
             1024: { slidesPerView: 3 },
             1200: { slidesPerView: 4 },
           }}
-        >
+        > */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {projectUnitItems.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div
-                className="relative group h-[400px] md:h-[500px] rounded-lg w-full cursor-pointer overflow-hidden hover:shadow-2xl"
-                onClick={() => openModal(item)}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/80 via-[var(--custom-bg-primary)]/10 to-transparent transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-[var(--custom-text-white)] text-2xl font-bold">{item.title}</h3>
-                    <div className="flex justify-between items-center mt-1">
-                      <p className="text-[var(--custom-text-white)]/90 text-sm font-semibold">{item.area}</p>
-                      <p className="text-[var(--custom-bg-accent)] font-bold">{item.price}</p>
-                    </div>
+            // <SwiperSlide key={item.id}>
+
+            <div
+              className="key={item.id} relative group aspect-[2/3] rounded-lg w-full cursor-pointer overflow-hidden hover:shadow-2xl"
+              onClick={() => openModal(item)}
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/80 via-[var(--custom-bg-primary)]/10 to-transparent transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-[var(--custom-text-white)] text-2xl font-bold">{item.title}</h3>
+                  <div className="flex justify-between items-center mt-1">
+                    <p className="text-[var(--custom-text-white)]/90 text-sm font-semibold">{item.area}</p>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
+
+            // </SwiperSlide> */
           ))}
-          <div className="swiper-button-prev custom-prev"></div>
+        </div>
+        {/* <div className="swiper-button-prev custom-prev"></div>
           <div className="swiper-button-next custom-next"></div>
-        </Swiper>
+        </Swiper> */}
 
         {/* Custom Modal */}
         {selectedUnit && (
@@ -225,7 +228,6 @@ const ProjectUnit = () => {
               <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col darkLight-text-color">
                 <div className="mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedUnit.title}</h2>
-                  <p className="text-2xl font-semibold text-[var(--custom-bg-accent)] mb-4">{selectedUnit.price}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
@@ -262,21 +264,12 @@ const ProjectUnit = () => {
                     {selectedUnit.description}
                   </p>
                 </div>
-
-                <div className="mt-auto pt-4 flex gap-4">
-                  <button className="flex-1 bg-[var(--custom-bg-accent)] hover:brightness-110 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Book This Unit
-                  </button>
-                  <button className="flex-1 border-2 border-[var(--custom-bg-accent)] text-[var(--custom-bg-accent)] hover:bg-[var(--custom-bg-accent)]/10 font-bold py-3 px-4 rounded-lg transition-all">
-                    Download Brochure
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         )}
       </div>
-    </section>
+    </section >
   );
 }
 
