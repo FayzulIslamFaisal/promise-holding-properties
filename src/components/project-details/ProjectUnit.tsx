@@ -93,7 +93,7 @@ const ProjectUnit = () => {
 
   const openModal = (unit: ProjectUnitItem) => {
     setSelectedUnit(unit);
-    // Automatically select the first media in the list (which will be video if it's there)
+
     if (unit.media && unit.media.length > 0) {
       setActiveMedia(unit.media[0]);
     } else {
