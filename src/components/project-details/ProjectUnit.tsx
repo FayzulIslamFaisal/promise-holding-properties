@@ -141,7 +141,8 @@ const ProjectUnit = () => {
             // <SwiperSlide key={item.id}>
 
             <div
-              className="key={item.id} relative group aspect-[2/3] rounded-lg w-full cursor-pointer overflow-hidden hover:shadow-2xl"
+              key={item.id}
+              className="relative group aspect-[2/3] rounded-lg w-full cursor-pointer overflow-hidden hover:shadow-2xl"
               onClick={() => openModal(item)}
             >
               <Image
