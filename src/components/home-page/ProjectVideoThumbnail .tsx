@@ -19,7 +19,7 @@ const ProjectVideoThumbnail = () => {
           </div>
 
           <div
-            className="relative w-full h-[300px] md:h-[500px] rounded-lg cursor-pointer border border-[var(--custom-border-primary)] overflow-hidden shadow-2xl group"
+            className="relative w-full aspect-video rounded-lg cursor-pointer border border-[var(--custom-border-primary)] overflow-hidden shadow-2xl group"
             // onClick={() => setOpen(true)}
           >
             <Image

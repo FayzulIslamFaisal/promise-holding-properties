@@ -44,9 +44,9 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
             
           <div className="pt-8">
             <Image
-              src="/assets/images/Promise-Holdings-Ltd-03.png"
+              src="/assets/images/Web-Logo.png"
               width={200}
-              height={100}
+              height={50}
               alt="logo"
             />
           </div>

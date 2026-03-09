@@ -35,7 +35,7 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
   return (
     <Link href={`/project-details/${project.slug}`} target='_blank' className="block">
     <motion.div
-      className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
+      className="relative aspect-[2/3] overflow-hidden rounded-xl cursor-pointer group"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >

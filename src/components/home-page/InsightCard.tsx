@@ -31,7 +31,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
 }) => {
   return (
     <Card
-      className={`relative overflow-hidden h-[480px] lg:h-[600px] group rounded-xl shadow-2xl ${className}`}
+      className={`relative overflow-hidden aspect-[2/3] group rounded-xl shadow-2xl ${className}`}
     >
       {/* Image */}
       <div className="absolute inset-0 z-0">
