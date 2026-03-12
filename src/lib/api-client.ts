@@ -6,7 +6,7 @@
 //   const data = await apiClient.get<HeaderBanner[]>("/header-banners");
 // =============================================================================
 
-import type { ApiResponse, ApiErrorResponse } from "@/types/api";
+import type { ApiErrorResponse } from "@/types/api";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
 
