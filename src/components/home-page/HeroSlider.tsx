@@ -6,25 +6,31 @@ import { EffectCreative, Autoplay, Parallax, Keyboard } from "swiper/modules"
 import { Maximize } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useHeaderBanners } from "@/hooks"
 
 import "swiper/css"
 import "swiper/css/effect-creative"
 import "swiper/css/parallax"
 
-interface SliderProps {
-  id: number
-  image: string
-}
-
-const slides: SliderProps[] = [
-  { id: 1, image: "/assets/images/slider/banner1.png" },
-  { id: 2, image: "/assets/images/slider/banner2.png" },
-  { id: 3, image: "/assets/images/slider/banner4.png" },
-  { id: 4, image: "/assets/images/slider/banner5.png" },
-  { id: 5, image: "/assets/images/slider/banner6.png" },
+const fallbackSlides = [
+  { id: 1, image: "/assets/images/slider/banner1.png", title: "Banner 1" },
+  { id: 2, image: "/assets/images/slider/banner2.png", title: "Banner 2" },
+  { id: 3, image: "/assets/images/slider/banner4.png", title: "Banner 3" },
+  { id: 4, image: "/assets/images/slider/banner5.png", title: "Banner 4" },
+  { id: 5, image: "/assets/images/slider/banner6.png", title: "Banner 5" },
 ]
 
 export default function SuperFlowSlider() {
+  const { data, isLoading } = useHeaderBanners()
+
+  const slides = (!isLoading && data?.data?.length)
+    ? data.data.map((banner) => ({
+        id: banner.id,
+        image: banner.image,
+        title: banner.title,
+      }))
+    : fallbackSlides
+
   const swiperRef = useRef<SwiperClass | null>(null)
   const [progress, setProgress] = useState(0)
   const [, setIsFullscreen] = useState(false)
@@ -127,7 +133,7 @@ export default function SuperFlowSlider() {
             >
               <Image
                 src={slide.image}
-                alt={`Slide ${slide.id}`}
+                alt={slide.title}
                 fill
                 className="object-cover"
                 priority
