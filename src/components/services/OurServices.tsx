@@ -1,16 +1,12 @@
+"use client";
+
 import { Briefcase, Home, TrendingUp, Users } from "lucide-react";
 import OurServiceCard from "./OurServiceCard";
+import type { ServiceCardData } from "./OurServiceCard";
 import SectionTitle from "../common/SectionTitle";
+import { useOurServices } from "@/hooks";
 
-interface Service {
-  id: number;
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  tags: string[];
-}
-
-const services: Service[] = [
+const fallbackServices: ServiceCardData[] = [
   {
     id: 1,
     icon: Home,
@@ -51,6 +47,17 @@ const services: Service[] = [
 ];
 
 const OurServices = () => {
+  const { data, isLoading } = useOurServices();
+
+  const services: ServiceCardData[] = (!isLoading && data?.data?.length)
+    ? data.data.map((s) => ({
+        id: s.id,
+        icon: s.icon,
+        title: s.title,
+        description: s.description,
+      }))
+    : fallbackServices;
+
   return (
     <section className="px-4">
       <div className="container mx-auto border-b border-[var(--custom-bg-accent)]/40 py-10 md:py-12">

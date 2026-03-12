@@ -8,7 +8,7 @@
 // Generic API Response Wrapper
 // ---------------------------------------------------------------------------
 export interface ApiResponse<T> {
-  success: boolean;
+  status: string;
   message?: string;
   data: T;
 }
@@ -130,7 +130,6 @@ export interface Testimonial {
   content: string;
   image: string;
   rating: number;
-  status: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -139,8 +138,7 @@ export interface Testimonial {
 export interface WhyChooseUs {
   id: number;
   icon: string;
-  counter_value: number;
+  counter_value: string;
   title: string;
   short_description: string;
-  status: string;
 }

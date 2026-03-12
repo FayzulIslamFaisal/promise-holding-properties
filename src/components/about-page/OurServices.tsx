@@ -1,14 +1,19 @@
+"use client"
+
 import { Home, Key, Settings, TrendingUp } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import SectionTitle from "../common/SectionTitle"
+import Image from "next/image"
+import { useOurServices } from "@/hooks"
 
-interface Service {
-  id: number    
+interface ServiceItem {
+  id: number
   title: string
-  description: string    
+  description: string
   icon: React.ReactNode
 }
-const services: Service[] = [
+
+const fallbackServices: ServiceItem[] = [
     {
       id: 1,
       title: "Property Buying & Selling",
@@ -38,6 +43,17 @@ const services: Service[] = [
     },
   ]
 const OurServices = () => {
+  const { data, isLoading } = useOurServices()
+
+  const services: ServiceItem[] = (!isLoading && data?.data?.length)
+    ? data.data.map((s) => ({
+        id: s.id,
+        title: s.title,
+        description: s.description,
+        icon: <Image src={s.icon} alt={s.title} width={32} height={32} className="h-8 w-8 object-contain" />,
+      }))
+    : fallbackServices
+
   return (
     <section className="px-4">
         <div className="container mx-auto sectionSpaceBorder">

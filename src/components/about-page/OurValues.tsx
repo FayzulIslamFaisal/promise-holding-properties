@@ -1,7 +1,11 @@
+"use client"
+
 import React from 'react'
 import { Card, CardContent } from '../ui/card'
 import { Award, Heart, Lightbulb, Shield } from 'lucide-react'
 import SectionTitle from '../common/SectionTitle'
+import Image from 'next/image'
+import { useOurValues } from '@/hooks'
 
 interface ValueData {
   id: number
@@ -9,33 +13,45 @@ interface ValueData {
   description: string
   icon: React.ReactNode
 }
+
+const fallbackValues: ValueData[] = [
+  {
+    id: 1,
+    title: "Honesty",
+    description: "We believe in transparent communication and honest dealings in every transaction.",
+    icon: <Shield className="h-13 w-13 text-[var(--custom-text-white)]" />,
+  },
+  {
+    id: 2,
+    title: "Trust",
+    description: "Building long-term relationships based on trust and reliability with our clients.",
+    icon: <Heart className="h-13 w-13 text-[var(--custom-text-white)]" />,
+  },
+  {
+    id: 3,
+    title: "Innovation",
+    description: "Leveraging cutting-edge technology and innovative marketing strategies for better results.",
+    icon: <Lightbulb className="h-13 w-13 text-[var(--custom-text-white)]" />,
+  },
+  {
+    id: 4,
+    title: "Excellence",
+    description: "Committed to delivering exceptional service and exceeding client expectations.",
+    icon: <Award className="h-13 w-13 text-[var(--custom-text-white)]" />,
+  },
+]
+
 const OurValues = () => {
-    const valuesData: ValueData[] = [
-    {
-      id: 1,
-      title: "Honesty",
-      description: "We believe in transparent communication and honest dealings in every transaction.",
-      icon: <Shield className="h-13 w-13 text-[var(--custom-text-white)]" />,
-    },
-    {
-      id: 2,
-      title: "Trust",
-      description: "Building long-term relationships based on trust and reliability with our clients.",
-      icon: <Heart className="h-13 w-13 text-[var(--custom-text-white)]" />,
-    },
-    {
-      id: 3,
-      title: "Innovation",
-      description: "Leveraging cutting-edge technology and innovative marketing strategies for better results.",
-      icon: <Lightbulb className="h-13 w-13 text-[var(--custom-text-white)]" />,
-    },
-    {
-      id: 4,
-      title: "Excellence",
-      description: "Committed to delivering exceptional service and exceeding client expectations.",
-      icon: <Award className="h-13 w-13 text-[var(--custom-text-white)]" />,
-    },
-  ]
+  const { data, isLoading } = useOurValues()
+
+  const valuesData: ValueData[] = (!isLoading && data?.data?.length)
+    ? data.data.map((v) => ({
+        id: v.id,
+        title: v.title,
+        description: v.short_description,
+        icon: <Image src={v.image} alt={v.title} width={52} height={52} className="h-13 w-13 object-contain" />,
+      }))
+    : fallbackValues
   return (
     <section className=" px-4 ">
         <div className="container mx-auto sectionSpaceBorder">

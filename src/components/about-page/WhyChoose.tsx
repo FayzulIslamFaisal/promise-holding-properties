@@ -1,16 +1,20 @@
+"use client"
+
 import SectionTitle from "../common/SectionTitle"
 import { Card, CardContent } from "../ui/card"
 import { Award, Calendar, Users, DollarSign } from "lucide-react"
+import Image from "next/image"
+import { useWhyChooseUs } from "@/hooks"
 
 interface Achievement {
   id: number
   number: string
   label: string
   description: string
-  icon: React.ReactNode // 🔹 icon যুক্ত করা
+  icon: React.ReactNode
 }
 
-const achievements: Achievement[] = [
+const fallbackAchievements: Achievement[] = [
   {
     id: 1,
     number: "15+",
@@ -42,6 +46,18 @@ const achievements: Achievement[] = [
 ]
 
 const WhyChoose = () => {
+  const { data, isLoading } = useWhyChooseUs()
+
+  const achievements: Achievement[] = (!isLoading && data?.data?.length)
+    ? data.data.map((item) => ({
+        id: item.id,
+        number: item.counter_value,
+        label: item.title,
+        description: item.short_description,
+        icon: <Image src={item.icon} alt={item.title} width={40} height={40} className="w-10 h-10 object-contain mb-3" />,
+      }))
+    : fallbackAchievements
+
   return (
     <section className="px-4 ">
       <div className="container mx-auto sectionSpaceBorder">

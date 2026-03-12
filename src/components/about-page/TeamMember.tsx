@@ -2,7 +2,9 @@
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
 import SectionTitle from "../common/SectionTitle";
-interface TeamMember {
+import { useManagementMembers } from "@/hooks";
+
+interface TeamMemberData {
   id: number;
   name: string;
   designation: string;
@@ -10,7 +12,7 @@ interface TeamMember {
   image: string;
 }
 
-const teamMembers: TeamMember[] = [
+const fallbackMembers: TeamMemberData[] = [
   {
     id: 1,
     name: "Sarah Johnson",
@@ -56,6 +58,18 @@ const teamMembers: TeamMember[] = [
 ];
 
 const TeamMember = () => {
+  const { data, isLoading } = useManagementMembers();
+
+  const teamMembers: TeamMemberData[] = (!isLoading && data?.data?.length)
+    ? data.data.map((m) => ({
+        id: m.id,
+        name: m.title,
+        designation: m.designation,
+        bio: m.quote,
+        image: m.image,
+      }))
+    : fallbackMembers;
+
   return (
     <section className="px-4">
       <div className="container mx-auto sectionSpaceBorder">
