@@ -58,8 +58,8 @@ export default function RightSide() {
 
             <div className="mt-6 text-center text-sm text-[var(--custom-text-white)]">
               By continuing, you agree to our{" "}
-              <Link href="/terms-conditions" target={"_blank"} className="text-sm font-bold text-[var(--custom-text-secondary)]">Terms of Service</Link> and{" "}
-              <Link href="/privacy-policy" target={"_blank"} className="text-sm font-bold text-[var(--custom-text-secondary)] ">Privacy Policy</Link>
+              <Link href="/terms-conditions" className="text-sm font-bold text-[var(--custom-text-secondary)]">Terms of Service</Link> and{" "}
+              <Link href="/privacy-policy" className="text-sm font-bold text-[var(--custom-text-secondary)] ">Privacy Policy</Link>
             </div>
           </CardContent>
         </Card>

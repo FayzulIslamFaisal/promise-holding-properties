@@ -1,17 +1,21 @@
-// components/project-details/ProjectLocationMap.tsx
 "use client";
 
 import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import type { MapContainerProps, TileLayerProps, MarkerProps, PopupProps } from 'react-leaflet';
 import type { Icon, IconOptions } from 'leaflet';
+import { ProjectDetail } from '@/types/api';
 
 // Type for the icon prototype fix
 interface IconDefaultPrototype {
   _getIconUrl?: string;
 }
 
-const ProjectLocationMap = () => {
+interface ProjectLocationMapProps {
+  project: ProjectDetail;
+}
+
+const ProjectLocationMap = ({ project }: ProjectLocationMapProps) => {
   const [MapComponents, setMapComponents] = useState<{
     MapContainer: React.ComponentType<MapContainerProps>;
     TileLayer: React.ComponentType<TileLayerProps>;
@@ -26,6 +30,9 @@ const ProjectLocationMap = () => {
       mergeOptions: (options: IconOptions) => void;
     };
   } | null>(null);
+
+  // Default coordinate (Gulshan area)
+  const position: [number, number] = [23.794531, 90.366308]; 
 
   useEffect(() => {
     (async () => {
@@ -60,7 +67,7 @@ const ProjectLocationMap = () => {
 
   if (!MapComponents || !Leaflet) {
     return (
-      <div className="h-[300px] md:h-[600px] flex items-center justify-center">
+      <div className="h-[300px] md:h-[600px] flex items-center justify-center darkLight-text-color">
         Loading map...
       </div>
     );
@@ -80,7 +87,7 @@ const ProjectLocationMap = () => {
       <div className="mx-auto w-full">
         <div className="w-full relative md:h-[600px] h-[300px] overflow-hidden">
           <MapContainer
-            center={[23.794531, 90.366308]}
+            center={position}
             zoom={13}
             scrollWheelZoom={false}
             style={{ width: '100%', height: '100%' }}
@@ -90,10 +97,20 @@ const ProjectLocationMap = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={[23.794531, 90.366308]} icon={customIcon}>
+            <Marker position={position} icon={customIcon}>
               <Popup>
-                <div className="text-sm font-semibold">Dhaka City</div>
-                <div className="text-xs">Project Location</div>
+                <div className="text-sm font-semibold">{project.project_name}</div>
+                <div className="text-xs">{project.project_location}</div>
+                {project.google_map_link && (
+                    <a 
+                        href={project.google_map_link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[var(--custom-bg-accent)] text-[10px] underline block mt-1"
+                    >
+                        Open in Google Maps
+                    </a>
+                )}
               </Popup>
             </Marker>
           </MapContainer>

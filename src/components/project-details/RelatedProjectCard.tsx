@@ -34,7 +34,7 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
   const badgeClass = getBadgeClass(project.category);
 
   return (
-    <Link href={`/project-details/${project.slug}`} target='_blank' className="block">
+    <Link href={`/project/${project.slug}`} className="block">
     <motion.div
       className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
       whileHover={{ scale: 1.02 }}

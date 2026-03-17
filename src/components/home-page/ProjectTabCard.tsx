@@ -3,14 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
 import Link from 'next/link';
 
- interface Project {
-  id: string;
-  title: string;
-  location: string;
-  category: 'Running' | 'Upcoming' | 'Complete';
-  image: string;
-  slug: string;
-}
+import { Project } from '@/types/api';
 
 interface ProjectCardProps {
   project: Project;
@@ -33,7 +26,7 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
   const badgeClass = getBadgeClass(project.category);
 
   return (
-    <Link href={`/project-details/${project.slug}`} target='_blank' className="block">
+    <Link href={`/project/${project.slug}`} className="block">
     <motion.div
       className="relative aspect-[2/3] overflow-hidden rounded-xl cursor-pointer group"
       whileHover={{ scale: 1.02 }}
@@ -55,14 +48,14 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
           <Badge 
             className={`px-3 py-1.5 text-sm font-medium rounded-full dark:bg-[var(--custom-bg-accent)] dark:hover:bg-[var(--custom-bg-primary)] shadow-xl ${badgeClass}`}
           >
-            {project.category} Project
+            {project.category || 'Running'} Project
           </Badge>
         </div>
         
         {/* Bottom: Project Info */}
         <div className="space-y-3 dark:bg-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-primary)]/30 backdrop-blur-4xl p-4 rounded-lg">
           <h3 className="2xl:text-2xl lg:text-lg md:text-md text-base font-bold leading-tight">
-            {project.title}
+            {project.name}
           </h3>
           <div className="flex items-center space-x-2 text-white/90">
             <MapPin size={16} />

@@ -56,7 +56,7 @@ const RelatedProjectCard: React.FC<RelatedProjectCardProps> = ({ relatedProject 
           {/* View relatedProject Link */}
           <div className="flex items-center justify-between">
             <Link
-              href={`/project-details/${relatedProject.slug}`}
+              href={`/project/${relatedProject.slug}`}
               className="btn-glow-accent"
             >
               View Project

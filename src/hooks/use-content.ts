@@ -34,3 +34,11 @@ export function useTestimonials() {
 export function useWhyChooseUs() {
   return useApi(() => contentService.getWhyChooseUs());
 }
+
+export function useProjects() {
+  return useApi(() => contentService.getProjects());
+}
+
+export function useProjectDetails(slug: string) {
+  return useApi(() => contentService.getProjectDetails(slug));
+}

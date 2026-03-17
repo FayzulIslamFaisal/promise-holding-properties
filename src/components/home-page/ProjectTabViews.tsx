@@ -1,6 +1,3 @@
-
-
-
 'use client';
 
 import { useState } from 'react';
@@ -14,144 +11,17 @@ import 'swiper/css/free-mode';
 
 import ProjectTabCard from './ProjectTabCard';
 import SectionTitle from '../common/SectionTitle';
-interface Project {
-  id: string;
-  title: string;
-  location: string;
-  category: 'Running' | 'Upcoming' | 'Complete';
-  image: string;
-  slug: string
-}
+import { useProjects } from '@/hooks/use-content';
 
-const mockProjects: Project[] = [
-  {
-    id: '1',
-    title: 'Nexus Corporate Tower',
-    slug: 'nexus-corporate-tower',
-    location: 'New York, NY',
-    category: 'Running',
-    image: "/assets/images/projects/project1.jpg",
-  },
-  {
-    id: '2',
-    title: 'Innovation Hub Office',
-    slug: 'innovation-hub-office',
-    location: 'San Francisco, CA',
-    category: 'Complete',
-    image: "/assets/images/projects/project2.jpg",
-  },
-  {
-    id: '3',
-    title: 'Skyline Residences',
-    slug: 'skyline-residences',
-    location: 'Miami, FL',
-    category: 'Upcoming',
-    image: "/assets/images/projects/project3.jpg",
-  },
-  {
-    id: '4',
-    title: 'Metro Shopping Center',
-    slug: 'metro-shopping-center',
-    location: 'Los Angeles, CA',
-    category: 'Running',
-    image: "/assets/images/projects/project4.jpg",
-  },
-  {
-    id: '5',
-    title: 'Green Valley Homes',
-    slug: 'green-valley-homes',
-    location: 'Austin, TX',
-    category: 'Complete',
-    image: "/assets/images/projects/project5.jpeg",
-  },
-  {
-    id: '6',
-    title: 'Tech Campus Plaza',
-    slug: 'tech-campus-plaza',
-    location: 'Seattle, WA',
-    category: 'Upcoming',
-    image: "/assets/images/projects/project6.jpg",
-  },
-  {
-    id: '7',
-    title: 'Harbor View Condos',
-    slug: 'harbor-view-condos',
-    location: 'Boston, MA',
-    category: 'Running',
-    image: "/assets/images/projects/project7.jpg",
-  },
-  {
-    id: '8',
-    title: 'Crystal Lake Villas',
-    slug: 'crystal-lake-villas',
-    location: 'Denver, CO',
-    category: 'Upcoming',
-    image: "/assets/images/projects/project8.jpg",
-  },
-  {
-    id: '9',
-    title: 'Sunset Business Park',
-    slug: 'sunset-business-park',
-    location: 'Phoenix, AZ',
-    category: 'Complete',
-    image: "/assets/images/projects/project9.jpg",
-  },
-  {
-    id: '10',
-    title: 'Riverfront Towers',
-    slug: 'riverfront-towers',
-    location: 'Chicago, IL',
-    category: 'Running',
-    image: "/assets/images/projects/project10.jpg",
-  },
-  {
-    id: '11',
-    title: 'Urban Heights Complex',
-    slug: 'urban-heights-complex',
-    location: 'Philadelphia, PA',
-    category: 'Upcoming',
-    image: "/assets/images/projects/project11.jpg",
-  },
-  {
-    id: '12',
-    title: 'Maplewood Townhomes',
-    slug: 'maplewood-townhomes',
-    location: 'Nashville, TN',
-    category: 'Complete',
-    image: "/assets/images/projects/project12.jpg",
-  },
-  {
-    id: '13',
-    title: 'Pinecrest Corporate Campus',
-    slug: 'pinecrest-corporate-campus',
-    location: 'Charlotte, NC',
-    category: 'Running',
-    image: "/assets/images/projects/project13.jpg",
-  },
-  {
-    id: '14',
-    title: 'Coastal Business Hub',
-    slug: 'coastal-business-hub',
-    location: 'Tampa, FL',
-    category: 'Upcoming',
-    image: "/assets/images/projects/project14.jpg",
-  },
-  {
-    id: '15',
-    title: 'Lakeside Shopping Mall',
-    slug: 'lakeside-shopping-mall',
-    location: 'Orlando, FL',
-    category: 'Complete',
-    image: "/assets/images/projects/project15.jpg",
-  },
-];
-
-
- const ProjectTabViews = () => {
+const ProjectTabViews = () => {
+  const { data, isLoading } = useProjects();
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredProjects = mockProjects.filter(project => {
+  const projects = data?.data ?? [];
+
+  const filteredProjects = projects.filter(project => {
     if (activeTab === 'all') return true;
+    if (!project.category) return false;
     return project.category.toLowerCase() === activeTab.replace('-', '');
   });
 
@@ -192,56 +62,43 @@ const mockProjects: Project[] = [
         <TabsContent value={activeTab} className="mt-8">
           {/* Project Swiper */}
           <div className="w-full">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={10}
-              autoplay={{
-              delay: 3000, 
-              disableOnInteraction: false,
-          }}
-            navigation={{
-              nextEl: '.custom-next',
-              prevEl: '.custom-prev',
-            }}
-            modules={[Navigation, Autoplay]}
-            
-            loop
-              breakpoints={{
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 10,
-                },
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 10,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 15,
-                },
-                992: {
-                  slidesPerView: 3,
-                  spaceBetween: 15,
-                },
-                1199: {
-                  slidesPerView: 4,
-                  spaceBetween: 15,
-                },
-                1380: {
-                  slidesPerView: 5,
-                  spaceBetween: 15,
-                },
-              }}
-              className="w-full overflow-hidden"
-            >
-              {filteredProjects.map((project) => (
-                <SwiperSlide key={project.id} className="!h-auto">
-                  <ProjectTabCard project={project} />
-                </SwiperSlide>
-              ))}
-              <div className="swiper-button-prev custom-prev"></div>
-              <div className="swiper-button-next custom-next"></div>
-            </Swiper>
+            {isLoading ? (
+              <div className="flex justify-center items-center h-64 w-full">
+                <span className="loading loading-spinner loading-lg text-[var(--custom-bg-accent)]"></span>
+              </div>
+            ) : (
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                autoplay={{
+                  delay: 3000, 
+                  disableOnInteraction: false,
+                }}
+                navigation={{
+                  nextEl: '.custom-next',
+                  prevEl: '.custom-prev',
+                }}
+                modules={[Navigation, Autoplay]}
+                loop={filteredProjects.length > 1}
+                breakpoints={{
+                  320: { slidesPerView: 1, spaceBetween: 10 },
+                  640: { slidesPerView: 2, spaceBetween: 10 },
+                  768: { slidesPerView: 2, spaceBetween: 15 },
+                  992: { slidesPerView: 3, spaceBetween: 15 },
+                  1199: { slidesPerView: 4, spaceBetween: 15 },
+                  1380: { slidesPerView: 5, spaceBetween: 15 },
+                }}
+                className="w-full overflow-hidden"
+              >
+                {filteredProjects.map((project) => (
+                  <SwiperSlide key={project.id} className="!h-auto">
+                    <ProjectTabCard project={project} />
+                  </SwiperSlide>
+                ))}
+                <div className="swiper-button-prev custom-prev"></div>
+                <div className="swiper-button-next custom-next"></div>
+              </Swiper>
+            )}
           </div>
         </TabsContent>
       </Tabs>
@@ -249,4 +106,4 @@ const mockProjects: Project[] = [
   );
 };
 
-export default ProjectTabViews
+export default ProjectTabViews;

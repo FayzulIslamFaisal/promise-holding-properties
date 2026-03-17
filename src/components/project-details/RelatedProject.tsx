@@ -157,7 +157,6 @@ const RelatedProject = () => {
           <div className="">
             <Link
               href="/all-related-projects"
-              target="_blank"
               className="btn-glow-accent flex items-center gap-2"
             >
               <span>View All</span>

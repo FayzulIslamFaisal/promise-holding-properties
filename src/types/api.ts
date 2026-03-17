@@ -32,41 +32,12 @@ export interface LoginResponse {
   user: UserProfile;
 }
 
-export interface CheckPhoneRequest {
-  phone: string;
-}
-
-export interface CheckPhoneResponse {
-  exists: boolean;
-}
-
-export interface GoogleLoginRequest {
-  provider_account_id: string;
-  name: string;
-  email: string;
-}
-
-export interface CheckGoogleUserRequest {
-  email: string;
-}
-
-export interface GoogleNewUserRequest {
-  name: string;
-  phone: string;
-  email: string;
-  password: string;
-}
-
 export interface UserProfile {
   id: number;
   name: string;
   phone: string;
   email?: string;
   image?: string;
-}
-
-export interface RefreshTokenResponse {
-  token: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -141,4 +112,70 @@ export interface WhyChooseUs {
   counter_value: string;
   title: string;
   short_description: string;
+}
+
+// ---------------------------------------------------------------------------
+// Projects
+// ---------------------------------------------------------------------------
+export interface Project {
+  id: number;
+  name: string;
+  slug: string;
+  location: string;
+  image: string;
+  category?: 'Running' | 'Upcoming' | 'Complete';
+}
+
+export interface ProjectFeature {
+  name: string;
+  value?: string;
+}
+
+export interface ProjectUnit {
+  id: number;
+  image: string;
+  name: string;
+  gross_area_sft: number;
+  usable_area_sqft: number;
+  udl_area: number;
+  unit_quantity: number;
+  per_unit_amount: number;
+  discount: number;
+  features: ProjectFeature[];
+  image_gallery: string[];
+}
+
+export interface ParkingSlot {
+  id: number;
+  parking_number: number;
+  parking_type: string;
+  area: number;
+  amount: number;
+  image: string;
+  features: ProjectFeature[];
+}
+
+export interface Building {
+  id: number;
+  building_name: string;
+  details: string | null;
+  plot_no: string;
+  building_area_dec: number;
+  building_area_sqft: number;
+  building_type: string;
+  features: ProjectFeature[];
+  future_image: string;
+  banner_image: string;
+  building_gallery: string[];
+  parking_slots: ParkingSlot[];
+  units: ProjectUnit[];
+}
+
+export interface ProjectDetail {
+  id: number;
+  project_name: string;
+  project_location: string;
+  google_map_link: string;
+  project_image: string;
+  buildings: Building[];
 }

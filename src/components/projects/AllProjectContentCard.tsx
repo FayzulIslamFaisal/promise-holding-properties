@@ -5,20 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Define prop type
-interface AllProject {
-  id: string;
-  title: string;
-  date: string;
-  coverImage: string;
-  tags: string;
-  slug: string;
-}
+import { Project } from "@/types/api";
 
 interface AllProjectCardProps {
-  allProject: AllProject;
+  project: Project;
 }
 
-const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) => {
+const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ project }) => {
   return (
     <Card
       className="group py-0"
@@ -31,8 +24,8 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
             className="relative overflow-hidden w-full h-[300px] md:h-[400px] rounded-lg border border-[var(--custom-bg-white)]/40 shadow-xl group-hover:shadow-2xl transition-shadow duration-300"
             >
             <Image
-                src={allProject.coverImage || "/placeholder.svg"}
-                alt={allProject.title}
+                src={project.image || "/placeholder.svg"}
+                alt={project.name}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
             />
@@ -40,7 +33,7 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
                 className="absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-2xl bg-[var(--custom-bg-accent)] dark:bg-[var(--custom-bg-primary)] text-[var(--custom-text-white)] shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                 
             >
-                {allProject.tags}
+                {project.category || "Project"}
             </Badge>
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/60 dark:from-[var(--custom-bg-accent)]/60 via-[var(--custom-bg-primary)]/40  dark:via-[var(--custom-bg-primary)]/40 to-[var(--custom-bg-white)]/10 dark:to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
             </div>
@@ -49,17 +42,18 @@ const AllProjectContentCard: React.FC<AllProjectCardProps> = ({ allProject }) =>
         {/* Content */}
         <div className="pt-0 px-4 md:px-6 pb-13">
           <h3 className="darkLight-text-color md:text-lg text-base font-semibold mb-3 leading-tight">
-            {allProject.title}
+            {project.name}
           </h3>
           <p className="darkLight-text-color text-sm font-medium">
-            {allProject.date}
+             {project.location}
           </p>
         </div>
         {/* Button fixed bottom */}
         <div className="flex items-center justify-between absolute bottom-4 md:bottom-6 left-4 md:left-6">
           <Link
-            href={`/project-details/${allProject.slug}`}
+            href={`/project/${project.slug}`}
             className="btn-glow-accent inline-flex items-center gap-1"
+            
           >
             View Project
             <ArrowRight className="w-4 h-4" />

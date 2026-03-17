@@ -19,6 +19,8 @@ import type {
   OurValue,
   Testimonial,
   WhyChooseUs,
+  Project,
+  ProjectDetail,
 } from "@/types/api";
 
 export const contentService = {
@@ -50,5 +52,15 @@ export const contentService = {
   /** Get all active "Why Choose Us" records */
   async getWhyChooseUs() {
     return apiClient.get<ApiResponse<WhyChooseUs[]>>("/why-choose-us");
+  },
+
+  /** Get all active projects */
+  async getProjects() {
+    return apiClient.get<ApiResponse<Project[]>>("/projects");
+  },
+
+  /** Get project details by slug */
+  async getProjectDetails(slug: string) {
+    return apiClient.get<ApiResponse<ProjectDetail>>(`/project-details/${slug}`);
   },
 };

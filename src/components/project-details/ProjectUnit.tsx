@@ -1,101 +1,48 @@
 "use client";
 
 import { useState } from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Navigation, FreeMode, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 
 import Image from "next/image";
 import SectionTitle from "../common/SectionTitle";
-import { X, BedDouble, Bath, Square, PlayCircle } from "lucide-react";
+import { X, BedDouble, Bath, Square, PlayCircle, Info } from "lucide-react";
+import { ProjectDetail, ProjectUnit as ApiProjectUnit } from "@/types/api";
 
 interface MediaItem {
   type: 'image' | 'video';
   url: string;
 }
 
-interface ProjectUnitItem {
-  id: number;
-  src: string;
-  alt: string;
-  title: string;
-  area: string;
-  price: string;
-  beds: number;
-  baths: number;
-  description: string;
-  media: MediaItem[];
+interface ProjectUnitProps {
+  project: ProjectDetail;
 }
 
-const projectUnitItems: ProjectUnitItem[] = [
-  {
-    id: 1,
-    src: "/assets/images/projects/project2.jpg",
-    alt: "Unit Image 1",
-    title: "Type A - Luxury Suite",
-    area: "1500 sqft",
-    price: "1.5 Crore BDT",
-    beds: 3,
-    baths: 3,
-    description: "Premium unit with a wonderful view, well ventilated, ready for modern family living.",
-    media: [
-      { type: 'video', url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" },
-      { type: 'image', url: "/assets/images/projects/project2.jpg" },
-      { type: 'image', url: "/assets/images/projects/project3.jpg" },
-      { type: 'image', url: "/assets/images/projects/project4.jpg" }
-    ]
-  },
-  {
-    id: 2,
-    src: "/assets/images/projects/project3.jpg",
-    alt: "Unit Image 2",
-    title: "Type B - Family Apartment",
-    area: "1200 sqft",
-    price: "1.1 Crore BDT",
-    beds: 3,
-    baths: 2,
-    description: "Comfortable apartment with a beautiful drawing room.",
-    media: [
-      { type: 'image', url: "/assets/images/projects/project3.jpg" },
-      { type: 'image', url: "/assets/images/projects/project5.jpeg" },
-      { type: 'image', url: "/assets/images/projects/project6.jpg" }
-    ]
-  },
-  {
-    id: 3,
-    src: "/assets/images/projects/project4.jpg",
-    alt: "Unit Image 3",
-    title: "Type C - Standard Unit",
-    area: "1000 sqft",
-    price: "90 Lac BDT",
-    beds: 2,
-    baths: 2,
-    description: "Standard sized apartment perfect for small families.",
-    media: [
-      { type: 'video', url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" },
-      { type: 'image', url: "/assets/images/projects/project4.jpg" },
-      { type: 'image', url: "/assets/images/projects/project6.jpg" },
-      { type: 'image', url: "/assets/images/projects/project7.jpg" }
-    ]
-  },
-  { id: 4, src: "/assets/images/projects/project5.jpeg", alt: "Unit Image 4", title: "Type D - Studio", area: "800 sqft", price: "60 Lac BDT", beds: 1, baths: 1, description: "Studio apartment with wide spaces.", media: [{ type: 'image', url: "/assets/images/projects/project5.jpeg" }, { type: 'image', url: "/assets/images/projects/project7.jpg" }] },
-  { id: 5, src: "/assets/images/projects/project6.jpg", alt: "Unit Image 5", title: "Type E - Penthouse", area: "2500 sqft", price: "3.5 Crore BDT", beds: 4, baths: 4, description: "Luxurious penthouse with rooftop access and open terrace.", media: [{ type: 'video', url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" }, { type: 'image', url: "/assets/images/projects/project6.jpg" }, { type: 'image', url: "/assets/images/projects/project8.jpg" }] },
-  { id: 6, src: "/assets/images/projects/project7.jpg", alt: "Unit Image 6", title: "Type F - Duplex", area: "3200 sqft", price: "4.5 Crore BDT", beds: 5, baths: 5, description: "Spacious duplex for large families.", media: [{ type: 'image', url: "/assets/images/projects/project7.jpg" }, { type: 'image', url: "/assets/images/projects/project9.jpg" }] },
-  { id: 7, src: "/assets/images/projects/project8.jpg", alt: "Unit Image 7", title: "Type G - Twin Unit", area: "2400 sqft", price: "2.5 Crore BDT", beds: 4, baths: 3, description: "Connected twin units suitable for joint families.", media: [{ type: 'image', url: "/assets/images/projects/project8.jpg" }, { type: 'image', url: "/assets/images/projects/project2.jpg" }] },
-  { id: 8, src: "/assets/images/projects/project9.jpg", alt: "Unit Image 8", title: "Type H - Corner Unit", area: "1350 sqft", price: "1.3 Crore BDT", beds: 3, baths: 3, description: "Corner unit with extra ventilation and sunlight.", media: [{ type: 'image', url: "/assets/images/projects/project9.jpg" }, { type: 'image', url: "/assets/images/projects/project3.jpg" }] },
-];
-
-const ProjectUnit = () => {
-  const [selectedUnit, setSelectedUnit] = useState<ProjectUnitItem | null>(null);
+const ProjectUnit = ({ project }: ProjectUnitProps) => {
+  const [selectedUnit, setSelectedUnit] = useState<ApiProjectUnit | null>(null);
   const [activeMedia, setActiveMedia] = useState<MediaItem | null>(null);
 
-  const openModal = (unit: ProjectUnitItem) => {
+  // Flatten all units from all buildings
+  const allUnits: ApiProjectUnit[] = project.buildings.flatMap(building => 
+    building.units.map(unit => ({
+        ...unit,
+        // Ensure image gallery is mapped correctly if the API names are different or empty
+        image_gallery: unit.image_gallery || []
+    }))
+  );
+
+  const openModal = (unit: ApiProjectUnit) => {
     setSelectedUnit(unit);
 
-    if (unit.media && unit.media.length > 0) {
-      setActiveMedia(unit.media[0]);
+    // Initial media: use main image then gallery
+    const initialMedia: MediaItem[] = [
+        { type: 'image', url: unit.image },
+        ...(unit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
+    ];
+
+    if (initialMedia.length > 0) {
+      setActiveMedia(initialMedia[0]);
     } else {
       setActiveMedia(null);
     }
@@ -110,64 +57,34 @@ const ProjectUnit = () => {
     <section className="px-4">
       <div className="container mx-auto sectionSpaceBorder">
         <SectionTitle
-          title="Project Unit"
+          title="Project Units"
           border_b={true}
         />
 
-        {/* <Swiper
-          spaceBetween={10}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            nextEl: '.custom-next',
-            prevEl: '.custom-prev',
-          }}
-          modules={[FreeMode, Navigation, Autoplay]}
-          className="mySwiper2 rounded-lg"
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            660: { slidesPerView: 2 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1200: { slidesPerView: 4 },
-          }}
-        > */}
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {projectUnitItems.map((item) => (
-            // <SwiperSlide key={item.id}>
-
+          {allUnits.map((item) => (
             <div
               key={item.id}
               className="relative group aspect-[2/3] rounded-lg w-full cursor-pointer overflow-hidden hover:shadow-2xl"
               onClick={() => openModal(item)}
             >
               <Image
-                src={item.src}
-                alt={item.alt}
+                src={item.image}
+                alt={item.name}
                 fill
                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/80 via-[var(--custom-bg-primary)]/10 to-transparent transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-[var(--custom-text-white)] text-2xl font-bold">{item.title}</h3>
+                  <h3 className="text-[var(--custom-text-white)] text-2xl font-bold">{item.name}</h3>
                   <div className="flex justify-between items-center mt-1">
-                    <p className="text-[var(--custom-text-white)]/90 text-sm font-semibold">{item.area}</p>
+                    <p className="text-[var(--custom-text-white)]/90 text-sm font-semibold">{item.gross_area_sft} sqft</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            // </SwiperSlide> */
           ))}
         </div>
-        {/* <div className="swiper-button-prev custom-prev"></div>
-          <div className="swiper-button-next custom-next"></div>
-        </Swiper> */}
 
         {/* Custom Modal */}
         {selectedUnit && (
@@ -196,7 +113,7 @@ const ProjectUnit = () => {
                     />
                   ) : (
                     <Image
-                      src={activeMedia?.url || selectedUnit.src}
+                      src={activeMedia?.url || selectedUnit.image}
                       fill
                       alt="Gallery image"
                       className="object-contain"
@@ -206,21 +123,16 @@ const ProjectUnit = () => {
 
                 {/* Thumbnails */}
                 <div className="flex gap-3 overflow-x-auto pb-2 custom-scrollbar justify-start items-center">
-                  {selectedUnit.media?.map((media, idx) => (
+                  {[
+                      { type: 'image' as const, url: selectedUnit.image },
+                      ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
+                  ].map((media, idx) => (
                     <div
                       key={idx}
                       onClick={() => setActiveMedia(media)}
                       className={`relative h-20 w-28 shrink-0 rounded-md overflow-hidden cursor-pointer border-2 transition-all duration-200 hover:opacity-100 ${activeMedia?.url === media.url ? 'border-[var(--custom-bg-accent)] opacity-100 shadow-md scale-105' : 'border-transparent opacity-60'}`}
                     >
-                      {media.type === 'video' ? (
-                        <div className="w-full h-full bg-gray-900 flex items-center justify-center relative">
-                          <PlayCircle size={24} className="absolute z-1 text-white/80" />
-                          {/* A placeholder color for video thumbnail if no poster */}
-                          <div className="w-full h-full bg-gray-800" />
-                        </div>
-                      ) : (
-                        <Image src={media.url} fill alt={`Thumbnail ${idx + 1}`} className="object-cover" />
-                      )}
+                      <Image src={media.url} fill alt={`Thumbnail ${idx + 1}`} className="object-cover" />
                     </div>
                   ))}
                 </div>
@@ -229,41 +141,43 @@ const ProjectUnit = () => {
               {/* Details Section */}
               <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col darkLight-text-color">
                 <div className="mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedUnit.title}</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedUnit.name}</h2>
+                  <p className="text-lg font-semibold text-[var(--custom-bg-accent)]">
+                      {selectedUnit.per_unit_amount.toLocaleString()} BDT
+                  </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
                     <Square size={24} className="text-[var(--custom-bg-accent)]" />
                     <div>
-                      <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Area</p>
-                      <p className="font-bold text-sm">{selectedUnit.area}</p>
+                      <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Gross Area</p>
+                      <p className="font-bold text-sm">{selectedUnit.gross_area_sft} sft</p>
                     </div>
                   </div>
-                  {selectedUnit.beds > 0 && (
-                    <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
-                      <BedDouble size={24} className="text-[var(--custom-bg-accent)]" />
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Bedrooms</p>
-                        <p className="font-bold text-sm">{selectedUnit.beds}</p>
-                      </div>
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <Info size={24} className="text-[var(--custom-bg-accent)]" />
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Usable Area</p>
+                      <p className="font-bold text-sm">{selectedUnit.usable_area_sqft} sqft</p>
                     </div>
-                  )}
-                  {selectedUnit.baths > 0 && (
-                    <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
-                      <Bath size={24} className="text-[var(--custom-bg-accent)]" />
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Bathrooms</p>
-                        <p className="font-bold text-sm">{selectedUnit.baths}</p>
+                  </div>
+                  
+                  {selectedUnit.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
+                          {feature.name.toLowerCase().includes('bed') ? <BedDouble size={24} className="text-[var(--custom-bg-accent)]" /> : <Bath size={24} className="text-[var(--custom-bg-accent)]" />}
+                          <div>
+                              <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">{feature.name}</p>
+                              <p className="font-bold text-sm">{feature.value}</p>
+                          </div>
                       </div>
-                    </div>
-                  )}
+                  ))}
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-lg font-bold mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 inline-block">Unit Description</h3>
+                  <h3 className="text-lg font-bold mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 inline-block">Unit Availability</h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                    {selectedUnit.description}
+                    Quantity available: {selectedUnit.unit_quantity}
                   </p>
                 </div>
               </div>
