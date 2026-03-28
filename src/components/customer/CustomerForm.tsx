@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowBigRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 const CustomerForm = () => {
   const [formData, setFormData] = useState({
@@ -40,6 +41,19 @@ const CustomerForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    toast.success("Enquiry submitted successfully!", {
+      description: "We will get back to you soon.",
+    });
+    setFormData({
+      name: "",
+      address: "",
+      email: "",
+      phone: "",
+      category: "",
+      location: "",
+      size: "",
+      message: "",
+    });
   };
 
   return (

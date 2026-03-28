@@ -8,7 +8,11 @@
 
 import type { ApiErrorResponse } from "@/types/api";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+// In development or when facing CORS, we route requests through Next.js proxy
+// which we configured in next.config.ts.
+const BASE_URL = process.env.NODE_ENV === "development" 
+  ? "/api/proxy" 
+  : (process.env.NEXT_PUBLIC_API_BASE_URL ?? "");
 
 // ---------------------------------------------------------------------------
 // Token helpers (client-side only)
@@ -71,11 +75,21 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
     headers["Content-Type"] = "application/json";
   }
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
-    ...rest,
-    headers,
-    body: body instanceof FormData ? body : body ? JSON.stringify(body) : undefined,
-  });
+  let response: Response;
+
+  try {
+    response = await fetch(`${BASE_URL}${endpoint}`, {
+      ...rest,
+      headers,
+      body: body instanceof FormData ? body : body ? JSON.stringify(body) : undefined,
+    });
+  } catch (err: any) {
+    // Catch generic network failures (e.g. CORS, offline)
+    if (err.message === "Failed to fetch" || err.message.includes("Network Error")) {
+      throw new ApiError(503, "Network Error: Unable to reach the API server. Please check your connection or CORS settings.");
+    }
+    throw new ApiError(500, err.message || "An unexpected request error occurred.");
+  }
 
   // Handle non-OK responses
   if (!response.ok) {

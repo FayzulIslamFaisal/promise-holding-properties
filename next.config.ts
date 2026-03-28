@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
       "spider.promiseassets.com",
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/proxy/:path*',
+        destination: 'https://spider.promiseassets.com/api/:path*',
+      },
+    ]
+  },
 };
 
 export default nextConfig;

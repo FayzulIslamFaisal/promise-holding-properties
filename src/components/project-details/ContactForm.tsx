@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import SectionTitle from "../common/SectionTitle"
 import { contentService } from "@/services/content.service"
+import { toast } from "sonner"
 
 interface ContactFormProps {
   title?: string
@@ -20,8 +21,6 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
   })
 
   const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState<"success" | "error" | null>(null)
-  
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const handleInputChange = (field: string, value: string) => {
@@ -46,7 +45,6 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    setStatus(null)
 
     try {
       const payload = {
@@ -57,18 +55,18 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
       }
 
       const response = await contentService.submitConnectExplore(payload)
-      console.log(response)
+      console.log("Response:", response)
 
-      setStatus("success")
+      toast.success(response?.message || "Your request has been submitted successfully!")
       setFormData({
         fullName: "",
         phoneNumber: "",
         email: "",
         message: "",
       })
-    } catch (error) {
+    } catch (error: any) {
       console.error("Form submission error:", error)
-      setStatus("error")
+      toast.error((error?.message || "Failed to submit your request."))
     } finally {
       setIsLoading(false)
     }
@@ -171,18 +169,6 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
             Your Message
           </label>
         </div>
-      
-        {status === "success" && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-sm dark:bg-green-900/30 dark:border-green-800 dark:text-green-400" role="alert">
-            <span className="block sm:inline">Your request has been submitted successfully! We will get back to you soon.</span>
-          </div>
-        )}
-        
-        {status === "error" && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm dark:bg-red-900/30 dark:border-red-800 dark:text-red-400" role="alert">
-            <span className="block sm:inline">Failed to submit your request. Please try again later.</span>
-          </div>
-        )}
 
         <div className="pt-4 flex justify-center gap-2">
           <Button

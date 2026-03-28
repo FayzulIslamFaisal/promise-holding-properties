@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowBigRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 const LandContactForm = () => {
   const [formData, setFormData] = useState({
@@ -44,6 +45,23 @@ const LandContactForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    toast.success("Land info submitted successfully!", {
+      description: "We will reach out to you shortly.",
+    });
+    setFormData({
+      locality: "",
+      address: "",
+      landSize: "",
+      frontRoadWidth: "",
+      landCategory: "",
+      facing: "",
+      attractiveBenefits: "",
+      landownerName: "",
+      contactPerson: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
   return (
