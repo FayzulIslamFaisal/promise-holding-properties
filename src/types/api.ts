@@ -179,3 +179,13 @@ export interface ProjectDetail {
   project_image: string;
   buildings: Building[];
 }
+
+// ---------------------------------------------------------------------------
+// Forms
+// ---------------------------------------------------------------------------
+export interface ConnectExploreRequest {
+  name: string;
+  number: string;
+  email: string;
+  message: string;
+}

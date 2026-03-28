@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import ContactBanner from './ContactBanner'
-const ContactForm = dynamic(() => import('./ContactForm'));
+const ContactForm = dynamic(() => import('../project-details/ContactForm'));
 const ContactCard = dynamic(() => import('./ContactCard'));
 
 const ContactWrapper = () => {
@@ -8,7 +8,7 @@ const ContactWrapper = () => {
     <>
       <ContactBanner />
       <ContactCard />
-      <ContactForm />
+      <ContactForm title="Contact Us" subtitle="We're here to help!" />
     </>
   )
 }

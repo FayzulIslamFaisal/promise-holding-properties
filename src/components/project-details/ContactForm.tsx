@@ -4,8 +4,14 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import SectionTitle from "../common/SectionTitle"
+import { contentService } from "@/services/content.service"
 
-const ContactForm = () => {
+interface ContactFormProps {
+  title?: string
+  subtitle?: string
+}
+
+const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps) => {
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -13,6 +19,9 @@ const ContactForm = () => {
     message: "",
   })
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [status, setStatus] = useState<"success" | "error" | null>(null)
+  
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const handleInputChange = (field: string, value: string) => {
@@ -34,16 +43,43 @@ const ContactForm = () => {
     return focusedField === field || value.length > 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    setIsLoading(true)
+    setStatus(null)
+
+    try {
+      const payload = {
+        name: formData.fullName,
+        number: formData.phoneNumber,
+        email: formData.email,
+        message: formData.message,
+      }
+
+      const response = await contentService.submitConnectExplore(payload)
+      console.log(response)
+
+      setStatus("success")
+      setFormData({
+        fullName: "",
+        phoneNumber: "",
+        email: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Form submission error:", error)
+      setStatus("error")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <section className="px-4">
     <div className="container mx-auto sectionSpaceBorder">
       <SectionTitle
-          title="Connect & Explore"
+          title={title}
+          subtitle={subtitle}
           border_b={true}
         />
 
@@ -136,14 +172,27 @@ const ContactForm = () => {
           </label>
         </div>
       
+        {status === "success" && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-sm dark:bg-green-900/30 dark:border-green-800 dark:text-green-400" role="alert">
+            <span className="block sm:inline">Your request has been submitted successfully! We will get back to you soon.</span>
+          </div>
+        )}
+        
+        {status === "error" && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm dark:bg-red-900/30 dark:border-red-800 dark:text-red-400" role="alert">
+            <span className="block sm:inline">Failed to submit your request. Please try again later.</span>
+          </div>
+        )}
+
         <div className="pt-4 flex justify-center gap-2">
           <Button
             type="submit"
             variant="default"
             className="btn-glow-accent"
+            disabled={isLoading}
           >
-            <span className="text-sm font-medium">Submit</span>
-            <ArrowRight className="w-4 h-4 animate-pulse" />
+            <span className="text-sm font-medium">{isLoading ? "Submitting..." : "Submit"}</span>
+            {!isLoading && <ArrowRight className="w-4 h-4 animate-pulse" />}
             
           </Button>
         </div>
