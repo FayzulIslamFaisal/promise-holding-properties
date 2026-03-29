@@ -40,6 +40,35 @@ export interface UserProfile {
   image?: string;
 }
 
+export interface CheckPhoneRequest {
+  phone: string;
+}
+
+export interface CheckPhoneResponse {
+  status?: string;
+  message?: string;
+}
+
+export interface GoogleLoginRequest {
+  email: string;
+  google_id: string;
+}
+
+export interface CheckGoogleUserRequest {
+  email: string;
+}
+
+export interface GoogleNewUserRequest {
+  name: string;
+  email: string;
+  phone?: string;
+  google_id: string;
+}
+
+export interface RefreshTokenResponse {
+  token: string;
+}
+
 // ---------------------------------------------------------------------------
 // Header Banners
 // ---------------------------------------------------------------------------
