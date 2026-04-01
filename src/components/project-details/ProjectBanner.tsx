@@ -21,7 +21,7 @@ const ProjectBanner = ({ project }: ProjectBannerProps) => {
         <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 dark:bg-[var(--custom-bg-accent)]/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-1 p-4">
           <motion.h1
-            className="text-4xl md:text-6xl font-bold text-[var(--custom-text-white)] mb-6 shadow-sm"
+            className="text-4xl md:text-6xl font-bold text-[var(--custom-text-white)] mb-6 drop-shadow-md"
             initial="hidden"
             animate="visible"
             variants={textVariants}
