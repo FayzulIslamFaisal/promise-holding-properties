@@ -76,10 +76,10 @@ export interface HeaderBanner {
   id: number;
   title: string;
   slug: string;
-  short_description: string;
-  link: string;
+  short_description?: string;
+  link?: string;
   image: string;
-  status: string;
+  status?: string;
 }
 
 // ---------------------------------------------------------------------------

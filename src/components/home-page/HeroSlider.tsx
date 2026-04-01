@@ -6,6 +6,7 @@ import { EffectCreative, Autoplay, Parallax, Keyboard } from "swiper/modules"
 import { Maximize } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 import { useHeaderBanners } from "@/hooks"
 
 import "swiper/css"
@@ -13,11 +14,11 @@ import "swiper/css/effect-creative"
 import "swiper/css/parallax"
 
 const fallbackSlides = [
-  { id: 1, image: "/assets/images/slider/banner1.png", title: "Banner 1" },
-  { id: 2, image: "/assets/images/slider/banner2.png", title: "Banner 2" },
-  { id: 3, image: "/assets/images/slider/banner4.png", title: "Banner 3" },
-  { id: 4, image: "/assets/images/slider/banner5.png", title: "Banner 4" },
-  { id: 5, image: "/assets/images/slider/banner6.png", title: "Banner 5" },
+  { id: 1, image: "/assets/images/slider/banner1.png", title: "Banner 1", slug: null },
+  { id: 2, image: "/assets/images/slider/banner2.png", title: "Banner 2", slug: null },
+  { id: 3, image: "/assets/images/slider/banner4.png", title: "Banner 3", slug: null },
+  { id: 4, image: "/assets/images/slider/banner5.png", title: "Banner 4", slug: null },
+  { id: 5, image: "/assets/images/slider/banner6.png", title: "Banner 5", slug: null },
 ]
 
 export default function SuperFlowSlider() {
@@ -28,6 +29,7 @@ export default function SuperFlowSlider() {
         id: banner.id,
         image: banner.image,
         title: banner.title,
+        slug: banner.slug,
       }))
     : fallbackSlides
 
@@ -90,6 +92,7 @@ export default function SuperFlowSlider() {
       <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-2 dark:bg-[var(--custom-bg-accent)]/20 pointer-events-none" />
 
       <Swiper
+        key={slides.length}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={() => setProgress(0)}
         effect="creative"
@@ -131,13 +134,25 @@ export default function SuperFlowSlider() {
                 transition: "transform 0.5s ease-out",
               }}
             >
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                priority
-              />
+              {slide.slug ? (
+                <Link href={`/project/${slide.slug}`} className="absolute inset-0 z-10 block">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </Link>
+              ) : (
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
             </div>
           </SwiperSlide>
         ))}
