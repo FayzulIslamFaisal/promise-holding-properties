@@ -83,12 +83,13 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
       headers,
       body: body instanceof FormData ? body : body ? JSON.stringify(body) : undefined,
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const errMessage = err instanceof Error ? err.message : String(err);
     // Catch generic network failures (e.g. CORS, offline)
-    if (err.message === "Failed to fetch" || err.message.includes("Network Error")) {
+    if (errMessage === "Failed to fetch" || errMessage.includes("Network Error")) {
       throw new ApiError(503, "Network Error: Unable to reach the API server. Please check your connection or CORS settings.");
     }
-    throw new ApiError(500, err.message || "An unexpected request error occurred.");
+    throw new ApiError(500, errMessage || "An unexpected request error occurred.");
   }
 
   // Handle non-OK responses

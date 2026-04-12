@@ -64,9 +64,10 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
         email: "",
         message: "",
       })
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Form submission error:", error)
-      toast.error((error?.message || "Failed to submit your request."))
+      const errorMessage = error instanceof Error ? error.message : "Failed to submit your request."
+      toast.error(errorMessage)
     } finally {
       setIsLoading(false)
     }

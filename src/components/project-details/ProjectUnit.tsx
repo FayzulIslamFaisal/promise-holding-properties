@@ -7,7 +7,7 @@ import "swiper/css/free-mode";
 
 import Image from "next/image";
 import SectionTitle from "../common/SectionTitle";
-import { X, BedDouble, Bath, Square, PlayCircle, Info } from "lucide-react";
+import { X, BedDouble, Bath, Square, Info } from "lucide-react";
 import { ProjectDetail, ProjectUnit as ApiProjectUnit } from "@/types/api";
 
 interface MediaItem {
