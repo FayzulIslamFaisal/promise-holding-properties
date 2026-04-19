@@ -1,10 +1,9 @@
-"use client"
-
+import { WhyChooseUs } from "@/types/api"
 import SectionTitle from "../common/SectionTitle"
 import { Card, CardContent } from "../ui/card"
 import { Award, Calendar, Users, DollarSign } from "lucide-react"
 import Image from "next/image"
-import { useWhyChooseUs } from "@/hooks"
+import { metricService } from "@/services"
 
 interface Achievement {
   id: number
@@ -45,11 +44,17 @@ const fallbackAchievements: Achievement[] = [
   },
 ]
 
-const WhyChoose = () => {
-  const { data, isLoading } = useWhyChooseUs()
+const WhyChoose = async () => {
+  let metricsRes: WhyChooseUs[] = [];
+  try {
+    const res = await metricService.getWhyChooseUs();
+    metricsRes = res.data || [];
+  } catch (error) {
+    console.error("Error fetching metrics:", error);
+  }
 
-  const achievements: Achievement[] = (!isLoading && data?.data?.length)
-    ? data.data.map((item) => ({
+  const achievements: Achievement[] = (metricsRes && metricsRes.length)
+    ? metricsRes.map((item) => ({
         id: item.id,
         number: item.counter_value,
         label: item.title,

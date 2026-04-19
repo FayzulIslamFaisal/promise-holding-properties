@@ -1,8 +1,9 @@
 import HomePageWrapper from "@/components/home-page/HomePageWrapper"
-const HomePage = () => {
-  return (
-    <HomePageWrapper/>
-  )
+
+export const dynamic = "force-dynamic";
+
+const HomePage = async () => {
+  return <HomePageWrapper />
 }
 
 export default HomePage

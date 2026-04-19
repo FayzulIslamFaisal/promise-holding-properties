@@ -1,20 +1,21 @@
-'use client';
-
-import { useProjects } from "@/hooks/use-content";
+import { Project } from "@/types/api";
 import AllProjectContentCard from "./AllProjectContentCard";
+import { projectService } from "@/services";
 
-const AllProjectContent = () => {
-  const { data, isLoading } = useProjects();
-  const projects = data?.data ?? [];
+const AllProjectContent = async () => {
+  let projects: Project[] = [];
+  
+  try {
+    const res = await projectService.getProjects();
+    projects = res.data || [];
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+  }
 
   return (
     <section className="px-4 dark:bg-[var(--custom-bg-body)] bg-[var(--custom-bg-white)]" >
       <div className="container mx-auto">
-        {isLoading ? (
-          <div className="flex justify-center items-center h-64 w-full">
-            <span className="loading loading-spinner loading-lg text-[var(--custom-bg-accent)]"></span>
-          </div>
-        ) : projects.length === 0 ? (
+        {projects.length === 0 ? (
            <div className="flex justify-center items-center h-64 w-full text-lg">
              No projects found.
            </div>

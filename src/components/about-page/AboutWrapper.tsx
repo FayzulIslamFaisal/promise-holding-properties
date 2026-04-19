@@ -4,8 +4,10 @@ import OurServices from "./OurServices"
 import OurStory from "./OurStory"
 import OurValues from "./OurValues"
 import WhyChoose from "./WhyChoose"
+
 const AboutTestimonial = dynamic(() => import('./AboutTestimonial'));
 const TeamMember = dynamic(() => import('./TeamMember'));
+
 const AboutWrapper = () => {
   return (
     <>

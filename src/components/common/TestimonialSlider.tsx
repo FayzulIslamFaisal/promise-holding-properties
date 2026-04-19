@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useTestimonials } from "@/hooks";
+import { Testimonial } from "@/types/api";
 
 type TestimonialItem = {
+    id: number | string;
     quote: string;
     name: string;
     designation: string;
@@ -16,10 +17,12 @@ type TestimonialItem = {
 interface TestimonialSliderProps {
     autoplay?: boolean;
     titleAlign?: "center" | "left";
+    testimonials?: Testimonial[];
 }
 
 const fallbackTestimonials: TestimonialItem[] = [
     {
+        id: 1,
         quote:
             "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
         name: "Sarah Chen",
@@ -27,6 +30,7 @@ const fallbackTestimonials: TestimonialItem[] = [
         src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3",
     },
     {
+        id: 2,
         quote:
             "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
         name: "Michael Rodriguez",
@@ -34,6 +38,7 @@ const fallbackTestimonials: TestimonialItem[] = [
         src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
     },
     {
+        id: 3,
         quote:
             "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
         name: "Emily Watson",
@@ -41,6 +46,7 @@ const fallbackTestimonials: TestimonialItem[] = [
         src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
     },
     {
+        id: 4,
         quote:
             "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
         name: "James Kim",
@@ -48,6 +54,7 @@ const fallbackTestimonials: TestimonialItem[] = [
         src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3",
     },
     {
+        id: 5,
         quote:
             "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
         name: "Lisa Thompson",
@@ -56,12 +63,12 @@ const fallbackTestimonials: TestimonialItem[] = [
     },
 ];
 
-const TestimonialSlider = ({ autoplay = false, titleAlign = "center" }: TestimonialSliderProps) => {
+const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonials: propsTestimonials }: TestimonialSliderProps) => {
     const [active, setActive] = useState(0);
-    const { data, isLoading } = useTestimonials();
 
-    const testimonials: TestimonialItem[] = (!isLoading && data?.data?.length)
-        ? data.data.map((t) => ({
+    const testimonials: TestimonialItem[] = (propsTestimonials && propsTestimonials.length)
+        ? propsTestimonials.map((t) => ({
+            id: t.id,
             quote: t.content,
             name: t.name,
             designation: t.position,
@@ -113,7 +120,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center" }: Testimon
                     <div className="relative h-80 w-[80%] md:w-[90%] mx-auto group">
                         {testimonials.map((testimonial, index) => (
                             <motion.div
-                                key={testimonial.src}
+                                key={testimonial.id}
                                 initial={{
                                     opacity: 0,
                                     scale: 0.9,
@@ -156,9 +163,9 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center" }: Testimon
 
                         {/* Floating indicator dots */}
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[9]">
-                            {testimonials.map((_, index) => (
+                            {testimonials.map((testimonial, index) => (
                                 <button
-                                    key={index}
+                                    key={testimonial.id}
                                     onClick={() => setActive(index)}
                                     className={`w-4 h-4 cursor-pointer rounded-full transition-all duration-300 ${isActive(index)
                                         ? 'bg-[var(--custom-bg-accent)] scale-125'

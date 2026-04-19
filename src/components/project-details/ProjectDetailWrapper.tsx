@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 import dynamic from 'next/dynamic';
-import { useProjectDetails } from "@/hooks/use-content";
+import { ProjectDetail } from "@/types/api";
 import ProjectInfo from "./ProjectInfo";
 import ProjectUnit from "./ProjectUnit";
 
@@ -19,20 +19,10 @@ const ContactForm = dynamic(() => import('./ContactForm'));
 const RelatedProject = dynamic(() => import('./RelatedProject'));
 
 interface ProjectDetailWrapperProps {
-  slug: string;
+  project?: ProjectDetail;
 }
 
-const ProjectDetailWrapper = ({ slug }: ProjectDetailWrapperProps) => {
-  const { data, isLoading } = useProjectDetails(slug);
-  const project = data?.data;
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-[100vh] w-full">
-        <span className="loading loading-spinner loading-lg text-[var(--custom-bg-accent)]"></span>
-      </div>
-    );
-  }
+const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
 
   if (!project) {
     return (

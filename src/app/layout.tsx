@@ -6,6 +6,7 @@ import FooterSection from "@/components/home-page/Footer-section";
 import CompanyFeatures from "@/components/home-page/CompanyFeatures";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
+import { SessionProvider } from "@/components/providers/SessionProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,7 +38,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased`}
       >
-        <ThemeProvider
+        <SessionProvider>
+          <ThemeProvider
           attribute="class"
           disableTransitionOnChange
           enableSystem={false}
@@ -55,6 +57,7 @@ export default function RootLayout({
           </footer>
           <Toaster />
         </ThemeProvider>
+      </SessionProvider>
       </body>
     </html>
   );

@@ -1,11 +1,10 @@
-"use client"
-
 import React from 'react'
 import { Card, CardContent } from '../ui/card'
 import { Award, Heart, Lightbulb, Shield } from 'lucide-react'
 import SectionTitle from '../common/SectionTitle'
 import Image from 'next/image'
-import { useOurValues } from '@/hooks'
+import { valueService } from '@/services'
+import { OurValue } from '@/types/api'
 
 interface ValueData {
   id: number
@@ -41,17 +40,24 @@ const fallbackValues: ValueData[] = [
   },
 ]
 
-const OurValues = () => {
-  const { data, isLoading } = useOurValues()
+const OurValues = async () => {
+  let values: OurValue[] = [];
+  try {
+    const res = await valueService.getOurValues();
+    values = res.data || [];
+  } catch (error) {
+    console.error("Error fetching values:", error);
+  }
 
-  const valuesData: ValueData[] = (!isLoading && data?.data?.length)
-    ? data.data.map((v) => ({
+  const valuesData: ValueData[] = (values && values.length)
+    ? values.map((v) => ({
         id: v.id,
         title: v.title,
         description: v.short_description,
         icon: <Image src={v.image} alt={v.title} width={52} height={52} className="h-13 w-13 object-contain" />,
       }))
     : fallbackValues
+
   return (
     <section className=" px-4 ">
         <div className="container mx-auto sectionSpaceBorder">

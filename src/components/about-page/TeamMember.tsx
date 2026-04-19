@@ -1,8 +1,8 @@
-"use client";
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
 import SectionTitle from "../common/SectionTitle";
-import { useManagementMembers } from "@/hooks";
+import { memberService } from "@/services";
+import { ManagementMember } from "@/types/api";
 
 interface TeamMemberData {
   id: number;
@@ -25,43 +25,49 @@ const fallbackMembers: TeamMemberData[] = [
     name: "Michael Chen",
     designation: "Senior Property Advisor",
     bio: "Specializes in residential sales and investment properties with a track record of 500+ successful transactions.",
-    image: "/assets/images/team-member/img2.jpg",
+    image: "/assets/images/team-member/img1.jpg",
   },
   {
     id: 3,
     name: "Emily Rodriguez",
     designation: "Legal & Finance Director",
     bio: "Expert in property law and financing solutions, ensuring smooth and secure transactions for all clients.",
-    image: "/assets/images/team-member/img3.jpg",
+    image: "/assets/images/team-member/img2.jpg",
   },
   {
     id: 4,
     name: "David Thompson",
     designation: "Property Manager",
     bio: "Manages our extensive portfolio of rental properties with focus on tenant satisfaction and property maintenance.",
-    image: "/assets/images/team-member/img4.jpg",
+    image: "/assets/images/team-member/img3.jpg",
   },
   {
     id: 5,
     name: "Sophia Williams",
     designation: "Marketing Director",
     bio: "Leads our marketing strategy with innovative campaigns and a strong focus on brand growth.",
-    image: "/assets/images/team-member/img5.jpg",
+    image: "/assets/images/team-member/img4.jpg",
   },
   {
     id: 6,
     name: "James Anderson",
     designation: "Customer Relations Manager",
     bio: "Dedicated to ensuring client satisfaction by providing personalized support and long-term relationship building.",
-    image: "/assets/images/team-member/img6.jpg",
+    image: "/assets/images/team-member/img5.jpg",
   },
 ];
 
-const TeamMember = () => {
-  const { data, isLoading } = useManagementMembers();
+const TeamMember = async () => {
+  let membersRes: ManagementMember[] = [];
+  try {
+    const res = await memberService.getManagementMembers();
+    membersRes = res.data || [];
+  } catch (error) {
+    console.error("Error fetching members:", error);
+  }
 
-  const teamMembers: TeamMemberData[] = (!isLoading && data?.data?.length)
-    ? data.data.map((m) => ({
+  const teamMembers: TeamMemberData[] = (membersRes && membersRes.length)
+    ? membersRes.map((m: ManagementMember) => ({
         id: m.id,
         name: m.title,
         designation: m.designation,

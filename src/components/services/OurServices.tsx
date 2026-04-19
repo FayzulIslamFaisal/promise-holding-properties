@@ -1,10 +1,9 @@
-"use client";
-
+import { OurService } from "@/types/api";
 import { Briefcase, Home, TrendingUp, Users } from "lucide-react";
 import OurServiceCard from "./OurServiceCard";
 import type { ServiceCardData } from "./OurServiceCard";
 import SectionTitle from "../common/SectionTitle";
-import { useOurServices } from "@/hooks";
+import { companyServiceService } from "@/services";
 
 const fallbackServices: ServiceCardData[] = [
   {
@@ -46,11 +45,17 @@ const fallbackServices: ServiceCardData[] = [
   },
 ];
 
-const OurServices = () => {
-  const { data, isLoading } = useOurServices();
+const OurServices = async () => {
+  let servicesRes: OurService[] = [];
+  try {
+    const res = await companyServiceService.getOurServices();
+    servicesRes = res.data || [];
+  } catch (error) {
+    console.error("Error fetching services:", error);
+  }
 
-  const services: ServiceCardData[] = (!isLoading && data?.data?.length)
-    ? data.data.map((s) => ({
+  const services: ServiceCardData[] = (servicesRes && servicesRes.length)
+    ? servicesRes.map((s) => ({
         id: s.id,
         icon: s.icon,
         title: s.title,

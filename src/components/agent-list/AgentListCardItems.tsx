@@ -28,7 +28,8 @@ const AgentListCardItems: React.FC<AgentItemsProps> = ({agent}) => {
                     <Image
                       src={agent.avatar || "/placeholder.svg"}
                       alt={agent.name}
-                      fill
+                      width={120}
+                      height={120}
                       className=" rounded-full object-cover border-2 border-[var(--custom-bg-accent)]/30 shadow-[0_4px_8px_rgba(0,0,0,0.4)] dark:shadow-[0_4px_8px_rgba(255,255,255,0.5)]"
                     />
                     <div

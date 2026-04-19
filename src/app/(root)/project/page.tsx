@@ -1,10 +1,11 @@
 import AllProjectWrapper from '@/components/projects/AllProjectWrapper'
-import React from 'react'
 
-const projectPage = () => {
+export const dynamic = "force-dynamic";
+
+const ProjectPage = () => {
   return (
     <AllProjectWrapper />
   )
 }
 
-export default projectPage
+export default ProjectPage

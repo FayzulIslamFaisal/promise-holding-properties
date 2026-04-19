@@ -1,18 +1,8 @@
 // =============================================================================
 // Auth Service — Authentication & user profile endpoints
 // =============================================================================
-// Endpoints:
-//   POST /check-phone-exists    — Check if phone is registered
-//   POST /login                 — Login with phone + password
-//   GET  /refresh-token         — Refresh auth token
-//   POST /google-login          — Login via Google OAuth
-//   POST /check-user-exists-by-google-login — Check if Google user exists
-//   POST /google-new-user       — Complete profile for new Google user
-//   GET  /profile               — Get authenticated user profile
-//   POST /logout                — Logout and invalidate token
-// =============================================================================
 
-import { apiClient, setStoredToken, clearStoredToken } from "@/lib/api-client";
+import { apiClient } from "@/lib/api-client";
 import type {
   ApiResponse,
   LoginRequest,
@@ -26,37 +16,29 @@ import type {
   RefreshTokenResponse,
 } from "@/types/api";
 
+/**
+ * Auth Service handles the actual API calls for authentication.
+ * Storage of tokens is handled by the caller (e.g., NextAuth on server, or manual on client).
+ */
 export const authService = {
   /** Check if a phone number is already registered */
   async checkPhoneExists(data: CheckPhoneRequest) {
     return apiClient.post<ApiResponse<CheckPhoneResponse>>("/check-phone-exists", data);
   },
 
-  /** Login with phone and password. Stores the token automatically. */
+  /** Login with phone and password */
   async login(data: LoginRequest) {
-    const response = await apiClient.post<ApiResponse<LoginResponse>>("/login", data);
-    if (response.data?.token) {
-      setStoredToken(response.data.token);
-    }
-    return response;
+    return apiClient.post<ApiResponse<LoginResponse>>("/login", data);
   },
 
   /** Refresh the current auth token */
-  async refreshToken() {
-    const response = await apiClient.get<ApiResponse<RefreshTokenResponse>>("/refresh-token");
-    if (response.data?.token) {
-      setStoredToken(response.data.token);
-    }
-    return response;
+  async refreshToken(token?: string) {
+    return apiClient.get<ApiResponse<RefreshTokenResponse>>("/refresh-token", { token });
   },
 
   /** Login via Google OAuth */
   async googleLogin(data: GoogleLoginRequest) {
-    const response = await apiClient.post<ApiResponse<LoginResponse>>("/google-login", data);
-    if (response.data?.token) {
-      setStoredToken(response.data.token);
-    }
-    return response;
+    return apiClient.post<ApiResponse<LoginResponse>>("/google-login", data);
   },
 
   /** Check if a Google user already exists */
@@ -69,22 +51,16 @@ export const authService = {
 
   /** Complete profile setup for a new Google-authenticated user */
   async googleNewUser(data: GoogleNewUserRequest) {
-    const response = await apiClient.post<ApiResponse<LoginResponse>>("/google-new-user", data);
-    if (response.data?.token) {
-      setStoredToken(response.data.token);
-    }
-    return response;
+    return apiClient.post<ApiResponse<LoginResponse>>("/google-new-user", data);
   },
 
   /** Get the authenticated user's profile */
-  async getProfile() {
-    return apiClient.get<ApiResponse<UserProfile>>("/profile");
+  async getProfile(token?: string) {
+    return apiClient.get<ApiResponse<UserProfile>>("/profile", { token });
   },
 
-  /** Logout and clear the stored token */
-  async logout() {
-    const response = await apiClient.post<ApiResponse<null>>("/logout");
-    clearStoredToken();
-    return response;
+  /** Logout and invalidate token */
+  async logout(token?: string) {
+    return apiClient.post<ApiResponse<null>>("/logout", {}, { token });
   },
 };

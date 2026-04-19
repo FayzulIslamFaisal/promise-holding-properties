@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import SectionTitle from "../common/SectionTitle"
-import { contentService } from "@/services/content.service"
+import { projectService } from "@/services"
 import { toast } from "sonner"
 
 interface ContactFormProps {
@@ -54,7 +54,7 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
         message: formData.message,
       }
 
-      const response = await contentService.submitConnectExplore(payload)
+      const response = await projectService.submitConnectExplore(payload)
       console.log("Response:", response)
 
       toast.success(response?.message || "Your request has been submitted successfully!")

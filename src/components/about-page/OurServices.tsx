@@ -1,10 +1,9 @@
-"use client"
-
+import { OurService } from "@/types/api"
 import { Home, Key, Settings, TrendingUp } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import SectionTitle from "../common/SectionTitle"
 import Image from "next/image"
-import { useOurServices } from "@/hooks"
+import { companyServiceService } from "@/services"
 
 interface ServiceItem {
   id: number
@@ -41,12 +40,19 @@ const fallbackServices: ServiceItem[] = [
         "Strategic investment advice to help you build and optimize your real estate portfolio for maximum returns.",
       icon: <TrendingUp className="h-8 w-8 text-primary" />,
     },
-  ]
-const OurServices = () => {
-  const { data, isLoading } = useOurServices()
+]
 
-  const services: ServiceItem[] = (!isLoading && data?.data?.length)
-    ? data.data.map((s) => ({
+const OurServices = async () => {
+  let servicesRes: OurService[] = [];
+  try {
+    const res = await companyServiceService.getOurServices();
+    servicesRes = res.data || [];
+  } catch (error) {
+    console.error("Error fetching services:", error);
+  }
+
+  const services: ServiceItem[] = (servicesRes && servicesRes.length)
+    ? servicesRes.map((s) => ({
         id: s.id,
         title: s.title,
         description: s.description,
