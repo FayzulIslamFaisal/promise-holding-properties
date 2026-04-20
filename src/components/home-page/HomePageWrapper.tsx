@@ -1,6 +1,6 @@
 // "HomePageWrapper.tsx"
 import dynamic from "next/dynamic"
-import ProjectVideoThumbnail from "./ProjectVideoThumbnail "
+import ProjectVideoThumbnail from "./ProjectVideoThumbnail"
 
 const HeroSlider = dynamic(() => import('./HeroSlider'));
 const InsightsSection = dynamic(() => import('./InsightsSection'));
