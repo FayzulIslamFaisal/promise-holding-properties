@@ -1,4 +1,4 @@
-import { HeaderBanner, Project, Testimonial, OurService } from "@/types/api";
+import { HeaderBanner } from "@/types/api";
 import { bannerService } from "@/services"
 import HeroSliderClient from "./HeroSliderClient"
 
