@@ -1,22 +1,27 @@
 import Image from 'next/image'
 
-const InsightBanner = () => {
+interface InsightBannerProps {
+    banner: string;
+    title: string;
+}
+
+const InsightBanner: React.FC<InsightBannerProps> = ({ banner, title }) => {
   return (
     <section className="sectionSpaceBorder pt-0">
-        <div className="relative h-[calc(100vh-200px)] md:h-[calc(100vh-200px)]">
+        <div className="relative h-[300px] md:h-[calc(100vh-200px)]">
             <Image
-                src="/assets/images/media-center/img1.jpg"
-                alt="Media Center Banner"
+                src={banner}
+                alt={title}
                 fill
                 className="object-cover"
+                priority
             />
             <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 backdrop-filter dark:bg-[var(--custom-bg-accent)]/20 z-1" />
             <div className="absolute inset-0 z-1 flex items-center justify-center text-center">
                 <div className="max-w-full px-4 md:max-w-4xl mx-auto">
                     <h1 className="bannerText">
-                        Smart Insights for Smarter Investments
+                        {title}
                     </h1>
-                    <p className="text-[var(--custom-text-white)] text-lg md:text-xl ">Crafting Your Dream Home</p>
                 </div>
             </div>
         </div>

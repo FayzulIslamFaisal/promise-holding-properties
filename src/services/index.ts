@@ -10,3 +10,4 @@ export { testimonialService } from "./testimonial.service";
 export { companyServiceService } from "./company-service.service";
 export { valueService } from "./value.service";
 export { metricService } from "./metric.service";
+export { blogService } from "./blog.service";

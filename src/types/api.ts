@@ -210,6 +210,44 @@ export interface ProjectDetail {
 }
 
 // ---------------------------------------------------------------------------
+// Blogs
+// ---------------------------------------------------------------------------
+export interface BlogSeoContent {
+  meta_title: string;
+  meta_description: string;
+  meta_keywords: string;
+}
+
+export interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  short_description: string;
+  description?: string;
+  banner: string;
+  banner_type: "image" | string;
+  view_count: number;
+  tags: string;
+  seo_content?: BlogSeoContent;
+  created_at: string;
+  updated_at?: string;
+}
+
+export interface PaginatedBlogs {
+  blogs: Blog[];
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
+}
+
+export interface BlogSearchParams {
+  search?: string;
+  per_page?: number;
+  page?: number;
+}
+
+// ---------------------------------------------------------------------------
 // Forms
 // ---------------------------------------------------------------------------
 export interface ConnectExploreRequest {

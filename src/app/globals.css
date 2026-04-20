@@ -313,6 +313,47 @@ body.light {
   border-left: 5px solid var(--custom-bg-accent);
 }
 
+/* === Prose / Dynamic HTML Styles === */
+.prose p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose h2, .prose h3, .prose h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--custom-bg-accent);
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--custom-bg-accent);
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--custom-bg-accent);
+  padding-left: 1.5rem;
+  font-style: italic;
+  margin: 2rem 0;
+}
+
 
 
 
