@@ -1,5 +1,6 @@
 
-import InsightBanner from "./InsightBanner"
+import PageBanner from "@/components/common/PageBanner"
+
 import InsightHeader from "./InsightHeader"
 import { Blog } from "@/types/api"
 
@@ -10,7 +11,11 @@ interface InsightWrapperProps {
 const InsightWrapper: React.FC<InsightWrapperProps> = ({ blog }) => {
   return (
     <>
-      <InsightBanner banner={blog.banner} title={blog.title} />
+      <PageBanner 
+        title={blog.title} 
+        imageSrc={blog.banner} 
+      />
+
       <section className="px-4">
           <div className="container mx-auto sectionSpaceBorder">
               <InsightHeader 

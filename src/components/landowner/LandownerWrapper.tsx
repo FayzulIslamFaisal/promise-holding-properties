@@ -1,21 +1,25 @@
 import dynamic from "next/dynamic";
-import LandownerBanner from "./LandownerBanner"
-// import LandTestimonial from "./LandTestimonial";
-// import JointVentureForm from "./JointVentureForm";
-// import LandownerSlider from "./LandownerSlider";
+import PageBanner from "@/components/common/PageBanner";
+
 const LandownerSlider = dynamic(() => import('./LandownerSlider'));
 const JointVentureForm = dynamic(() => import('./JointVentureForm'));
-const LandTestimonial = dynamic(() => import('./LandTestimonial'));
+const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial'));
 
 const LandownerWrapper = () => {
   return (
     <>
-      <LandownerBanner />
+      <PageBanner 
+        title="Our Commitment to Quality"
+        subtitle="Transforming properties into masterpieces"
+        description="Connect with our exceptional team of real estate professionals who deliver unparalleled service and expertise in luxury property transactions."
+        imageSrc="/assets/images/contact/banner.jpg"
+      />
       <LandownerSlider />
       <JointVentureForm />
-      <LandTestimonial autoplay={true} />
+      <ProjectTestimonial autoplay={true} />
     </>
   )
 }
+
 
 export default LandownerWrapper

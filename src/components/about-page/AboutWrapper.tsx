@@ -1,25 +1,32 @@
 import dynamic from "next/dynamic"
-import AboutBanner from "./AboutBanner"
+import PageBanner from "@/components/common/PageBanner"
 import OurServices from "./OurServices"
 import OurStory from "./OurStory"
 import OurValues from "./OurValues"
 import WhyChoose from "./WhyChoose"
 
-const AboutTestimonial = dynamic(() => import('./AboutTestimonial'));
+const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial'));
 const TeamMember = dynamic(() => import('./TeamMember'));
 
 const AboutWrapper = () => {
   return (
     <>
-        <AboutBanner />
+        <PageBanner 
+            title="Premier Real Estate Solutions"
+            subtitle="Your Trusted Real Estate Partner"
+            description="Transforming property dreams into reality with expertise, integrity, and innovation since 2025."
+            imageSrc="/assets/images/contact/banner.jpg"
+        />
         <OurStory />
         <OurValues />
         <TeamMember />
         <WhyChoose />
         <OurServices />
-        <AboutTestimonial autoplay={true} />
+        <ProjectTestimonial autoplay={true} />
     </>
   )
 }
+
+
 
 export default AboutWrapper

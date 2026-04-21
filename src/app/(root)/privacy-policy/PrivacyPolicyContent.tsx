@@ -3,6 +3,8 @@ import { Shield, Lock, Eye, FileText,Users, Mail, MailCheck, MapPinPlus  } from 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from 'next/link';
+import PageBanner from '@/components/common/PageBanner';
+
 
 interface Section {
   id: string;
@@ -29,46 +31,12 @@ const PrivacyPolicyContent = () => {
     
   return (
     <>
-    <section>
-      <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/assets/images/projects/project11.jpg')] bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 dark:bg-[var(--custom-bg-accent)]/20 "></div>
-        <div className="absolute inset-0 privacy-gradient animate-gradient-shift opacity-20"></div>
-        <div className="absolute top-20 left-20">
-          <Shield className="w-16 h-16 text-[var(--custom-text-white)]/50 animate-float" />
-        </div>
-        <div className="absolute top-32 right-32">
-          <Lock className="w-12 h-12 text-[var(--custom-text-white)]/40 animate-float animation-delay-1000" />
-        </div>
-        <div className="absolute bottom-40 left-32">
-          <Eye className="w-14 h-14 text-[var(--custom-text-white)]/35 animate-float animation-delay-3000" />
-        </div>
-        <div className="absolute bottom-20 right-20">
-          <FileText className="w-10 h-10 text-[var(--custom-text-white)]/50 animate-float animation-delay-1000" />
-        </div>
-        <div className="relative z-1 text-center max-w-full sm:max-w-4xl mx-auto px-6">
-          <div className="glass-morphism rounded-3xl p-8 md:p-12 border border-[var(--custom-text-white)]/20">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-[var(--custom-text-white)]">
-              Privacy Policy
-            </h1>
-            <p className="text-lg md:text-xl text-[var(--custom-text-white)]/80 mb-6 leading-relaxed">
-              Your privacy is our priority. Learn how we protect and handle your personal information.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-[var(--custom-text-white)]/80">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-[var(--custom-text-white)]" />
-                <span>Last Updated: January 15, 2025</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <FileText className="w-4 h-4 text-[var(--custom-text-white)]" />
-                <span>Effective: January 15, 2025</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageBanner 
+      title="Privacy Policy"
+      description="Your privacy is our priority. Learn how we protect and handle your personal information."
+      imageSrc="/assets/images/projects/project11.jpg"
+    />
+
 
     <section className="px-4 ">
       <div className="container mx-auto md:py-14 py-10 border-b border-[var(--custom-bg-accent)]/40 ">
