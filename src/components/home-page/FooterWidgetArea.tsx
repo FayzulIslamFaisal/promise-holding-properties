@@ -1,5 +1,5 @@
 
-
+"use client";
 import {
   ChevronRight,
   MailCheck,
@@ -8,6 +8,7 @@ import {
   SendHorizontalIcon,
 } from 'lucide-react'
 import Link from 'next/link';
+import { useSettings } from '@/providers/SettingsProvider';
 
 interface QuickLink {
   id: number;
@@ -21,6 +22,7 @@ interface CompanyLink {
 }
 
 const FooterWidgetArea = () => {
+    const settings = useSettings();
     const quickLinks: QuickLink[] = [
       { id: 1, title: "Customer Enquiry", path: "/customer" },
       { id: 2, title: "Our Services", path: "/services" },
@@ -57,23 +59,22 @@ const FooterWidgetArea = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <p className="text-xl tracking-normal">
-              Specializing in high-class tours, float & plate booking services
+              Specializing in {settings?.general_settings.site_name || "high-class tours"}, float & plate booking services
             </p>
             <div className="space-y-2">
               <p className="text-gray-300 flex items-start gap-2">
                 <MapPinCheck className="size-5 mt-1 text-[var(--custom-bg-white)]" />
                 <span>
-                  Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop,
-                  Mirpur Road, Dhaka-1207.
+                  {settings?.general_settings.site_address || "Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207."}
                 </span>
               </p>
               <p className="text-gray-300 flex items-center gap-2">
                 <PhoneCallIcon className="size-4 text-[var(--custom-bg-white)]" />
-                <span>09647 444 444</span>
+                <span>{settings?.general_settings.site_phone || "09647 444 444"}</span>
               </p>
               <p className="text-gray-300 flex items-center gap-2">
                 <MailCheck className="size-4 text-[var(--custom-bg-white)]" />
-                <span>info@promiseholding.com</span>
+                <span>{settings?.general_settings.site_email || "info@promiseholding.com"}</span>
               </p>
             </div>
           </div>

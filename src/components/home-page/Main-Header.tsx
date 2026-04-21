@@ -1,14 +1,15 @@
-'use client'
-
+"use client";
 import Image from 'next/image'
 import { AlignRight, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import NavMenuItem from './Nav-Menu-Item'
 import MobileNavMenu from './Mobile-Nav-menu'
+import { useSettings } from '@/providers/SettingsProvider'
 
 const MainHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const settings = useSettings()
 
   return (
     <>
@@ -18,10 +19,10 @@ const MainHeader = () => {
         <div className="w-1/2 lg:w-[25%]">
           <Link href="/"  className="inline-block">
             <Image
-              src="/assets/images/Web-Logo.png"
+              src={settings?.logo_settings.site_logo || "/assets/images/Web-Logo.png"}
               width={200}
               height={50}
-              alt="logo"
+              alt={settings?.general_settings.site_name || "logo"}
             />
           </Link>
         </div>

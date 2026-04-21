@@ -248,6 +248,43 @@ export interface BlogSearchParams {
 }
 
 // ---------------------------------------------------------------------------
+// Settings
+// ---------------------------------------------------------------------------
+export interface GeneralSettings {
+  site_name: string;
+  site_email: string;
+  site_phone: string;
+  site_address: string;
+}
+
+export interface LogoSettings {
+  site_logo: string;
+  site_favicon: string;
+}
+
+export interface SeoSettings {
+  meta_title: string | null;
+  meta_keywords: string | null;
+  meta_description: string | null;
+}
+
+export interface SocialSettings {
+  facebook: string | null;
+  twitter: string | null;
+  linkedin: string | null;
+  instagram: string | null;
+  youtube: string | null;
+  tiktok: string | null;
+}
+
+export interface WebsiteSettings {
+  general_settings: GeneralSettings;
+  logo_settings: LogoSettings;
+  seo_settings: SeoSettings;
+  social_settings: SocialSettings;
+}
+
+// ---------------------------------------------------------------------------
 // Forms
 // ---------------------------------------------------------------------------
 export interface ConnectExploreRequest {

@@ -7,6 +7,8 @@ import CompanyFeatures from "@/components/home-page/CompanyFeatures";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "@/components/providers/SessionProvider";
+import { settingService } from "@/services";
+import { SettingsProvider } from "@/providers/SettingsProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,41 +25,70 @@ const poppins = Poppins({
   style: ["normal", "italic"],
 });
 
-export const metadata: Metadata = {
-  title: "Promise Holding",
-  description: " A platform for managing promises and commitments",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const response = await settingService.getSettings();
+    const settings = response.data;
+    
+    return {
+      title: {
+        default: settings.general_settings.site_name || "Promise Assets",
+        template: `%s | ${settings.general_settings.site_name || "Promise Assets"}`,
+      },
+      description: settings.seo_settings.meta_description || "Crafting Your Dream Home",
+      keywords: settings.seo_settings.meta_keywords || "",
+      icons: {
+        icon: settings.logo_settings.site_favicon || "/favicon.ico",
+      },
+    };
+  } catch (error) {
+    return {
+      title: "Promise Assets",
+      description: "Crafting Your Dream Home",
+    };
+  }
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let settings = null;
+  try {
+    const response = await settingService.getSettings();
+    settings = response.data;
+  } catch (error) {
+    console.error("Failed to fetch settings:", error);
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased`}
       >
         <SessionProvider>
-          <ThemeProvider
-          attribute="class"
-          disableTransitionOnChange
-          enableSystem={false}
-          defaultTheme="dark"
-        >
-          <HeaderSection />
-          <main>
-            {children}
-          </main>
-          <footer>
-            <>
-              <CompanyFeatures />
-              <FooterSection />
-            </>
-          </footer>
-          <Toaster />
-        </ThemeProvider>
-      </SessionProvider>
+          <SettingsProvider settings={settings}>
+            <ThemeProvider
+              attribute="class"
+              disableTransitionOnChange
+              enableSystem={false}
+              defaultTheme="dark"
+            >
+              <HeaderSection />
+              <main>
+                {children}
+              </main>
+              <footer>
+                <>
+                  <CompanyFeatures />
+                  <FooterSection />
+                </>
+              </footer>
+              <Toaster />
+            </ThemeProvider>
+          </SettingsProvider>
+        </SessionProvider>
       </body>
     </html>
   );

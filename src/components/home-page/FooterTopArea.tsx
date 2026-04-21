@@ -1,30 +1,47 @@
 "use client";
-
 import {
   Facebook,
   InstagramIcon,
   Linkedin,
   TwitterIcon,
   YoutubeIcon,
+  Globe, // Fallback for tiktok or others
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { LucideIcon } from "lucide-react";
+import { useSettings } from '@/providers/SettingsProvider';
 
 const FooterTopArea = () => {
+    const settings = useSettings();
+    
     interface SocialIcon {
         href: string;
         icon: LucideIcon;
         className?: string;
     }
     
-    const socialIcons: SocialIcon[] = [
-        { href: '#', icon: Facebook, className: "size-5 md:size-6" },
-        { href: '#', icon: Linkedin, className: "size-5 md:size-6" },
-        { href: '#', icon: TwitterIcon, className: "size-5 md:size-6" },
-        { href: '#', icon: InstagramIcon, className: "size-5 md:size-6" },
-        { href: '#', icon: YoutubeIcon, className: "size-5 md:size-6" },
-    ];
+    // Define all possible icons mapping
+    const iconMapping: Record<string, LucideIcon> = {
+        facebook: Facebook,
+        twitter: TwitterIcon,
+        linkedin: Linkedin,
+        instagram: InstagramIcon,
+        youtube: YoutubeIcon,
+        tiktok: Globe, // Use Globe as fallback for Tiktok if no icon available
+    };
+
+    const socialIcons: SocialIcon[] = settings ? Object.entries(settings.social_settings)
+        .filter(([_, value]) => value !== null && value !== "")
+        .map(([key, value]) => ({
+            href: value as string,
+            icon: iconMapping[key] || Globe,
+            className: "size-5 md:size-6"
+        })) : [
+            { href: '#', icon: Facebook, className: "size-5 md:size-6" },
+            { href: '#', icon: Linkedin, className: "size-5 md:size-6" },
+            { href: '#', icon: TwitterIcon, className: "size-5 md:size-6" },
+        ];
 
     return (
         <div className="px-4">
@@ -34,9 +51,9 @@ const FooterTopArea = () => {
                     <div>
                         <Link href="/" className="inline-block relative w-[200px] h-[70px]">
                             <Image
-                                src="/assets/images/Web-Logo.png"
+                                src={settings?.logo_settings.site_logo || "/assets/images/Web-Logo.png"}
                                 fill
-                                alt="PromiseHoldings Logo"
+                                alt={settings?.general_settings.site_name || "PromiseHoldings Logo"}
                                 className="object-scale-down w-full h-full"
                             />
                         </Link>
