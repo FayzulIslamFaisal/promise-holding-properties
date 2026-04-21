@@ -1,5 +1,13 @@
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description: "Review the Terms and Conditions of Promise Holding Properties for using our services and website.",
+};
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
 
 import { Building2, Shield, Users, FileText, CreditCard, Scale, Phone, AlertTriangle, Lock, Eye } from "lucide-react"
 

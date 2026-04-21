@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     const response = await settingService.getSettings();
     const settings = response.data;
-    
+
     return {
       title: {
         default: settings.general_settings.site_name || "Promise Assets",
@@ -80,8 +80,8 @@ export default async function RootLayout({
                 {children}
               </main>
               <footer>
-                  <CompanyFeatures />
-                  <FooterSection />
+                <CompanyFeatures />
+                <FooterSection />
               </footer>
               <Toaster />
             </ThemeProvider>
