@@ -80,10 +80,8 @@ export default async function RootLayout({
                 {children}
               </main>
               <footer>
-                <>
                   <CompanyFeatures />
                   <FooterSection />
-                </>
               </footer>
               <Toaster />
             </ThemeProvider>
