@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
       title: project.project_name,
-      description: project.project_location || `Examine the details of ${project.project_name} by Promise Holding Properties.`,
+      description: project.project_location || `Examine the details of ${project.project_name} by Promise Assets.`,
       openGraph: {
         images: project.project_image ? [project.project_image] : [],
       },

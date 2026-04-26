@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Review the Terms and Conditions of Promise Holding Properties for using our services and website.",
+  description: "Review the Terms and Conditions of Promise Assets for using our services and website.",
 };
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"

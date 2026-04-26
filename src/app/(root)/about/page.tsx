@@ -3,7 +3,7 @@ import AboutWrapper from "@/components/about-page/AboutWrapper"
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn more about Promise Holding Properties, our mission, vision, and commitment to excellence in real estate development.",
+  description: "Learn more about Promise Assets, our mission, vision, and commitment to excellence in real estate development.",
 };
 
 

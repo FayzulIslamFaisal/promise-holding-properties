@@ -53,7 +53,7 @@ const FooterTopArea = () => {
                             <Image
                                 src={settings?.logo_settings.site_logo || "/assets/images/Web-Logo.png"}
                                 fill
-                                alt={settings?.general_settings.site_name || "PromiseHoldings Logo"}
+                                alt={settings?.general_settings.site_name || "Promise Assets Logo"}
                                 className="object-scale-down w-full h-full"
                             />
                         </Link>

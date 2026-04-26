@@ -3,7 +3,7 @@ import RelatedProjectWrapper from "@/components/related-project/RelatedProjectWr
 
 export const metadata: Metadata = {
   title: "All Projects",
-  description: "Browse through our complete list of residential and commercial projects at Promise Holding Properties.",
+  description: "Browse through our complete list of residential and commercial projects at Promise Assets.",
 };
 
 

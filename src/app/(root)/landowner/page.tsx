@@ -4,7 +4,7 @@ import LandownerWrapper from "@/components/landowner/LandownerWrapper"
 
 export const metadata: Metadata = {
   title: "Landowner Partnership",
-  description: "Join hands with Promise Holding Properties for a seamless and rewarding land development partnership.",
+  description: "Join hands with Promise Assets for a seamless and rewarding land development partnership.",
 };
 
 

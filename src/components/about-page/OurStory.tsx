@@ -22,7 +22,7 @@ const OurStory: React.FC = () => {
     title: "Our Story",
     subtitle: "Who We Are",
     description: [
-      "Founded in 2025, Premier Real Estate has grown from a small local agency to one of the most trusted names in the industry. Our journey began with a simple mission: to provide honest, professional, and personalized real estate services to our community.",
+      "Founded in 2025, Promise Assets has grown from a small local agency to one of the most trusted names in the industry. Our journey began with a simple mission: to provide honest, professional, and personalized real estate services to our community.",
       "Today, we continue to uphold these values while embracing innovation and technology to better serve our clients in an ever-evolving market."
     ],
     cards: [

@@ -59,7 +59,7 @@ const FooterWidgetArea = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <p className="text-xl tracking-normal">
-              Specializing in {settings?.general_settings.site_name || "high-class tours"}, float & plate booking services
+              Specializing in {settings?.general_settings.site_name || "Real Estate"}, properties & consultancy services
             </p>
             <div className="space-y-2">
               <p className="text-gray-300 flex items-start gap-2">
@@ -74,7 +74,7 @@ const FooterWidgetArea = () => {
               </p>
               <p className="text-gray-300 flex items-center gap-2">
                 <MailCheck className="size-4 text-[var(--custom-bg-white)]" />
-                <span>{settings?.general_settings.site_email || "info@promiseholding.com"}</span>
+                <span>{settings?.general_settings.site_email || "info@promiseassets.com"}</span>
               </p>
             </div>
           </div>

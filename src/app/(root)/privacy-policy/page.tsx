@@ -3,7 +3,7 @@ import PrivacyPolicyContent from "./PrivacyPolicyContent";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Read the Privacy Policy of Promise Holding Properties to understand how we collect, use, and protect your personal information.",
+  description: "Read the Privacy Policy of Promise Assets to understand how we collect, use, and protect your personal information.",
 };
 
 const PrivacyPolicyPage = () => {
