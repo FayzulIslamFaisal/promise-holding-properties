@@ -16,4 +16,14 @@ export const projectService = {
   async submitConnectExplore(data: ConnectExploreRequest) {
     return apiClient.post<ApiResponse<null>>("/connect-explore", data);
   },
+
+  /** Submit landowner info */
+  async submitLandownerInfo(data: Record<string, any>) {
+    return apiClient.post<ApiResponse<any>>("/landowner-submit", data);
+  },
+
+  /** Subscribe to newsletter */
+  async subscribeNewsletter(data: { email: string }) {
+    return apiClient.post<ApiResponse<any>>("/newsletter-subscribe", data);
+  },
 };

@@ -1,14 +1,18 @@
 
 "use client";
+import { useState } from 'react';
 import {
   ChevronRight,
   MailCheck,
   MapPinCheck,
   PhoneCallIcon,
   SendHorizontalIcon,
-} from 'lucide-react'
+  Loader2,
+} from 'lucide-react';
 import Link from 'next/link';
 import { useSettings } from '@/providers/SettingsProvider';
+import { toast } from 'sonner';
+import { projectService } from '@/services';
 
 interface QuickLink {
   id: number;
@@ -23,6 +27,29 @@ interface CompanyLink {
 
 const FooterWidgetArea = () => {
     const settings = useSettings();
+    const [email, setEmail] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (!email) {
+        toast.error('Please enter your email address');
+        return;
+      }
+
+      setIsLoading(true);
+      try {
+        const response = await projectService.subscribeNewsletter({ email });
+
+        toast.success(response?.message || 'Successfully subscribed to the newsletter!');
+        setEmail('');
+      } catch (error: any) {
+        console.error('Newsletter subscription error:', error);
+        toast.error(error?.message || 'Failed to subscribe to the newsletter.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
     const quickLinks: QuickLink[] = [
       { id: 1, title: "Customer Enquiry", path: "/customer" },
       { id: 2, title: "Our Services", path: "/services" },
@@ -122,7 +149,7 @@ const FooterWidgetArea = () => {
               Your Weekly Monthly Dose of Knowledge and Inspiration
             </p>
 
-            <div className="flex flex-col space-y-2">
+            <form onSubmit={handleSubscribe} className="flex flex-col space-y-2">
               <label htmlFor="email" className="text-gray-300">
                 Your Email Address
               </label>
@@ -131,17 +158,26 @@ const FooterWidgetArea = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-[var(--custom-text-white)] focus:outline-none focus:ring-1 focus:ring-gray-100/25 w-full pr-12 transition duration-200 shadow-sm hover:shadow-md"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={isLoading}
+                  className="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-[var(--custom-text-white)] focus:outline-none focus:ring-1 focus:ring-gray-100/25 w-full pr-12 transition duration-200 shadow-sm hover:shadow-md disabled:opacity-70"
                   placeholder="Enter your email"
+                  required
                 />
                 <button
                   type="submit"
-                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-[var(--custom-bg-accent)] hover:bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] px-3 py-2 rounded transition duration-200"
+                  disabled={isLoading}
+                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-[var(--custom-bg-accent)] hover:bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] h-full px-3 py-2 rounded-r transition duration-200 disabled:opacity-70 flex items-center justify-center"
                 >
-                  <SendHorizontalIcon className="size-4 inline-block" />
+                  {isLoading ? (
+                    <Loader2 className="size-4 inline-block animate-spin" />
+                  ) : (
+                    <SendHorizontalIcon className="size-4 inline-block" />
+                  )}
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

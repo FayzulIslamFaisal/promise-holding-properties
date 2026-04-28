@@ -12,51 +12,36 @@ interface ContactItem {
   details: string[]
 }
 
+import { useSettings } from '@/providers/SettingsProvider'
+
 export default function ContactCard() {
+  const settings = useSettings();
+  
+  const siteAddress = settings?.general_settings?.site_address || "Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207, Bangladesh";
+  const siteEmail = settings?.general_settings?.site_email || "info@promiseassets.com";
+  const sitePhone = settings?.general_settings?.site_phone || "09647 444 444";
+  const siteName = settings?.general_settings?.site_name || "Promise Assets";
+
   const contactItems: ContactItem[] = [
   {
     icon: <MapPin className="w-10 h-10" />,
     title: "Corporate Office",
-    details: [
-      "Khaja Super Market, 2nd to 7th Floor,",
-      "Kallyanpur Bus Stop, Mirpur Road,",
-      "Dhaka-1207, Bangladesh"
-    ]
+    details: [siteAddress]
   },
   {
     icon: <Mail className="w-10 h-10" />,
-    title: "Email",
-    details: ["info@promiseassets.com"] // Update to your actual email if needed
+    title: "Email Address",
+    details: [siteEmail]
   },
   {
     icon: <Phone className="w-10 h-10" />,
-    title: "Sales Enquiry",
-    details: ["09647 444 444"]
-  },
-  {
-    icon: <Phone className="w-10 h-10" />,
-    title: "Joint Venture Development",
-    details: ["09647 444 444"]
-  },
-  {
-    icon: <Phone className="w-10 h-10" />,
-    title: "General Enquiry",
-    details: ["09647 444 444"]
-  },
-  {
-    icon: <Phone className="w-10 h-10" />,
-    title: "International Callers",
-    details: ["+8809647444444"]
+    title: "Phone Number",
+    details: [sitePhone]
   },
   {
     icon: <MessageCircle className="w-10 h-10" />,
-    title: "WhatsApp",
-    details: ["+09647 444 444"] // You can update if needed
-  },
-  {
-    icon: <Mail className="w-10 h-10" />,
     title: "Project Name",
-    details: ["Promise Assets"]
+    details: [siteName]
   }
 ]
 

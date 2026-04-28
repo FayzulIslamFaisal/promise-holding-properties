@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowBigRightIcon } from "lucide-react";
+import { ArrowBigRightIcon, Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import { projectService } from "@/services";
 
 const LandContactForm = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +22,7 @@ const LandContactForm = () => {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const handleInputChange = (field: string, value: string) => {
@@ -42,26 +44,52 @@ const LandContactForm = () => {
     return focusedField === field || value.length > 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast.success("Land info submitted successfully!", {
-      description: "We will reach out to you shortly.",
-    });
-    setFormData({
-      locality: "",
-      address: "",
-      landSize: "",
-      frontRoadWidth: "",
-      landCategory: "",
-      facing: "",
-      attractiveBenefits: "",
-      landownerName: "",
-      contactPerson: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    setIsLoading(true);
+
+    try {
+      const payload = {
+        locality: formData.locality,
+        address: formData.address,
+        land_size: formData.landSize,
+        front_road_width: formData.frontRoadWidth,
+        land_category: formData.landCategory,
+        facing: formData.facing,
+        attractive_benefits: formData.attractiveBenefits,
+        landowner_name: formData.landownerName,
+        contact_person: formData.contactPerson,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      };
+
+      const response = await projectService.submitLandownerInfo(payload);
+
+      toast.success(response?.message || "Land info submitted successfully!", {
+        description: "We will reach out to you shortly.",
+      });
+      
+      setFormData({
+        locality: "",
+        address: "",
+        landSize: "",
+        frontRoadWidth: "",
+        landCategory: "",
+        facing: "",
+        attractiveBenefits: "",
+        landownerName: "",
+        contactPerson: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error: any) {
+      console.error("Landowner submit error:", error);
+      toast.error(error?.message || "Failed to submit land information.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -351,10 +379,15 @@ const LandContactForm = () => {
           type="submit"
           variant={"default"}
           className="btn-glow-accent inline-block "
+          disabled={isLoading}
         >
           <div className="flex items-center gap-4">
-            <ArrowBigRightIcon className="w-8 h-8 animate-pulse" />
-            <span>Submit</span>
+            {isLoading ? (
+              <Loader2 className="w-8 h-8 animate-spin" />
+            ) : (
+              <ArrowBigRightIcon className="w-8 h-8 animate-pulse" />
+            )}
+            <span>{isLoading ? "Submitting..." : "Submit"}</span>
           </div>
         </Button>
       </div>
