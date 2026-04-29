@@ -24,16 +24,16 @@ const AgentListCardItems: React.FC<AgentItemsProps> = ({agent}) => {
     <Card key={agent.id} className=" group" variant={"hoverEffect"}>
               <CardHeader className="pb-0">
                 <div className="flex items-start gap-4">
-                  <div className="relative w-30 h-30">
+                  <div className="relative w-24 h-24 flex-shrink-0">
                     <Image
                       src={agent.avatar || "/placeholder.svg"}
                       alt={agent.name}
-                      width={120}
-                      height={120}
-                      className=" rounded-full object-cover border-2 border-[var(--custom-bg-accent)]/30 shadow-[0_4px_8px_rgba(0,0,0,0.4)] dark:shadow-[0_4px_8px_rgba(255,255,255,0.5)]"
+                      width={96}
+                      height={96}
+                      className="rounded-full object-cover border-2 border-[var(--custom-bg-accent)]/30 w-full h-full"
                     />
                     <div
-                      className={`absolute bottom-1 right-1 w-5 h-5 rounded-full border-2 border-[var(--custom-bg-primary)] ${
+                      className={`absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-[var(--custom-bg-primary)] ${
                         agent.isOnline ? "bg-[var(--custom-bg-accent)]" : "bg-gray-400"
                       }`}
                     ></div>

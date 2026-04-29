@@ -18,7 +18,7 @@ const ServiceWrapper = () => {
       <ChooseServiceplane />
       <ServiceProcess />
       <ServiceFAQSection />
-      <GetStartedService />
+      {/* <GetStartedService /> */}
     </>
   )
 }

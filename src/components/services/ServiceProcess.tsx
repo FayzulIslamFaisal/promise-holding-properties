@@ -1,7 +1,9 @@
 import { CheckCircle } from "lucide-react"
 import SectionTitle from "../common/SectionTitle"
+import { companyServiceService } from "@/services"
+import { HowItWorks } from "@/types/api"
 
-const steps = [
+const fallbackSteps = [
   {
     number: "01",
     title: "Consultation",
@@ -28,7 +30,18 @@ const steps = [
     description: "Final handover with all necessary documents and ongoing support.",
   },
 ]
-const ServiceProcess = () => {
+
+const ServiceProcess = async () => {
+  let stepsRes: HowItWorks[] = [];
+  try {
+    const res = await companyServiceService.getHowItWorks();
+    stepsRes = res.data || [];
+  } catch (error) {
+    console.error("Error fetching how it works:", error);
+  }
+
+  const steps = stepsRes.length > 0 ? stepsRes : fallbackSteps;
+
   return (
     <section className="px-4">
       <div className="container mx-auto sectionSpaceBorder">
@@ -37,11 +50,11 @@ const ServiceProcess = () => {
             {/* Progress Line */}
             <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-border hidden md:block" />
             <div className="space-y-8">
-              {steps.map((step, index) => (
-                <div key={index} className="relative flex items-start gap-6">
+              {steps.map((step: any, index: number) => (
+                <div key={step.id || index} className="relative flex items-start gap-6">
                   {/* Step Number */}
                   <div className="flex-shrink-0 w-16 h-16 bg-[var(--custom-bg-accent)]/90 text-[var(--custom-text-white)] rounded-full flex items-center justify-center font-bold text-lg relative z-1">
-                    {step.number}
+                    {step.number || String(index + 1).padStart(2, "0")}
                   </div>
 
                   {/* Content */}

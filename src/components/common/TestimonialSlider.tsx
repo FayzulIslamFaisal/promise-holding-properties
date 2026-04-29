@@ -66,15 +66,7 @@ const fallbackTestimonials: TestimonialItem[] = [
 const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonials: propsTestimonials }: TestimonialSliderProps) => {
     const [active, setActive] = useState(0);
 
-    const testimonials: TestimonialItem[] = (propsTestimonials && propsTestimonials.length)
-        ? propsTestimonials.map((t) => ({
-            id: t.id,
-            quote: t.content,
-            name: t.name,
-            designation: t.position,
-            src: t.image,
-          }))
-        : fallbackTestimonials;
+    const testimonials: any[] = (propsTestimonials && propsTestimonials.length) ? propsTestimonials : fallbackTestimonials;
 
     // Fixed rotations for each testimonial to prevent hydration mismatch
     const getRotationForIndex = (index: number) => {
@@ -142,7 +134,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                             >
                                 <div className="relative h-full w-full rounded-2xl overflow-hidden mx-4">
                                     <Image
-                                        src={testimonial.src}
+                                        src={testimonial.src || testimonial.image || "/assets/images/placeholder.png"}
                                         fill
                                         alt={testimonial.name}
                                         draggable={false}
@@ -165,7 +157,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[9]">
                             {testimonials.map((testimonial, index) => (
                                 <button
-                                    key={testimonial.id}
+                                    key={testimonial.id || index}
                                     onClick={() => setActive(index)}
                                     className={`w-4 h-4 cursor-pointer rounded-full transition-all duration-300 ${isActive(index)
                                         ? 'bg-[var(--custom-bg-accent)] scale-125'
@@ -200,7 +192,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.4, delay: 0.1 }}
                             >
-                                {testimonials[active].quote}
+                                {testimonials[active].quote || testimonials[active].content}
                             </motion.p>
 
                             <div className="space-y-2">
@@ -218,7 +210,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.3, delay: 0.3 }}
                                 >
-                                    {testimonials[active].designation}
+                                    {testimonials[active].designation || testimonials[active].position}
                                 </motion.p>
                             </div>
                         </motion.div>

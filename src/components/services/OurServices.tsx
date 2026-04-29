@@ -54,14 +54,7 @@ const OurServices = async () => {
     console.error("Error fetching services:", error);
   }
 
-  const services: ServiceCardData[] = (servicesRes && servicesRes.length)
-    ? servicesRes.map((s) => ({
-        id: s.id,
-        icon: s.icon,
-        title: s.title,
-        description: s.description,
-      }))
-    : fallbackServices;
+  const services: any[] = (servicesRes && servicesRes.length) ? servicesRes : fallbackServices;
 
   return (
     <section className="px-4">

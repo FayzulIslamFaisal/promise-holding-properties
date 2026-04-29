@@ -2,9 +2,9 @@ import { apiClient } from "@/lib/api-client";
 import type { ApiResponse, Project, ProjectDetail, ConnectExploreRequest } from "@/types/api";
 
 export const projectService = {
-  /** Get all active projects */
-  async getProjects() {
-    return apiClient.get<ApiResponse<Project[]>>("/projects");
+  async getProjects(product_status?: string) {
+    const url = product_status ? `/projects?product_status=${product_status}` : "/projects";
+    return apiClient.get<ApiResponse<Project[]>>(url);
   },
 
   /** Get project details by slug */

@@ -49,14 +49,7 @@ const OurValues = async () => {
     console.error("Error fetching values:", error);
   }
 
-  const valuesData: ValueData[] = (values && values.length)
-    ? values.map((v) => ({
-        id: v.id,
-        title: v.title,
-        description: v.short_description,
-        icon: <Image src={v.image} alt={v.title} width={52} height={52} className="h-13 w-13 object-contain" />,
-      }))
-    : fallbackValues
+  const valuesData: any[] = (values && values.length) ? values : fallbackValues;
 
   return (
     <section className=" px-4 ">
@@ -67,9 +60,9 @@ const OurValues = async () => {
               subtitle="The principles that guide everything we do..."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-            {valuesData.map((value) => (
+            {valuesData.map((value: any, index: number) => (
             <Card
-                key={value.id}
+                key={value.id || index}
                 className="text-center group p-4 md:p-8 "
                 variant={"hoverEffect"}
                 >
@@ -81,13 +74,13 @@ const OurValues = async () => {
                         group-hover:drop-shadow-[0_6px_12px_rgba(255,255,255,0.4)] 
                         group-hover:scale-105 group-hover:animate-pulse"
                     >
-                    {value.icon}
+                    {value.image ? <Image src={value.image} alt={value.title || ""} width={52} height={52} className="h-13 w-13 object-contain" /> : value.icon}
                     </div>
                     <h3 className="text-xl font-semibold mb-2 darkLight-text-color">
                     {value.title}
                     </h3>
                     <p className=" text-base darkLight-text-color leading-relaxed">
-                    {value.description}
+                    {value.description || value.short_description}
                     </p>
                 </CardContent>
             </Card>

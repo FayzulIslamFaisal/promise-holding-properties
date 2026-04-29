@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -14,17 +14,24 @@ import SectionTitle from '../common/SectionTitle';
 import { Project } from '@/types/api';
 
 interface ProjectTabViewsProps {
-  projects?: Project[]
+  projects?: Project[];
+  currentTab?: string;
 }
 
-const ProjectTabViews = ({ projects = [] }: ProjectTabViewsProps) => {
-  const [activeTab, setActiveTab] = useState('all');
+const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTabViewsProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const filteredProjects = projects.filter(project => {
-    if (activeTab === 'all') return true;
-    if (!project.category) return false;
-    return project.category.toLowerCase() === activeTab.replace('-', '');
-  });
+  const handleTabChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value === 'all') {
+      params.delete('product_status');
+    } else {
+      params.set('product_status', value);
+    }
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   return (
     <section className="w-full px-4 sectionSpaceBorder container mx-auto">
@@ -32,7 +39,7 @@ const ProjectTabViews = ({ projects = [] }: ProjectTabViewsProps) => {
         <SectionTitle title="Our Projects" subtitle="Discover our portfolio of innovative construction and architectural projects" border_b={true}/>
       </div>
       {/* Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full text-[var(--custom-text-white)]">
+      <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full text-[var(--custom-text-white)]">
         <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
           <TabsTrigger 
             value="all" 
@@ -60,45 +67,52 @@ const ProjectTabViews = ({ projects = [] }: ProjectTabViewsProps) => {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value={activeTab} className="mt-8">
-          {/* Project Swiper */}
-          <div className="w-full">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={10}
-              autoplay={{
-                delay: 3000, 
-                disableOnInteraction: false,
-              }}
-              navigation={{
-                nextEl: '.custom-next',
-                prevEl: '.custom-prev',
-              }}
-              modules={[Navigation, Autoplay]}
-              loop={filteredProjects.length > 1}
-              breakpoints={{
-                320: { slidesPerView: 1, spaceBetween: 10 },
-                640: { slidesPerView: 2, spaceBetween: 10 },
-                768: { slidesPerView: 2, spaceBetween: 15 },
-                992: { slidesPerView: 3, spaceBetween: 15 },
-                1199: { slidesPerView: 3, spaceBetween: 15 },
-                1380: { slidesPerView: 4, spaceBetween: 15 },
-              }}
-              className="w-full overflow-hidden"
-            >
-              {filteredProjects.map((project) => (
-                <SwiperSlide key={project.id} className="!h-auto">
-                  <ProjectTabCard project={project} />
-                </SwiperSlide>
-              ))}
-              <div className="swiper-button-prev custom-prev"></div>
-              <div className="swiper-button-next custom-next"></div>
-            </Swiper>
-          </div>
+        <TabsContent value={currentTab} className="mt-8">
+          {projects.length > 0 ? (
+            <div className="w-full">
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                autoplay={{
+                  delay: 3000, 
+                  disableOnInteraction: false,
+                }}
+                navigation={{
+                  nextEl: '.custom-next',
+                  prevEl: '.custom-prev',
+                }}
+                modules={[Navigation, Autoplay]}
+                loop={projects.length > 1}
+                breakpoints={{
+                  320: { slidesPerView: 1, spaceBetween: 10 },
+                  640: { slidesPerView: 2, spaceBetween: 10 },
+                  768: { slidesPerView: 2, spaceBetween: 15 },
+                  992: { slidesPerView: 3, spaceBetween: 15 },
+                  1199: { slidesPerView: 3, spaceBetween: 15 },
+                  1380: { slidesPerView: 4, spaceBetween: 15 },
+                }}
+                className="w-full overflow-hidden"
+              >
+                {projects.map((project) => (
+                  <SwiperSlide key={project.id} className="!h-auto">
+                    <ProjectTabCard project={project} />
+                  </SwiperSlide>
+                ))}
+                <div className="swiper-button-prev custom-prev"></div>
+                <div className="swiper-button-next custom-next"></div>
+              </Swiper>
+            </div>
+          ) : (
+            <div className="w-full py-12 text-center border-2 border-dashed border-[var(--custom-bg-accent)]/30 rounded-xl bg-[var(--custom-bg-accent)]/5">
+              <p className="text-lg md:text-xl font-medium darkLight-text-color">
+                No projects found for this category at the moment.
+              </p>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
     </section>
   );
 };
 
-export default ProjectTabViews;
+export default ProjectTabViewsClient;

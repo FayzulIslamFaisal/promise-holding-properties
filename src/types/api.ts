@@ -110,6 +110,36 @@ export interface OurService {
 }
 
 // ---------------------------------------------------------------------------
+// How It Works
+// ---------------------------------------------------------------------------
+export interface HowItWorks {
+  id: number;
+  title: string;
+  icon: string;
+  description: string;
+}
+
+// ---------------------------------------------------------------------------
+// FAQs
+// ---------------------------------------------------------------------------
+export interface FaqItem {
+  id: number;
+  question: string;
+  answer: string;
+  status: number | string;
+}
+
+// ---------------------------------------------------------------------------
+// Choose Services
+// ---------------------------------------------------------------------------
+export interface ChooseService {
+  id: number;
+  title: string;
+  icon: string;
+  description: string;
+}
+
+// ---------------------------------------------------------------------------
 // Our Values
 // ---------------------------------------------------------------------------
 export interface OurValue {

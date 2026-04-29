@@ -66,15 +66,7 @@ const TeamMember = async () => {
     console.error("Error fetching members:", error);
   }
 
-  const teamMembers: TeamMemberData[] = (membersRes && membersRes.length)
-    ? membersRes.map((m: ManagementMember) => ({
-        id: m.id,
-        name: m.title,
-        designation: m.designation,
-        bio: m.quote,
-        image: m.image,
-      }))
-    : fallbackMembers;
+  const teamMembers: any[] = (membersRes && membersRes.length) ? membersRes : fallbackMembers;
 
   return (
     <section className="px-4">
@@ -87,9 +79,9 @@ const TeamMember = async () => {
           />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 ">
-          {teamMembers.map((member) => (
+          {teamMembers.map((member: any, index: number) => (
               <Card
-                key={member.id}
+                key={member.id || index}
                 variant={"hoverEffect"}
                 className="text-center group p-6 min-h-[400px] h-full my-3"
               >
@@ -101,17 +93,17 @@ const TeamMember = async () => {
                       }
                       className="rounded-full object-cover dark:shadow-[0_6px_4px_rgba(255,255,255,0.5)] shadow-[0_6px_4px_rgba(0,0,0,0.5)]"
                       fill
-                      alt={member.name}
+                      alt={member.name || member.title || ""}
                     />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 darkLight-text-color">
-                    {member.name}
+                    {member.name || member.title}
                   </h3>
                   <p className="darkLight-text-color text-base font-medium mb-4">
                     {member.designation}
                   </p>
                   <p className="text-sm darkLight-text-color leading-relaxed">
-                    {member.bio}
+                    {member.bio || member.quote}
                   </p>
                 </CardContent>
               </Card>
