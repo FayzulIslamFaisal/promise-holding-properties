@@ -9,7 +9,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-import ProjectTabCard from './ProjectTabCard';
+import AllProjectContentCard from '../projects/AllProjectContentCard';
 import SectionTitle from '../common/SectionTitle';
 import { Project } from '@/types/api';
 
@@ -34,7 +34,7 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
   };
 
   return (
-    <section className="w-full px-4 sectionSpaceBorder container mx-auto">
+    <section className="w-full sectionSpaceBorder container mx-auto">
       <div className="text-center md:pt-14 pt-10">
         <SectionTitle title="Our Projects" subtitle="Discover our portfolio of innovative construction and architectural projects" border_b={true}/>
       </div>
@@ -94,8 +94,8 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
                 className="w-full overflow-hidden"
               >
                 {projects.map((project) => (
-                  <SwiperSlide key={project.id} className="!h-auto">
-                    <ProjectTabCard project={project} />
+                  <SwiperSlide key={project.id} className="!h-auto pb-8 pt-2">
+                    <AllProjectContentCard project={project} />
                   </SwiperSlide>
                 ))}
                 <div className="swiper-button-prev custom-prev"></div>

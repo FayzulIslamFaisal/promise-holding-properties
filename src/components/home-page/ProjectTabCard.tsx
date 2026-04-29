@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 import { Project } from '@/types/api';
@@ -10,15 +10,11 @@ interface ProjectCardProps {
 }
 
 const getBadgeClass = (category: Project['category']) => {
-  switch (category) {
-    case 'Running':
-      return 'bg-yellow-500 text-white';
-    case 'Upcoming':
-      return 'bg-blue-500 text-white';
-    case 'Complete':
-      return 'bg-green-500 text-white';
-    default:
-      return 'bg-gray-500 text-white';
+  switch (category?.toLowerCase()) {
+    case 'running': return 'bg-green-500 text-white';
+    case 'upcoming': return 'bg-blue-500 text-white';
+    case 'complete': return 'bg-purple-500 text-white';
+    default: return 'bg-[var(--custom-bg-accent)] text-white';
   }
 };
 
@@ -27,49 +23,49 @@ const ProjectTabCard = ({ project }: ProjectCardProps) => {
 
   return (
     <Link href={`/project/${project.slug}`} className="block">
-    <motion.div
-      className="relative aspect-[2/3] overflow-hidden rounded-xl cursor-pointer group"
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-    >
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
-        style={{ backgroundImage: `url(${project.image})` }}
-      />
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/50 dark:from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 dark:via-[var(--custom-bg-accent)]/30 to-[var(--custom-bg-white)]/10 dark:to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
-      
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-between text-[var(--custom-text-white)]">
-        {/* Top: Category Badge */}
-        <div className="flex justify-start pt-6 ps-6">
-          <Badge 
-            className={`px-3 py-1.5 text-sm font-medium rounded-full dark:bg-[var(--custom-bg-accent)] dark:hover:bg-[var(--custom-bg-primary)] shadow-xl ${badgeClass}`}
-          >
-            {project.category || 'Running'} Project
-          </Badge>
-        </div>
+      <motion.div
+        className="relative aspect-[3/4] md:aspect-[2/3] overflow-hidden rounded-2xl cursor-pointer group border border-[var(--custom-bg-primary)] shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+          style={{ backgroundImage: `url(${project.image || "/placeholder.svg"})` }}
+        />
         
-        {/* Bottom: Project Info */}
-        <div className="space-y-3 dark:bg-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-primary)]/30 backdrop-blur-4xl p-4 rounded-lg">
-          <h3 className="2xl:text-2xl lg:text-lg md:text-md text-base font-bold leading-tight">
-            {project.name}
-          </h3>
-          <div className="flex items-center space-x-2 text-white/90">
-            <MapPin size={16} />
-            <span className="text-sm font-medium">{project.location}</span>
+        {/* Primary Gradient Overlay from Bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/80 via-[var(--custom-bg-accent)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--custom-bg-accent)]/90 group-hover:via-[var(--custom-bg-accent)]/30" />
+        
+        {/* Content Container */}
+        <div className="absolute inset-0 flex flex-col justify-between p-6">
+          {/* Top: Category Badge */}
+          <div className="flex justify-start">
+            <Badge className={`px-4 py-1.5 text-xs font-semibold rounded-md shadow-md border-0 ${badgeClass}`}>
+              {project.category || 'Project'}
+            </Badge>
+          </div>
+          
+          {/* Bottom: Project Info */}
+          <div className="space-y-2 transform transition-transform duration-300 group-hover:-translate-y-2">
+            <h3 className="text-white text-xl md:text-2xl font-bold leading-tight drop-shadow-sm">
+              {project.name}
+            </h3>
+            
+            <div className="flex items-center space-x-2 text-white/90">
+              <MapPin size={16} className="text-white/90" />
+              <span className="text-sm font-medium">{project.location}</span>
+            </div>
+
+            <div className="pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+               <span className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors duration-300">
+                 View Details
+                 <ArrowRight size={16} />
+               </span>
+            </div>
           </div>
         </div>
-      </div>
-      
-      {/* Hover Shadow Effect */}
-      <motion.div
-        className="absolute inset-0 rounded-xl shadow-card-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ pointerEvents: 'none' }}
-      />
-    </motion.div>
+      </motion.div>
     </Link>
   );
 };
