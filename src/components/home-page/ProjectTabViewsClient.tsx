@@ -34,12 +34,12 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
   };
 
   return (
-    <section className="w-full sectionSpaceBorder container mx-auto">
+    <section className="w-full sectionSpaceBorder container mx-auto px-4">
       <div className="text-center md:pt-14 pt-10">
         <SectionTitle title="Our Projects" subtitle="Discover our portfolio of innovative construction and architectural projects" border_b={true}/>
       </div>
       {/* Tabs */}
-      <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full text-[var(--custom-text-white)]">
+      <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full text-[var(--custom-text-white)] mt-8 md:mt-10">
         <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--custom-bg-accent)] rounded-xl text-[var(--custom-text-white)] border border-[var(--custom-bg-white)]/50 shadow">
           <TabsTrigger 
             value="all" 

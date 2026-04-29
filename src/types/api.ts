@@ -182,7 +182,7 @@ export interface Project {
   slug: string;
   location: string;
   image: string;
-  category?: 'Running' | 'Upcoming' | 'Complete';
+  product_status: string;
 }
 
 export interface ProjectFeature {

@@ -87,7 +87,7 @@ const ProjectInfo = ({ project }: ProjectInfoProps) => {
           </div>
 
           {/* Right Side - Content */}
-          <Card className="p-4 lg:p-8 flex flex-col justify-center border-[var(--custom-border-primary)] shadow-2xl bg-[var(--custom-border-primary)] h-full relative">
+          <Card className="p-4 lg:p-8 flex flex-col justify-center border-[var(--custom-bg-accent)]/20 shadow-xl dark:shadow-md bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)] h-full relative">
             <div className="space-y-4">
               {/* Header Section */}
               <div className="space-y-4 animate-slide-up">
@@ -116,17 +116,17 @@ const ProjectInfo = ({ project }: ProjectInfoProps) => {
                   {propertyDetails.map((detail, index) => (
                     <div
                       key={index}
-                      className="group/item flex items-center gap-2 lg:gap-4 p-4 rounded-xl bg-[var(--custom-bg-primary)]/100 backdrop-blur-sm border border-[var(--custom-bg-white)]/50 hover:border-[var(--custom-bg-primary)]/30 hover:bg-[var(--custom-bg-primary)]/90 transition-all duration-300 hover:transform hover:translate-x-1"
+                      className="group/item flex items-center gap-2 lg:gap-4 p-4 rounded-xl bg-[var(--custom-bg-primary)]/5 dark:bg-[var(--custom-bg-white)]/5 border border-[var(--custom-bg-accent)]/20 hover:border-[var(--custom-bg-accent)]/60 hover:bg-[var(--custom-bg-accent)]/10 transition-all duration-300 hover:transform hover:translate-x-1"
                       style={{ animationDelay: `${0.1 * index}s` }}
                     >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--custom-bg-white)] flex items-center justify-center text-[var(--custom-text-secondary)] group-hover/item:bg-[var(--custom-bg-white)]/80 group-hover/item:text-[var(--custom-text-secondary)] transition-all duration-300">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--custom-bg-accent)]/10 flex items-center justify-center text-[var(--custom-text-secondary)] group-hover/item:bg-[var(--custom-bg-accent)]/20 transition-all duration-300">
                         {detail.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium text-[var(--custom-text-white)] transition-colors duration-300">
+                        <p className="text-sm font-medium darkLight-text-color transition-colors duration-300">
                           {detail.label}
                         </p>
-                        <p className="font-semibold text-[var(--custom-text-white)] transition-colors duration-300">
+                        <p className="font-semibold darkLight-text-color transition-colors duration-300">
                           {detail.value}
                         </p>
                       </div>

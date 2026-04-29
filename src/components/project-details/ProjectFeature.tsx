@@ -27,18 +27,18 @@ const ProjectFeature = ({
           title="Our Features"
           border_b={true}
         />
-        <div className={cn("grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 bg-[var(--custom-border-primary)] rounded-3xl", className)}>
+        <div className={cn("grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4", className)}>
             {items.map((item, index) => (
                 <div
                     key={item?.title}
-                    className="relative group block p-2 h-full w-full"
+                    className="relative group block h-full w-full"
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                 >
                 <AnimatePresence>
                     {hoveredIndex === index && (
                     <motion.span
-                        className="absolute inset-0 h-full w-full bg-[var(--custom-bg-accent)] block rounded-3xl"
+                        className="absolute inset-0 h-full w-full bg-[var(--custom-bg-accent)]/10 block rounded-2xl"
                         layoutId="hoverBackground"
                         initial={{ opacity: 0 }}
                         animate={{
@@ -75,7 +75,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-[var(--custom-bg-primary)]/90 border border-transparent group-hover:border-[var(--custom-bg-accent)]/70 relative z-1",
+        "rounded-2xl h-full w-full p-6 overflow-hidden bg-[var(--custom-bg-primary)]/5 dark:bg-[var(--custom-bg-white)]/5 border border-[var(--custom-bg-accent)]/20 group-hover:border-[var(--custom-bg-accent)]/70 shadow-sm group-hover:shadow-lg transition-all duration-300 relative z-0",
         className,
       )}
     >
@@ -90,7 +90,7 @@ const CardTitle = ({
   className?: string
   children: React.ReactNode
 }) => {
-  return <h4 className={cn("bg-[var(--custom-bg-white)] p-2 rounded-full mb-2", className)}>{children}</h4>
+  return <h4 className={cn("bg-[var(--custom-bg-accent)]/10 text-[var(--custom-bg-accent)] p-3 rounded-full mb-3", className)}>{children}</h4>
 }
 
 const CardDescription = ({
@@ -100,5 +100,5 @@ const CardDescription = ({
   className?: string
   children: React.ReactNode
 }) => {
-  return <p className={cn(" text-[var(--custom-text-white)] tracking-wide leading-relaxed text-md", className)}>{children}</p>
+  return <p className={cn("darkLight-text-color tracking-wide leading-relaxed font-semibold text-center text-md", className)}>{children}</p>
 }

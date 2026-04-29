@@ -67,7 +67,7 @@ export default function BuildingDrawingSlider({ project }: BuildingDrawingSlider
                 />
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 to-[var(--custom-bg-white)]/10 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/80 via-[var(--custom-bg-accent)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--custom-bg-accent)]/90 group-hover:via-[var(--custom-bg-accent)]/30" />
 
                 {/* Centered Title & Description */}
                 <div className="absolute inset-0 flex items-center justify-center text-center px-4">

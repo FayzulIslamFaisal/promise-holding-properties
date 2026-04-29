@@ -47,7 +47,7 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 to-[var(--custom-bg-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/80 via-[var(--custom-bg-accent)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--custom-bg-accent)]/90 group-hover:via-[var(--custom-bg-accent)]/30" />
       
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-between text-[var(--custom-text-white)]">
@@ -61,11 +61,11 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
         </div>
         
         {/* Bottom: Project Info */}
-        <div className="space-y-3 bg-[var(--custom-bg-accent)]/30 backdrop-blur-4xl p-4 rounded-lg">
-          <h3 className="text-2xl font-bold leading-tight">
+        <div className="space-y-3 p-4">
+          <h3 className="text-2xl font-bold leading-tight drop-shadow-sm">
             {project.title}
           </h3>
-          <div className="flex items-center space-x-2 text-[var(--custom-text-white)]/90">
+          <div className="flex items-center space-x-2 text-white/90 drop-shadow-sm">
             <MapPin size={16} />
             <span className="text-sm font-medium">{project.location}</span>
           </div>

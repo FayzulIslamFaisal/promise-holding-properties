@@ -74,11 +74,11 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                 fill
                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-primary)]/80 via-[var(--custom-bg-primary)]/10 to-transparent transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-[var(--custom-text-white)] text-2xl font-bold">{item.name}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/80 via-[var(--custom-bg-accent)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--custom-bg-accent)]/90 group-hover:via-[var(--custom-bg-accent)]/30">
+                <div className="absolute bottom-4 left-4 right-4 z-0 p-2 flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-2">
+                  <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-sm">{item.name}</h3>
                   <div className="flex justify-between items-center mt-1">
-                    <p className="text-[var(--custom-text-white)]/90 text-sm font-semibold">{item.gross_area_sft} sqft</p>
+                    <p className="text-white/90 text-sm font-semibold">{item.gross_area_sft} sqft</p>
                   </div>
                 </div>
               </div>
@@ -148,14 +148,14 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[var(--custom-bg-primary)] border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm">
                     <Square size={24} className="text-[var(--custom-bg-accent)]" />
                     <div>
                       <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Gross Area</p>
                       <p className="font-bold text-sm">{selectedUnit.gross_area_sft} sft</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[var(--custom-bg-primary)] border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm">
                     <Info size={24} className="text-[var(--custom-bg-accent)]" />
                     <div>
                       <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Usable Area</p>
@@ -164,7 +164,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                   </div>
                   
                   {selectedUnit.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm">
+                      <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[var(--custom-bg-primary)] border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm">
                           {feature.name.toLowerCase().includes('bed') ? <BedDouble size={24} className="text-[var(--custom-bg-accent)]" /> : <Bath size={24} className="text-[var(--custom-bg-accent)]" />}
                           <div>
                               <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">{feature.name}</p>

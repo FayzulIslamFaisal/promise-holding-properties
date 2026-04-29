@@ -83,15 +83,15 @@ const ProjectLocationMap = ({ project }: ProjectLocationMapProps) => {
   });
 
   return (
-    <section className="pt-10 pb-10 md:pb-14 md:pt-14 border-b border-[var(--custom-bg-accent)]/40">
+    <section className="border-b border-[var(--custom-bg-accent)]/40">
       <div className="mx-auto w-full">
-        <div className="w-full relative md:h-[600px] h-[300px] overflow-hidden">
+        <div className="w-full relative md:h-[600px] h-[400px] overflow-hidden">
           <MapContainer
             center={position}
             zoom={13}
             scrollWheelZoom={false}
-            style={{ width: '100%', height: '100%' }}
-            className="z-1"
+            style={{ zIndex: 0 }}
+            className="leaflet-container h-full w-full"
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -115,7 +115,7 @@ const ProjectLocationMap = ({ project }: ProjectLocationMapProps) => {
             </Marker>
           </MapContainer>
 
-          <div className="absolute inset-0 z-1 w-full h-full bg-[var(--custom-bg-primary)]/40 pointer-events-none" />
+          <div className="absolute inset-0 z-1 w-full h-full bg-black/5 dark:bg-black/40 pointer-events-none" />
         </div>
       </div>
     </section>
