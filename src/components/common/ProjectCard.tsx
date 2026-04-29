@@ -1,41 +1,35 @@
-// src/components/project-details/RelatedProjectCard.tsx
+"use client";
+
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
-
-interface Project {
-  id: string;
-  title: string;
-  location: string;
-  image: string;
-  slug: string;
-  product_status: string;
-}
+import NextImage from 'next/image';
+import { Project } from '@/types/api';
 
 interface ProjectCardProps {
   project: Project;
+  className?: string;
 }
 
-const getBadgeClass = (product_status: Project['product_status']) => {
-  switch (product_status) {
-    case 'Running':
+const getBadgeClass = (status: string | undefined) => {
+  switch (status?.toLowerCase()) {
+    case 'running':
       return '!bg-yellow-500 !text-white';
-    case 'Upcoming':
+    case 'upcoming':
       return '!bg-blue-500 !text-white';
-    case 'Complete':
+    case 'complete':
       return '!bg-green-500 !text-white';
     default:
       return '!bg-gray-500 !text-white';
   }
 };
 
-const RelatedProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, className }: ProjectCardProps) => {
   const badgeClass = getBadgeClass(project.product_status);
 
   return (
-    <Link href={`/project/${project.slug}`} className="block">
+    <Link href={`/project/${project.slug}`} className={`block ${className || ""}`}>
       <motion.div
         className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full overflow-hidden rounded-xl cursor-pointer group"
         whileHover={{ scale: 1.02 }}
@@ -43,32 +37,32 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
       >
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
-          <Image
+          <NextImage
             src={project.image || "/placeholder.svg"}
-            alt={project.title}
+            alt={project.name}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
         </div>
-
+        
         {/* Primary Gradient Overlay from Bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/80 via-[var(--custom-bg-accent)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--custom-bg-accent)]/90 group-hover:via-[var(--custom-bg-accent)]/30" />
-
+        
         {/* Content Overlay */}
         <div className="absolute inset-0 flex flex-col justify-between text-[var(--custom-text-white)]">
           {/* Top: Category Badge */}
           <div className="flex justify-start pt-6 ps-6">
-            <Badge
+            <Badge 
               className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 ${badgeClass}`}
             >
               {project.product_status || "Project"}
             </Badge>
           </div>
-
+          
           {/* Bottom: Project Info */}
           <div className="space-y-3 p-6 transform transition-transform duration-300 group-hover:-translate-y-2">
             <h3 className="text-white text-2xl font-bold leading-tight drop-shadow-sm">
-              {project.title}
+              {project.name}
             </h3>
             <div className="flex items-center space-x-2 text-white/90 drop-shadow-sm">
               <MapPin size={16} className="text-white/90" />
@@ -80,7 +74,7 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
             </div>
           </div>
         </div>
-
+        
         {/* Hover Shadow Effect */}
         <div
           className="absolute inset-0 rounded-xl shadow-card-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -90,4 +84,4 @@ const RelatedProjectCard = ({ project }: ProjectCardProps) => {
   );
 };
 
-export default RelatedProjectCard;
+export default ProjectCard;

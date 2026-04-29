@@ -9,7 +9,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-import AllProjectContentCard from '../projects/AllProjectContentCard';
+import ProjectCard from '../common/ProjectCard';
 import SectionTitle from '../common/SectionTitle';
 import { Project } from '@/types/api';
 
@@ -95,7 +95,7 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
               >
                 {projects.map((project) => (
                   <SwiperSlide key={project.id} className="!h-auto pb-8 pt-2">
-                    <AllProjectContentCard project={project} />
+                    <ProjectCard project={project} />
                   </SwiperSlide>
                 ))}
                 <div className="swiper-button-prev custom-prev"></div>

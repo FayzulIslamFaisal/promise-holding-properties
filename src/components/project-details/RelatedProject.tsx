@@ -9,138 +9,130 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 
-import RelatedProjectCard from './RelatedProjectCard';
+import ProjectCard from '../common/ProjectCard';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-
-interface Project {
-  id: string;
-  title: string;
-  location: string;
-  category: 'Running' | 'Upcoming' | 'Complete';
-  image: string;
-  slug: string;
-}
+import { Project } from '@/types/api';
 
 const mockProjects: Project[] = [
   {
-    id: '1',
-    title: 'Nexus Corporate Tower',
+    id: 1,
+    name: 'Nexus Corporate Tower',
     slug: 'nexus-corporate-tower',
     location: 'New York, NY',
-    category: 'Running',
+    product_status: 'Running',
     image: "/assets/images/projects/project1.jpg",
   },
   {
-    id: '2',
-    title: 'Innovation Hub Office',
+    id: 2,
+    name: 'Innovation Hub Office',
     slug: 'innovation-hub-office',
     location: 'San Francisco, CA',
-    category: 'Complete',
+    product_status: 'Complete',
     image: "/assets/images/projects/project2.jpg",
   },
   {
-    id: '3',
-    title: 'Skyline Residences',
+    id: 3,
+    name: 'Skyline Residences',
     slug: 'skyline-residences',
     location: 'Miami, FL',
-    category: 'Upcoming',
+    product_status: 'Upcoming',
     image: "/assets/images/projects/project3.jpg",
   },
   {
-    id: '4',
-    title: 'Metro Shopping Center',
+    id: 4,
+    name: 'Metro Shopping Center',
     slug: 'metro-shopping-center',
     location: 'Los Angeles, CA',
-    category: 'Running',
+    product_status: 'Running',
     image: "/assets/images/projects/project4.jpg",
   },
   {
-    id: '5',
-    title: 'Green Valley Homes',
+    id: 5,
+    name: 'Green Valley Homes',
     slug: 'green-valley-homes',
     location: 'Austin, TX',
-    category: 'Complete',
+    product_status: 'Complete',
     image: "/assets/images/projects/project5.jpeg",
   },
   {
-    id: '6',
-    title: 'Tech Campus Plaza',
+    id: 6,
+    name: 'Tech Campus Plaza',
     slug: 'tech-campus-plaza',
     location: 'Seattle, WA',
-    category: 'Upcoming',
+    product_status: 'Upcoming',
     image: "/assets/images/projects/project6.jpg",
   },
   {
-    id: '7',
-    title: 'Harbor View Condos',
+    id: 7,
+    name: 'Harbor View Condos',
     slug: 'harbor-view-condos',
     location: 'Boston, MA',
-    category: 'Running',
+    product_status: 'Running',
     image: "/assets/images/projects/project7.jpg",
   },
   {
-    id: '8',
-    title: 'Crystal Lake Villas',
+    id: 8,
+    name: 'Crystal Lake Villas',
     slug: 'crystal-lake-villas',
     location: 'Denver, CO',
-    category: 'Upcoming',
+    product_status: 'Upcoming',
     image: "/assets/images/projects/project8.jpg",
   },
   {
-    id: '9',
-    title: 'Sunset Business Park',
+    id: 9,
+    name: 'Sunset Business Park',
     slug: 'sunset-business-park',
     location: 'Phoenix, AZ',
-    category: 'Complete',
+    product_status: 'Complete',
     image: "/assets/images/projects/project9.jpg",
   },
   {
-    id: '10',
-    title: 'Riverfront Towers',
+    id: 10,
+    name: 'Riverfront Towers',
     slug: 'riverfront-towers',
     location: 'Chicago, IL',
-    category: 'Running',
+    product_status: 'Running',
     image: "/assets/images/projects/project10.jpg",
   },
   {
-    id: '11',
-    title: 'Urban Heights Complex',
+    id: 11,
+    name: 'Urban Heights Complex',
     slug: 'urban-heights-complex',
     location: 'Philadelphia, PA',
-    category: 'Upcoming',
+    product_status: 'Upcoming',
     image: "/assets/images/projects/project11.jpg",
   },
   {
-    id: '12',
-    title: 'Maplewood Townhomes',
+    id: 12,
+    name: 'Maplewood Townhomes',
     slug: 'maplewood-townhomes',
     location: 'Nashville, TN',
-    category: 'Complete',
+    product_status: 'Complete',
     image: "/assets/images/projects/project12.jpg",
   },
   {
-    id: '13',
-    title: 'Pinecrest Corporate Campus',
+    id: 13,
+    name: 'Pinecrest Corporate Campus',
     slug: 'pinecrest-corporate-campus',
     location: 'Charlotte, NC',
-    category: 'Running',
+    product_status: 'Running',
     image: "/assets/images/projects/project13.jpg",
   },
   {
-    id: '14',
-    title: 'Coastal Business Hub',
+    id: 14,
+    name: 'Coastal Business Hub',
     slug: 'coastal-business-hub',
     location: 'Tampa, FL',
-    category: 'Upcoming',
+    product_status: 'Upcoming',
     image: "/assets/images/projects/project14.jpg",
   },
   {
-    id: '15',
-    title: 'Lakeside Shopping Mall',
+    id: 15,
+    name: 'Lakeside Shopping Mall',
     slug: 'lakeside-shopping-mall',
     location: 'Orlando, FL',
-    category: 'Complete',
+    product_status: 'Complete',
     image: "/assets/images/projects/project15.jpg",
   },
 ];
@@ -206,7 +198,7 @@ const RelatedProject = () => {
             >
               {mockProjects.map((project) => (
                 <SwiperSlide key={project.id}>
-                  <RelatedProjectCard project={project} />
+                  <ProjectCard project={project} />
                 </SwiperSlide>
               ))}
               <div className="swiper-button-prev custom-prev"></div>

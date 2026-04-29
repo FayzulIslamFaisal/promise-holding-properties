@@ -94,20 +94,20 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-1 bg-white/10 hover:bg-black/80 text-[var(--custom-text-secondary)] dark:text-white p-2 text-red-500 rounded-full transition-colors backdrop-blur-md border border-gray-200 dark:border-gray-700"
+                className="absolute top-6 right-6 z-1 bg-black/50 hover:bg-black/80 text-white p-2.5 rounded-full transition-all duration-300 backdrop-blur-md border border-white/20 shadow-xl group"
               >
-                <X size={24} />
+                <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
               </button>
 
               {/* Gallery Section */}
               <div className="w-full md:w-3/5 bg-[var(--custom-bg-body)] p-4 md:p-6 shrink-0 md:border-r border-gray-200 dark:border-gray-800 flex flex-col">
                 {/* Main Display */}
-                <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden bg-black mb-4 flex items-center justify-center shadow-inner">
+                <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-[var(--custom-bg-primary)]/5 mb-6 flex items-center justify-center shadow-lg border border-[var(--custom-bg-accent)]/10">
                   {activeMedia?.type === 'video' ? (
                     <video
                       src={activeMedia.url}
                       controls
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
                       autoPlay
                       muted
                     />
@@ -116,13 +116,16 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                       src={activeMedia?.url || selectedUnit.image}
                       fill
                       alt="Gallery image"
-                      className="object-contain"
+                      className="object-cover transition-all duration-500"
+                      priority
                     />
                   )}
+                  {/* Overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Thumbnails */}
-                <div className="flex gap-3 overflow-x-auto pb-2 custom-scrollbar justify-start items-center">
+                <div className="flex gap-4 overflow-x-auto py-2 px-2 custom-scrollbar justify-start items-center">
                   {[
                       { type: 'image' as const, url: selectedUnit.image },
                       ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
@@ -130,7 +133,11 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                     <div
                       key={idx}
                       onClick={() => setActiveMedia(media)}
-                      className={`relative h-20 w-28 shrink-0 rounded-md overflow-hidden cursor-pointer border-2 transition-all duration-200 hover:opacity-100 ${activeMedia?.url === media.url ? 'border-[var(--custom-bg-accent)] opacity-100 shadow-md scale-105' : 'border-transparent opacity-60'}`}
+                      className={`h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
+                        activeMedia?.url === media.url 
+                        ? 'ring-2 ring-[var(--custom-bg-accent)] ring-offset-2 dark:ring-offset-[var(--custom-bg-body)] scale-105 opacity-100 shadow-lg' 
+                        : 'opacity-50 hover:opacity-80'
+                      }`}
                     >
                       <Image src={media.url} fill alt={`Thumbnail ${idx + 1}`} className="object-cover" />
                     </div>
@@ -139,7 +146,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               </div>
 
               {/* Details Section */}
-              <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col darkLight-text-color">
+              <div className="w-full md:w-2/5 p-6 md:p-10 flex flex-col darkLight-text-color bg-[var(--custom-bg-primary)]/[0.02]">
                 <div className="mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedUnit.name}</h2>
                   <p className="text-lg font-semibold text-[var(--custom-bg-accent)]">
@@ -147,28 +154,34 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[var(--custom-bg-primary)] border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm">
-                    <Square size={24} className="text-[var(--custom-bg-accent)]" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[var(--custom-bg-accent)]/5 border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm transition-all hover:shadow-md hover:border-[var(--custom-bg-accent)]/30">
+                    <div className="p-3 rounded-xl bg-[var(--custom-bg-accent)]/10">
+                      <Square size={22} className="text-[var(--custom-bg-accent)]" />
+                    </div>
                     <div>
-                      <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Gross Area</p>
-                      <p className="font-bold text-sm">{selectedUnit.gross_area_sft} sft</p>
+                      <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">Gross Area</p>
+                      <p className="font-extrabold text-base">{selectedUnit.gross_area_sft} <span className="text-xs font-medium">sft</span></p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[var(--custom-bg-primary)] border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm">
-                    <Info size={24} className="text-[var(--custom-bg-accent)]" />
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[var(--custom-bg-accent)]/5 border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm transition-all hover:shadow-md hover:border-[var(--custom-bg-accent)]/30">
+                    <div className="p-3 rounded-xl bg-[var(--custom-bg-accent)]/10">
+                      <Info size={22} className="text-[var(--custom-bg-accent)]" />
+                    </div>
                     <div>
-                      <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Usable Area</p>
-                      <p className="font-bold text-sm">{selectedUnit.usable_area_sqft} sqft</p>
+                      <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">Usable Area</p>
+                      <p className="font-extrabold text-base">{selectedUnit.usable_area_sqft} <span className="text-xs font-medium">sqft</span></p>
                     </div>
                   </div>
                   
                   {selectedUnit.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-[var(--custom-bg-primary)] border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm">
-                          {feature.name.toLowerCase().includes('bed') ? <BedDouble size={24} className="text-[var(--custom-bg-accent)]" /> : <Bath size={24} className="text-[var(--custom-bg-accent)]" />}
+                      <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[var(--custom-bg-accent)]/5 border border-gray-100 dark:border-[var(--custom-bg-accent)]/20 shadow-sm transition-all hover:shadow-md hover:border-[var(--custom-bg-accent)]/30">
+                          <div className="p-3 rounded-xl bg-[var(--custom-bg-accent)]/10">
+                            {feature.name.toLowerCase().includes('bed') ? <BedDouble size={22} className="text-[var(--custom-bg-accent)]" /> : <Bath size={22} className="text-[var(--custom-bg-accent)]" />}
+                          </div>
                           <div>
-                              <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">{feature.name}</p>
-                              <p className="font-bold text-sm">{feature.value}</p>
+                              <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">{feature.name}</p>
+                              <p className="font-extrabold text-base">{feature.value}</p>
                           </div>
                       </div>
                   ))}
@@ -178,7 +191,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                   <h3 className="text-lg font-bold mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 inline-block">Unit Availability</h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                     Quantity available: {selectedUnit.unit_quantity}
-                  </p>
+                    </p>
                 </div>
               </div>
             </div>

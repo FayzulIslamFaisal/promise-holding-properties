@@ -1,5 +1,5 @@
 import { Project } from "@/types/api";
-import AllProjectContentCard from "./AllProjectContentCard";
+import ProjectCard from "../common/ProjectCard";
 import { projectService } from "@/services";
 
 const AllProjectContent = async () => {
@@ -22,7 +22,7 @@ const AllProjectContent = async () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sectionSpaceBorder">
             {projects.map((project) => (
-              <AllProjectContentCard key={project.id} project={project} />
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         )}
