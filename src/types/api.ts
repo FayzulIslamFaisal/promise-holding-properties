@@ -323,3 +323,15 @@ export interface ConnectExploreRequest {
   email: string;
   message: string;
 }
+
+export interface ConnectExploreResponse extends ConnectExploreRequest {
+  id: number;
+  status: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface NewsletterResponse {
+  success: boolean;
+  message: string;
+}

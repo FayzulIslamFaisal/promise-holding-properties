@@ -1,5 +1,5 @@
 import ChooseServiceplane from "./ChooseServiceplane"
-import GetStartedService from "./GetStartedService"
+
 import OurServices from "./OurServices"
 import PageBanner from "@/components/common/PageBanner"
 import ServiceFAQSection from "./ServiceFAQSection"
@@ -18,7 +18,7 @@ const ServiceWrapper = () => {
       <ChooseServiceplane />
       <ServiceProcess />
       <ServiceFAQSection />
-      {/* <GetStartedService /> */}
+
     </>
   )
 }

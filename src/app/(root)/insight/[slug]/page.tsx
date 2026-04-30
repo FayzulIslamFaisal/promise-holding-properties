@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         publishedTime: blog.created_at,
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: "Blog Not Found",
     };

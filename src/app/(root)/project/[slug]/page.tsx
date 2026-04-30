@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
 
-  } catch (error) {
+  } catch {
     return { title: "Project Details" };
   }
 }

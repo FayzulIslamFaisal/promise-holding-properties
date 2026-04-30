@@ -53,7 +53,7 @@ const WhyChoose = async () => {
     console.error("Error fetching metrics:", error);
   }
 
-  const achievements: any[] = (metricsRes && metricsRes.length) ? metricsRes : fallbackAchievements;
+  const achievements: (WhyChooseUs | Achievement)[] = (metricsRes && metricsRes.length) ? metricsRes : fallbackAchievements;
 
   return (
     <section className="px-4 ">
@@ -64,7 +64,9 @@ const WhyChoose = async () => {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {achievements.map((achievement: any, index: number) => (
+          {achievements.map((achievement, index: number) => {
+            const a = achievement as WhyChooseUs & Achievement;
+            return (
             <Card
               key={achievement.id || index}
               className="text-center p-8"
@@ -72,22 +74,23 @@ const WhyChoose = async () => {
             >
               <CardContent className="px-0 flex flex-col items-center">
                 {/* 🔹 Icon */}
-                {achievement.icon && typeof achievement.icon === "string" ? (
-                  <Image src={achievement.icon} alt={achievement.title || achievement.label || ""} width={40} height={40} className="w-10 h-10 object-contain mb-3" />
+                {a.icon && typeof a.icon === "string" ? (
+                  <Image src={a.icon} alt={a.title || a.label || ""} width={40} height={40} className="w-10 h-10 object-contain mb-3" />
                 ) : (
-                  achievement.icon
+                  a.icon
                 )}
 
                 <div className="text-2xl md:text-4xl font-bold darkLight-text-color mb-2">
-                  {achievement.number || achievement.counter_value}
+                  {a.number || a.counter_value}
                 </div>
                 <h3 className="text-md md:text-xlfont-semibold mb-2 darkLight-text-color">
-                  {achievement.label || achievement.title}
+                  {a.label || a.title}
                 </h3>
-                <p className="darkLight-text-color">{achievement.description || achievement.short_description}</p>
+                <p className="darkLight-text-color">{a.description || a.short_description}</p>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

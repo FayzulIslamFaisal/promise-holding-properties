@@ -1,4 +1,4 @@
-import { Award, Check, Clock, Shield, TrendingUp } from "lucide-react";
+import { Award, Clock, Shield, TrendingUp } from "lucide-react";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import SectionTitle from "../common/SectionTitle";
@@ -13,14 +13,7 @@ interface Feature {
   id: number;
 }
 
-const whyChooseUs: string[] = [
-  "25+ years of luxury real estate expertise",
-  "Exclusive access to premium property listings",
-  "Personalized service tailored to your needs",
-  "Proven track record of successful transactions",
-  "Comprehensive market analysis and insights",
-  "White-glove concierge service throughout",
-];
+
 
 const fallbackFeatures: Feature[] = [
   { id: 1, icon: Shield, title: "Trusted", description: "Proven reliability" },
@@ -38,7 +31,7 @@ const ChooseServiceplane = async () => {
     console.error("Error fetching choose services:", error);
   }
 
-  const features: any[] = (featuresRes && featuresRes.length) ? featuresRes : fallbackFeatures;
+  const features: (ChooseService | Feature)[] = (featuresRes && featuresRes.length) ? featuresRes : fallbackFeatures;
 
   return (
     <section className="px-4">
@@ -47,29 +40,30 @@ const ChooseServiceplane = async () => {
         
         {/* New 4-column layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {features.map((feature: any, index: number) => {
-            const isStringIcon = typeof feature.icon === "string";
-            const IconComponent = !isStringIcon ? feature.icon : null;
+          {features.map((feature: ChooseService | Feature, index: number) => {
+            const f = feature as ChooseService & Feature;
+            const isStringIcon = typeof f.icon === "string";
+            const IconComponent = !isStringIcon ? f.icon as React.ComponentType<{ className?: string }> : null;
             
             return (
               <Card
-                key={feature.id || index}
+                key={f.id || index}
                 className="group relative py-4 gap-2 highlight-box" variant={"hoverEffect"}
               >
                 <CardHeader className="pb-0 mb-0">
                   <div className="w-14 h-14 p-2 mb-2 bg-[var(--custom-bg-accent)] rounded-md flex items-center justify-center">
                     {isStringIcon ? (
-                      <Image src={feature.icon} alt={feature.title} width={40} height={40} className="object-contain group-hover:animate-pulse" />
+                      <Image src={f.icon as string} alt={f.title} width={40} height={40} className="object-contain group-hover:animate-pulse" />
                     ) : (
                       IconComponent && <IconComponent className="text-[var(--custom-bg-white)] w-full h-full group-hover:animate-pulse" />
                     )}
                   </div>
                   <CardTitle className="text-md sm:text-xl font-semibold darkLight-text-color">
-                    {feature.title}
+                    {f.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="darkLight-text-color">{feature.description}</p>
+                  <p className="darkLight-text-color">{f.description}</p>
                 </CardContent>
               </Card>
             );

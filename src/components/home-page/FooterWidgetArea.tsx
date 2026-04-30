@@ -43,9 +43,10 @@ const FooterWidgetArea = () => {
 
         toast.success(response?.message || 'Successfully subscribed to the newsletter!');
         setEmail('');
-      } catch (error: any) {
-        console.error('Newsletter subscription error:', error);
-        toast.error(error?.message || 'Failed to subscribe to the newsletter.');
+      } catch (error: unknown) {
+        const err = error as { message?: string };
+        console.error('Newsletter subscription error:', err);
+        toast.error(err?.message || 'Failed to subscribe to the newsletter.');
       } finally {
         setIsLoading(false);
       }

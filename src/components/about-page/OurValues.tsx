@@ -49,7 +49,7 @@ const OurValues = async () => {
     console.error("Error fetching values:", error);
   }
 
-  const valuesData: any[] = (values && values.length) ? values : fallbackValues;
+  const valuesData: (OurValue | ValueData)[] = (values && values.length) ? values : fallbackValues;
 
   return (
     <section className=" px-4 ">
@@ -60,7 +60,9 @@ const OurValues = async () => {
               subtitle="The principles that guide everything we do..."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-            {valuesData.map((value: any, index: number) => (
+            {valuesData.map((value, index: number) => {
+              const displayValue = value as OurValue & ValueData;
+            return (
             <Card
                 key={value.id || index}
                 className="text-center group p-4 md:p-8 "
@@ -74,17 +76,17 @@ const OurValues = async () => {
                         group-hover:drop-shadow-[0_6px_12px_rgba(255,255,255,0.4)] 
                         group-hover:scale-105 group-hover:animate-pulse"
                     >
-                    {value.image ? <Image src={value.image} alt={value.title || ""} width={52} height={52} className="h-13 w-13 object-contain" /> : value.icon}
+                    {displayValue.image ? <Image src={displayValue.image} alt={displayValue.title || ""} width={52} height={52} className="h-13 w-13 object-contain" /> : displayValue.icon}
                     </div>
                     <h3 className="text-xl font-semibold mb-2 darkLight-text-color">
-                    {value.title}
+                    {displayValue.title}
                     </h3>
                     <p className=" text-base darkLight-text-color leading-relaxed">
-                    {value.description || value.short_description}
+                    {displayValue.description || displayValue.short_description}
                     </p>
                 </CardContent>
             </Card>
-            ))}
+            )})}
           </div>
         </div>
     </section>

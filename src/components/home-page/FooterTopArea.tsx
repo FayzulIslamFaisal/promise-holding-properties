@@ -32,7 +32,7 @@ const FooterTopArea = () => {
     };
 
     const socialIcons: SocialIcon[] = settings ? Object.entries(settings.social_settings)
-        .filter(([_, value]) => value !== null && value !== "")
+        .filter(([, value]) => value !== null && value !== "")
         .map(([key, value]) => ({
             href: value as string,
             icon: iconMapping[key] || Globe,

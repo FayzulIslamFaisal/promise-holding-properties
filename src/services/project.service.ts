@@ -1,5 +1,5 @@
 import { apiClient } from "@/lib/api-client";
-import type { ApiResponse, Project, ProjectDetail, ConnectExploreRequest } from "@/types/api";
+import type { ApiResponse, Project, ProjectDetail, ConnectExploreRequest, ConnectExploreResponse, NewsletterResponse } from "@/types/api";
 
 export const projectService = {
   async getProjects(product_status?: string) {
@@ -14,16 +14,16 @@ export const projectService = {
 
   /** Submit connect & explore form */
   async submitConnectExplore(data: ConnectExploreRequest) {
-    return apiClient.post<ApiResponse<null>>("/connect-explore", data);
+    return apiClient.post<ApiResponse<ConnectExploreResponse>>("/connect-explore", data);
   },
 
   /** Submit landowner info */
-  async submitLandownerInfo(data: Record<string, any>) {
-    return apiClient.post<ApiResponse<any>>("/landowner-submit", data);
+  async submitLandownerInfo(data: Record<string, unknown>) {
+    return apiClient.post<ApiResponse<null>>("/landowner-submit", data);
   },
 
   /** Subscribe to newsletter */
   async subscribeNewsletter(data: { email: string }) {
-    return apiClient.post<ApiResponse<any>>("/newsletter-subscribe", data);
+    return apiClient.post<NewsletterResponse>("/newsletter-subscribe", data);
   },
 };

@@ -84,9 +84,10 @@ const LandContactForm = () => {
         phone: "",
         message: "",
       });
-    } catch (error: any) {
-      console.error("Landowner submit error:", error);
-      toast.error(error?.message || "Failed to submit land information.");
+    } catch (error: unknown) {
+      const err = error as { message?: string };
+      console.error("Landowner submit error:", err);
+      toast.error(err?.message || "Failed to submit land information.");
     } finally {
       setIsLoading(false);
     }

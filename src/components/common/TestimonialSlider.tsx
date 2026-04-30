@@ -66,7 +66,7 @@ const fallbackTestimonials: TestimonialItem[] = [
 const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonials: propsTestimonials }: TestimonialSliderProps) => {
     const [active, setActive] = useState(0);
 
-    const testimonials: any[] = (propsTestimonials && propsTestimonials.length) ? propsTestimonials : fallbackTestimonials;
+    const testimonials: (Testimonial | TestimonialItem)[] = (propsTestimonials && propsTestimonials.length) ? propsTestimonials : fallbackTestimonials;
 
     // Fixed rotations for each testimonial to prevent hydration mismatch
     const getRotationForIndex = (index: number) => {
@@ -110,7 +110,9 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                 <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 h-full pb-0 md:pb-10">
                     {/* Image Stack */}
                     <div className="relative h-80 w-[80%] md:w-[90%] mx-auto group">
-                        {testimonials.map((testimonial, index) => (
+                        {testimonials.map((testimonial, index: number) => {
+                            const t = testimonial as Testimonial & TestimonialItem;
+                            return (
                             <motion.div
                                 key={testimonial.id}
                                 initial={{
@@ -134,9 +136,9 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                             >
                                 <div className="relative h-full w-full rounded-2xl overflow-hidden mx-4">
                                     <Image
-                                        src={testimonial.src || testimonial.image || "/assets/images/placeholder.png"}
+                                        src={t.src || t.image || "/assets/images/placeholder.png"}
                                         fill
-                                        alt={testimonial.name}
+                                        alt={t.name}
                                         draggable={false}
                                         className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                                     />
@@ -151,11 +153,10 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                     )}
                                 </div>
                             </motion.div>
-                        ))}
+                        ); })}
 
-                        {/* Floating indicator dots */}
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[9]">
-                            {testimonials.map((testimonial, index) => (
+                            {testimonials.map((testimonial: Testimonial | TestimonialItem, index: number) => (
                                 <button
                                     key={testimonial.id || index}
                                     onClick={() => setActive(index)}
@@ -170,50 +171,55 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
 
                     {/* Text section */}
                     <div className="flex flex-col justify-between">
-                        <motion.div
-                            key={active}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                            className="space-y-4"
-                        >
-                            <motion.div
-                                className="text-6xl text-[var(--custom-text-primary)]/80 dark:text-[var(--custom-text-white)] font-serif mb-0 pb-0"
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ duration: 0.3, delay: 0.1 }}
-                            >
-                                &ldquo;
-                            </motion.div>
-
-                            <motion.p
-                                className="text-lg leading-relaxed text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.4, delay: 0.1 }}
-                            >
-                                {testimonials[active].quote || testimonials[active].content}
-                            </motion.p>
-
-                            <div className="space-y-2">
-                                <motion.h3
-                                    className="text-2xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.3, delay: 0.2 }}
+                        {(() => {
+                            const tActive = testimonials[active] as Testimonial & TestimonialItem;
+                            return (
+                                <motion.div
+                                    key={active}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                                    className="space-y-4"
                                 >
-                                    {testimonials[active].name}
-                                </motion.h3>
-                                <motion.p
-                                    className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-secondary)] font-medium"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.3, delay: 0.3 }}
-                                >
-                                    {testimonials[active].designation || testimonials[active].position}
-                                </motion.p>
-                            </div>
-                        </motion.div>
+                                    <motion.div
+                                        className="text-6xl text-[var(--custom-text-primary)]/80 dark:text-[var(--custom-text-white)] font-serif mb-0 pb-0"
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.3, delay: 0.1 }}
+                                    >
+                                        &ldquo;
+                                    </motion.div>
+
+                                    <motion.p
+                                        className="text-lg leading-relaxed text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.4, delay: 0.1 }}
+                                    >
+                                        {tActive.quote || tActive.content}
+                                    </motion.p>
+
+                                    <div className="space-y-2">
+                                        <motion.h3
+                                            className="text-2xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.3, delay: 0.2 }}
+                                        >
+                                            {tActive.name}
+                                        </motion.h3>
+                                        <motion.p
+                                            className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-secondary)] font-medium"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.3, delay: 0.3 }}
+                                        >
+                                            {tActive.designation || tActive.position}
+                                        </motion.p>
+                                    </div>
+                                </motion.div>
+                            );
+                        })()}
 
                         {/* Navigation buttons */}
                         <div className="flex gap-4 pt-6  md:pt-0">

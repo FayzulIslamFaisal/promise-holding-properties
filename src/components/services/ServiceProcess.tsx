@@ -50,20 +50,22 @@ const ServiceProcess = async () => {
             {/* Progress Line */}
             <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-border hidden md:block" />
             <div className="space-y-8">
-              {steps.map((step: any, index: number) => (
-                <div key={step.id || index} className="relative flex items-start gap-6">
+              {steps.map((step, index: number) => {
+                const s = step as HowItWorks & { number?: string };
+                return (
+                <div key={s.id || index} className="relative flex items-start gap-6">
                   {/* Step Number */}
                   <div className="flex-shrink-0 w-16 h-16 bg-[var(--custom-bg-accent)]/90 text-[var(--custom-text-white)] rounded-full flex items-center justify-center font-bold text-lg relative z-1">
-                    {step.number || String(index + 1).padStart(2, "0")}
+                    {s.number || String(index + 1).padStart(2, "0")}
                   </div>
 
                   {/* Content */}
                   <div className="pt-2">
-                    <h3 className="text-lg md:text-2xl font-semibold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] flex items-center gap-4">{step.title} <CheckCircle className="h-6 w-6 text-[var(--custom-text-secondary)]" /></h3>
-                    <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]/60 text-md sm:text-lg">{step.description}</p>
+                    <h3 className="text-lg md:text-2xl font-semibold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] flex items-center gap-4">{s.title} <CheckCircle className="h-6 w-6 text-[var(--custom-text-secondary)]" /></h3>
+                    <p className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]/60 text-md sm:text-lg">{s.description}</p>
                   </div>
                 </div>
-              ))}
+              ); })}
             </div>
         </div>
       </div>

@@ -41,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
         icon: settings.logo_settings.site_favicon || "/favicon.ico",
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: "Promise Assets",
       description: "Crafting Your Dream Home",

@@ -54,15 +54,15 @@ const OurServices = async () => {
     console.error("Error fetching services:", error);
   }
 
-  const services: any[] = (servicesRes && servicesRes.length) ? servicesRes : fallbackServices;
+  const services: (OurService | ServiceCardData)[] = (servicesRes && servicesRes.length) ? servicesRes : fallbackServices;
 
   return (
     <section className="px-4">
       <div className="container mx-auto border-b border-[var(--custom-bg-accent)]/40 py-10 md:py-12">
         <SectionTitle title="Our Services" subtitle="Comprehensive real estate solutions tailored to your needs" border_b={true} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
-          {services.map((service) => (
-            <OurServiceCard key={service.id} service={service} />
+          {services.map((service: OurService | ServiceCardData) => (
+            <OurServiceCard key={service.id} service={service as OurService & ServiceCardData} />
           ))}
         </div>
       </div>
