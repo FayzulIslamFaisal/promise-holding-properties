@@ -11,13 +11,13 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
 // ---------------------------------------------------------------------------
 function getAuthHeader(token?: string): Record<string, string> {
   if (token) return { Authorization: `Bearer ${token}` };
-  
+
   // Only try localStorage if in browser and no token provided
   if (typeof window !== "undefined") {
     const storedToken = localStorage.getItem("auth_token");
     if (storedToken) return { Authorization: `Bearer ${storedToken}` };
   }
-  
+
   return {};
 }
 
@@ -50,18 +50,11 @@ export type RequestOptions = Omit<RequestInit, "body"> & {
 async function request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
   const { body, token, headers: customHeaders, baseUrl, ...rest } = options;
 
-  const isServer = typeof window === "undefined";
-  
   const headers: Record<string, string> = {
     Accept: "application/json",
     ...getAuthHeader(token),
     ...(customHeaders as Record<string, string>),
   };
-
-  // Add User-Agent for server-side requests to prevent 403 Forbidden errors
-  if (isServer) {
-    headers["User-Agent"] = "PromiseAssets-NextJS/1.0";
-  }
 
   // Set content-type for JSON bodies
   if (body && !(body instanceof FormData)) {
@@ -71,13 +64,9 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
   // Determine base URL
   // On server, relative URLs don't work, so we MUST have an absolute URL
   const base = baseUrl || API_BASE_URL;
-  
+  const isServer = typeof window === "undefined";
+
   let fullUrl = `${base}${endpoint}`;
-  
-  // Debug log for production (helpful to verify if API_BASE_URL is set)
-  if (isServer) {
-    console.log(`[Server API Request] ${rest.method || 'GET'} ${fullUrl}`);
-  }
 
   // If we are on development and client-side, we might want to use the proxy
   if (!isServer && process.env.NODE_ENV === "development" && !baseUrl) {
@@ -108,7 +97,7 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
     return response.json();
   } catch (err: unknown) {
     if (err instanceof ApiError) throw err;
-    
+
     const errMessage = err instanceof Error ? err.message : String(err);
     if (errMessage === "Failed to fetch" || errMessage.includes("Network Error")) {
       throw new ApiError(503, "Network Error: Unable to reach the API server.");
