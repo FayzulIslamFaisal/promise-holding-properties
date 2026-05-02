@@ -40,7 +40,7 @@ const MediaCenterContent = () => {
                 key={blog.id}
                 id={blog.slug}
                 title={blog.title}
-                category={blog.tags.split(',')[0] || "Blog"}
+                category={blog.tags?.split(',')[0] || "Blog"}
                 date={new Date(blog.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 image={blog.banner}
                 excerpt={blog.short_description}

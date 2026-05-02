@@ -100,8 +100,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className={`text-3xl sm:text-4xl md:text-5xl font-bold capitalize darkLight-text-color relative ${titleAlign === "center" ? "text-center" : "text-left"
-                            }`}
+                        className={`text-3xl sm:text-4xl md:text-5xl font-bold capitalize darkLight-text-color relative ${titleAlign === "center" ? "text-center" : "text-left"}`}
                     >
                         testimonials
                     </motion.h2>
@@ -124,14 +123,9 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                     opacity: isActive(index) ? 1 : 0.8,
                                     scale: isActive(index) ? 1 : 0.95,
                                     rotate: isActive(index) ? 0 : getRotationForIndex(index),
-                                    zIndex: isActive(index)
-                                        ? 8
-                                        : testimonials.length + 1 - index,
+                                    zIndex: isActive(index) ? 20 : testimonials.length - index,
                                 }}
-                                transition={{
-                                    duration: 0.4,
-                                    ease: "easeInOut",
-                                }}
+                                transition={{ duration: 0.4, ease: "easeInOut" }}
                                 className="absolute inset-2 origin-bottom"
                             >
                                 <div className="relative h-full w-full rounded-2xl overflow-hidden mx-4">
@@ -227,17 +221,17 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                 onClick={handlePrev}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--brand-dark)] dark:bg-primary backdrop-blur-sm border border-primary/50 transition-all duration-300 hover:bg-[var(--brand-dark)]/80 dark:hover:bg-primary hover:border-primary"
+                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-primary backdrop-blur-sm border border-primary/50 transition-all duration-300 hover:bg-black hover:border-black"
                             >
-                                <ArrowLeft className="h-5 w-5 text-white transition-all duration-300 group-hover/button:text-white group-hover/button:-translate-x-0.5" />
+                                <ArrowLeft className="h-5 w-5 text-primary-foreground transition-all duration-300 group-hover/button:text-white group-hover/button:-translate-x-0.5" />
                             </motion.button>
                             <motion.button
                                 onClick={handleNext}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--brand-dark)] dark:bg-primary backdrop-blur-sm border border-primary/50 transition-all duration-300 hover:bg-[var(--brand-dark)]/80 dark:hover:bg-primary hover:border-primary"
+                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-primary backdrop-blur-sm border border-primary/50 transition-all duration-300 hover:bg-black hover:border-black"
                             >
-                                <ArrowRight className="h-5 w-5 text-white transition-all duration-300 group-hover/button:text-white group-hover/button:translate-x-0.5" />
+                                <ArrowRight className="h-5 w-5 text-primary-foreground transition-all duration-300 group-hover/button:text-white group-hover/button:translate-x-0.5" />
                             </motion.button>
                         </div>
                     </div>

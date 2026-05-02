@@ -5,7 +5,7 @@ interface TitleSubtitleProps {
   border_b?: boolean;
 }
 const SectionTitle: React.FC<TitleSubtitleProps> = ({ title, subtitle="", border_b= false}) => {
-    const titleParts = title.split(' ');
+    const titleParts = title?.split(' ');
     const firstPart = titleParts[0];
     const secondPart = titleParts.slice(1).join(' ');
   return (

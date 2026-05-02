@@ -56,7 +56,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
   --primary: oklch(72.95% 0.110 85.13);
-  --primary-foreground: oklch(0.129 0.042 264.695);
+  --primary-foreground: oklch(100% 0 0);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
@@ -105,7 +105,7 @@
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
   --primary: oklch(72.95% 0.110 85.13);
-  --primary-foreground: oklch(0.129 0.042 264.695);
+  --primary-foreground: oklch(100% 0 0);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
@@ -165,16 +165,16 @@ body {
 @layer components {
   .btn-glow-accent {
     @apply flex items-center gap-2 
-      bg-black 
-      text-white 
+      bg-primary 
+      text-primary-foreground 
       px-4 py-2 
       rounded-md 
       shadow-2xl
       border 
       border-primary/50 
       hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] 
-      hover:border-primary 
-      hover:bg-primary 
+      hover:border-black 
+      hover:bg-black 
       hover:text-white
       transform 
       hover:scale-105 
@@ -202,11 +202,24 @@ body {
 
 
 
-.custom-prev {
-  color: var(--primary) !important;
+.custom-prev, .custom-next {
+  background-color: var(--primary) !important;
+  color: white !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.custom-next {
-  color: var(--primary) !important;
+
+.custom-prev::after, .custom-next::after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+.custom-prev:hover, .custom-next:hover {
+  background-color: black !important;
 }
 
 /* === Privacy Policy Section Animations === */
