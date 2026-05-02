@@ -34,7 +34,7 @@ export default function BuildingDrawingSlider({ project }: BuildingDrawingSlider
 
   return (
     <section className="px-4">
-      <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14  border-b border-[var(--custom-bg-accent)]/40">
+      <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14  border-b border-[var(--brand-primary)]/40">
         <Swiper
           spaceBetween={10}
           loop={images.length > 1}
@@ -67,7 +67,7 @@ export default function BuildingDrawingSlider({ project }: BuildingDrawingSlider
                 />
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/80 via-[var(--custom-bg-accent)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--custom-bg-accent)]/90 group-hover:via-[var(--custom-bg-accent)]/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-primary)]/80 via-[var(--brand-primary)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--brand-primary)]/90 group-hover:via-[var(--brand-primary)]/30" />
 
                 {/* Centered Title & Description */}
                 <div className="absolute inset-0 flex items-center justify-center text-center px-4">

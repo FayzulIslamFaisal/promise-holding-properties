@@ -88,19 +88,19 @@ export default function ContactCard() {
                         variants={itemVariants}
                         className="flex items-center flex-col justify-center text-center gap-4 "
                     >
-                        <div className="flex-shrink-0 p-2 w-16 h-16 bg-[var(--custom-bg-accent)] rounded-full flex items-center justify-center text-[var(--custom-text-white)] shadow-md">
+                        <div className="flex-shrink-0 p-2 w-16 h-16 bg-[var(--brand-primary)] rounded-full flex items-center justify-center text-[var(--brand-white)] shadow-md">
                          <span className="group-hover:animate-pulse">{item.icon}</span>
                         </div>
 
                         <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold capitalize text-[var(--custom-text-primary)] mb-2 dark:text-[var(--custom-text-white)] transition-colors duration-300">
+                        <h3 className="font-semibold capitalize text-[var(--brand-dark)] mb-2 dark:text-[var(--brand-white)] transition-colors duration-300">
                             {item.title}
                         </h3>
                         <div className="space-y-1">
                             {item.details.map((detail, detailIndex) => (
                             <p
                                 key={detailIndex}
-                                className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-sm leading-relaxed transition-colors duration-300"
+                                className="text-[var(--brand-dark)] dark:text-[var(--brand-white)] text-sm leading-relaxed transition-colors duration-300"
                             >
                                 {detail}
                             </p>

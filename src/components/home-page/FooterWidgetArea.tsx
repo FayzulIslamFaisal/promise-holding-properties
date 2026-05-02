@@ -82,7 +82,7 @@ const FooterWidgetArea = () => {
   return (
     <div className="px-4 pt-6">
       <div className="container mx-auto  relative z-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 border-b border-[var(--custom-bg-accent)]/25 pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 border-b border-[var(--brand-primary)]/25 pb-8">
           {/* Company Info */}
           <div className="space-y-4">
             <p className="text-xl tracking-normal">
@@ -90,17 +90,17 @@ const FooterWidgetArea = () => {
             </p>
             <div className="space-y-2">
               <p className="text-gray-300 flex items-start gap-2">
-                <MapPinCheck className="size-5 mt-1 text-[var(--custom-bg-white)]" />
+                <MapPinCheck className="size-5 mt-1 text-[var(--brand-white)]" />
                 <span>
                   {settings?.general_settings.site_address || "Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207."}
                 </span>
               </p>
               <p className="text-gray-300 flex items-center gap-2">
-                <PhoneCallIcon className="size-4 text-[var(--custom-bg-white)]" />
+                <PhoneCallIcon className="size-4 text-[var(--brand-white)]" />
                 <span>{settings?.general_settings.site_phone || "09647 444 444"}</span>
               </p>
               <p className="text-gray-300 flex items-center gap-2">
-                <MailCheck className="size-4 text-[var(--custom-bg-white)]" />
+                <MailCheck className="size-4 text-[var(--brand-white)]" />
                 <span>{settings?.general_settings.site_email || "info@promiseassets.com"}</span>
               </p>
             </div>
@@ -113,7 +113,7 @@ const FooterWidgetArea = () => {
               {quickLinks.map((item) => (
                 <li
                   key={item?.id}
-                  className="hover:text-[var(--custom-text-white)] transition-colors duration-300"
+                  className="hover:text-[var(--brand-white)] transition-colors duration-300"
                 >
                   <Link href={item?.path} className="flex items-center gap-1">
                     <ChevronRight className="size-4" />
@@ -131,7 +131,7 @@ const FooterWidgetArea = () => {
               {companyLinks.map((item) => (
                 <li
                   key={item.id}
-                  className="hover:text-[var(--custom-text-white)] transition-colors duration-300 cursor-pointer flex items-center gap-1"
+                  className="hover:text-[var(--brand-white)] transition-colors duration-300 cursor-pointer flex items-center gap-1"
                 >
                   <Link href={item.path} className="flex items-center gap-1">
                     <ChevronRight className="size-4" />
@@ -161,14 +161,14 @@ const FooterWidgetArea = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isLoading}
-                  className="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-[var(--custom-text-white)] focus:outline-none focus:ring-1 focus:ring-gray-100/25 w-full pr-12 transition duration-200 shadow-sm hover:shadow-md disabled:opacity-70"
+                  className="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-[var(--brand-white)] focus:outline-none focus:ring-1 focus:ring-gray-100/25 w-full pr-12 transition duration-200 shadow-sm hover:shadow-md disabled:opacity-70"
                   placeholder="Enter your email"
                   required
                 />
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-[var(--custom-bg-accent)] hover:bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] h-full px-3 py-2 rounded-r transition duration-200 disabled:opacity-70 flex items-center justify-center"
+                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-[var(--brand-primary)] hover:bg-[var(--brand-primary)] text-[var(--brand-white)] h-full px-3 py-2 rounded-r transition duration-200 disabled:opacity-70 flex items-center justify-center"
                 >
                   {isLoading ? (
                     <Loader2 className="size-4 inline-block animate-spin" />

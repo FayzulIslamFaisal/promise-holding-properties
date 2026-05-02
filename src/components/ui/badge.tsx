@@ -10,9 +10,9 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-           "border-transparent bg-[var(--custom-bg-accent)] text-[var(--custom-text-secondary)] hover:bg-[var(--custom-bg-primary)]/75 dark:bg-[var(--custom-bg-primary-dark)] dark:text-[var(--custom-text-primary-dark)] dark:hover:bg-[var(--custom-bg-primary-dark)]/50",
+           "border-transparent bg-[var(--brand-primary)] text-[var(--brand-primary)] hover:bg-[var(--brand-dark)]/75 dark:bg-[var(--brand-dark-dark)] dark:text-[var(--brand-dark-dark)] dark:hover:bg-[var(--brand-dark-dark)]/50",
         secondary:
-          "border-transparent bg-[var(--custom-bg-white)] text-[var(--custom-text-secondary)] hover:bg-[var(--custom-bg-accent)]/75 dark:bg-[var(--custom-text-black)] dark:text-[var(--custom-text-secondary-dark)] dark:hover:bg-[var(--custom-bg-secondary-dark)]/50",
+          "border-transparent bg-[var(--brand-white)] text-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/75 dark:bg-[var(--brand-black)] dark:text-[var(--brand-primary-dark)] dark:hover:bg-[var(--custom-bg-secondary-dark)]/50",
         destructive:
           "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:

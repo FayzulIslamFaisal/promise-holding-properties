@@ -51,7 +51,7 @@ const InsightsSection: React.FC = () => {
 
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-10 h-10 animate-spin text-[var(--custom-bg-accent)]" />
+            <Loader2 className="w-10 h-10 animate-spin text-[var(--brand-primary)]" />
           </div>
         ) : blogs.length > 0 ? (
           <Swiper
@@ -91,7 +91,7 @@ const InsightsSection: React.FC = () => {
             <div className="swiper-button-next custom-next"></div>
           </Swiper>
         ) : (
-          <div className="text-center py-20 text-[var(--custom-text-muted)]">
+          <div className="text-center py-20 text-[var(--text-body)]">
             No insights found.
           </div>
         )}

@@ -80,7 +80,7 @@ const LandownerSlider = () => {
               "url('/assets/images/landowner/landownerSliderBg.jpg')",
           }}
         >
-          <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 backdrop-filter dark:bg-[var(--custom-bg-accent)]/20 z-1" />
+          <div className="absolute inset-0 bg-[var(--brand-dark)]/20 backdrop-filter dark:bg-[var(--brand-primary)]/20 z-1" />
         </div>
 
         <div className="relative z-1 flex items-center justify-center h-full">
@@ -112,10 +112,10 @@ const LandownerSlider = () => {
             </Swiper>
 
             {/* Custom Navigation Buttons */}
-            <div className="custom-prev absolute left-2 top-1/2 z-1 -translate-y-1/2 cursor-pointer bg-[var(--custom-bg-primary)]/60 hover:bg-[var(--custom-bg-primary)]/80 rounded-full p-2 backdrop-blur-md transition-all">
+            <div className="custom-prev absolute left-2 top-1/2 z-1 -translate-y-1/2 cursor-pointer bg-[var(--brand-dark)]/60 hover:bg-[var(--brand-dark)]/80 rounded-full p-2 backdrop-blur-md transition-all">
               <ChevronLeft color="white" />
             </div>
-            <div className="custom-next absolute right-2 top-1/2 z-1 -translate-y-1/2 cursor-pointer bg-[var(--custom-bg-primary)]/60 hover:bg-[var(--custom-bg-primary)]/80 rounded-full p-2 backdrop-blur-md transition-all">
+            <div className="custom-next absolute right-2 top-1/2 z-1 -translate-y-1/2 cursor-pointer bg-[var(--brand-dark)]/60 hover:bg-[var(--brand-dark)]/80 rounded-full p-2 backdrop-blur-md transition-all">
               <ChevronRight color="white" />
             </div>
           </div>

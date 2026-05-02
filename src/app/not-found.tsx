@@ -13,19 +13,19 @@ const NotFound = () => {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 z-1 dark:bg-[var(--custom-bg-primary)]/40 bg-[var(--custom-bg-accent)]/20 backdrop-blur-sm" />
+      <div className="absolute inset-0 z-1 dark:bg-[var(--brand-dark)]/40 bg-[var(--brand-primary)]/20 backdrop-blur-sm" />
 
       {/* Overlay content */}
       <div className="absolute inset-0 z-2 flex flex-col items-center justify-center text-center px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[var(--custom-text-white)]">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[var(--brand-white)]">
           Oops! 404 Page Not Found
         </h2>
-        <p className="text-lg md:text-xl mb-6 text-[var(--custom-text-white)]">
+        <p className="text-lg md:text-xl mb-6 text-[var(--brand-white)]">
           The page you{"'"}re looking for doesn{"’"}t exist or has been moved.
         </p>
         <Link
           href="/"
-          className="bg-[var(--custom-bg-accent)] text-[var(--custom-text-white)] py-4 px-6 rounded-md transition flex items-center gap-2"
+          className="bg-[var(--brand-primary)] text-[var(--brand-white)] py-4 px-6 rounded-md transition flex items-center gap-2"
         >
           <RotateCcw className="w-5 h-5" />
           Back to Home

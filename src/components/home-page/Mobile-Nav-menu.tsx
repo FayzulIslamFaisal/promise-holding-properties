@@ -28,8 +28,8 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
       )}
       onClick={() => onMobileMenuToggle(false)}
     >
-      <div className="bg-[var(--custom-bg-primary)] p-4 overlay-header relative w-[340px] h-full">
-        <div className="text-[var(--custom-text-white)] relative z-1">
+      <div className="bg-[var(--brand-dark)] p-4 overlay-header relative w-[340px] h-full">
+        <div className="text-[var(--brand-white)] relative z-1">
           <div className="flex justify-end items-center">
             <button
               className='cursor-pointer'
@@ -61,7 +61,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
                 e.stopPropagation();
                 onMobileMenuToggle(false);
               }}
-              className="font-semibold text-[var(--custom-text-white)] p-2 rounded tracking-wider hover:bg-[var(--custom-bg-white)] hover:text-[var(--custom-text-primary)]"
+              className="font-semibold text-[var(--brand-white)] p-2 rounded tracking-wider hover:bg-[var(--brand-white)] hover:text-[var(--brand-dark)]"
             >
               {item.label}
             </Link>

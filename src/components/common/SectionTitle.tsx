@@ -13,9 +13,9 @@ const SectionTitle: React.FC<TitleSubtitleProps> = ({ title, subtitle="", border
         <div className="mb-3 md:mb-5">
             <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 capitalize font-bold darkLight-text-color">
                 <span >{firstPart} {" "}</span>
-                {secondPart && <span className="text-[var(--custom-text-secondary)]">{secondPart}</span>}
+                {secondPart && <span className="text-[var(--brand-primary)]">{secondPart}</span>}
             </h1>
-            {border_b && <div className="w-24 h-1 bg-[var(--custom-text-secondary)] mx-auto"></div>}
+            {border_b && <div className="w-24 h-1 bg-[var(--brand-primary)] mx-auto"></div>}
         </div>
         {subtitle && <p className="text-base darkLight-text-color">{subtitle}</p>}
     </div>

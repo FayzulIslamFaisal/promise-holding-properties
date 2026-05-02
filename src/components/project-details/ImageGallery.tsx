@@ -85,7 +85,7 @@ const ImageGallery=()=> {
                         fill
                         className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--custom-bg-accent)]/50 via-[var(--custom-bg-primary)]/30 to-[var(--custom-bg-white)]/10 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-primary)]/50 via-[var(--brand-dark)]/30 to-[var(--brand-white)]/10 transition-opacity duration-300"></div>
                 </div>
                 
             </SwiperSlide>

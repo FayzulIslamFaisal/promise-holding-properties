@@ -91,7 +91,7 @@ export default function SuperFlowSlider({ banners }: HeroSliderProps) {
       className="relative w-full h-[calc(100vh-94px)] overflow-hidden"
     >
       {/* Overlay background for dim effect */}
-      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-1 dark:bg-[var(--custom-bg-accent)]/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[var(--brand-dark)]/20 z-1 dark:bg-[var(--brand-primary)]/20 pointer-events-none" />
 
       <Swiper
         key={slides.length}
@@ -166,7 +166,7 @@ export default function SuperFlowSlider({ banners }: HeroSliderProps) {
           variant="ghost"
           size="icon"
           onClick={toggleFullscreen}
-          className="bg-[var(--custom-bg-accent)]/40 hover:bg-[var(--custom-bg-accent)]/60 backdrop-blur-xl border-2 border-[var(--custom-bg-accent)]/20 hover:border-[var(--custom-bg-accent)]/40 text-white w-14 h-14 rounded-full cursor-pointer transition-all duration-500 hover:scale-110"
+          className="bg-[var(--brand-primary)]/40 hover:bg-[var(--brand-primary)]/60 backdrop-blur-xl border-2 border-[var(--brand-primary)]/20 hover:border-[var(--brand-primary)]/40 text-white w-14 h-14 rounded-full cursor-pointer transition-all duration-500 hover:scale-110"
         >
           <Maximize className="w-6 h-6" />
         </Button>
@@ -176,7 +176,7 @@ export default function SuperFlowSlider({ banners }: HeroSliderProps) {
       <div className="absolute bottom-0 left-0 w-full z-3">
         <div className="h-2 bg-black/20 backdrop-blur-sm overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[var(--custom-bg-accent)] via-[var(--custom-bg-primary)] to-[var(--custom-bg-white)] transition-all duration-100 ease-linear relative"
+            className="h-full bg-gradient-to-r from-[var(--brand-primary)] via-[var(--brand-dark)] to-[var(--brand-white)] transition-all duration-100 ease-linear relative"
             style={{ width: `${progress}%` }}
           />
         </div>

@@ -77,18 +77,18 @@ const ServiceFAQSection = async () => {
     <section className="px-4">
       <div className="container mx-auto sectionSpaceBorder">
         <SectionTitle title="Frequently Asked Questions" subtitle="Have a question? We've got answers!"  border_b={true} />
-        <div className="max-w-[100%] lg:max-w-[70%] mx-auto p-4 border border-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)] rounded-lg shadow-2xl">
+        <div className="max-w-[100%] lg:max-w-[70%] mx-auto p-4 border border-[var(--brand-primary)]/30 bg-[var(--brand-primary)]/20 dark:bg-[var(--brand-dark)] rounded-lg shadow-2xl">
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq) => (
             <AccordionItem
               key={faq.id}
               value={`item-${faq.id}`}
-              className="border-b rounded-lg border-[var(--custom-bg-accent)]/30 px-6 mb-0 bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)]"
+              className="border-b rounded-lg border-[var(--brand-primary)]/30 px-6 mb-0 bg-[var(--brand-primary)]/10 hover:bg-[var(--brand-primary)]/20 dark:bg-[var(--brand-dark)]"
             >
-              <AccordionTrigger className="text-left text-md md:text-lg font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-secondary)] hover:no-underline focus:outline-none">
+              <AccordionTrigger className="text-left text-md md:text-lg font-bold text-[var(--brand-dark)] dark:text-[var(--brand-primary)] hover:no-underline focus:outline-none">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)] text-base pt-2 pb-4">
+              <AccordionContent className="text-[var(--brand-dark)] dark:text-[var(--brand-white)] text-base pt-2 pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

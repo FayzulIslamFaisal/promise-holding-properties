@@ -81,18 +81,23 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
+  /* ========== 🟡 Brand Colors ========== */
+  --brand-primary: oklch(72.95% 0.110 85.13);
+  --brand-dark: oklch(23.00% 0.004 106.69);       
+  --brand-black: oklch(0.00% 0.000 0);             /* ⬛ Pure black */
+  --brand-white: oklch(100.00% 0.000 0);           /* ⬜ Pure white */
 
-  --custom-text-secondary:oklch(72.95% 0.110 85.13);
-  --custom-text-primary:oklch(23.00% 0.004 106.69);
-  --custom-text-black:oklch(0.00% 0.000 0);
-  --custom-text-white: oklch(100.00% 0.000 0);
+  /* ========== 📝 Semantic Text Colors ========== */
+  --text-heading: var(--brand-dark);                /* 🔄 dark mode → white */
+  --text-body: var(--brand-dark);                   /* 🔄 dark mode → white */
+  --text-primary: var(--brand-primary);             /* 🟡 Gold text — always */
 
-  --custom-bg-primary: oklch(23.00% 0.004 106.69);  
-  --custom-bg-accent:oklch(72.95% 0.110 85.13);
-  --custom-bg-body:oklch(100.00% 0.000 0);
-  --custom-bg-white:oklch(100.00% 0.000 0);
-  --custom-bg-black:oklch(0.00% 0.000 0);
-  --custom-border-primary: oklch(100% 0 none / 30%);
+  /* ========== 🎨 Semantic Background Colors ========== */
+  --bg-body: oklch(100.00% 0.000 0);               /* 🔄 dark mode → dark gray */
+  --bg-surface: oklch(100.00% 0.000 0);            /* 🔄 dark mode → dark surface */
+
+  /* ========== 🔲 Borders ========== */
+  --border-subtle: oklch(100% 0 none / 30%);       /* Transparent white border */
 
 }
 
@@ -129,19 +134,12 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
 
+  /* ========== 🔄 Dark Mode Overrides ========== */
+  --text-heading: var(--brand-white);
+  --text-body: var(--brand-white);
+  --bg-body: oklch(26.64% 0.000 0);
+  --bg-surface: var(--brand-dark);
 
-  --custom-bg-body: oklch(26.64% 0.000 0);
-  --custom-text-secondary:oklch(72.95% 0.110 85.13);
-  --custom-text-primary:oklch(23.00% 0.004 106.69);
-  --custom-text-black:oklch(0.00% 0.000 0);
-  --custom-text-white: oklch(100.00% 0.000 0);
-
-  --custom-bg-primary: oklch(23.00% 0.004 106.69);  
-  --custom-bg-accent:oklch(72.95% 0.110 85.13);
-  --custom-border-primary: oklch(100% 0 none / 30%);
-  --custom-bg-white:oklch(100.00% 0.000 0 );
-  --custom-bg-black:oklch(0.00% 0.000 0);
-  
 }
 
 @layer base {
@@ -164,43 +162,24 @@ body {
   line-height: 1.5;
   font-size: 14px;
   overflow-x: hidden;
-  background: var(--custom-bg-body);
+  background: var(--bg-body);
 
 }
-body.dark {
-  background: var(--custom-bg-body);
-}
-body.light {
-  background: var(--custom-bg-body);
-}
-/* @theme {
-  --custom-text-primary: #c7a250;
-  --custom-text-secondary: #1d1d1b;
-  --custom-text-black: #000;
-  --custom-text-white: #fff;
-
-  --custom-bg-primary: #1d1d1b;  
-  --custom-bg-accent: #c7a250;
-  --custom-bg-body: #1c1c1c;
-  --custom-bg-white: #fff;
-  --custom-bg-black: #000;
-  --custom-border-primary: #ffffff4d;
-} */
 
 @layer components {
   .btn-glow-accent {
     @apply flex items-center gap-2 
-      bg-[var(--custom-bg-black)] 
-      text-[var(--custom-text-white)] 
+      bg-[var(--brand-black)] 
+      text-[var(--brand-white)] 
       px-4 py-2 
       rounded-md 
       shadow-2xl
       border 
-      border-[var(--custom-bg-accent)]/50 
+      border-[var(--brand-primary)]/50 
       hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] 
-      hover:border-[var(--custom-bg-accent)] 
-      hover:bg-[var(--custom-bg-accent)] 
-      hover:text-[var(--custom-text-white)]
+      hover:border-[var(--brand-primary)] 
+      hover:bg-[var(--brand-primary)] 
+      hover:text-[var(--brand-white)]
       transform 
       hover:scale-105 
       transition-all 
@@ -209,29 +188,29 @@ body.light {
       cursor-pointer;
   }
   .darkLight-text-color {
-    @apply text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)];
+    color: var(--text-heading);
   }
   .darkLight-body-bg-color {
-    @apply bg-[var(--custom-bg-body)] dark:bg-[var(--custom-bg-body)];
+    background: var(--bg-body);
   }
   .sectionSpaceBorder {
-    @apply py-10 md:py-12 border-b border-[var(--custom-bg-accent)]/40;
+    @apply py-10 md:py-12 border-b border-[var(--brand-primary)]/40;
   }
   .bg-primaryAccent {
-    @apply bg-[var(--custom-bg-accent)]/10 hover:bg-[var(--custom-bg-accent)]/20 dark:bg-[var(--custom-bg-primary)];
+    @apply bg-[var(--brand-primary)]/10 hover:bg-[var(--brand-primary)]/20 dark:bg-[var(--brand-dark)];
   }
   .bannerText {
-    @apply text-[var(--custom-text-white)] capitalize text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4;
+    @apply text-[var(--brand-white)] capitalize text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4;
   }
 }
 
 
 
 .custom-prev {
-  color: var(--custom-text-secondary) !important;
+  color: var(--brand-primary) !important;
 }
 .custom-next {
-  color: var(--custom-text-secondary) !important;
+  color: var(--brand-primary) !important;
 }
 
 /* === Privacy Policy Section Animations === */
@@ -309,8 +288,8 @@ body.light {
 }
 
 .highlight-box {
-  background: var(--custom-bg-body);
-  border-left: 5px solid var(--custom-bg-accent);
+  background: var(--bg-body);
+  border-left: 5px solid var(--brand-primary);
 }
 
 /* === Prose / Dynamic HTML Styles === */
@@ -339,16 +318,16 @@ body.light {
 .prose h2, .prose h3, .prose h4 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: var(--custom-bg-accent);
+  color: var(--brand-primary);
 }
 
 .prose strong {
   font-weight: 700;
-  color: var(--custom-bg-accent);
+  color: var(--brand-primary);
 }
 
 .prose blockquote {
-  border-left: 4px solid var(--custom-bg-accent);
+  border-left: 4px solid var(--brand-primary);
   padding-left: 1.5rem;
   font-style: italic;
   margin: 2rem 0;

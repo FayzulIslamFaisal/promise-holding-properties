@@ -38,7 +38,7 @@ const ProjectFeature = ({
                 <AnimatePresence>
                     {hoveredIndex === index && (
                     <motion.span
-                        className="absolute inset-0 h-full w-full bg-[var(--custom-bg-accent)]/10 block rounded-2xl"
+                        className="absolute inset-0 h-full w-full bg-[var(--brand-primary)]/10 block rounded-2xl"
                         layoutId="hoverBackground"
                         initial={{ opacity: 0 }}
                         animate={{
@@ -75,7 +75,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-6 overflow-hidden bg-[var(--custom-bg-primary)]/5 dark:bg-[var(--custom-bg-white)]/5 border border-[var(--custom-bg-accent)]/20 group-hover:border-[var(--custom-bg-accent)]/70 shadow-sm group-hover:shadow-lg transition-all duration-300 relative z-0",
+        "rounded-2xl h-full w-full p-6 overflow-hidden bg-[var(--brand-dark)]/5 dark:bg-[var(--brand-white)]/5 border border-[var(--brand-primary)]/20 group-hover:border-[var(--brand-primary)]/70 shadow-sm group-hover:shadow-lg transition-all duration-300 relative z-0",
         className,
       )}
     >
@@ -90,7 +90,7 @@ const CardTitle = ({
   className?: string
   children: React.ReactNode
 }) => {
-  return <h4 className={cn("bg-[var(--custom-bg-accent)]/10 text-[var(--custom-bg-accent)] p-3 rounded-full mb-3", className)}>{children}</h4>
+  return <h4 className={cn("bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] p-3 rounded-full mb-3", className)}>{children}</h4>
 }
 
 const CardDescription = ({

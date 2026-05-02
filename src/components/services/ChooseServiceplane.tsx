@@ -51,11 +51,11 @@ const ChooseServiceplane = async () => {
                 className="group relative py-4 gap-2 highlight-box" variant={"hoverEffect"}
               >
                 <CardHeader className="pb-0 mb-0">
-                  <div className="w-14 h-14 p-2 mb-2 bg-[var(--custom-bg-accent)] rounded-md flex items-center justify-center">
+                  <div className="w-14 h-14 p-2 mb-2 bg-[var(--brand-primary)] rounded-md flex items-center justify-center">
                     {isStringIcon ? (
                       <Image src={f.icon as string} alt={f.title} width={40} height={40} className="object-contain group-hover:animate-pulse" />
                     ) : (
-                      IconComponent && <IconComponent className="text-[var(--custom-bg-white)] w-full h-full group-hover:animate-pulse" />
+                      IconComponent && <IconComponent className="text-[var(--brand-white)] w-full h-full group-hover:animate-pulse" />
                     )}
                   </div>
                   <CardTitle className="text-md sm:text-xl font-semibold darkLight-text-color">
@@ -77,7 +77,7 @@ const ChooseServiceplane = async () => {
               <div className="space-y-4">
                   {whyChooseUs.map((item, index) => (
                   <div key={index} className="flex items-start gap-4 group">
-                      <div className="flex-shrink-0 w-8 h-8 bg-[var(--custom-bg-accent)] rounded-full flex items-center justify-center mt-1 group-hover:bg-[var(--custom-bg-accent)]/80 transition-colors duration-300">
+                      <div className="flex-shrink-0 w-8 h-8 bg-[var(--brand-primary)] rounded-full flex items-center justify-center mt-1 group-hover:bg-[var(--brand-primary)]/80 transition-colors duration-300">
                       <Check className="w-4 h-4 darkLight-text-color" />
                       </div>
                       <p className="text-lg darkLight-text-color leading-relaxed">
@@ -99,11 +99,11 @@ const ChooseServiceplane = async () => {
                     className="group relative py-4 gap-2 highlight-box" variant={"hoverEffect"}
                   >
                     <CardHeader className="pb-0 mb-0">
-                      <div className="w-14 h-14 p-2 mb-2 bg-[var(--custom-bg-accent)] rounded-md flex items-center justify-center">
+                      <div className="w-14 h-14 p-2 mb-2 bg-[var(--brand-primary)] rounded-md flex items-center justify-center">
                         {isStringIcon ? (
                           <Image src={feature.icon} alt={feature.title} width={40} height={40} className="object-contain group-hover:animate-pulse" />
                         ) : (
-                          IconComponent && <IconComponent className="text-[var(--custom-bg-white)] w-full h-full group-hover:animate-pulse" />
+                          IconComponent && <IconComponent className="text-[var(--brand-white)] w-full h-full group-hover:animate-pulse" />
                         )}
                       </div>
                       <CardTitle className="text-md sm:text-xl font-semibold darkLight-text-color">

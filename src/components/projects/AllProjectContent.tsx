@@ -13,7 +13,7 @@ const AllProjectContent = async () => {
   }
 
   return (
-    <section className="px-4 dark:bg-[var(--custom-bg-body)] bg-[var(--custom-bg-white)]" >
+    <section className="px-4 dark:bg-[var(--bg-body)] bg-[var(--brand-white)]" >
       <div className="container mx-auto">
         {projects.length === 0 ? (
            <div className="flex justify-center items-center h-64 w-full text-lg">

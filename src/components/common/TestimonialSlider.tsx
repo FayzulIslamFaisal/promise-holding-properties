@@ -142,10 +142,10 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                         draggable={false}
                                         className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t dark:from-[var(--custom-bg-accent)]/60 from-[var(--custom-bg-primary)]/60 via-transparent dark:via-transparent to-[var(--custom-bg-white)]/40 dark:to-[var(--custom-bg-white)]/40" />
+                                    <div className="absolute inset-0 bg-gradient-to-t dark:from-[var(--brand-primary)]/60 from-[var(--brand-dark)]/60 via-transparent dark:via-transparent to-[var(--brand-white)]/40 dark:to-[var(--brand-white)]/40" />
                                     {isActive(index) && (
                                         <motion.div
-                                            className="absolute inset-0 border-2 border-[var(--custom-bg-accent)]/50 rounded-2xl"
+                                            className="absolute inset-0 border-2 border-[var(--brand-primary)]/50 rounded-2xl"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             transition={{ duration: 0.3 }}
@@ -161,8 +161,8 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                     key={testimonial.id || index}
                                     onClick={() => setActive(index)}
                                     className={`w-4 h-4 cursor-pointer rounded-full transition-all duration-300 ${isActive(index)
-                                        ? 'bg-[var(--custom-bg-accent)] scale-125'
-                                        : 'bg-[var(--custom-bg-primary)] border border-[var(--custom-bg-white)]/40 dark:bg-[var(--custom-bg-white)]/80 dark:hover:bg-[var(--custom-bg-white)]'
+                                        ? 'bg-[var(--brand-primary)] scale-125'
+                                        : 'bg-[var(--brand-dark)] border border-[var(--brand-white)]/40 dark:bg-[var(--brand-white)]/80 dark:hover:bg-[var(--brand-white)]'
                                         }`}
                                 />
                             ))}
@@ -182,7 +182,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                     className="space-y-4"
                                 >
                                     <motion.div
-                                        className="text-6xl text-[var(--custom-text-primary)]/80 dark:text-[var(--custom-text-white)] font-serif mb-0 pb-0"
+                                        className="text-6xl text-[var(--brand-dark)]/80 dark:text-[var(--brand-white)] font-serif mb-0 pb-0"
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ duration: 0.3, delay: 0.1 }}
@@ -191,7 +191,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                     </motion.div>
 
                                     <motion.p
-                                        className="text-lg leading-relaxed text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                                        className="text-lg leading-relaxed text-[var(--brand-dark)] dark:text-[var(--brand-white)]"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0.4, delay: 0.1 }}
@@ -201,7 +201,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
 
                                     <div className="space-y-2">
                                         <motion.h3
-                                            className="text-2xl font-bold text-[var(--custom-text-primary)] dark:text-[var(--custom-text-white)]"
+                                            className="text-2xl font-bold text-[var(--brand-dark)] dark:text-[var(--brand-white)]"
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.3, delay: 0.2 }}
@@ -209,7 +209,7 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                             {tActive.name}
                                         </motion.h3>
                                         <motion.p
-                                            className="text-sm text-[var(--custom-text-primary)] dark:text-[var(--custom-text-secondary)] font-medium"
+                                            className="text-sm text-[var(--brand-dark)] dark:text-[var(--brand-primary)] font-medium"
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.3, delay: 0.3 }}
@@ -227,17 +227,17 @@ const TestimonialSlider = ({ autoplay = false, titleAlign = "center", testimonia
                                 onClick={handlePrev}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--custom-bg-primary)] dark:bg-[var(--custom-bg-accent)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/50 transition-all duration-300 hover:bg-[var(--custom-bg-primary)]/80 dark:hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
+                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--brand-dark)] dark:bg-[var(--brand-primary)] backdrop-blur-sm border border-[var(--brand-primary)]/50 transition-all duration-300 hover:bg-[var(--brand-dark)]/80 dark:hover:bg-[var(--brand-primary)] hover:border-[var(--brand-primary)]"
                             >
-                                <ArrowLeft className="h-5 w-5 text-[var(--custom-bg-white)] transition-all duration-300 group-hover/button:text-[var(--custom-text-white)] group-hover/button:-translate-x-0.5" />
+                                <ArrowLeft className="h-5 w-5 text-[var(--brand-white)] transition-all duration-300 group-hover/button:text-[var(--brand-white)] group-hover/button:-translate-x-0.5" />
                             </motion.button>
                             <motion.button
                                 onClick={handleNext}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--custom-bg-primary)] dark:bg-[var(--custom-bg-accent)] backdrop-blur-sm border border-[var(--custom-bg-accent)]/50 transition-all duration-300 hover:bg-[var(--custom-bg-primary)]/80 dark:hover:bg-[var(--custom-bg-accent)] hover:border-[var(--custom-bg-accent)]"
+                                className="group/button flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[var(--brand-dark)] dark:bg-[var(--brand-primary)] backdrop-blur-sm border border-[var(--brand-primary)]/50 transition-all duration-300 hover:bg-[var(--brand-dark)]/80 dark:hover:bg-[var(--brand-primary)] hover:border-[var(--brand-primary)]"
                             >
-                                <ArrowRight className="h-5 w-5 text-[var(--custom-bg-white)] transition-all duration-300 group-hover/button:text-[var(--custom-text-white)] group-hover/button:translate-x-0.5" />
+                                <ArrowRight className="h-5 w-5 text-[var(--brand-white)] transition-all duration-300 group-hover/button:text-[var(--brand-white)] group-hover/button:translate-x-0.5" />
                             </motion.button>
                         </div>
                     </div>

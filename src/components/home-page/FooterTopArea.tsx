@@ -46,7 +46,7 @@ const FooterTopArea = () => {
     return (
         <div className="px-4">
             <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border-b border-[var(--custom-bg-accent)]/25 pb-4 shadow-2xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border-b border-[var(--brand-primary)]/25 pb-4 shadow-2xl">
                     {/* Logo Area */}
                     <div>
                         <Link href="/" className="inline-block relative w-[200px] h-[70px]">
@@ -61,7 +61,7 @@ const FooterTopArea = () => {
 
                     {/* Social Icons */}
                     <div className="flex items-center gap-4 justify-start md:justify-end flex-wrap">
-                        <span className="text-sm md:text-base font-semibold text-[var(--custom-bg-white)]">
+                        <span className="text-sm md:text-base font-semibold text-[var(--brand-white)]">
                             Follow Us:
                         </span>
                         <div className="flex items-center gap-3">
@@ -72,11 +72,11 @@ const FooterTopArea = () => {
                                         key={index}
                                         href={item.href}
                                         target="_blank"
-                                        className="bg-[var(--custom-bg-accent)] text-[var(--custom-bg-white)] 
-                                        hover:bg-[var(--custom-bg-black)] hover:text-white 
-                                        p-2 rounded-md border border-[var(--custom-bg-accent)] transition-all duration-300 
+                                        className="bg-[var(--brand-primary)] text-[var(--brand-white)] 
+                                        hover:bg-[var(--brand-black)] hover:text-white 
+                                        p-2 rounded-md border border-[var(--brand-primary)] transition-all duration-300 
                                         shadow-md hover:shadow-[0_4px_15px_rgba(255,255,255,0.6)] 
-                                        hover:-translate-y-1 transform hover:border-[var(--custom-border-primary)]"
+                                        hover:-translate-y-1 transform hover:border-[var(--border-subtle)]"
                                     >
                                         <IconComponent className={item.className} />
                                     </Link>

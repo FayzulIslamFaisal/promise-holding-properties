@@ -19,28 +19,28 @@ const fallbackAchievements: Achievement[] = [
     number: "15+",
     label: "Years of Experience",
     description: "Serving the community with dedication",
-    icon: <Calendar className="w-10 h-10 text-[var(--custom-bg-accent)] mb-3" />,
+    icon: <Calendar className="w-10 h-10 text-[var(--brand-primary)] mb-3" />,
   },
   {
     id: 2,
     number: "1000+",
     label: "Happy Clients",
     description: "Successful transactions completed",
-    icon: <Users className="w-10 h-10 text-[var(--custom-bg-accent)] mb-3" />,
+    icon: <Users className="w-10 h-10 text-[var(--brand-primary)] mb-3" />,
   },
   {
     id: 3,
     number: "50+",
     label: "Awards Won",
     description: "Industry recognition and accolades",
-    icon: <Award className="w-10 h-10 text-[var(--custom-bg-accent)] mb-3" />,
+    icon: <Award className="w-10 h-10 text-[var(--brand-primary)] mb-3" />,
   },
   {
     id: 4,
     number: "$500M+",
     label: "Properties Sold",
     description: "Total value of transactions",
-    icon: <DollarSign className="w-10 h-10 text-[var(--custom-bg-accent)] mb-3" />,
+    icon: <DollarSign className="w-10 h-10 text-[var(--brand-primary)] mb-3" />,
   },
 ]
 

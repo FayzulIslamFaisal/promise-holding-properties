@@ -19,7 +19,7 @@ const ProjectVideoThumbnail = () => {
           </div>
 
           <div
-            className="relative w-full aspect-video rounded-lg cursor-pointer border border-[var(--custom-border-primary)] overflow-hidden shadow-2xl group"
+            className="relative w-full aspect-video rounded-lg cursor-pointer border border-[var(--border-subtle)] overflow-hidden shadow-2xl group"
             // onClick={() => setOpen(true)}
           >
             <Image
@@ -28,22 +28,22 @@ const ProjectVideoThumbnail = () => {
               fill
               className="rounded-lg w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 dark:bg-[var(--custom-bg-accent)]/30 bg-[var(--custom-bg-primary)]/30 rounded-lg transition-all duration-500 group-hover:bg-[var(--custom-bg-primary)]/40 dark:group-hover:bg-[var(--custom-bg-accent)]/40" />
+            <div className="absolute inset-0 dark:bg-[var(--brand-primary)]/30 bg-[var(--brand-dark)]/30 rounded-lg transition-all duration-500 group-hover:bg-[var(--brand-dark)]/40 dark:group-hover:bg-[var(--brand-primary)]/40" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-[var(--custom-bg-accent)] border-3 border-[var(--custom-bg-white)] opacity-50 animate-ping scale-110" />
+                <div className="absolute inset-0 rounded-full bg-[var(--brand-primary)] border-3 border-[var(--brand-white)] opacity-50 animate-ping scale-110" />
                   <div 
                     className="relative z-1 w-20 h-20 
-                      dark:bg-[var(--custom-bg-primary)]/80
-                      hover:dark:bg-[var(--custom-bg-primary)]/100 
-                      bg-[var(--custom-bg-white)]
+                      dark:bg-[var(--brand-dark)]/80
+                      hover:dark:bg-[var(--brand-dark)]/100 
+                      bg-[var(--brand-white)]
                       backdrop-blur-xl backdrop-saturate-200 
-                      border border-[var(--custom-bg-white)]/10 
+                      border border-[var(--brand-white)]/10 
                       transition-all duration-300 
                       rounded-full flex items-center justify-center 
-                      shadow-xl shadow-[var(--custom-bg-accent)]/80"
+                      shadow-xl shadow-[var(--brand-primary)]/80"
                   >
-                      <Play className="w-10 h-10 dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)]" />
+                      <Play className="w-10 h-10 dark:text-[var(--brand-white)] text-[var(--brand-dark)]" />
                     </div>
                 </div>
               </div>

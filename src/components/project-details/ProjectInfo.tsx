@@ -75,7 +75,7 @@ const ProjectInfo = ({ project }: ProjectInfoProps) => {
         <div className="grid col-span-1 lg:grid-cols-2 gap-6 ">
           {/* Left Side - Image */}
           <div className="relative overflow-hidden rounded-xl group h-[500px] lg:h-full">
-            <div className="absolute inset-0 rounded-xl bg-[var(--custom-bg-primary)]/20  group-hover:bg-[var(--custom-bg-primary)]/10 dark:bg-[var(--custom-bg-accent)]/20  dark:group-hover:bg-[var(--custom-bg-accent)]/10 transition-opacity duration-700 z-1" />
+            <div className="absolute inset-0 rounded-xl bg-[var(--brand-dark)]/20  group-hover:bg-[var(--brand-dark)]/10 dark:bg-[var(--brand-primary)]/20  dark:group-hover:bg-[var(--brand-primary)]/10 transition-opacity duration-700 z-1" />
             <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-700 rounded-xl">
               <Image
                 src={project.project_image}
@@ -87,19 +87,19 @@ const ProjectInfo = ({ project }: ProjectInfoProps) => {
           </div>
 
           {/* Right Side - Content */}
-          <Card className="p-4 lg:p-8 flex flex-col justify-center border-[var(--custom-bg-accent)]/20 shadow-xl dark:shadow-md bg-[var(--custom-bg-white)] dark:bg-[var(--custom-bg-primary)] h-full relative">
+          <Card className="p-4 lg:p-8 flex flex-col justify-center border-[var(--brand-primary)]/20 shadow-xl dark:shadow-md bg-[var(--brand-white)] dark:bg-[var(--brand-dark)] h-full relative">
             <div className="space-y-4">
               {/* Header Section */}
               <div className="space-y-4 animate-slide-up">
-                <h2 className="text-3xl lg:text-4xl font-bold dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)]  ">
+                <h2 className="text-3xl lg:text-4xl font-bold dark:text-[var(--brand-white)] text-[var(--brand-dark)]  ">
                   {project.project_name}
                 </h2>
-                <p className="text-lg dark:text-[var(--custom-text-white)]/80 text-[var(--custom-text-primary)]/80">
+                <p className="text-lg dark:text-[var(--brand-white)]/80 text-[var(--brand-dark)]/80">
                   {`Experience superior living at ${project.project_name}, a prime development in the heart of ${project.project_location}.`}
                 </p>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-8 h-8 mt-1 dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)] flex-shrink-0" />
-                  <span className="text-sm dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)]">{project.project_location}</span>
+                  <MapPin className="w-8 h-8 mt-1 dark:text-[var(--brand-white)] text-[var(--brand-dark)] flex-shrink-0" />
+                  <span className="text-sm dark:text-[var(--brand-white)] text-[var(--brand-dark)]">{project.project_location}</span>
                 </div>
               </div>
 
@@ -108,7 +108,7 @@ const ProjectInfo = ({ project }: ProjectInfoProps) => {
                 className="space-y-6 animate-scale-in"
                 style={{ animationDelay: "0.2s" }}
               >
-                <h3 className="text-xl font-semibold dark:text-[var(--custom-text-white)] text-[var(--custom-text-primary)] uppercase ">
+                <h3 className="text-xl font-semibold dark:text-[var(--brand-white)] text-[var(--brand-dark)] uppercase ">
                   At a Glance
                 </h3>
 
@@ -116,10 +116,10 @@ const ProjectInfo = ({ project }: ProjectInfoProps) => {
                   {propertyDetails.map((detail, index) => (
                     <div
                       key={index}
-                      className="group/item flex items-center gap-2 lg:gap-4 p-4 rounded-xl bg-[var(--custom-bg-primary)]/5 dark:bg-[var(--custom-bg-white)]/5 border border-[var(--custom-bg-accent)]/20 hover:border-[var(--custom-bg-accent)]/60 hover:bg-[var(--custom-bg-accent)]/10 transition-all duration-300 hover:transform hover:translate-x-1"
+                      className="group/item flex items-center gap-2 lg:gap-4 p-4 rounded-xl bg-[var(--brand-dark)]/5 dark:bg-[var(--brand-white)]/5 border border-[var(--brand-primary)]/20 hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/10 transition-all duration-300 hover:transform hover:translate-x-1"
                       style={{ animationDelay: `${0.1 * index}s` }}
                     >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--custom-bg-accent)]/10 flex items-center justify-center text-[var(--custom-text-secondary)] group-hover/item:bg-[var(--custom-bg-accent)]/20 transition-all duration-300">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--brand-primary)]/10 flex items-center justify-center text-[var(--brand-primary)] group-hover/item:bg-[var(--brand-primary)]/20 transition-all duration-300">
                         {detail.icon}
                       </div>
                       <div className="min-w-0 flex-1">

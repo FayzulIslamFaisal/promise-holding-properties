@@ -5,7 +5,7 @@ import FooterCopyRight from './FooterCopyRight'
 
 const FooterSection = () => {
   return (
-    <div className='bg-(--custom-bg-primary) text-(--custom-text-white) pt-8'>
+    <div className='bg-(--brand-dark) text-(--brand-white) pt-8'>
       {/* footer top area */}
       <FooterTopArea />
       {/* footer widget area */}

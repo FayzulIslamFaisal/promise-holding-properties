@@ -9,7 +9,7 @@ const TopHeader = () => {
   return (
     <div className="container mx-auto px-4 py-3 relative z-1 ">
       <div className="flex justify-between items-center">
-        <div className="text-sm text-[var(--custom-text-secondary)]">
+        <div className="text-sm text-[var(--brand-primary)]">
           <p><PhoneOutgoing className="inline-block mr-1" /> {settings?.general_settings.site_phone || "09647 444 444"}</p>
         </div>
         <div>

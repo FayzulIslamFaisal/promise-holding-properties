@@ -29,7 +29,7 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
 
   if (!project) {
     return (
-      <div className="flex justify-center items-center h-[100vh] w-full text-xl text-[var(--custom-text-primary)]">
+      <div className="flex justify-center items-center h-[100vh] w-full text-xl text-[var(--brand-dark)]">
         Project not found.
       </div>
     );
@@ -42,14 +42,14 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
 
   const featureItems = allFeatures.map(f => ({
       title: f.name,
-      icon: <CheckCircle2 className="w-8 h-8 text-[var(--custom-text-secondary)]" />
+      icon: <CheckCircle2 className="w-8 h-8 text-[var(--brand-primary)]" />
   }));
 
   // If no features, add a default one
   if (featureItems.length === 0) {
       featureItems.push({
           title: "Modern Design",
-          icon: <Building2 className="w-8 h-8 text-[var(--custom-text-secondary)]" />
+          icon: <Building2 className="w-8 h-8 text-[var(--brand-primary)]" />
       });
   }
 

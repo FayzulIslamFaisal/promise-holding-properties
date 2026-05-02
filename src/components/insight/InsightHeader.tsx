@@ -26,7 +26,7 @@ const InsightHeader: React.FC<InsightHeaderProps> = ({ title, date, shortDescrip
             </div>
         </div>
 
-        <p className="text-base md:text-lg darkLight-text-color font-medium leading-relaxed italic border-l-4 border-[var(--custom-bg-accent)] pl-4">
+        <p className="text-base md:text-lg darkLight-text-color font-medium leading-relaxed italic border-l-4 border-[var(--brand-primary)] pl-4">
             {shortDescription}
         </p>
     </div>

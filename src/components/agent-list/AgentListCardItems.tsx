@@ -30,11 +30,11 @@ const AgentListCardItems: React.FC<AgentItemsProps> = ({agent}) => {
                       alt={agent.name}
                       width={96}
                       height={96}
-                      className="rounded-full object-cover border-2 border-[var(--custom-bg-accent)]/30 w-full h-full"
+                      className="rounded-full object-cover border-2 border-[var(--brand-primary)]/30 w-full h-full"
                     />
                     <div
-                      className={`absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-[var(--custom-bg-primary)] ${
-                        agent.isOnline ? "bg-[var(--custom-bg-accent)]" : "bg-gray-400"
+                      className={`absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-[var(--brand-dark)] ${
+                        agent.isOnline ? "bg-[var(--brand-primary)]" : "bg-gray-400"
                       }`}
                     ></div>
                   </div>
@@ -49,7 +49,7 @@ const AgentListCardItems: React.FC<AgentItemsProps> = ({agent}) => {
 
                     <div className="flex items-center gap-2 mt-2">
                       <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-[var(--custom-text-primary)] " />
+                        <Star className="w-4 h-4 fill-[var(--brand-dark)] " />
                         <span className="darkLight-text-color font-medium">{agent.rating}</span>
                       </div>
                       <span className="darkLight-text-color text-sm">
@@ -73,7 +73,7 @@ const AgentListCardItems: React.FC<AgentItemsProps> = ({agent}) => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 pb-2 gap-4 pt-2 border-t border-[var(--custom-bg-accent)]/40">
+                <div className="grid grid-cols-2 pb-2 gap-4 pt-2 border-t border-[var(--brand-primary)]/40">
                   <div className="text-center">
                     <div className="flex items-center justify-center gap-1 /60 text-xs mb-1">
                       <MessageCircle className="w-3 h-3" />
