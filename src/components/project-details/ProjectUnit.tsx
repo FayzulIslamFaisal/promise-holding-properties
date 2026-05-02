@@ -24,11 +24,11 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
   const [activeMedia, setActiveMedia] = useState<MediaItem | null>(null);
 
   // Flatten all units from all buildings
-  const allUnits: ApiProjectUnit[] = project.buildings.flatMap(building => 
+  const allUnits: ApiProjectUnit[] = project.buildings.flatMap(building =>
     building.units.map(unit => ({
-        ...unit,
-        // Ensure image gallery is mapped correctly if the API names are different or empty
-        image_gallery: unit.image_gallery || []
+      ...unit,
+      // Ensure image gallery is mapped correctly if the API names are different or empty
+      image_gallery: unit.image_gallery || []
     }))
   );
 
@@ -37,8 +37,8 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
 
     // Initial media: use main image then gallery
     const initialMedia: MediaItem[] = [
-        { type: 'image', url: unit.image },
-        ...(unit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
+      { type: 'image', url: unit.image },
+      ...(unit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
     ];
 
     if (initialMedia.length > 0) {
@@ -127,17 +127,16 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                 {/* Thumbnails */}
                 <div className="flex gap-4 overflow-x-auto py-2 px-2 custom-scrollbar justify-start items-center">
                   {[
-                      { type: 'image' as const, url: selectedUnit.image },
-                      ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
+                    { type: 'image' as const, url: selectedUnit.image },
+                    ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
                   ].map((media, idx) => (
                     <div
                       key={idx}
                       onClick={() => setActiveMedia(media)}
-                      className={`h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                        activeMedia?.url === media.url 
-                        ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg' 
-                        : 'opacity-50 hover:opacity-80'
-                      }`}
+                      className={`h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${activeMedia?.url === media.url
+                          ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg'
+                          : 'opacity-50 hover:opacity-80'
+                        }`}
                     >
                       <Image src={media.url} fill alt={`Thumbnail ${idx + 1}`} className="object-cover" />
                     </div>
@@ -173,17 +172,17 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                       <p className="font-extrabold text-base">{selectedUnit.usable_area_sqft} <span className="text-xs font-medium">sqft</span></p>
                     </div>
                   </div>
-                  
+
                   {selectedUnit.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-primary/5 border border-gray-100 dark:border-primary/20 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
-                          <div className="p-3 rounded-xl bg-primary/10">
-                            {feature.name.toLowerCase().includes('bed') ? <BedDouble size={22} className="text-primary" /> : <Bath size={22} className="text-primary" />}
-                          </div>
-                          <div>
-                              <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">{feature.name}</p>
-                              <p className="font-extrabold text-base">{feature.value}</p>
-                          </div>
+                    <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-primary/5 border border-gray-100 dark:border-primary/20 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
+                      <div className="p-3 rounded-xl bg-primary/10">
+                        {feature.name.toLowerCase().includes('bed') ? <BedDouble size={22} className="text-primary" /> : <Bath size={22} className="text-primary" />}
                       </div>
+                      <div>
+                        <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">{feature.name}</p>
+                        <p className="font-extrabold text-base">{feature.value}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
 
@@ -191,7 +190,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                   <h3 className="text-lg font-bold mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 inline-block">Unit Availability</h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                     Quantity available: {selectedUnit.unit_quantity}
-                    </p>
+                  </p>
                 </div>
               </div>
             </div>

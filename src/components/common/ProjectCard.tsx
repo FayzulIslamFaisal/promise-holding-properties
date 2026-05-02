@@ -53,7 +53,7 @@ const ProjectCard = ({ project, className }: ProjectCardProps) => {
           {/* Top: Category Badge */}
           <div className="flex justify-start pt-6 ps-6">
             <Badge 
-              className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 ${badgeClass}`}
+              className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 capitalize ${badgeClass}`}
             >
               {project.product_status || "Project"}
             </Badge>
