@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from 'next/link';
 import PageBanner from '@/components/common/PageBanner';
+import SecondaryBanner from '@/components/common/SecondaryBanner';
 
 
 interface Section {
@@ -31,9 +32,14 @@ const PrivacyPolicyContent = () => {
     
   return (
     <>
-    <PageBanner 
+    {/* <PageBanner 
       title="Privacy Policy"
       description="Your privacy is our priority. Learn how we protect and handle your personal information."
+      imageSrc="/assets/images/projects/project11.jpg"
+    /> */}
+    <SecondaryBanner 
+      title="Data Protection"
+      subtitle="Your Security is Our Priority"
       imageSrc="/assets/images/projects/project11.jpg"
     />
 

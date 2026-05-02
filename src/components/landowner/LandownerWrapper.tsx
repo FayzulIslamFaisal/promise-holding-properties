@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import PageBanner from "@/components/common/PageBanner";
+import SecondaryBanner from "@/components/common/SecondaryBanner";
 
 const LandownerSlider = dynamic(() => import('./LandownerSlider'));
 const JointVentureForm = dynamic(() => import('./JointVentureForm'));
@@ -8,10 +9,15 @@ const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial
 const LandownerWrapper = () => {
   return (
     <>
-      <PageBanner 
+      {/* <PageBanner 
         title="Our Commitment to Quality"
         subtitle="Transforming properties into masterpieces"
         description="Connect with our exceptional team of real estate professionals who deliver unparalleled service and expertise in luxury property transactions."
+        imageSrc="/assets/images/contact/banner.jpg"
+      /> */}
+      <SecondaryBanner 
+        title="Joint Venture"
+        subtitle="Partner with the best"
         imageSrc="/assets/images/contact/banner.jpg"
       />
       <LandownerSlider />

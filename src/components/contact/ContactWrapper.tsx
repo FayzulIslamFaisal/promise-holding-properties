@@ -1,14 +1,20 @@
 import dynamic from 'next/dynamic';
 import PageBanner from '@/components/common/PageBanner';
+import SecondaryBanner from '@/components/common/SecondaryBanner';
 const ContactForm = dynamic(() => import('../project-details/ContactForm'));
 const ContactCard = dynamic(() => import('./ContactCard'));
 
 const ContactWrapper = () => {
   return (
     <>
-      <PageBanner 
+      {/* <PageBanner 
         title="Contact Us"
         subtitle="contact our team of professionals for support"
+        imageSrc="/assets/images/contact/banner.jpg"
+      /> */}
+      <SecondaryBanner 
+        title="Get In Touch"
+        subtitle="We are here to assist you"
         imageSrc="/assets/images/contact/banner.jpg"
       />
       <ContactCard />

@@ -12,6 +12,7 @@ import ProjectInfo from "./ProjectInfo";
 import ProjectUnit from "./ProjectUnit";
 
 import PageBanner from '@/components/common/PageBanner';
+import SecondaryBanner from '@/components/common/SecondaryBanner';
 
 const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
 const ProjectFeature = dynamic(() => import('./ProjectFeature'));
@@ -54,9 +55,14 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
 
   return (
     <>
-      <PageBanner 
+      {/* <PageBanner 
         title={project.project_name} 
         subtitle={project.project_location}
+        imageSrc={project.project_image} 
+      /> */}
+      <SecondaryBanner 
+        title={project.project_name}
+        subtitle="Exclusive Property Details"
         imageSrc={project.project_image} 
       />
 

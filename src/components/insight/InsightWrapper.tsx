@@ -1,5 +1,6 @@
 
 import PageBanner from "@/components/common/PageBanner"
+import SecondaryBanner from "@/components/common/SecondaryBanner"
 
 import InsightHeader from "./InsightHeader"
 import { Blog } from "@/types/api"
@@ -11,8 +12,13 @@ interface InsightWrapperProps {
 const InsightWrapper: React.FC<InsightWrapperProps> = ({ blog }) => {
   return (
     <>
-      <PageBanner 
+      {/* <PageBanner 
         title={blog.title} 
+        imageSrc={blog.banner} 
+      /> */}
+      <SecondaryBanner 
+        title={blog.title} 
+        subtitle="Insight & Analysis"
         imageSrc={blog.banner} 
       />
 

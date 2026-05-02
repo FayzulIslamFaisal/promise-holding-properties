@@ -1,13 +1,19 @@
 import PageBanner from "@/components/common/PageBanner"
+import SecondaryBanner from "@/components/common/SecondaryBanner"
 import AllProjectContent from "./AllProjectContent"
 
 const AllProjectWrapper = () => {
   return (
     <>
-      <PageBanner 
+      {/* <PageBanner 
         title="Our Projects"
         subtitle="Exclusive Properties for a Better Life"
         description="Browse our extensive collection of premium properties and find your next investment or home."
+        imageSrc="/assets/images/contact/banner.jpg"
+      /> */}
+      <SecondaryBanner 
+        title="Explore Properties"
+        subtitle="Find your perfect home"
         imageSrc="/assets/images/contact/banner.jpg"
       />
       <AllProjectContent />
