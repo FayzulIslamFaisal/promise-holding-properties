@@ -40,7 +40,7 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
       </div>
       {/* Tabs */}
       <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full text-white mt-8 md:mt-10">
-        <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-primary rounded-xl text-white border border-white/50 shadow">
+        <TabsList className="grid w-full grid-cols-4  max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2 bg-primary rounded-xl text-white border border-white/50 shadow">
           <TabsTrigger 
             value="all" 
             className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
@@ -51,19 +51,19 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
             value="running" 
             className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
-            Running Project
+            Running
           </TabsTrigger>
           <TabsTrigger 
             value="upcoming" 
             className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
-            Upcoming Project
+            Upcoming
           </TabsTrigger>
           <TabsTrigger 
             value="complete" 
             className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
-            Complete Project
+            Complete
           </TabsTrigger>
         </TabsList>
 
