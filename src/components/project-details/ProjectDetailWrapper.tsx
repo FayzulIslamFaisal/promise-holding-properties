@@ -11,7 +11,6 @@ import { ProjectDetail } from "@/types/api";
 import ProjectInfo from "./ProjectInfo";
 import ProjectUnit from "./ProjectUnit";
 
-import PageBanner from '@/components/common/PageBanner';
 import SecondaryBanner from '@/components/common/SecondaryBanner';
 
 const ProjectLocationMap = dynamic(() => import('./ProjectLocationMap'));
@@ -19,7 +18,6 @@ const ProjectFeature = dynamic(() => import('./ProjectFeature'));
 
 const BuildingDrawingSlider = dynamic(() => import('./BuildingDrawingSlider'));
 const ContactForm = dynamic(() => import('./ContactForm'));
-const RelatedProject = dynamic(() => import('./RelatedProject'));
 
 interface ProjectDetailWrapperProps {
   project?: ProjectDetail;
@@ -72,7 +70,6 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
       <ProjectUnit project={project} />
       <ProjectLocationMap project={project} />
       <ContactForm/>
-      {/* <RelatedProject /> */}
     </>
   );
 };

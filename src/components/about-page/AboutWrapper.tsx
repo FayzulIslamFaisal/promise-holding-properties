@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic"
-import PageBanner from "@/components/common/PageBanner"
 import SecondaryBanner from "@/components/common/SecondaryBanner"
 import OurServices from "./OurServices"
 import OurStory from "./OurStory"
@@ -12,12 +11,6 @@ const TeamMember = dynamic(() => import('./TeamMember'));
 const AboutWrapper = () => {
   return (
     <>
-        {/* <PageBanner 
-            title="Premier Real Estate Solutions"
-            subtitle="Your Trusted Real Estate Partner"
-            description="Transforming property dreams into reality with expertise, integrity, and innovation since 2025."
-            imageSrc="/assets/images/contact/banner.jpg"
-        /> */}
         <SecondaryBanner 
             title="Innovation in Real Estate"
             subtitle="Building the Future"
