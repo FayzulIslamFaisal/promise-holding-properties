@@ -30,9 +30,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
   className = '',
 }) => {
   return (
-    <Card
-      className={`relative overflow-hidden aspect-[2/3] group rounded-xl shadow-2xl ${className} py-0`}
-    >
+    <Card className={`relative overflow-hidden aspect-[2/3] group rounded-xl shadow-2xl py-0 ${className}`}>
       {/* Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -87,10 +85,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
             )}
           </div>
 
-          <Link
-            href={`/insight/${id}`}
-            className="btn-glow-accent"
-          >
+          <Link href={`/insight/${id}`} className="btn-glow-accent">
             <span className="mr-2">Read More</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/button:translate-x-1 animate-pulse" />
           </Link>

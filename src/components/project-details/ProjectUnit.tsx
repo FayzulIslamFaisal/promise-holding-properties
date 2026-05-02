@@ -88,7 +88,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
 
         {/* Custom Modal */}
         {selectedUnit && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm">
+          <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm">
             <div className="bg-[var(--bg-body)] rounded-xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-y-auto relative flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
 
               {/* Close Button */}
@@ -149,9 +149,9 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               <div className="w-full md:w-2/5 p-6 md:p-10 flex flex-col darkLight-text-color bg-[var(--brand-dark)]/[0.02]">
                 <div className="mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedUnit.name}</h2>
-                  <p className="text-lg font-semibold text-primary">
+                  {/* <p className="text-lg font-semibold text-primary">
                       {selectedUnit.per_unit_amount.toLocaleString()} BDT
-                  </p>
+                  </p> */}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">

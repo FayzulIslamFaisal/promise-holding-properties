@@ -71,7 +71,6 @@ const TeamMember = async () => {
   return (
     <section className="px-4">
       <div className="container mx-auto sectionSpaceBorder">
-        
         <SectionTitle
               title="Our management"
               border_b={true}
@@ -85,7 +84,7 @@ const TeamMember = async () => {
               <Card
                 key={member.id || index}
                 variant={"hoverEffect"}
-                className="text-center group p-6 min-h-[400px] h-full my-3"
+                className="text-center group p-6 h-full"
               >
                 <CardContent className="p-0 h-full relative">
                   <div className="relative w-40 h-40 mx-auto mb-6">
