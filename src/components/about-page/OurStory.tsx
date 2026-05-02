@@ -77,7 +77,7 @@ const OurStory: React.FC = () => {
               >
                 <CardHeader className="pb-0">
                   <CardTitle className="flex items-center gap-3">
-                    <card.icon className="h-10 w-10 text-[var(--brand-white)] bg-[var(--brand-primary)] p-1 roup-hover:scale-105 group-hover:animate-pulse rounded-lg" />
+                    <card.icon className="h-10 w-10 text-white bg-primary p-1 roup-hover:scale-105 group-hover:animate-pulse rounded-lg" />
                     <h3 className="text-xl capitalize font-semibold">{card.heading}</h3>
                   </CardTitle>
                 </CardHeader>

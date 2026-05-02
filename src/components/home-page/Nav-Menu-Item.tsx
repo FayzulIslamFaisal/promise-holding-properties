@@ -27,7 +27,7 @@ const NavMenuItem = () => {
             tracking-wide 
             text-[16px]
             duration-300 linear 
-            ${isActive ? "text-[var(--brand-primary)] font-bold border-b-2 border-[var(--brand-primary)]" : "text-[var(--brand-white)] font-semibold"}
+            ${isActive ? "text-primary font-bold border-b-2 border-primary" : "text-white font-semibold"}
           `}
             >{item?.label}
             </Link>

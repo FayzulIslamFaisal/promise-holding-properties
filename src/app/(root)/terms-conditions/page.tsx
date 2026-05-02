@@ -126,37 +126,37 @@ const TermsConditions = () => {
       <section>
         <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-[url('/assets/images/projects/project10.jpg')] bg-cover bg-center"></div>
-          <div className="absolute inset-0 bg-[var(--brand-dark)]/20 dark:bg-[var(--brand-primary)]/20 "></div>
+          <div className="absolute inset-0 bg-[var(--brand-dark)]/20 dark:bg-primary/20 "></div>
           <div className="absolute inset-0 privacy-gradient animate-gradient-shift opacity-20"></div>
           <div className="absolute top-20 left-20">
-            <Shield className="w-16 h-16 text-[var(--brand-primary)] animate-float" />
+            <Shield className="w-16 h-16 text-primary animate-float" />
           </div>
           <div className="absolute top-32 right-32">
-            <Lock className="w-12 h-12 text-[var(--brand-primary)] animate-float animation-delay-1000" />
+            <Lock className="w-12 h-12 text-primary animate-float animation-delay-1000" />
           </div>
           <div className="absolute bottom-40 left-32">
-            <Eye className="w-14 h-14 text-[var(--brand-primary)] animate-float animation-delay-3000" />
+            <Eye className="w-14 h-14 text-primary animate-float animation-delay-3000" />
           </div>
           <div className="absolute bottom-20 right-20">
-            <FileText className="w-10 h-10 text-[var(--brand-primary)] animate-float animation-delay-1000" />
+            <FileText className="w-10 h-10 text-primary animate-float animation-delay-1000" />
           </div>
           <div className="relative z-1 text-center max-w-full sm:max-w-4xl mx-auto px-6">
-            <div className="glass-morphism rounded-3xl p-8 md:p-12 border border-[var(--brand-white)]/20">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-[var(--brand-white)]">
+            <div className="glass-morphism rounded-3xl p-8 md:p-12 border border-white/20">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
                 Terms & Conditions
               </h1>
-              <p className="text-lg md:text-xl text-[var(--brand-white)]/80 mb-6 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/80 mb-6 leading-relaxed">
                 Professional real estate services governed by clear,
                 comprehensive terms and conditions.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-6 text-sm text-[var(--brand-white)]/80">
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80">
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-[var(--brand-white)]" />
+                  <Shield className="w-4 h-4 text-white" />
                   <span>Last Updated: January 15, 2025</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-[var(--brand-white)]" />
+                  <FileText className="w-4 h-4 text-white" />
                   <span>Effective: January 15, 2025</span>
                 </div>
               </div>
@@ -166,14 +166,14 @@ const TermsConditions = () => {
       </section>
 
       <section className="px-4 ">
-        <div className="container mx-auto py-10 md:py-12 border-b border-[var(--brand-primary)]/20">
+        <div className="container mx-auto py-10 md:py-12 border-b border-primary/20">
           <div className="grid gap-6">
             {termsData.map((section, index) => (
               <Card key={section.id} className="gap-2 hover:scale-100" variant={"hoverEffect"}>
                 <CardHeader className="pb-0">
                   <CardTitle className="flex items-center text-xl gap-4">
-                    <div className="p-3 rounded-lg text-[var(--brand-white)] bg-[var(--brand-primary)]">{section.icon}</div>
-                    <span className="font-semibold text-lg md:text-2xl border-b border-[var(--brand-primary)]/40 pb-1">
+                    <div className="p-3 rounded-lg text-white bg-primary">{section.icon}</div>
+                    <span className="font-semibold text-lg md:text-2xl border-b border-primary/40 pb-1">
                       {index + 1}. {section.title}
                     </span>
                   </CardTitle>
@@ -189,9 +189,9 @@ const TermsConditions = () => {
           <Card className="mt-8 hover:scale-100 " variant={"hoverEffect"}>
             <CardContent className="pt-6">
               <div className="flex items-start gap-4">
-                <AlertTriangle className="h-10 w-10 text-[var(--brand-white)] bg-[var(--brand-primary)] rounded-lg p-1 flex-shrink-0" />
+                <AlertTriangle className="h-10 w-10 text-white bg-primary rounded-lg p-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-[var(--brand-primary)] text-lg md:text-2xl mb-2">Important Notice</h3>
+                  <h3 className="font-semibold text-primary text-lg md:text-2xl mb-2">Important Notice</h3>
                   <p className="text-sm darkLight-text-color  leading-relaxed">
                     These terms and conditions constitute a legally binding agreement. If you have any questions or
                     concerns about these terms, please consult with a legal professional or contact our legal department

@@ -42,14 +42,14 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
 
   const featureItems = allFeatures.map(f => ({
       title: f.name,
-      icon: <CheckCircle2 className="w-8 h-8 text-[var(--brand-primary)]" />
+      icon: <CheckCircle2 className="w-8 h-8 text-primary" />
   }));
 
   // If no features, add a default one
   if (featureItems.length === 0) {
       featureItems.push({
           title: "Modern Design",
-          icon: <Building2 className="w-8 h-8 text-[var(--brand-primary)]" />
+          icon: <Building2 className="w-8 h-8 text-primary" />
       });
   }
 

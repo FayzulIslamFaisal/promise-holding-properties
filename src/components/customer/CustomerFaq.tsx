@@ -10,24 +10,24 @@ const CustomerFaq = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* FAQs */}
                         <div>
-                            <h2 id="faqs" className="text-lg md:text-xl font-semibold text-[var(--brand-dark)] dark:text-[var(--brand-white)] mb-4">
+                            <h2 id="faqs" className="text-lg md:text-xl font-semibold text-[var(--brand-dark)] dark:text-white mb-4">
                             FAQs
                             </h2>
                             <div className="space-y-5">
                             <div>
-                                <p className="font-semibold text-[var(--brand-dark)] dark:text-[var(--brand-white)] text-sm md:text-base">
+                                <p className="font-semibold text-[var(--brand-dark)] dark:text-white text-sm md:text-base">
                                 What is the process for buying a property?
                                 </p>
-                                <p className="mt-1 text-[var(--brand-primary)] text-sm">
+                                <p className="mt-1 text-primary text-sm">
                                 Answer a common requirements as a natural approach to perfection depths.
                                 </p>
                             </div>
 
                             <div>
-                                <p className="font-semibold text-[var(--brand-dark)] dark:text-[var(--brand-white)] text-sm md:text-base">
+                                <p className="font-semibold text-[var(--brand-dark)] dark:text-white text-sm md:text-base">
                                 Are there any additional fees or charges?
                                 </p>
-                                <p className="mt-1 text-[var(--brand-primary)] text-sm">
+                                <p className="mt-1 text-primary text-sm">
                                 More information on any tanning fees or charges.
                                 </p>
                             </div>
@@ -38,23 +38,23 @@ const CustomerFaq = () => {
                         <div className="flex flex-col gap-4">
                             <h2
                             id="contact-us"
-                            className="text-lg md:text-xl font-semibold text-[var(--brand-dark)] dark:text-[var(--brand-white)] mb-2"
+                            className="text-lg md:text-xl font-semibold text-[var(--brand-dark)] dark:text-white mb-2"
                             >
                             Contact Us
                             </h2>
 
                             <ul className="space-y-3">
                             <li className="flex items-center gap-3">
-                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-primary)]">
-                                <Phone className="h-4 w-4 text-[var(--brand-white)]" aria-hidden="true" />
+                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary">
+                                <Phone className="h-4 w-4 text-white" aria-hidden="true" />
                                 </span>
-                                <span className="text-[var(--brand-dark)] dark:text-[var(--brand-white)] text-sm md:text-base">09647 444 444</span>
+                                <span className="text-[var(--brand-dark)] dark:text-white text-sm md:text-base">09647 444 444</span>
                             </li>
                             <li className="flex items-center gap-3">
-                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-primary)]">
-                                <Mail className="h-4 w-4 text-[var(--brand-white)]" aria-hidden="true" />
+                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary">
+                                <Mail className="h-4 w-4 text-white" aria-hidden="true" />
                                 </span>
-                                <span className="text-[var(--brand-dark)] dark:text-[var(--brand-white)] text-sm md:text-base">
+                                <span className="text-[var(--brand-dark)] dark:text-white text-sm md:text-base">
                             info@promiseholding.com
                                 </span>
                             </li>

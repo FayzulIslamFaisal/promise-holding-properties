@@ -46,10 +46,10 @@ const ProjectCard = ({ project, className }: ProjectCardProps) => {
         </div>
         
         {/* Primary Gradient Overlay from Bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-primary)]/80 via-[var(--brand-primary)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--brand-primary)]/90 group-hover:via-[var(--brand-primary)]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90 group-hover:via-primary/30" />
         
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-between text-[var(--brand-white)]">
+        <div className="absolute inset-0 flex flex-col justify-between text-white">
           {/* Top: Category Badge */}
           <div className="flex justify-start pt-6 ps-6">
             <Badge 

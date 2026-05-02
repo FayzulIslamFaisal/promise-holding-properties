@@ -41,18 +41,18 @@ export const InsightCard: React.FC<InsightCardProps> = ({
           fill
           className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-dark)]/60 dark:from-[var(--brand-primary)]/60 via-[var(--brand-dark)]/40  dark:via-[var(--brand-dark)]/40 to-[var(--brand-white)]/10 dark:to-[var(--brand-white)]/10 transition-opacity duration-500 group-hover:opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-dark)]/60 dark:from-primary/60 via-[var(--brand-dark)]/40  dark:via-[var(--brand-dark)]/40 to-white/10 dark:to-white/10 transition-opacity duration-500 group-hover:opacity-90" />
       </div>
 
       {/* Overlay content */}
       <div className="relative z-1 flex flex-col justify-between h-full p-6">
         {/* Top badges */}
         <div className="flex justify-between items-start">
-          <Badge className="bg-[var(--brand-primary)]/90 dark:bg-[var(--brand-dark)]/90 text-[var(--brand-white)] backdrop-blur-sm border-0">
+          <Badge className="bg-primary/90 dark:bg-[var(--brand-dark)]/90 text-white backdrop-blur-sm border-0">
             {category}
           </Badge>
           {featured && (
-            <Badge className="bg-[var(--brand-dark)]/90 text-[var(--brand-white)] backdrop-blur-sm border-0">
+            <Badge className="bg-[var(--brand-dark)]/90 text-white backdrop-blur-sm border-0">
               Featured
             </Badge>
           )}
@@ -61,16 +61,16 @@ export const InsightCard: React.FC<InsightCardProps> = ({
         {/* Middle content */}
         <div className="mt-auto">
           <div className="flex items-center gap-2 text-sm mb-2">
-            <Calendar className="w-4 h-4 text-[var(--brand-white)]" />
-            <span className="text-[var(--brand-white)]">{date}</span>
+            <Calendar className="w-4 h-4 text-white" />
+            <span className="text-white">{date}</span>
           </div>
 
-          <h3 className="2xl:text-2xl lg:text-lg md:text-md text-base font-bold dark:text-[var(--brand-white)]/80 text-[var(--brand-white)] mb-2 line-clamp-2 transition-colors duration-300 group-hover:text-[var(--brand-white)]">
+          <h3 className="2xl:text-2xl lg:text-lg md:text-md text-base font-bold dark:text-white/80 text-white mb-2 line-clamp-2 transition-colors duration-300 group-hover:text-white">
             {title}
           </h3>
 
           {excerpt && (
-            <p className="text-[var(--brand-white)]/80 text-sm mb-4 line-clamp-3 transition-colors duration-300 group-hover:text-[var(--brand-white)]">
+            <p className="text-white/80 text-sm mb-4 line-clamp-3 transition-colors duration-300 group-hover:text-white">
               {excerpt}
             </p>
           )}
@@ -80,7 +80,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
         <div className="flex justify-between items-end">
           <div className="flex gap-2 text-sm">
             {views !== undefined && (
-              <div className="flex items-center gap-1 dark:bg-[var(--brand-dark)] bg-[var(--brand-primary)] text-[var(--brand-white)] px-2 py-1 rounded-full backdrop-blur-sm">
+              <div className="flex items-center gap-1 dark:bg-[var(--brand-dark)] bg-primary text-white px-2 py-1 rounded-full backdrop-blur-sm">
                 <Eye className="w-3 h-3" />
                 <span>{views.toLocaleString()}</span>
               </div>

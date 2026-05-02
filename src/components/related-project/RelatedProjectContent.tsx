@@ -142,9 +142,9 @@ const relatedProjects: RelatedProject[] = [
 
 const RelatedProjectContent = () => {
   return (
-    <section className=" px-4 dark:bg-[var(--bg-body)] bg-[var(--brand-white)]" >
+    <section className=" px-4 dark:bg-[var(--bg-body)] bg-white" >
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-10 md:py-14 border-b border-[var(--brand-primary)]/40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-10 md:py-14 border-b border-primary/40">
           {relatedProjects.map((relatedProject) => (
             <RelatedProjectCard key={relatedProject.id} relatedProject={relatedProject} />
           ))}

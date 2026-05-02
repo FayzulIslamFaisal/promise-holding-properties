@@ -39,10 +39,10 @@ const GetStartedService = () => {
               variant={"hoverEffect"}
             >
               <CardHeader>
-                <div className="w-20 h-20 bg-[var(--brand-primary)] rounded-full flex items-center justify-center mx-auto mb-2 hover:bg-[var(--brand-primary)]/80 transition-colors duration-300">
-                  <Icon className="w-10 h-10 text-[var(--brand-white)] group-hover:animate-pulse" />
+                <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-2 hover:bg-primary/80 transition-colors duration-300">
+                  <Icon className="w-10 h-10 text-white group-hover:animate-pulse" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-[var(--brand-primary)]">
+                <CardTitle className="text-2xl font-bold text-primary">
                   {title}
                 </CardTitle>
               </CardHeader>

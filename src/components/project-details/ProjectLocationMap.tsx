@@ -83,7 +83,7 @@ const ProjectLocationMap = ({ project }: ProjectLocationMapProps) => {
   });
 
   return (
-    <section className="border-b border-[var(--brand-primary)]/40">
+    <section className="border-b border-primary/40">
       <div className="mx-auto w-full">
         <div className="w-full relative md:h-[600px] h-[400px] overflow-hidden">
           <MapContainer
@@ -106,7 +106,7 @@ const ProjectLocationMap = ({ project }: ProjectLocationMapProps) => {
                         href={project.google_map_link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-[var(--brand-primary)] text-[10px] underline block mt-1"
+                        className="text-primary text-[10px] underline block mt-1"
                     >
                         Open in Google Maps
                     </a>

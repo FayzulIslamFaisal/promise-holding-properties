@@ -9,7 +9,7 @@ const cardVariants = cva(
         default:
           "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
         hoverEffect:
-          "bg-[var(--brand-primary)]/10 hover:bg-[var(--brand-primary)]/20 dark:bg-[var(--brand-dark)] border border-[var(--brand-primary)]/40 shadow-md hover:shadow-lg dark:shadow-[0_4px_6px_rgba(255,255,255,0.1)] dark:hover:shadow-[0_4px_10px_rgba(255,255,255,0.2)] hover:scale-102 transition-all duration-300 ease-in-out",
+          "bg-primary/10 hover:bg-primary/20 dark:bg-[var(--brand-dark)] border border-primary/40 shadow-md hover:shadow-lg dark:shadow-[0_4px_6px_rgba(255,255,255,0.1)] dark:hover:shadow-[0_4px_10px_rgba(255,255,255,0.2)] hover:scale-102 transition-all duration-300 ease-in-out",
         },
       shadow: {
         none: "shadow-none",

@@ -28,22 +28,22 @@ const ProjectVideoThumbnail = () => {
               fill
               className="rounded-lg w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 dark:bg-[var(--brand-primary)]/30 bg-[var(--brand-dark)]/30 rounded-lg transition-all duration-500 group-hover:bg-[var(--brand-dark)]/40 dark:group-hover:bg-[var(--brand-primary)]/40" />
+            <div className="absolute inset-0 dark:bg-primary/30 bg-[var(--brand-dark)]/30 rounded-lg transition-all duration-500 group-hover:bg-[var(--brand-dark)]/40 dark:group-hover:bg-primary/40" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-[var(--brand-primary)] border-3 border-[var(--brand-white)] opacity-50 animate-ping scale-110" />
+                <div className="absolute inset-0 rounded-full bg-primary border-3 border-white opacity-50 animate-ping scale-110" />
                   <div 
                     className="relative z-1 w-20 h-20 
                       dark:bg-[var(--brand-dark)]/80
                       hover:dark:bg-[var(--brand-dark)]/100 
-                      bg-[var(--brand-white)]
+                      bg-white
                       backdrop-blur-xl backdrop-saturate-200 
-                      border border-[var(--brand-white)]/10 
+                      border border-white/10 
                       transition-all duration-300 
                       rounded-full flex items-center justify-center 
-                      shadow-xl shadow-[var(--brand-primary)]/80"
+                      shadow-xl shadow-primary/80"
                   >
-                      <Play className="w-10 h-10 dark:text-[var(--brand-white)] text-[var(--brand-dark)]" />
+                      <Play className="w-10 h-10 dark:text-white text-[var(--brand-dark)]" />
                     </div>
                 </div>
               </div>

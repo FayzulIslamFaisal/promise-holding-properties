@@ -15,20 +15,20 @@ const OurServiceCard: React.FC<{ service: ServiceCardData }> = ({ service }) => 
 
   return (
     <Card className="group relative py-0" variant={"hoverEffect"}>
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-dark)]/10 to-from-[var(--brand-primary)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-dark)]/10 to-from-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <CardContent className="p-8 relative z-1">
         <div className="mb-6">
-          <div className="w-16 h-16 bg-[var(--brand-primary)] rounded-2xl flex items-center justify-center mb-4 transition-all duration-500">
+          <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4 transition-all duration-500">
             {isImageIcon ? (
               <Image src={service.icon as string} alt={service.title} width={40} height={40} className="w-10 h-10 object-contain group-hover:animate-pulse" />
             ) : (
-              (() => { const ServiceIcon = service.icon as React.ElementType; return <ServiceIcon className="w-10 h-10 darkLight-text-color text-[var(--brand-white)] group-hover:animate-pulse" />; })()
+              (() => { const ServiceIcon = service.icon as React.ElementType; return <ServiceIcon className="w-10 h-10 darkLight-text-color text-white group-hover:animate-pulse" />; })()
             )}
           </div>
         </div>
 
-        <h3 className="text-2xl font-bold text-[var(--brand-dark)] dark:text-[var(--brand-primary)] dark:group-hover:text-[var(--brand-white)] mb-4 ">
+        <h3 className="text-2xl font-bold text-[var(--brand-dark)] dark:text-primary dark:group-hover:text-white mb-4 ">
           {service.title}
         </h3>
 

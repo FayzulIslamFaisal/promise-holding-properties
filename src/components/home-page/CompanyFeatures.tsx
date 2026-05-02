@@ -33,20 +33,20 @@ const featureItems: FeatureItem[] = [
 
 const CompanyFeatures = () => {
  return (
-    <section className="dark:bg-[var(--bg-body)] bg-[var(--brand-white)]/10 py-10 md:py-14 px-4">
+    <section className="dark:bg-[var(--bg-body)] bg-white/10 py-10 md:py-14 px-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {featureItems.map(({ id, icon: Icon, title }) => (
             <div key={id} className="group relative h-full shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-xl">
               {/* Hover effect layer (appears from bottom on hover) */}
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[var(--brand-primary)]/60 to-[var(--brand-primary)] opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 z-0 hover:animate-pulse"></div>
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary/60 to-primary opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 z-0 hover:animate-pulse"></div>
               
               {/* Main card content */}
-              <div className="relative h-full dark:bg-[var(--brand-dark)] bg-[var(--brand-primary)]/10 hover:bg-[var(--brand-white)] border border-[var(--brand-dark)]/20 dark:border-[var(--brand-primary)]/20 rounded-xl transition-all duration-300 p-6 flex flex-col items-center text-center group-hover:-translate-y-1 z-1 ">
-                <div className=" text-[var(--brand-white)] rounded-full p-4 mb-4 bg-[var(--brand-primary)] shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+              <div className="relative h-full dark:bg-[var(--brand-dark)] bg-primary/10 hover:bg-white border border-[var(--brand-dark)]/20 dark:border-primary/20 rounded-xl transition-all duration-300 p-6 flex flex-col items-center text-center group-hover:-translate-y-1 z-1 ">
+                <div className=" text-white rounded-full p-4 mb-4 bg-primary shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   <Icon className="size-8" />
                 </div>
-                <p className="text-[var(--brand-primary)] text-sm font-semibold leading-snug">
+                <p className="text-primary text-sm font-semibold leading-snug">
                   {title}
                 </p>
               </div>

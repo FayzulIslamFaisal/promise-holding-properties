@@ -16,25 +16,25 @@ const LandownerSliderCard = ({ card, Icon }: Props) => {
   return (
     <Card className="group relative h-70 py-0 border-0 bg-transparent cursor-pointer transition-all duration-500 hover:scale-102 overflow-hidden">
       {/* Glassmorphism Background */}
-      <div className="absolute inset-0 bg-[var(--brand-white)]/10 backdrop-blur-md rounded-xl border border-[var(--brand-white)]/20 transition-all duration-500 group-hover:bg-[var(--brand-dark)]/20 group-hover:border-[var(--brand-white)]/40 z-1" />
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 transition-all duration-500 group-hover:bg-[var(--brand-dark)]/20 group-hover:border-white/40 z-1" />
 
       {/* Glowing Border Layer */}
       <div className="absolute inset-0 z-1 rounded-xl">
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-dark)]/40 via-[var(--brand-primary)]/20 to-[var(--brand-dark)]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute inset-[1px] rounded-xl bg-[var(--brand-white)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-dark)]/40 via-primary/20 to-[var(--brand-dark)]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-[1px] rounded-xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
 
       {/* Content */}
       <CardContent className="relative z-1 h-full flex flex-col items-center justify-center px-6 py-8 text-center">
-        <div className="mb-6 p-4 rounded-full bg-[var(--brand-white)]/10 backdrop-blur-sm border border-[var(--brand-white)]/20 transition-all duration-500 group-hover:bg-bg-[var(--brand-dark)]/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-white/40">
-          <Icon className="w-8 h-8 text-[var(--brand-white)] transition-all duration-500 group-hover:text-[var(--brand-white)]" />
+        <div className="mb-6 p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-500 group-hover:bg-bg-[var(--brand-dark)]/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-white/40">
+          <Icon className="w-8 h-8 text-white transition-all duration-500 group-hover:text-white" />
         </div>
 
-        <h3 className="text-md font-bold text-[var(--brand-white)] mb-3 transition-all duration-500 group-hover:text-[var(--brand-white)] group-hover:scale-105">
+        <h3 className="text-md font-bold text-white mb-3 transition-all duration-500 group-hover:text-white group-hover:scale-105">
           {card.title}
         </h3>
 
-        <p className="text-[var(--brand-white)]/80 text-sm leading-relaxed transition-all duration-500 group-hover:text-[var(--brand-white)]/90">
+        <p className="text-white/80 text-sm leading-relaxed transition-all duration-500 group-hover:text-white/90">
           {card.description}
         </p>
 

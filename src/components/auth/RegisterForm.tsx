@@ -13,7 +13,7 @@ export default function RegisterForm() {
   return (
     <form className="space-y-4">
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="register-name">Full Name</Label>
+        <Label className="dark:text-white text-white" htmlFor="register-name">Full Name</Label>
         <div className="relative">
           <User className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input id="register-name" type="text" placeholder="Enter your full name" className="pl-10 h-12 bg-[var(--bg-body)] darkLight-text-color" />
@@ -21,7 +21,7 @@ export default function RegisterForm() {
       </div>
 
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="register-email">Email Address</Label>
+        <Label className="dark:text-white text-white" htmlFor="register-email">Email Address</Label>
         <div className="relative">
           <Mail className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input id="register-email" type="email" placeholder="Enter your email" className="pl-10 h-12 bg-[var(--bg-body)] darkLight-text-color " />
@@ -29,7 +29,7 @@ export default function RegisterForm() {
       </div>
 
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="register-phone">Phone Number</Label>
+        <Label className="dark:text-white text-white" htmlFor="register-phone">Phone Number</Label>
         <div className="relative">
           <Phone className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input id="register-phone" type="tel" placeholder="Enter your phone number" className="pl-10 h-12 bg-[var(--bg-body)] darkLight-text-color" />
@@ -37,7 +37,7 @@ export default function RegisterForm() {
       </div>
 
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="register-password">Password</Label>
+        <Label className="dark:text-white text-white" htmlFor="register-password">Password</Label>
         <div className="relative">
           <Lock className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input
@@ -53,7 +53,7 @@ export default function RegisterForm() {
       </div>
 
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="confirm-password">Confirm Password</Label>
+        <Label className="dark:text-white text-white" htmlFor="confirm-password">Confirm Password</Label>
         <div className="relative">
           <Lock className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input

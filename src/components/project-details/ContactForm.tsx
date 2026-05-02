@@ -91,14 +91,14 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
             onChange={(e) => handleInputChange("fullName", e.target.value)}
             onFocus={() => handleFocus("fullName")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-[var(--brand-white)] bg-transparent border-b border-[var(--brand-dark)] dark:border-[var(--brand-primary)] focus:border-[var(--brand-primary)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="fullName"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("fullName", formData.fullName)
-                ? "top-2 text-xs text-[var(--brand-primary)] font-medium"
-                : "top-6 text-[var(--brand-dark)] dark:text-[var(--brand-white)]"
+                ? "top-2 text-xs text-primary font-medium"
+                : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
             Full Name
@@ -113,14 +113,14 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
             onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
             onFocus={() => handleFocus("phoneNumber")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-[var(--brand-white)] bg-transparent border-b border-[var(--brand-dark)] dark:border-[var(--brand-primary)] focus:border-[var(--brand-primary)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="phoneNumber"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("phoneNumber", formData.phoneNumber)
-                ? "top-2 text-xs text-[var(--brand-primary)] font-medium"
-                : "top-6 text-[var(--brand-dark)] dark:text-[var(--brand-white)]"
+                ? "top-2 text-xs text-primary font-medium"
+                : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
             Phone Number
@@ -135,14 +135,14 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
             onChange={(e) => handleInputChange("email", e.target.value)}
             onFocus={() => handleFocus("email")}
             onBlur={handleBlur}
-            className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-[var(--brand-white)] bg-transparent border-b border-[var(--brand-dark)] dark:border-[var(--brand-primary)] focus:border-[var(--brand-primary)] focus:bg-transparent transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary focus:bg-transparent transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="email"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("email", formData.email)
-                ? "top-2 text-xs text-[var(--brand-primary)] font-medium"
-                : "top-6 text-[var(--brand-dark)] dark:text-[var(--brand-white)]"
+                ? "top-2 text-xs text-primary font-medium"
+                : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
             Email Address
@@ -157,14 +157,14 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
             onFocus={() => handleFocus("message")}
             onBlur={handleBlur}
             rows={2}
-            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--brand-dark)] dark:text-[var(--brand-white)] bg-transparent border-b border-[var(--brand-dark)] dark:border-[var(--brand-primary)] focus:border-[var(--brand-primary)] transition-all duration-200 outline-none peer"
+            className="w-full pe-4 pt-6 pb-1 resize-none text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary transition-all duration-200 outline-none peer"
           />
           <label
             htmlFor="message"
             className={`absolute left-0 transition-all duration-200 pointer-events-none ${
               isLabelFloating("message", formData.message)
-                ? "top-2 text-xs text-[var(--brand-primary)] font-medium"
-                : "top-6 text-[var(--brand-dark)] dark:text-[var(--brand-white)]"
+                ? "top-2 text-xs text-primary font-medium"
+                : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
             Your Message

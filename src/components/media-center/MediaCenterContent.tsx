@@ -27,11 +27,11 @@ const MediaCenterContent = () => {
   }, []);
 
   return (
-    <section className="px-4 dark:bg-[var(--bg-body)] bg-[var(--brand-white)]">
+    <section className="px-4 dark:bg-[var(--bg-body)] bg-white">
       <div className="container mx-auto">
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-10 h-10 animate-spin text-[var(--brand-primary)]" />
+            <Loader2 className="w-10 h-10 animate-spin text-primary" />
           </div>
         ) : blogs.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sectionSpaceBorder">

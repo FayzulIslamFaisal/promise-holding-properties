@@ -141,9 +141,9 @@ const RelatedProject = () => {
   return (
     <div>
       <section className="px-4">
-        <div className="container mx-auto pt-10 pb-10 md:pb-12 md:pt-12 border-b border-[var(--brand-primary)]/40">
+        <div className="container mx-auto pt-10 pb-10 md:pb-12 md:pt-12 border-b border-primary/40">
           <div className="mb-6 lg:mb-10 flex items-center justify-between">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-[var(--brand-white)] text-[var(--brand-dark)]">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-[var(--brand-dark)]">
             Related Projects
           </h2>
           <div className="">

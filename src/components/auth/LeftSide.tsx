@@ -15,7 +15,7 @@ export default function LeftSide() {
         />
       </div>
       
-      <div className="absolute bottom-8 left-8 z-2 text-[var(--brand-white)]">
+      <div className="absolute bottom-8 left-8 z-2 text-white">
         <div className="flex items-center gap-2 mb-4">
           <Home className="h-10 w-10" />
           <span className="text-2xl font-bold">LuxeEstate</span>

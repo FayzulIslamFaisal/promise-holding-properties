@@ -74,7 +74,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                 fill
                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-primary)]/80 via-[var(--brand-primary)]/20 to-transparent transition-opacity duration-300 group-hover:from-[var(--brand-primary)]/90 group-hover:via-[var(--brand-primary)]/30">
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90 group-hover:via-primary/30">
                 <div className="absolute bottom-4 left-4 right-4 z-0 p-2 flex flex-col gap-1 transform transition-transform duration-300 group-hover:-translate-y-2">
                   <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-sm">{item.name}</h3>
                   <div className="flex justify-between items-center mt-1">
@@ -102,7 +102,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               {/* Gallery Section */}
               <div className="w-full md:w-3/5 bg-[var(--bg-body)] p-4 md:p-6 shrink-0 md:border-r border-gray-200 dark:border-gray-800 flex flex-col">
                 {/* Main Display */}
-                <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-[var(--brand-dark)]/5 mb-6 flex items-center justify-center shadow-lg border border-[var(--brand-primary)]/10">
+                <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-[var(--brand-dark)]/5 mb-6 flex items-center justify-center shadow-lg border border-primary/10">
                   {activeMedia?.type === 'video' ? (
                     <video
                       src={activeMedia.url}
@@ -135,7 +135,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                       onClick={() => setActiveMedia(media)}
                       className={`h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
                         activeMedia?.url === media.url 
-                        ? 'ring-2 ring-[var(--brand-primary)] ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg' 
+                        ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg' 
                         : 'opacity-50 hover:opacity-80'
                       }`}
                     >
@@ -149,24 +149,24 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               <div className="w-full md:w-2/5 p-6 md:p-10 flex flex-col darkLight-text-color bg-[var(--brand-dark)]/[0.02]">
                 <div className="mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedUnit.name}</h2>
-                  <p className="text-lg font-semibold text-[var(--brand-primary)]">
+                  <p className="text-lg font-semibold text-primary">
                       {selectedUnit.per_unit_amount.toLocaleString()} BDT
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[var(--brand-primary)]/5 border border-gray-100 dark:border-[var(--brand-primary)]/20 shadow-sm transition-all hover:shadow-md hover:border-[var(--brand-primary)]/30">
-                    <div className="p-3 rounded-xl bg-[var(--brand-primary)]/10">
-                      <Square size={22} className="text-[var(--brand-primary)]" />
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-primary/5 border border-gray-100 dark:border-primary/20 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
+                    <div className="p-3 rounded-xl bg-primary/10">
+                      <Square size={22} className="text-primary" />
                     </div>
                     <div>
                       <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">Gross Area</p>
                       <p className="font-extrabold text-base">{selectedUnit.gross_area_sft} <span className="text-xs font-medium">sft</span></p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[var(--brand-primary)]/5 border border-gray-100 dark:border-[var(--brand-primary)]/20 shadow-sm transition-all hover:shadow-md hover:border-[var(--brand-primary)]/30">
-                    <div className="p-3 rounded-xl bg-[var(--brand-primary)]/10">
-                      <Info size={22} className="text-[var(--brand-primary)]" />
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-primary/5 border border-gray-100 dark:border-primary/20 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
+                    <div className="p-3 rounded-xl bg-primary/10">
+                      <Info size={22} className="text-primary" />
                     </div>
                     <div>
                       <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">Usable Area</p>
@@ -175,9 +175,9 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                   </div>
                   
                   {selectedUnit.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[var(--brand-primary)]/5 border border-gray-100 dark:border-[var(--brand-primary)]/20 shadow-sm transition-all hover:shadow-md hover:border-[var(--brand-primary)]/30">
-                          <div className="p-3 rounded-xl bg-[var(--brand-primary)]/10">
-                            {feature.name.toLowerCase().includes('bed') ? <BedDouble size={22} className="text-[var(--brand-primary)]" /> : <Bath size={22} className="text-[var(--brand-primary)]" />}
+                      <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-primary/5 border border-gray-100 dark:border-primary/20 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
+                          <div className="p-3 rounded-xl bg-primary/10">
+                            {feature.name.toLowerCase().includes('bed') ? <BedDouble size={22} className="text-primary" /> : <Bath size={22} className="text-primary" />}
                           </div>
                           <div>
                               <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">{feature.name}</p>

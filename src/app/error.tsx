@@ -22,9 +22,9 @@ export default function Error({
       </p>
       <button
         onClick={() => reset()}
-        className="bg-[var(--brand-primary)] cursor-pointer text-[var(--brand-white)] hover:opacity-90 transition px-5 py-2 rounded-md shadow-sm"
+        className="bg-primary cursor-pointer text-white hover:opacity-90 transition px-5 py-2 rounded-md shadow-sm"
       >
-        <span className="flex items-center gap-2  text-[var(--brand-white)]">
+        <span className="flex items-center gap-2  text-white">
             <RefreshCcw className="size-5 md:size-6" />
             Try Again
         </span>

@@ -28,17 +28,17 @@ const MediaCenterContentCard: React.FC<MediaCenterContentCardProps> = ({ newslet
     >
       <CardContent className="p-0 relative h-full  pb-4 md:pb-6">
         <div className="p-4 md:p-6 relative h-full pb-8">
-            <div className="relative overflow-hidden w-full h-[300px] md:h-[400px] rounded-lg border border-[var(--brand-white)]/40 shadow-xl group-hover:shadow-2xl transition-shadow duration-300">
+            <div className="relative overflow-hidden w-full h-[300px] md:h-[400px] rounded-lg border border-white/40 shadow-xl group-hover:shadow-2xl transition-shadow duration-300">
               <Image
                   src={newsletter.coverImage || "/placeholder.svg"}
                   alt={newsletter.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <Badge className="absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-2xl bg-[var(--brand-primary)] dark:bg-[var(--brand-dark)] text-[var(--brand-white)] shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+              <Badge className="absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-2xl bg-primary dark:bg-[var(--brand-dark)] text-white shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   {newsletter.tags}
               </Badge>
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-dark)]/60 dark:from-[var(--brand-primary)]/60 via-[var(--brand-dark)]/40  dark:via-[var(--brand-dark)]/40 to-[var(--brand-white)]/10 dark:to-[var(--brand-white)]/10 transition-opacity duration-500 group-hover:opacity-90" ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-dark)]/60 dark:from-primary/60 via-[var(--brand-dark)]/40  dark:via-[var(--brand-dark)]/40 to-white/10 dark:to-white/10 transition-opacity duration-500 group-hover:opacity-90" ></div>
             </div>
             <div className="pt-4 pb-6">
               <h3 className="darkLight-text-color text-lg font-semibold mb-3 leading-tight">

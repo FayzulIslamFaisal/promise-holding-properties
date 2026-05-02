@@ -39,29 +39,29 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
         <SectionTitle title="Our Projects" subtitle="Discover our portfolio of innovative construction and architectural projects" border_b={true}/>
       </div>
       {/* Tabs */}
-      <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full text-[var(--brand-white)] mt-8 md:mt-10">
-        <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-[var(--brand-primary)] rounded-xl text-[var(--brand-white)] border border-[var(--brand-white)]/50 shadow">
+      <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full text-white mt-8 md:mt-10">
+        <TabsList className="grid w-full grid-flow-row sm:grid-cols-4  max-w-full sm:max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2  bg-primary rounded-xl text-white border border-white/50 shadow">
           <TabsTrigger 
             value="all" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--brand-white)] dark:text-[--brand-black] transition-all duration-200 data-[state=active]:bg-[var(--brand-black)] dark:data-[state=active]:bg-[var(--brand-white)] data-[state=active]:text-[var(--brand-white)] dark:data-[state=active]:text-[var(--brand-black)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
             All
           </TabsTrigger>
           <TabsTrigger 
             value="running" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--brand-white)] dark:text-[--brand-black] transition-all duration-200 data-[state=active]:bg-[var(--brand-black)] dark:data-[state=active]:bg-[var(--brand-white)] data-[state=active]:text-[var(--brand-white)] dark:data-[state=active]:text-[var(--brand-black)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
             Running Project
           </TabsTrigger>
           <TabsTrigger 
             value="upcoming" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--brand-white)] dark:text-[--brand-black] transition-all duration-200 data-[state=active]:bg-[var(--brand-black)] dark:data-[state=active]:bg-[var(--brand-white)] data-[state=active]:text-[var(--brand-white)] dark:data-[state=active]:text-[var(--brand-black)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
             Upcoming Project
           </TabsTrigger>
           <TabsTrigger 
             value="complete" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-[var(--brand-white)] dark:text-[--brand-black] transition-all duration-200 data-[state=active]:bg-[var(--brand-black)] dark:data-[state=active]:bg-[var(--brand-white)] data-[state=active]:text-[var(--brand-white)] dark:data-[state=active]:text-[var(--brand-black)] data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
           >
             Complete Project
           </TabsTrigger>
@@ -103,7 +103,7 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
               </Swiper>
             </div>
           ) : (
-            <div className="w-full py-12 text-center border-2 border-dashed border-[var(--brand-primary)]/30 rounded-xl bg-[var(--brand-primary)]/5">
+            <div className="w-full py-12 text-center border-2 border-dashed border-primary/30 rounded-xl bg-primary/5">
               <p className="text-lg md:text-xl font-medium darkLight-text-color">
                 No projects found for this category at the moment.
               </p>

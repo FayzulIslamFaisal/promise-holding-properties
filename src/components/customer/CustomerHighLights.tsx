@@ -27,15 +27,15 @@ const highlightData: HighlightColumn[] = [
     title: "Property Highlights",
     items: [
       {
-        icon: <MapPin className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <MapPin className="h-4 w-4 text-white" />,
         label: "Prime Locations",
       },
       {
-        icon: <DollarSign className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <DollarSign className="h-4 w-4 text-white" />,
         label: "Competitive Prices",
       },
       {
-        icon: <Building2 className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <Building2 className="h-4 w-4 text-white" />,
         label: "Modern Facilities",
       },
     ],
@@ -44,15 +44,15 @@ const highlightData: HighlightColumn[] = [
     title: "Why Choose Us",
     items: [
       {
-        icon: <CheckCircle2 className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <CheckCircle2 className="h-4 w-4 text-white" />,
         label: "Trusted Service",
       },
       {
-        icon: <Users className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <Users className="h-4 w-4 text-white" />,
         label: "Experienced Team",
       },
       {
-        icon: <Headphones className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <Headphones className="h-4 w-4 text-white" />,
         label: "24/7 Support",
       },
     ],
@@ -61,15 +61,15 @@ const highlightData: HighlightColumn[] = [
     title: "Our Commitment",
     items: [
       {
-        icon: <ShieldCheck className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <ShieldCheck className="h-4 w-4 text-white" />,
         label: "Secure Transactions",
       },
       {
-        icon: <ThumbsUp className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <ThumbsUp className="h-4 w-4 text-white" />,
         label: "Customer Satisfaction",
       },
       {
-        icon: <Clock className="h-4 w-4 text-[var(--brand-white)]" />,
+        icon: <Clock className="h-4 w-4 text-white" />,
         label: "On-Time Delivery",
       },
     ],
@@ -94,7 +94,7 @@ const CustomerHighLights = () => {
                   <ul className="space-y-4">
                     {highlight?.items.map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
-                        <span className="inline-flex h-10 w-10 text-center justify-center items-center rounded-full bg-[var(--brand-primary)]">
+                        <span className="inline-flex h-10 w-10 text-center justify-center items-center rounded-full bg-primary">
                           {item?.icon}
                         </span>
                         <span className="darkLight-text-color text-sm md:text-base">

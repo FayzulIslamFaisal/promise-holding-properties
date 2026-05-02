@@ -55,14 +55,14 @@ const ServiceProcess = async () => {
                 return (
                 <div key={s.id || index} className="relative flex items-start gap-6">
                   {/* Step Number */}
-                  <div className="flex-shrink-0 w-16 h-16 bg-[var(--brand-primary)]/90 text-[var(--brand-white)] rounded-full flex items-center justify-center font-bold text-lg relative z-1">
+                  <div className="flex-shrink-0 w-16 h-16 bg-primary/90 text-white rounded-full flex items-center justify-center font-bold text-lg relative z-1">
                     {s.number || String(index + 1).padStart(2, "0")}
                   </div>
 
                   {/* Content */}
                   <div className="pt-2">
-                    <h3 className="text-lg md:text-2xl font-semibold text-[var(--brand-dark)] dark:text-[var(--brand-white)] flex items-center gap-4">{s.title} <CheckCircle className="h-6 w-6 text-[var(--brand-primary)]" /></h3>
-                    <p className="text-[var(--brand-dark)] dark:text-[var(--brand-white)]/60 text-md sm:text-lg">{s.description}</p>
+                    <h3 className="text-lg md:text-2xl font-semibold text-[var(--brand-dark)] dark:text-white flex items-center gap-4">{s.title} <CheckCircle className="h-6 w-6 text-primary" /></h3>
+                    <p className="text-[var(--brand-dark)] dark:text-white/60 text-md sm:text-lg">{s.description}</p>
                   </div>
                 </div>
               ); })}

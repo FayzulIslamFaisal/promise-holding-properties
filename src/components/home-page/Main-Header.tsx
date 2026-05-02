@@ -32,7 +32,7 @@ const MainHeader = () => {
 
         {/* Hamburger Mobile Menu Button */}
         <div className="lg:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-[var(--brand-primary)] cursor-pointer">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-primary cursor-pointer">
             {isMobileMenuOpen ? <X size={28} /> : <AlignRight size={28} />}
           </button>
         </div>

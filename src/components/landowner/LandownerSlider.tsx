@@ -80,7 +80,7 @@ const LandownerSlider = () => {
               "url('/assets/images/landowner/landownerSliderBg.jpg')",
           }}
         >
-          <div className="absolute inset-0 bg-[var(--brand-dark)]/20 backdrop-filter dark:bg-[var(--brand-primary)]/20 z-1" />
+          <div className="absolute inset-0 bg-[var(--brand-dark)]/20 backdrop-filter dark:bg-primary/20 z-1" />
         </div>
 
         <div className="relative z-1 flex items-center justify-center h-full">

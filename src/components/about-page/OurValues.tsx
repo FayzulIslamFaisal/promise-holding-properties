@@ -18,25 +18,25 @@ const fallbackValues: ValueData[] = [
     id: 1,
     title: "Honesty",
     description: "We believe in transparent communication and honest dealings in every transaction.",
-    icon: <Shield className="h-13 w-13 text-[var(--brand-white)]" />,
+    icon: <Shield className="h-13 w-13 text-white" />,
   },
   {
     id: 2,
     title: "Trust",
     description: "Building long-term relationships based on trust and reliability with our clients.",
-    icon: <Heart className="h-13 w-13 text-[var(--brand-white)]" />,
+    icon: <Heart className="h-13 w-13 text-white" />,
   },
   {
     id: 3,
     title: "Innovation",
     description: "Leveraging cutting-edge technology and innovative marketing strategies for better results.",
-    icon: <Lightbulb className="h-13 w-13 text-[var(--brand-white)]" />,
+    icon: <Lightbulb className="h-13 w-13 text-white" />,
   },
   {
     id: 4,
     title: "Excellence",
     description: "Committed to delivering exceptional service and exceeding client expectations.",
-    icon: <Award className="h-13 w-13 text-[var(--brand-white)]" />,
+    icon: <Award className="h-13 w-13 text-white" />,
   },
 ]
 
@@ -70,7 +70,7 @@ const OurValues = async () => {
                 >
                 <CardContent className="px-2">
                     <div
-                        className="inline-block p-2 mx-auto mb-2 bg-[var(--brand-primary)] rounded-xl 
+                        className="inline-block p-2 mx-auto mb-2 bg-primary rounded-xl 
                         transition-all duration-300 ease-in-out 
                         drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)] 
                         group-hover:drop-shadow-[0_6px_12px_rgba(255,255,255,0.4)] 

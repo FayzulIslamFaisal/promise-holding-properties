@@ -15,7 +15,7 @@ export default function LoginForm() {
   return (
     <form className="space-y-4">
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="login-email">Email Address</Label>
+        <Label className="dark:text-white text-white" htmlFor="login-email">Email Address</Label>
         <div className="relative">
           <Mail className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input id="login-email" type="email" placeholder="Enter your email" className="pl-10 h-12 bg-[var(--bg-body)] darkLight-text-color" />
@@ -23,7 +23,7 @@ export default function LoginForm() {
       </div>
 
       <div className="space-y-2">
-        <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)]" htmlFor="login-password">Password</Label>
+        <Label className="dark:text-white text-white" htmlFor="login-password">Password</Label>
         <div className="relative">
           <Lock className="absolute left-3 top-[50%] translate-y-[-50%] h-4 w-4 text-muted-foreground" />
           <Input
@@ -49,11 +49,11 @@ export default function LoginForm() {
             checked={rememberMe}
             onCheckedChange={(value: boolean | "indeterminate") => setRememberMe(value === true)}
           />
-          <Label className="dark:text-[var(--brand-white)] text-[var(--brand-white)] text-sm cursor-pointer" htmlFor="remember" >
+          <Label className="dark:text-white text-white text-sm cursor-pointer" htmlFor="remember" >
             Remember me
           </Label>
         </div>
-        <Link href="#" type="button" className="text-sm text-[var(--brand-white)]">
+        <Link href="#" type="button" className="text-sm text-white">
           Forgot Password?
         </Link>
       </div>

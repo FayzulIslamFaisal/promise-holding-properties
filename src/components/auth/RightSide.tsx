@@ -11,13 +11,13 @@ export default function RightSide() {
   return (
     <div className="w-full lg:w-1/2 flex items-center justify-center p-4 md:p-8 darkLight-body-bg-color">
       {/* <div className="w-full max-w-md space-y-6"> */}
-        <Card className="gap-3 shadow-[0_4px_10px_rgba(0,0,0,0.5)] dark:shadow-[0_0_25px_rgba(255,255,255,0.5)] bg-[var(--brand-dark)] backdrop-blur-sm border border-[var(--brand-primary)]/40">
+        <Card className="gap-3 shadow-[0_4px_10px_rgba(0,0,0,0.5)] dark:shadow-[0_0_25px_rgba(255,255,255,0.5)] bg-[var(--brand-dark)] backdrop-blur-sm border border-primary/40">
           <CardHeader className="text-center pb-4">
             <div className="">
-                <User className="mx-auto mb-2 shadow-[0_0_25px_rgba(255,255,255,0.3)] p-2 rounded-2xl h-14 w-14 bg-[var(--brand-primary)] text-[var(--brand-white)]" />
+                <User className="mx-auto mb-2 shadow-[0_0_25px_rgba(255,255,255,0.3)] p-2 rounded-2xl h-14 w-14 bg-primary text-white" />
             </div>
-            <CardTitle className="text-2xl md:text-4xl font-bold text-[var(--brand-primary)]">Welcome Back</CardTitle>
-            <CardDescription className="text-[var(--brand-white)] text-base">Access your luxury real estate portal</CardDescription>
+            <CardTitle className="text-2xl md:text-4xl font-bold text-primary">Welcome Back</CardTitle>
+            <CardDescription className="text-white text-base">Access your luxury real estate portal</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
@@ -25,10 +25,10 @@ export default function RightSide() {
                 <TabsTrigger
                     value="login"
                     className="
-                    data-[state=active]:bg-[var(--brand-primary)] 
-                    data-[state=active]:text-[var(--brand-white)] 
+                    data-[state=active]:bg-primary 
+                    data-[state=active]:text-white 
                     dark:data-[state=active]:bg-[var(--brand-dark)] 
-                    dark:data-[state=active]:text-[var(--brand-white)] 
+                    dark:data-[state=active]:text-white 
                     transition-all duration-200 cursor-pointer
                     "
                 >
@@ -38,10 +38,10 @@ export default function RightSide() {
                 <TabsTrigger
                     value="register"
                     className="
-                    data-[state=active]:bg-[var(--brand-primary)] 
-                    data-[state=active]:text-[var(--brand-white)] 
+                    data-[state=active]:bg-primary 
+                    data-[state=active]:text-white 
                     dark:data-[state=active]:bg-[var(--brand-dark)] 
-                    dark:data-[state=active]:text-[var(--brand-white)] 
+                    dark:data-[state=active]:text-white 
                     transition-all duration-200 cursor-pointer
                     "
                 >
@@ -56,10 +56,10 @@ export default function RightSide() {
               </TabsContent>
             </Tabs>
 
-            <div className="mt-6 text-center text-sm text-[var(--brand-white)]">
+            <div className="mt-6 text-center text-sm text-white">
               By continuing, you agree to our{" "}
-              <Link href="/terms-conditions" className="text-sm font-bold text-[var(--brand-primary)]">Terms of Service</Link> and{" "}
-              <Link href="/privacy-policy" className="text-sm font-bold text-[var(--brand-primary)] ">Privacy Policy</Link>
+              <Link href="/terms-conditions" className="text-sm font-bold text-primary">Terms of Service</Link> and{" "}
+              <Link href="/privacy-policy" className="text-sm font-bold text-primary ">Privacy Policy</Link>
             </div>
           </CardContent>
         </Card>
