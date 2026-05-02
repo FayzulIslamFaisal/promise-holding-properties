@@ -52,7 +52,6 @@ const FooterWidgetArea = () => {
       }
     };
     const quickLinks: QuickLink[] = [
-      { id: 1, title: "Customer Enquiry", path: "/customer" },
       { id: 2, title: "Our Services", path: "/services" },
       { id: 3, title: "About Us", path: "/about" },
       { id: 4, title: "Contact Us", path: "/contact" },

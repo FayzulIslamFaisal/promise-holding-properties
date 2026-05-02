@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { Button } from '../ui/button';
-import { LogIn, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import Image from 'next/image';
 import clsx from 'clsx';
 
@@ -68,11 +68,6 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
           ))}
         </nav>
         
-        <div className="mt-6 relative z-1">
-          <Button className="bg-[var(--custom-bg-accent)] text-[var(--custom-text-secondary)] hover:bg-[var(--custom-bg-accent-hover)] w-full">
-            <LogIn className="mr-2" /> Log Out
-          </Button>
-        </div>
       </div>
     </div>
   );

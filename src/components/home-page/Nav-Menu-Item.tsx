@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { LogIn } from "lucide-react"
 import ModeToggle from "../ModeToggle";
 import { usePathname } from "next/navigation";
 
@@ -36,9 +35,6 @@ const NavMenuItem = () => {
       </nav>
       <div className=" flex items-center gap-4">
         <ModeToggle />
-        <Link href="/login" className="btn-glow-accent">
-          <LogIn className="mr-2 animate-pulse" /> Login
-        </Link>
       </div>
       
     </div>
