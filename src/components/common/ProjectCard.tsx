@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import NextImage from 'next/image';
+import { Button } from '@/components/ui/button';
 import { Project } from '@/types/api';
 
 interface ProjectCardProps {
@@ -15,7 +16,7 @@ interface ProjectCardProps {
 const getBadgeClass = (status: string | undefined) => {
   switch (status?.toLowerCase()) {
     case 'running':
-      return '!bg-yellow-500 !text-white';
+      return '!bg-primary !text-white';
     case 'upcoming':
       return '!bg-blue-500 !text-white';
     case 'complete':
@@ -60,18 +61,23 @@ const ProjectCard = ({ project, className }: ProjectCardProps) => {
           </div>
           
           {/* Bottom: Project Info */}
-          <div className="space-y-3 p-6 transform transition-transform duration-300 group-hover:-translate-y-2">
-            <h3 className="text-white text-2xl font-bold leading-tight drop-shadow-sm">
-              {project.name}
-            </h3>
-            <div className="flex items-center space-x-2 text-white/90 drop-shadow-sm">
-              <MapPin size={16} className="text-white/90" />
-              <span className="text-sm font-medium">{project.location}</span>
+          <div className="space-y-4 p-6 transform transition-transform duration-300 group-hover:-translate-y-2">
+            <div>
+              <h3 className="text-white text-2xl font-bold leading-tight drop-shadow-sm mb-1">
+                {project.name}
+              </h3>
+              <div className="flex items-center space-x-2 text-white/90 drop-shadow-sm">
+                <MapPin size={16} className="text-white/90" />
+                <span className="text-sm font-medium">{project.location}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-300 w-fit">
+
+            <Button 
+              className="w-full bg-white/10 text-white hover:bg-white/90 hover:!text-primary transition-all duration-300 rounded-lg font-bold tracking-wider group/btn shadow-lg border-0"
+            >
               View Project Details
-              <ArrowRight className="w-4 h-4" />
-            </div>
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+            </Button>
           </div>
         </div>
         

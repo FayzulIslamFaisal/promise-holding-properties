@@ -43,27 +43,27 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
         <TabsList className="grid w-full grid-cols-4  max-w-2xl mx-auto gap-2 h-full sm:h-14 p-2 bg-primary rounded-xl text-white border border-white/50 shadow">
           <TabsTrigger 
             value="all" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:!bg-white data-[state=active]:!text-primary data-[state=active]:shadow-md hover:!bg-white hover:!text-primary"
           >
             All
           </TabsTrigger>
           <TabsTrigger 
-            value="running" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
+            value="running"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:!bg-white data-[state=active]:!text-primary data-[state=active]:shadow-md hover:!bg-white hover:!text-primary"
           >
             Running
           </TabsTrigger>
           <TabsTrigger 
-            value="upcoming" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
+            value="upcoming"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:!bg-white data-[state=active]:!text-primary data-[state=active]:shadow-md hover:!bg-white hover:!text-primary"
           >
             Upcoming
           </TabsTrigger>
           <TabsTrigger 
-            value="complete" 
-            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-white dark:data-[state=active]:text-black data-[state=active]:shadow-md"
+            value="complete"
+            className="rounded-lg text-sm font-medium cursor-pointer w-full text-white dark:text-black transition-all duration-200 data-[state=active]:!bg-white data-[state=active]:!text-primary data-[state=active]:shadow-md hover:!bg-white hover:!text-primary"
           >
-            Complete
+            Completed
           </TabsTrigger>
         </TabsList>
 
@@ -74,7 +74,7 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
                 slidesPerView={1}
                 spaceBetween={10}
                 autoplay={{
-                  delay: 3000, 
+                  delay: 3000,
                   disableOnInteraction: false,
                 }}
                 navigation={{
