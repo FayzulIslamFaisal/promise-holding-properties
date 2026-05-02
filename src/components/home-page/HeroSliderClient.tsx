@@ -91,7 +91,7 @@ export default function SuperFlowSlider({ banners }: HeroSliderProps) {
       className="relative w-full h-[calc(100vh-94px)] overflow-hidden"
     >
       {/* Overlay background for dim effect */}
-      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-2 dark:bg-[var(--custom-bg-accent)]/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[var(--custom-bg-primary)]/20 z-1 dark:bg-[var(--custom-bg-accent)]/20 pointer-events-none" />
 
       <Swiper
         key={slides.length}
@@ -137,7 +137,7 @@ export default function SuperFlowSlider({ banners }: HeroSliderProps) {
               }}
             >
               {slide.slug ? (
-                <Link href={`/project/${slide.slug}`} className="absolute inset-0 z-10 block">
+                <Link href={`/project/${slide.slug}`} className="absolute inset-0 z-2 block">
                   <Image
                     src={slide.image}
                     alt={slide.title}

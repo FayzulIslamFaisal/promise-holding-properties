@@ -27,18 +27,14 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
         </div>
         
         {/* Light Mode Overlay - Custom Accent (Brand) Color */}
-        <div className="absolute inset-0 bg-[var(--custom-bg-accent)]/25 dark:opacity-0 transition-opacity duration-500" />
-
+        <div className="absolute inset-0 bg-[var(--custom-bg-accent)]/35 dark:opacity-0 transition-opacity duration-500" />
         {/* Dark Mode Overlay - Elegant Dark Gradient with Brand Accent Influence */}
         <div className="absolute inset-0 opacity-0 dark:opacity-100 bg-gradient-to-b from-[var(--custom-bg-accent)]/40 via-black/50 to-black/95 transition-opacity duration-500" />
 
 
-
-
-
         {/* Content - Centered Text with Premium Typography */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
-          <h2 className="text-[var(--custom-text-white)] text-2xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-[0_6px_8px_rgba(0,0,0,0.9)] leading-tight animate-in fade-in zoom-in duration-700">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-1">
+          <h2 className="text-[var(--custom-text-white)] text-2xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-md leading-tight animate-in fade-in zoom-in duration-700">
             {title}
           </h2>
           {subtitle && (

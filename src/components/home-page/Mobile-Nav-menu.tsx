@@ -17,11 +17,11 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
     { id: 3, path: '/services', label: 'Services' },
     { id: 4, path: '/contact', label: 'Contact' },
   ];
-  
+
   return (
     <div
       className={clsx(
-        "fixed top-0 left-0 z-4 h-screen w-full transition-all duration-300 linear lg:hidden backdrop-blur-xs",
+        "fixed top-0 left-0 z-[100] h-screen w-full transition-all duration-300 linear lg:hidden backdrop-blur-xs",
         isMobileMenuOpen
           ? "translate-x-0 opacity-100 pointer-events-auto"
           : "-translate-x-full opacity-0 pointer-events-none"
@@ -31,8 +31,8 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
       <div className="bg-[var(--custom-bg-primary)] p-4 overlay-header relative w-[340px] h-full">
         <div className="text-[var(--custom-text-white)] relative z-1">
           <div className="flex justify-end items-center">
-            <button 
-              className='cursor-pointer' 
+            <button
+              className='cursor-pointer'
               onClick={(e) => {
                 e.stopPropagation();
                 onMobileMenuToggle(false);
@@ -41,7 +41,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
               <X size={28} />
             </button>
           </div>
-            
+
           <div className="pt-8">
             <Image
               src="/assets/images/Web-Logo.png"
@@ -51,7 +51,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
             />
           </div>
         </div>
-        
+
         <nav className="flex flex-col space-y-4 relative z-1 pt-8">
           {navLinks.map((item) => (
             <Link
@@ -67,7 +67,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
             </Link>
           ))}
         </nav>
-        
+
       </div>
     </div>
   );
