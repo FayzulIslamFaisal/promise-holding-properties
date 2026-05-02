@@ -79,7 +79,7 @@ const InsightsSection: React.FC = () => {
                 <InsightCard 
                   id={blog.slug} // Using slug for link as per common practice
                   title={blog.title}
-                  category={blog.tags.split(',')[0] || "Blog"} // Assuming tags is comma separated
+                  category={blog.tags?.split(',')[0] || "Blog"} // Assuming tags is comma separated
                   date={new Date(blog.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                   image={blog.banner}
                   excerpt={blog.short_description}

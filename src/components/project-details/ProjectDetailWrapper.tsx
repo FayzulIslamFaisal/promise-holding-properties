@@ -72,7 +72,7 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
       <ProjectUnit project={project} />
       <ProjectLocationMap project={project} />
       <ContactForm/>
-      <RelatedProject />
+      {/* <RelatedProject /> */}
     </>
   );
 };
