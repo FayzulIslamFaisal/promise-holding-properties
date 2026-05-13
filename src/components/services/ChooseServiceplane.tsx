@@ -39,12 +39,12 @@ const ChooseServiceplane = async () => {
         <SectionTitle title="Why Choose Our Services" border_b={true} />
 
         {/* New 4-column layout */}
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {features.map((feature: ChooseService | Feature, index: number) => {
             const f = feature as ChooseService & Feature;
             const isStringIcon = typeof f.icon === "string";
             const IconComponent = !isStringIcon ? f.icon as React.ComponentType<{ className?: string }> : null;
-            
+
             return (
               <Card
                 key={f.id || index}
@@ -68,12 +68,12 @@ const ChooseServiceplane = async () => {
               </Card>
             );
           })}
-        </div> */}
+        </div>
 
         {/* Old Layout (Commented Out) */}
-        <div className="grid lg:grid-cols-2 md:gap-12 gap-8 items-center">
+        {/* <div className="grid lg:grid-cols-2 md:gap-12 gap-8 items-center">
           <div>
-            {/* <SectionTitle title="Choose Our Services" border_b={false} /> */}
+            <SectionTitle title="Choose Our Services" border_b={false} />
             <div className="space-y-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-4 group">
@@ -117,7 +117,7 @@ const ChooseServiceplane = async () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>
