@@ -18,35 +18,14 @@ const ProjectVideoThumbnail = () => {
               border_b={true}/>
           </div>
 
-          <div
-            className="relative w-full aspect-video rounded-lg cursor-pointer border border-[var(--border-subtle)] overflow-hidden shadow-2xl group"
-            // onClick={() => setOpen(true)}
-          >
-            <Image
-              src="/assets/images/slider/banner1.png"
-              alt="Sheltech Windflower"
-              fill
-              className="rounded-lg w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 dark:bg-primary/30 bg-[var(--brand-dark)]/30 rounded-lg transition-all duration-500 group-hover:bg-[var(--brand-dark)]/40 dark:group-hover:bg-primary/40" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-primary border-3 border-white opacity-50 animate-ping scale-110" />
-                  <div 
-                    className="relative z-1 w-20 h-20 
-                      dark:bg-[var(--brand-dark)]/80
-                      hover:dark:bg-[var(--brand-dark)]/100 
-                      bg-white
-                      backdrop-blur-xl backdrop-saturate-200 
-                      border border-white/10 
-                      transition-all duration-300 
-                      rounded-full flex items-center justify-center 
-                      shadow-xl shadow-primary/80"
-                  >
-                      <Play className="w-10 h-10 dark:text-white text-[var(--brand-dark)]" />
-                    </div>
-                </div>
-              </div>
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl border border-[var(--border-subtle)]">
+            <iframe 
+              src="https://www.youtube.com/embed/3H6Evu2hPpE?autoplay=1&loop=1&mute=1&playlist=3H6Evu2hPpE&controls=1&showinfo=0&rel=0" 
+              title="Explore Our Projects" 
+              className="absolute top-0 left-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </section>

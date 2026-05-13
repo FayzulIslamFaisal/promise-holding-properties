@@ -74,7 +74,7 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
   }
 
   return (
-    <section className="px-4">
+    <section id="contact-form-section" className="px-4">
     <div className="container mx-auto sectionSpaceBorder">
       <SectionTitle
           title={title}

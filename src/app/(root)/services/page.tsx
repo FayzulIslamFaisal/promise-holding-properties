@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Explore the comprehensive real estate services offered by Promise Assets, including development, consultancy, and management.",
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const ServicesPage = () => {
   return (
