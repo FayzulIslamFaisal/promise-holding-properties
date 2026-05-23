@@ -1,6 +1,6 @@
 import { Project } from "@/types/api";
-import ProjectCard from "../common/ProjectCard";
 import { projectService } from "@/services";
+import ProjectTabViewsClient from "../home-page/ProjectTabViewsClient";
 
 const AllProjectContent = async () => {
   let projects: Project[] = [];
@@ -20,11 +20,12 @@ const AllProjectContent = async () => {
              No projects found.
            </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sectionSpaceBorder">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+          <ProjectTabViewsClient 
+            projects={projects} 
+            currentTab="all" 
+            viewType="grid" 
+            showTitle={false} 
+          />
         )}
       </div>
     </section>

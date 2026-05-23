@@ -30,7 +30,7 @@ const ProjectCard = ({ project, className }: ProjectCardProps) => {
   const badgeClass = getBadgeClass(project.product_status);
 
   return (
-    <Link href={`/project/${project.slug}`} className={`block ${className || ""}`}>
+    <Link href={`/project/${project.slug}`} className={`block w-full max-w-[380px] mx-auto ${className || ""}`}>
       <motion.div
         className="relative aspect-[2/3] w-full overflow-hidden rounded-xl cursor-pointer group"
         whileHover={{ scale: 1.02 }}
