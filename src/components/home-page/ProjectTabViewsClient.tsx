@@ -119,7 +119,7 @@ const ProjectTabViewsClient = ({
                     1199: { slidesPerView: 3, spaceBetween: 15 },
                     1380: { slidesPerView: 4, spaceBetween: 15 },
                   }}
-                  className="w-full overflow-hidden"
+                  className={`w-full overflow-hidden ${!shouldShowNavigation ? '[&>.swiper-wrapper]:justify-center' : ''}`}
                 >
                   {filteredProjects.map((project) => (
                     <SwiperSlide key={project.id} className="!h-auto pb-8 pt-2">
@@ -137,9 +137,13 @@ const ProjectTabViewsClient = ({
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-8">
+              <div className="flex flex-wrap justify-center gap-6 py-8">
                 {filteredProjects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <ProjectCard 
+                    key={project.id} 
+                    project={project} 
+                    className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] xl:w-[calc(25%-18px)] max-w-[380px]" 
+                  />
                 ))}
               </div>
             )
