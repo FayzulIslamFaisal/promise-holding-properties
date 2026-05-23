@@ -24,7 +24,6 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [slidesPerView, setSlidesPerView] = useState(1);
   const [shouldShowNavigation, setShouldShowNavigation] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,6 @@ const ProjectTabViewsClient = ({ projects = [], currentTab = 'all' }: ProjectTab
       else if (width >= 640) spv = 2;
       else spv = 1;
       
-      setSlidesPerView(spv);
       setShouldShowNavigation(projects.length > spv);
     };
 

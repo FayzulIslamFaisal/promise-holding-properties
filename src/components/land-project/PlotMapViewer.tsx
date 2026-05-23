@@ -1,6 +1,6 @@
 "use client"
 
-import { Map as MapIcon, Info, CheckCircle2, XCircle } from "lucide-react"
+import { Map as MapIcon, Info, CheckCircle2 } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 

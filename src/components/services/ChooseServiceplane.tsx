@@ -1,4 +1,4 @@
-import { Award, Check, Clock, Shield, TrendingUp } from "lucide-react";
+import { Award, Clock, Shield, TrendingUp } from "lucide-react";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import SectionTitle from "../common/SectionTitle";

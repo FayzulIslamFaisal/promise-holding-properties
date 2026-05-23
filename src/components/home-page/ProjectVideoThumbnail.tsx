@@ -1,7 +1,5 @@
 
 // import { useState } from 'react'
-import { Play } from 'lucide-react'
-import Image from 'next/image'
 import SectionTitle from '../common/SectionTitle'
 // import ProjectVideoModal from './ProjectVideoModal'
 
