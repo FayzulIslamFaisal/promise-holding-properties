@@ -72,7 +72,7 @@ const OurStory = async () => {
       <div className="container mx-auto sectionSpaceBorder">
         {/* Title */}
           <SectionTitle 
-              title={storyData.subtitle}
+              title={storyData.title || "Our Story"}
               border_b={true}
           />
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -82,10 +82,7 @@ const OurStory = async () => {
               {storyData.subtitle}
             </h3>
             {storyData.description.map((para, index) => (
-              <p
-                key={index}
-                className="text-lg leading-relaxed darkLight-text-color mb-6 last:mb-0"
-              >
+              <p key={index} className="text-lg leading-relaxed darkLight-text-color mb-6 last:mb-0">
                 {para}
               </p>
             ))}

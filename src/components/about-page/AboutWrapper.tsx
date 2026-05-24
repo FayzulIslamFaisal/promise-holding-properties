@@ -3,7 +3,7 @@ import SecondaryBanner from "@/components/common/SecondaryBanner"
 import OurServices from "./OurServices"
 import OurStory from "./OurStory"
 import OurValues from "./OurValues"
-import WhyChoose from "./WhyChoose"
+import WhyChooseOurServices from "@/components/services/WhyChooseOurServices"
 
 const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial'));
 const TeamMember = dynamic(() => import('./TeamMember'));
@@ -19,7 +19,7 @@ const AboutWrapper = () => {
         <OurStory />
         <OurValues />
         <TeamMember />
-        <WhyChoose />
+        <WhyChooseOurServices />
         <OurServices />
         <ProjectTestimonial autoplay={true} />
     </>

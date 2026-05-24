@@ -10,6 +10,8 @@ import { SessionProvider } from "@/components/providers/SessionProvider";
 import { settingService } from "@/services";
 import { SettingsProvider } from "@/providers/SettingsProvider";
 
+export const dynamic = "force-dynamic";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
