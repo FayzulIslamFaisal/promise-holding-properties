@@ -99,6 +99,22 @@ export interface ManagementMember {
 }
 
 // ---------------------------------------------------------------------------
+// About Us
+// ---------------------------------------------------------------------------
+export interface AboutUs {
+  id: number;
+  title: string;
+  short_title: string;
+  description: string;
+  mission: string;
+  vision: string;
+  image: string;
+  status: number;
+  created_at: string;
+  updated_at: string;
+}
+
+// ---------------------------------------------------------------------------
 // Our Services
 // ---------------------------------------------------------------------------
 export interface OurService {

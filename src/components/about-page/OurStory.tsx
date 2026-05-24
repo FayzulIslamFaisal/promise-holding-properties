@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, Users, LucideIcon } from "lucide-react"
 import SectionTitle from "../common/SectionTitle"
+import { aboutService } from "@/services"
+import type { AboutUs } from "@/types/api"
 
 // Interfaces
 interface StoryCard {
@@ -17,30 +19,52 @@ interface StoryData {
   cards: StoryCard[]
 }
 
-const OurStory: React.FC = () => {
-  const storyData: StoryData = {
-    title: "Our Story",
-    subtitle: "Who We Are",
-    description: [
-      "Founded in 2025, Promise Assets has grown from a small local agency to one of the most trusted names in the industry. Our journey began with a simple mission: to provide honest, professional, and personalized real estate services to our community.",
-      "Today, we continue to uphold these values while embracing innovation and technology to better serve our clients in an ever-evolving market."
-    ],
-    cards: [
-      {
-        id: 1,
-        icon: Building2,
-        heading: "Our Mission",
-        content:
-          "To provide exceptional real estate services that help our clients achieve their property goals while building lasting relationships based on trust and integrity.",
-      },
-      {
-        id: 2,
-        icon: Users,
-        heading: "Our Vision",
-        content:
-          "To be the leading real estate agency recognized for innovation, excellence, and unwavering commitment to client satisfaction.",
-      },
-    ],
+const OurStory = async () => {
+  let storyData: StoryData | null = null
+  let error: string | null = null
+
+  try {
+    const response = await aboutService.getAboutUs()
+    
+    if (response.data) {
+      const aboutData: AboutUs = response.data
+      
+      // Transform API data to component data structure
+      storyData = {
+        title: aboutData.title,
+        subtitle: aboutData.short_title,
+        description: [aboutData.description],
+        cards: [
+          {
+            id: 1,
+            icon: Building2,
+            heading: "Our Mission",
+            content: aboutData.mission,
+          },
+          {
+            id: 2,
+            icon: Users,
+            heading: "Our Vision",
+            content: aboutData.vision,
+          },
+        ],
+      }
+    }
+  } catch (err) {
+    console.error("Error fetching about data:", err)
+    error = "Failed to load about information"
+  }
+
+  if (error || !storyData) {
+    return (
+      <section className="px-4">
+        <div className="container mx-auto sectionSpaceBorder">
+          <div className="flex justify-center items-center py-12">
+            <p className="text-lg text-red-500">{error || "Failed to load about information"}</p>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (

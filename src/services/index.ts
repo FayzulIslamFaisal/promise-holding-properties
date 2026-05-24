@@ -3,6 +3,7 @@
 // =============================================================================
 
 export { authService } from "./auth.service";
+export { aboutService } from "./about.service";
 export { bannerService } from "./banner.service";
 export { memberService } from "./member.service";
 export { projectService } from "./project.service";
