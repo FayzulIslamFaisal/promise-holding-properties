@@ -4,14 +4,12 @@ import { testimonialService } from "@/services";
 
 interface TestimonialsProps {
   autoplay?: boolean;
-  titleAlign?: "left" | "center" | "right";
-  title?: string;
+  titleAlign?: "center" | "left";
 }
 
 const Testimonials = async ({ 
   autoplay = false, 
-  titleAlign = "center",
-  title 
+  titleAlign = "center"
 }: TestimonialsProps) => {
   let testimonials: Testimonial[] = [];
   let error: string | null = null;
@@ -41,7 +39,6 @@ const Testimonials = async ({
       autoplay={autoplay} 
       titleAlign={titleAlign} 
       testimonials={testimonials}
-      title={title}
     />
   );
 };
