@@ -6,7 +6,7 @@ import OurValues from "./OurValues"
 import WhyChooseOurServices from "@/components/services/WhyChooseOurServices"
 
 const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial'));
-const TeamMember = dynamic(() => import('./TeamMember'));
+// const TeamMember = dynamic(() => import('./TeamMember'));
 
 const AboutWrapper = () => {
   return (
@@ -18,7 +18,7 @@ const AboutWrapper = () => {
         />
         <OurStory />
         <OurValues />
-        <TeamMember />
+        {/* <TeamMember /> */}
         <WhyChooseOurServices />
         <OurServices />
         <ProjectTestimonial autoplay={true} />

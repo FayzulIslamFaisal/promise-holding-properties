@@ -11,6 +11,7 @@ const NavMenuItem = () => {
     { id: 3, path: '/project', label: 'Projects' },
     { id: 4, path: '/landowner', label: 'Landowner' },
     { id: 5, path: '/services', label: 'Services' },
+    { id: 7, path: '/career', label: 'Career' },
     { id: 6, path: '/contact', label: 'Contact' },
   ];
   return (

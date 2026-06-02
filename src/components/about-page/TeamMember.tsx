@@ -92,7 +92,7 @@ const TeamMember = async () => {
                       src={
                         m.image || "/assets/images/placeholder.png"
                       }
-                      className="rounded-full object-cover dark:shadow-[0_6px_4px_rgba(255,255,255,0.5)] shadow-[0_6px_4px_rgba(0,0,0,0.5)]"
+                      className="rounded-full object-cover object-top dark:shadow-[0_6px_4px_rgba(255,255,255,0.5)] shadow-[0_6px_4px_rgba(0,0,0,0.5)]"
                       fill
                       alt={m.name || m.title || ""}
                     />

@@ -1,9 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@source "../../src/app";
-@source "../../src/components";
-@source "../../src/lib";
+@source "../**/*.{js,ts,jsx,tsx}";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -85,12 +83,16 @@
   --brand-dark: oklch(23.00% 0.004 106.69);
 
   /* ========== 📝 Semantic Text Colors ========== */
-  --text-heading: var(--brand-dark);                /* 🔄 dark mode → white */
-  --text-body: var(--brand-dark);                   /* 🔄 dark mode → white */
+  --text-heading: var(--brand-dark);
+  /* 🔄 dark mode → white */
+  --text-body: var(--brand-dark);
+  /* 🔄 dark mode → white */
 
   /* ========== 🎨 Semantic Background Colors ========== */
-  --bg-body: oklch(100.00% 0.000 0);               /* 🔄 dark mode → dark gray */
-  --bg-surface: oklch(100.00% 0.000 0);            /* 🔄 dark mode → dark surface */
+  --bg-body: oklch(100.00% 0.000 0);
+  /* 🔄 dark mode → dark gray */
+  --bg-surface: oklch(100.00% 0.000 0);
+  /* 🔄 dark mode → dark surface */
 
   /* ========== 🔲 Borders ========== */
   --border-subtle: oklch(100% 0 none / 30%);
@@ -143,8 +145,15 @@
     @apply border-border outline-ring/50;
   }
 }
+
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-poppins);
     font-weight: 700;
     line-height: 1.2;
@@ -164,37 +173,25 @@ body {
 
 @layer components {
   .btn-glow-accent {
-    @apply flex items-center gap-2 
-      bg-primary 
-      text-primary-foreground 
-      px-4 py-2 
-      rounded-md 
-      shadow-2xl
-      border 
-      border-primary/50 
-      hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] 
-      hover:border-black 
-      hover:bg-black 
-      hover:text-white
-      transform 
-      hover:scale-105 
-      transition-all 
-      duration-300 
-      ease-in-out 
-      cursor-pointer;
+    @apply flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md shadow-2xl border border-primary/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:border-black hover:bg-black hover:text-white transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer;
   }
+
   .darkLight-text-color {
     color: var(--text-heading);
   }
+
   .darkLight-body-bg-color {
     background: var(--bg-body);
   }
+
   .sectionSpaceBorder {
     @apply py-10 md:py-12 border-b border-primary/40;
   }
+
   .bg-primaryAccent {
     @apply bg-primary/10 hover:bg-primary/20 dark:bg-[var(--brand-dark)];
   }
+
   .bannerText {
     @apply text-white capitalize text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4;
   }
@@ -202,7 +199,8 @@ body {
 
 
 
-.custom-prev, .custom-next {
+.custom-prev,
+.custom-next {
   background-color: var(--primary) !important;
   color: white !important;
   width: 40px !important;
@@ -213,21 +211,26 @@ body {
   justify-content: center !important;
 }
 
-.custom-prev::after, .custom-next::after {
+.custom-prev::after,
+.custom-next::after {
   font-size: 16px !important;
   font-weight: bold !important;
 }
 
-.custom-prev:hover, .custom-next:hover {
+.custom-prev:hover,
+.custom-next:hover {
   background-color: black !important;
 }
 
 /* === Privacy Policy Section Animations === */
 /* Floating Animation */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -238,9 +241,11 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -270,10 +275,10 @@ body {
 
 /* Privacy Policy Specific Styles */
 .privacy-gradient {
-  background: radial-gradient(ellipse at center, 
-    rgba(99, 102, 241, 0.1) 0%, 
-    rgba(99, 102, 241, 0) 50%, 
-    rgba(99, 102, 241, 0) 100%);
+  background: radial-gradient(ellipse at center,
+      rgba(99, 102, 241, 0.1) 0%,
+      rgba(99, 102, 241, 0) 50%,
+      rgba(99, 102, 241, 0) 100%);
 }
 
 .glass-morphism {
@@ -307,7 +312,8 @@ body {
   line-height: 1.8;
 }
 
-.prose ul, .prose ol {
+.prose ul,
+.prose ol {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
 }
@@ -324,7 +330,9 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.prose h2, .prose h3, .prose h4 {
+.prose h2,
+.prose h3,
+.prose h4 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: var(--primary);
@@ -341,7 +349,3 @@ body {
   font-style: italic;
   margin: 2rem 0;
 }
-
-
-
-
