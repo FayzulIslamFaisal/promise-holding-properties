@@ -18,7 +18,7 @@ const InsightWrapper: React.FC<InsightWrapperProps> = ({ blog }) => {
       />
 
       <section className="px-4">
-          <div className="container mx-auto sectionSpaceBorder">
+          <div className="container max-w-4xl mx-auto sectionSpaceBorder">
               <InsightHeader 
                 title={blog.title} 
                 date={blog.created_at} 
@@ -26,7 +26,7 @@ const InsightWrapper: React.FC<InsightWrapperProps> = ({ blog }) => {
               />
               
               <div 
-                className="prose prose-lg dark:prose-invert max-w-none darkLight-text-color mt-8 space-y-4"
+                className="prose prose-lg dark:prose-invert max-w-none darkLight-text-color mt-8 space-y-4 text-justify"
                 dangerouslySetInnerHTML={{ __html: blog.description || "" }}
               />
           </div>

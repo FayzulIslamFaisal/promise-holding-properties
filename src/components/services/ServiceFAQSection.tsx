@@ -83,7 +83,7 @@ const ServiceFAQSection = async () => {
             <AccordionItem
               key={faq.id}
               value={`item-${faq.id}`}
-              className="border-b rounded-lg border-primary/30 px-6 mb-0 bg-primary/10 hover:bg-primary/20 dark:bg-[var(--brand-dark)]"
+              className="border border-primary/30 rounded-lg px-6 bg-primary/10 hover:bg-primary/20 dark:bg-[var(--brand-dark)]"
             >
               <AccordionTrigger className="text-left text-md md:text-lg font-bold text-[var(--brand-dark)] dark:text-primary hover:no-underline focus:outline-none">
                 {faq.question}

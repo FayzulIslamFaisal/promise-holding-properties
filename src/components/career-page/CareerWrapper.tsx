@@ -13,9 +13,9 @@ const CareerWrapper = () => {
         subtitle="Careers at Promise Assets"
         imageSrc="/assets/images/slider/banner3.png"
       />
+      <OpenPositions />
       <WhyJoinUs />
       <HiringProcess />
-      <OpenPositions />
     </>
   );
 };

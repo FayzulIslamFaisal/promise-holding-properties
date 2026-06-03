@@ -226,7 +226,7 @@ const OpenPositions = () => {
                 className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                   selectedDept === dept
                     ? "bg-primary text-black font-bold border border-primary"
-                    : "bg-primary/5 border border-primary/10 text-white/80 hover:bg-primary/15 hover:border-primary/30"
+                    : "bg-primary/10 border border-primary/20 text-black/70 dark:text-white/80 hover:bg-primary/20 hover:border-primary/40"
                 }`}
               >
                 {dept}
