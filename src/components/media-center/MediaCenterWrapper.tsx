@@ -5,8 +5,8 @@ const MediaCenterWrapper = () => {
   return (
     <>
       <SecondaryBanner 
-        title="News & Updates"
-        subtitle="Latest from Promise Holding"
+        title="Insights"
+        subtitle="Latest Market Analysis & Updates"
         imageSrc="/assets/images/contact/banner.jpg"
       />
       <MediaCenterContent />

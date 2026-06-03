@@ -15,7 +15,7 @@ const InsightHeader: React.FC<InsightHeaderProps> = ({ title, date, shortDescrip
 
   return (
     <div className="mb-8">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-balance darkLight-text-color">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-balance text-primary">
             {title}
         </h2>
 

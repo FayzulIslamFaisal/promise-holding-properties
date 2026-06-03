@@ -85,7 +85,7 @@ export const InsightCard: React.FC<InsightCardProps> = ({
             )}
           </div>
 
-          <Link href={`/insight/${id}`} className="btn-glow-accent">
+          <Link href={`/insights/${id}`} className="btn-glow-accent">
             <span className="mr-2">Read More</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/button:translate-x-1 animate-pulse" />
           </Link>

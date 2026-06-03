@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import MediaCenterWrapper from "@/components/media-center/MediaCenterWrapper"
 
 export const metadata: Metadata = {
-  title: "Media Center",
-  description: "Stay updated with the latest news, events, and media coverage of Promise Assets.",
+  title: "Insights",
+  description: "Stay updated with the latest insights, events, and market news from Promise Assets.",
 };
 
-const MediaCenterPage = () => {
+const InsightsPage = () => {
   return (
     <>
       <MediaCenterWrapper />
@@ -14,4 +14,4 @@ const MediaCenterPage = () => {
   )
 }
 
-export default MediaCenterPage
+export default InsightsPage

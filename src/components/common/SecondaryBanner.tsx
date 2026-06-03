@@ -34,7 +34,7 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
 
         {/* Content - Centered Text with Premium Typography */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-1">
-          <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-6 [text-shadow:_0_3px_8px_rgba(0,0,0,0.8)] leading-tight animate-in fade-in zoom-in duration-700">
+          <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-6 [text-shadow:_0_3px_8px_rgba(0,0,0,0.8)] leading-tight animate-in fade-in zoom-in duration-700 max-w-full md:max-w-4xl mx-auto">
             {title}
           </h1>
           {subtitle && (

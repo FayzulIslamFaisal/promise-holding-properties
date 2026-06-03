@@ -17,13 +17,16 @@ const ProjectVideoThumbnail = () => {
           </div>
 
           <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl border border-[var(--border-subtle)]">
-            <iframe 
-              src="https://www.youtube.com/embed/3H6Evu2hPpE?autoplay=1&loop=1&mute=1&playlist=3H6Evu2hPpE&controls=1&showinfo=0&rel=0" 
+            <video 
+              src="/assets/videos/Promise Haven City Mine Video.mp4" 
               title="Explore Our Projects" 
-              className="absolute top-0 left-0 w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            ></iframe>
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
           </div>
         </div>
       </section>

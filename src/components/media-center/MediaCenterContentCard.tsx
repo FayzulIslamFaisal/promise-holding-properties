@@ -50,10 +50,10 @@ const MediaCenterContentCard: React.FC<MediaCenterContentCardProps> = ({ newslet
             </div>
             <div className="flex items-center justify-between absolute bottom-0 left-6 ">
                 <Link
-                  href={`/insight/${newsletter.slug}`}
+                  href={`/insights/${newsletter.slug}`}
                   className="btn-glow-accent"
                 >
-                  View Newsletter
+                  View Insight
                   <ArrowRight className="w-4 h-4" />
                 </Link>
             </div>
