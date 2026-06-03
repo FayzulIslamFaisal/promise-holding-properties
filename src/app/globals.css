@@ -137,7 +137,6 @@
   --text-body: oklch(100% 0 0);
   --bg-body: oklch(26.64% 0.000 0);
   --bg-surface: var(--brand-dark);
-
 }
 
 @layer base {
@@ -147,7 +146,6 @@
 }
 
 @layer base {
-
   h1,
   h2,
   h3,
@@ -197,8 +195,6 @@ body {
   }
 }
 
-
-
 .custom-prev,
 .custom-next {
   background-color: var(--primary) !important;
@@ -225,12 +221,10 @@ body {
 /* === Privacy Policy Section Animations === */
 /* Floating Animation */
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-20px);
   }
@@ -241,11 +235,9 @@ body {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }

@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import ProjectPlotsWrapper from "@/components/plots-list/ProjectPlotsWrapper";
+import ProjectDetailWrapper from "@/components/project-details/ProjectDetailWrapper";
 import { projectService } from "@/services";
-import { getPlotsByProject } from "@/data/dummyPlots";
 import { ProjectDetail } from "@/types/api";
 
 type Props = {
@@ -14,31 +13,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const res = await projectService.getProjectDetails(slug);
     const project = res.data;
     if (!project) return { title: "Project Not Found" };
-
     return {
-      title: `${project.project_name} | Plots`,
-      description: `Explore premium plots and available properties in ${project.project_name} by Promise Assets.`,
-      openGraph: {
-        images: project.project_image ? [project.project_image] : [],
-      },
+      title: `${project.project_name} | Details`,
     };
-
   } catch {
-    return { title: "Project Plots" };
+    return { title: "Project Details" };
   }
 }
 
-
 export const dynamic = "force-dynamic";
-
-interface SlugProps {
-  params: { slug: string; }
-}
 
 const ProjectDetailsPage = async ({
   params,
 }: {
-  params: Promise<SlugProps['params']>
+  params: Promise<Props['params']>
 }) => {
   const { slug } = await params;
 
@@ -51,14 +39,8 @@ const ProjectDetailsPage = async ({
     console.error("Error fetching project details:", error);
   }
 
-  const projectName = project?.project_name || "Premium Project";
-  const projectLocation = project?.project_location || "Dhaka";
-  const plots = getPlotsByProject(slug, projectName, projectLocation);
-
   return (
-    <>
-      <ProjectPlotsWrapper project={project} plots={plots} projectSlug={slug} />
-    </>
+    <ProjectDetailWrapper project={project} />
   );
 }
 

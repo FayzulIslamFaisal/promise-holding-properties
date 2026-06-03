@@ -1,7 +1,7 @@
 'use client';
 
 // components/project-details/ProjectDetailWrapper.tsx
-import { 
+import {
   Building2,
   CheckCircle2,
 } from "lucide-react";
@@ -34,21 +34,21 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
   }
 
   // Get features from the first building (or consolidate all buildings)
-  const allFeatures = project.buildings.flatMap(b => b.features).filter((f, index, self) => 
+  const allFeatures = project.buildings.flatMap(b => b.features).filter((f, index, self) =>
     index === self.findIndex((t) => t.name === f.name)
   );
 
   const featureItems = allFeatures.map(f => ({
-      title: f.name,
-      icon: <CheckCircle2 className="w-8 h-8 text-primary" />
+    title: f.name,
+    icon: <CheckCircle2 className="w-8 h-8 text-primary" />
   }));
 
   // If no features, add a default one
   if (featureItems.length === 0) {
-      featureItems.push({
-          title: "Modern Design",
-          icon: <Building2 className="w-8 h-8 text-primary" />
-      });
+    featureItems.push({
+      title: "Modern Design",
+      icon: <Building2 className="w-8 h-8 text-primary" />
+    });
   }
 
   return (
@@ -58,18 +58,18 @@ const ProjectDetailWrapper = ({ project }: ProjectDetailWrapperProps) => {
         subtitle={project.project_location}
         imageSrc={project.project_image} 
       /> */}
-      <SecondaryBanner 
+      <SecondaryBanner
         title={project.project_name}
         subtitle="Exclusive Property Details"
-        imageSrc={project.project_image} 
+        imageSrc={project.project_image}
       />
 
       <ProjectInfo project={project} />
-      <ProjectFeature items={featureItems}/>
+      <ProjectFeature items={featureItems} />
       <BuildingDrawingSlider project={project} />
       <ProjectUnit project={project} />
       <ProjectLocationMap project={project} />
-      <ContactForm/>
+      <ContactForm />
     </>
   );
 };
