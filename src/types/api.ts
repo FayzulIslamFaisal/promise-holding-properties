@@ -199,6 +199,7 @@ export interface Project {
   location: string;
   image: string;
   product_status: string;
+  thumbnail: string;
 }
 
 export interface ProjectFeature {
@@ -209,6 +210,7 @@ export interface ProjectFeature {
 export interface ProjectUnit {
   id: number;
   image: string;
+  thumbnail: string;
   name: string;
   gross_area_sft: number;
   usable_area_sqft: number;

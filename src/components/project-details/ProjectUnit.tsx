@@ -69,7 +69,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               onClick={() => openModal(item)}
             >
               <Image
-                src={item.image}
+                src={item.thumbnail}
                 alt={item.name}
                 fill
                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
