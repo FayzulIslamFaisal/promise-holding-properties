@@ -6,8 +6,7 @@ import {
   Layers3,
   Compass,
   ArrowLeftRight,
-  Activity,
-  Move
+  Activity
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -26,47 +25,51 @@ interface PropertyDetail {
 const PlotInfo = ({ plot }: PlotInfoProps) => {
 
   const propertyDetails: PropertyDetail[] = [
-    {
+    plot.type ? {
       icon: <Building2 className="w-5 h-5" />,
       label: "Type",
       value: plot.type,
-    },
-    {
+    } : null,
+    plot.size || plot.sizeSqft ? {
       icon: <Ruler className="w-5 h-5" />,
       label: "Plot Area",
-      value: `${plot.size} (${plot.sizeSqft.toLocaleString()} sqft)`,
-    },
-    {
+      value: plot.size ? `${plot.size} (${plot.sizeSqft.toLocaleString()} sqft)` : `${plot.sizeSqft.toLocaleString()} sqft`,
+    } : null,
+    plot.plotNo ? {
       icon: <Layers3 className="w-5 h-5" />,
       label: "Plot No",
       value: plot.plotNo,
-    },
-    {
+    } : null,
+    plot.facing ? {
       icon: <Compass className="w-5 h-5" />,
       label: "Facing",
       value: plot.facing,
-    },
-    {
+    } : null,
+    plot.roadSize ? {
       icon: <ArrowLeftRight className="w-5 h-5" />,
       label: "Road Width",
       value: plot.roadSize,
-    },
-    {
-      icon: <Move className="w-5 h-5" />,
-      label: "Dimensions",
-      value: "N/A",
-    },
-    {
+    } : null,
+    plot.totalPrice ? {
+      icon: <Activity className="w-5 h-5" />,
+      label: "Price",
+      value: plot.totalPrice >= 10000000 
+        ? `${(plot.totalPrice / 10000000).toFixed(2)} Crore BDT` 
+        : plot.totalPrice >= 100000 
+          ? `${(plot.totalPrice / 100000).toFixed(2)} Lac BDT` 
+          : `${plot.totalPrice.toLocaleString()} BDT`,
+    } : null,
+    plot.status ? {
       icon: <Activity className="w-5 h-5" />,
       label: "Status",
       value: plot.status,
-    },
-    {
+    } : null,
+    plot.googleMapLink ? {
       icon: <MapPin className="w-5 h-5" />,
       label: "Map",
-      value: plot.googleMapLink ? "View Link" : "N/A",
-    },
-  ];
+      value: "View Link",
+    } : null,
+  ].filter((item) => item !== null) as unknown as PropertyDetail[];
 
   return (
     <section className="px-4">
@@ -93,46 +96,63 @@ const PlotInfo = ({ plot }: PlotInfoProps) => {
                 <h2 className="text-3xl lg:text-4xl font-bold dark:text-white text-[var(--brand-dark)]  ">
                   {plot.name}
                 </h2>
-                <p className="text-base dark:text-white/80 text-[var(--brand-dark)]/80 leading-relaxed">
-                  {plot.description}
-                </p>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-6 h-6 dark:text-white text-[var(--brand-dark)] flex-shrink-0" />
-                  <span className="text-sm dark:text-white text-[var(--brand-dark)]">{plot.location}</span>
-                </div>
+                {plot.description && (
+                  <p className="text-base dark:text-white/80 text-[var(--brand-dark)]/80 leading-relaxed">
+                    {plot.description}
+                  </p>
+                )}
+                {plot.location && (
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-6 h-6 dark:text-white text-[var(--brand-dark)] flex-shrink-0" />
+                    <span className="text-sm dark:text-white text-[var(--brand-dark)]">{plot.location}</span>
+                  </div>
+                )}
               </div>
 
               {/* AT A GLANCE Section */}
-              <div
-                className="space-y-6 animate-scale-in"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <h3 className="text-xl font-semibold dark:text-white text-[var(--brand-dark)] uppercase ">
-                  Plot Details
-                </h3>
+              {propertyDetails.length > 0 && (
+                <div
+                  className="space-y-6 animate-scale-in"
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <h3 className="text-xl font-semibold dark:text-white text-[var(--brand-dark)] uppercase ">
+                    Plot Details
+                  </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
-                  {propertyDetails.map((detail, index) => (
-                    <div
-                      key={index}
-                      className="group/item flex items-center gap-2 lg:gap-4 p-4 rounded-xl bg-[var(--brand-dark)]/5 dark:bg-white/5 border border-primary/20 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 hover:transform hover:translate-x-1"
-                      style={{ animationDelay: `${0.1 * index}s` }}
-                    >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary/20 transition-all duration-300">
-                        {detail.icon}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
+                    {propertyDetails.map((detail, index) => (
+                      <div
+                        key={index}
+                        className="group/item flex items-center gap-2 lg:gap-4 p-4 rounded-xl bg-[var(--brand-dark)]/5 dark:bg-white/5 border border-primary/20 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 hover:transform hover:translate-x-1"
+                        style={{ animationDelay: `${0.1 * index}s` }}
+                      >
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary/20 transition-all duration-300">
+                          {detail.icon}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-sm font-medium darkLight-text-color transition-colors duration-300">
+                            {detail.label}
+                          </p>
+                          {detail.label === "Map" && plot.googleMapLink ? (
+                            <a 
+                              href={plot.googleMapLink} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="font-semibold text-primary hover:underline transition-colors duration-300"
+                            >
+                              {detail.value}
+                            </a>
+                          ) : (
+                            <p className="font-semibold darkLight-text-color transition-colors duration-300">
+                              {detail.value}
+                            </p>
+                          )}
+                        </div>
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium darkLight-text-color transition-colors duration-300">
-                          {detail.label}
-                        </p>
-                        <p className="font-semibold darkLight-text-color transition-colors duration-300">
-                          {detail.value}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </Card>
         </div>

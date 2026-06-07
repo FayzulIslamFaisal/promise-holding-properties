@@ -44,29 +44,31 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
     icon: <CheckCircle2 className="w-8 h-8 text-primary" />
   }));
 
-  if (featureItems.length === 0) {
-    featureItems.push({
-      title: "Premium Boundary Wall",
-      icon: <CheckCircle2 className="w-8 h-8 text-primary" />
-    });
-  }
-
   // Construct images for the slider
+  const sliderDescParts = [];
+  if (plot.size || plot.sizeSqft) {
+    sliderDescParts.push(`Size: ${plot.size || `${plot.sizeSqft.toLocaleString()} sqft`}`);
+  }
+  if (plot.status) {
+    sliderDescParts.push(`Status: ${plot.status}`);
+  }
+  const sliderDesc = sliderDescParts.join(" | ");
+
   const sliderImages = (plot.gallery || []).map((imgUrl, index) => ({
     id: index,
     src: imgUrl,
     alt: `${plot.name} Gallery ${index + 1}`,
     title: plot.name,
-    description: `Size: ${plot.size} | Status: ${plot.status}`
+    description: sliderDesc
   }));
 
-  if (sliderImages.length === 0) {
+  if (sliderImages.length === 0 && plot.image) {
     sliderImages.push({
       id: 0,
       src: plot.image,
       alt: plot.name,
       title: plot.name,
-      description: `Size: ${plot.size} | Status: ${plot.status}`
+      description: sliderDesc
     });
   }
 
@@ -117,7 +119,7 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
       <PlotInfo plot={plot} />
 
       {/* Features */}
-      <ProjectFeature items={featureItems} />
+      {featureItems.length > 0 && <ProjectFeature items={featureItems} />}
 
       {/* Image Gallery Slider */}
       <section className="px-4">
