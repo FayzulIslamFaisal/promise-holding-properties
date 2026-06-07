@@ -70,6 +70,40 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
     });
   }
 
+  const hasNoBuildings = !project?.buildings || project.buildings.length === 0;
+
+  if (hasNoBuildings) {
+    return (
+      <>
+        {/* Hero Section */}
+        <SecondaryBanner
+          title={plot.name}
+          subtitle={`Premium Plot in ${project?.project_name || "Promise Assets"}`}
+          imageSrc={plot.image}
+        />
+
+        {/* Error Message Section */}
+        <section className="px-4 py-20 dark:bg-[var(--bg-body)] bg-white">
+          <div className="container mx-auto max-w-2xl text-center">
+            <div className="p-8 md:p-12 rounded-3xl border-2 border-dashed border-primary/25 bg-primary/5 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--brand-dark)] dark:text-white mb-4 tracking-tight">
+                No Buildings Found
+              </h3>
+              <p className="text-base md:text-lg darkLight-text-color max-w-md mx-auto leading-relaxed">
+                We are sorry, but there are no buildings or units currently associated with this plot. Please contact us for more information.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <div id="contact-form-section">
+          <ContactForm />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       {/* Hero Section */}

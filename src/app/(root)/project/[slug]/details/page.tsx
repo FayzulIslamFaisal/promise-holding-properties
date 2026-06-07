@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import ProjectDetailWrapper from "@/components/project-details/ProjectDetailWrapper";
 import { projectService } from "@/services";
 import { ProjectDetail } from "@/types/api";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -37,6 +38,10 @@ const ProjectDetailsPage = async ({
     project = res.data;
   } catch (error) {
     console.error("Error fetching project details:", error);
+  }
+
+  if (!project) {
+    notFound();
   }
 
   return (

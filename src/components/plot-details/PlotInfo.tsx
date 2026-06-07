@@ -54,11 +54,7 @@ const PlotInfo = ({ plot }: PlotInfoProps) => {
     {
       icon: <Move className="w-5 h-5" />,
       label: "Dimensions",
-      value: plot.slug === "plot-a-101" ? "60 ft x 66 ft" : 
-             plot.slug === "plot-b-204" ? "60 ft x 48 ft" : 
-             plot.slug === "plot-a-105" ? "90 ft x 60 ft" : 
-             plot.slug === "plot-c-302" ? "100 ft x 72 ft" : 
-             plot.slug === "plot-b-112" ? "60 ft x 42 ft" : "80 ft x 54 ft",
+      value: "N/A",
     },
     {
       icon: <Activity className="w-5 h-5" />,

@@ -35,11 +35,19 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
   const openModal = (unit: ApiProjectUnit) => {
     setSelectedUnit(unit);
 
-    // Initial media: use main image then gallery
-    const initialMedia: MediaItem[] = [
-      { type: 'image', url: unit.image },
-      ...(unit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
-    ];
+    // Initial media: use main image then gallery, filtering out avatar-demo placeholder
+    const mediaUrls = [
+      unit.thumbnail,
+      unit.image,
+      ...(unit.image_gallery || [])
+    ].filter(url => url && !url.includes('avatar-demo.png'));
+
+    // Fallback if no real images are available
+    if (mediaUrls.length === 0 && (unit.image || unit.thumbnail)) {
+      mediaUrls.push(unit.thumbnail || unit.image);
+    }
+
+    const initialMedia: MediaItem[] = mediaUrls.map(url => ({ type: 'image', url: url! }));
 
     if (initialMedia.length > 0) {
       setActiveMedia(initialMedia[0]);
@@ -126,21 +134,30 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
 
                 {/* Thumbnails */}
                 <div className="flex gap-4 overflow-x-auto py-2 px-2 custom-scrollbar justify-start items-center">
-                  {[
-                    { type: 'image' as const, url: selectedUnit.thumbnail || selectedUnit.image },
-                    ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
-                  ].filter(media => media.url).map((media, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveMedia(media)}
-                      className={`relative h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${activeMedia?.url === media.url
-                        ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg'
-                        : 'opacity-50 hover:opacity-80'
-                        }`}
-                    >
-                      <Image src={media.url} fill alt={`Thumbnail ${idx + 1}`} className="object-cover" />
-                    </div>
-                  ))}
+                  {(() => {
+                    const mediaItems = [
+                      { type: 'image' as const, url: selectedUnit.thumbnail || selectedUnit.image },
+                      ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
+                    ].filter(media => media.url && !media.url.includes('avatar-demo.png'));
+
+                    // Fallback if no real images are available
+                    if (mediaItems.length === 0 && (selectedUnit.thumbnail || selectedUnit.image)) {
+                      mediaItems.push({ type: 'image' as const, url: selectedUnit.thumbnail || selectedUnit.image });
+                    }
+
+                    return mediaItems.map((media, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => setActiveMedia(media)}
+                        className={`relative h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${activeMedia?.url === media.url
+                          ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg'
+                          : 'opacity-50 hover:opacity-80'
+                          }`}
+                      >
+                        <Image src={media.url} fill alt={`Thumbnail ${idx + 1}`} className="object-cover" />
+                      </div>
+                    ));
+                  })()}
                 </div>
               </div>
 

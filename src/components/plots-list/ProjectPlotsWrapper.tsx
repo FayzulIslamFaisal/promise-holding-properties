@@ -50,13 +50,13 @@ const ProjectPlotsWrapper = ({ project, plots, projectSlug }: ProjectPlotsWrappe
               </p>
             </div>
           ) : (
-            <div className="flex flex-wrap justify-center gap-6 py-8 max-w-6xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-6 py-8 max-w-[800px] mx-auto">
               {plots.map((plot) => (
                 <PlotCard 
                   key={plot.id} 
                   plot={plot} 
                   projectSlug={projectSlug}
-                  className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] max-w-[380px]" 
+                  className="w-full sm:w-[calc(50%-12px)] max-w-[380px]" 
                 />
               ))}
             </div>

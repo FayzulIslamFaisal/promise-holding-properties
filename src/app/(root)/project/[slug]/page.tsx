@@ -3,6 +3,7 @@ import ProjectPlotsWrapper from "@/components/plots-list/ProjectPlotsWrapper";
 import { projectService } from "@/services";
 import { PlotDetail } from "@/data/dummyPlots";
 import { ProjectDetail, ApiPlot } from "@/types/api";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -65,24 +66,28 @@ const ProjectDetailsPage = async ({
         slug: plot.slug,
         projectSlug: plotsData.project_slug || slug,
         location: plot.location || plotsData.project_location,
-        type: plot.type || "Plot",
+        type: plot.type || "",
         size: plot.size || `${plot.land_area.toLocaleString()} sqft`,
         sizeSqft: plot.land_area,
         plotNo: plot.plot_no,
-        roadSize: plot.road_size || plot.roadSize || "N/A",
-        facing: plot.facing || "N/A",
-        status: (plot.status || "Available") as PlotDetail['status'],
+        roadSize: plot.road_size || plot.roadSize || "",
+        facing: plot.facing || "",
+        status: (plot.status || "") as PlotDetail['status'],
         pricePerSqft: plot.price_per_sqft || plot.pricePerSqft || (plot.land_area > 0 ? Math.round(plot.price / plot.land_area) : 0),
         totalPrice: plot.price || plot.total_price || plot.totalPrice || 0,
-        description: plot.description || `Examine the premium plot no. ${plot.plot_no} with a land area of ${plot.land_area} sqft located at ${plotsData.project_location}.`,
+        description: plot.description || "",
         image: plot.image,
         gallery: plot.gallery || (plot.image ? [plot.image] : []),
-        features: plot.features || ["Demarcated Boundaries", "Utility Ready", "Wide Access Road"],
+        features: plot.features || [],
         googleMapLink: plot.google_map_link || plot.googleMapLink || plotsData.google_map_link,
       }));
     }
   } catch (error) {
     console.error("Error fetching project details and plots:", error);
+  }
+
+  if (!project) {
+    notFound();
   }
 
   return (

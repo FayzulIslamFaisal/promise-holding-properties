@@ -43,7 +43,7 @@ const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
   return (
     <Link 
       href={`/project/${projectSlug}/plot/${plot.slug}`} 
-      className={`block w-full max-w-[380px] mx-auto ${className || ""}`}
+      className={`block w-full max-w-[380px] ${className || ""}`}
     >
       <motion.div
         className="relative aspect-[2/3] w-full overflow-hidden rounded-xl cursor-pointer group"
@@ -67,11 +67,15 @@ const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
         <div className="absolute inset-0 flex flex-col justify-between text-white">
           {/* Top: Category Badge & Size */}
           <div className="flex justify-between items-start pt-6 px-6">
-            <Badge 
-              className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 capitalize ${badgeClass}`}
-            >
-              {plot.status}
-            </Badge>
+            {plot.status ? (
+              <Badge 
+                className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 capitalize ${badgeClass}`}
+              >
+                {plot.status}
+              </Badge>
+            ) : (
+              <div />
+            )}
             <Badge 
               className="px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 bg-black/40 backdrop-blur-sm text-white flex items-center gap-1"
             >

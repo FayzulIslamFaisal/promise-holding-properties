@@ -3,6 +3,7 @@ import PlotDetailWrapper from "@/components/plot-details/PlotDetailWrapper";
 import { projectService } from "@/services";
 import { PlotDetail } from "@/data/dummyPlots";
 import { ProjectDetail } from "@/types/api";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ slug: string; plotSlug: string }>;
@@ -16,8 +17,8 @@ async function getMappedPlot(slug: string, plotSlug: string) {
 
     const project: ProjectDetail = {
       id: plotData.project?.id || 0,
-      project_name: plotData.project?.project_name || "Premium Project",
-      project_location: plotData.project?.project_location || "Dhaka",
+      project_name: plotData.project?.project_name || "",
+      project_location: plotData.project?.project_location || "",
       google_map_link: plotData.project?.google_map_link || "",
       project_image: plotData.project?.project_image || "",
       buildings: plotData.buildings || [],
@@ -29,19 +30,19 @@ async function getMappedPlot(slug: string, plotSlug: string) {
       slug: plotData.slug,
       projectSlug: plotData.project?.project_slug || slug,
       location: plotData.location || project.project_location,
-      type: plotData.type || "Plot",
+      type: plotData.type || "",
       size: plotData.size || `${plotData.land_area.toLocaleString()} sqft`,
       sizeSqft: plotData.land_area,
       plotNo: plotData.plot_no,
-      roadSize: plotData.road_size || plotData.roadSize || "N/A",
-      facing: plotData.facing || "N/A",
-      status: (plotData.status || "Available") as PlotDetail['status'],
+      roadSize: plotData.road_size || plotData.roadSize || "",
+      facing: plotData.facing || "",
+      status: (plotData.status || "") as PlotDetail['status'],
       pricePerSqft: plotData.price_per_sqft || plotData.pricePerSqft || (plotData.land_area > 0 ? Math.round(plotData.price / plotData.land_area) : 0),
       totalPrice: plotData.price || plotData.total_price || plotData.totalPrice || 0,
-      description: plotData.description || `Examine the premium plot no. ${plotData.plot_no} with a land area of ${plotData.land_area} sqft located at ${project.project_location}.`,
+      description: plotData.description || "",
       image: plotData.image,
       gallery: plotData.gallery || (plotData.image ? [plotData.image] : []),
-      features: plotData.features || ["Demarcated Boundaries", "Utility Ready", "Wide Access Road"],
+      features: plotData.features || [],
       googleMapLink: plotData.google_map_link || plotData.googleMapLink || project.google_map_link,
     };
 
@@ -79,9 +80,13 @@ const PlotDetailsPage = async ({
 
   const data = await getMappedPlot(slug, plotSlug);
 
+  if (!data || !data.plot) {
+    notFound();
+  }
+
   return (
     <>
-      <PlotDetailWrapper project={data?.project} plot={data?.plot} />
+      <PlotDetailWrapper project={data.project} plot={data.plot} />
     </>
   );
 }
