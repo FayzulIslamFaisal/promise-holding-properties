@@ -39,7 +39,7 @@ const ProjectCard = ({ project, className }: ProjectCardProps) => {
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <NextImage
-            src={project.thumbnail || "/placeholder.svg"}
+            src={project.thumbnail || project.image || "/placeholder.svg"}
             alt={project.name}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"

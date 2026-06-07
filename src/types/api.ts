@@ -199,7 +199,7 @@ export interface Project {
   location: string;
   image: string;
   product_status: string;
-  thumbnail: string;
+  thumbnail?: string;
 }
 
 export interface ProjectFeature {
@@ -210,7 +210,7 @@ export interface ProjectFeature {
 export interface ProjectUnit {
   id: number;
   image: string;
-  thumbnail: string;
+  thumbnail?: string;
   name: string;
   gross_area_sft: number;
   usable_area_sqft: number;
@@ -364,6 +364,24 @@ export interface ApiPlot {
   price: number;
   image: string;
   slug: string;
+  // Optionals / Fallbacks for mapping to PlotDetail
+  name?: string;
+  location?: string;
+  type?: string;
+  size?: string;
+  road_size?: string;
+  roadSize?: string;
+  facing?: string;
+  status?: string;
+  price_per_sqft?: number;
+  pricePerSqft?: number;
+  total_price?: number;
+  totalPrice?: number;
+  description?: string;
+  gallery?: string[];
+  features?: string[];
+  google_map_link?: string;
+  googleMapLink?: string;
 }
 
 export interface ProjectPlotsData {
@@ -399,6 +417,25 @@ export interface PlotDetailsData {
   slug: string;
   project: PlotProject;
   buildings: Building[];
+  // Optionals / Fallbacks for mapping to PlotDetail
+  name?: string;
+  location?: string;
+  type?: string;
+  size?: string;
+  road_size?: string;
+  roadSize?: string;
+  facing?: string;
+  status?: string;
+  price_per_sqft?: number;
+  pricePerSqft?: number;
+  total_price?: number;
+  totalPrice?: number;
+  description?: string;
+  gallery?: string[];
+  features?: string[];
+  google_map_link?: string;
+  googleMapLink?: string;
 }
+
 
 

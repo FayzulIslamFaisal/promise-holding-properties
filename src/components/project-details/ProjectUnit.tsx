@@ -69,7 +69,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
               onClick={() => openModal(item)}
             >
               <Image
-                src={item.thumbnail}
+                src={item.thumbnail || item.image}
                 alt={item.name}
                 fill
                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
@@ -113,7 +113,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                     />
                   ) : (
                     <Image
-                      src={activeMedia?.url || selectedUnit.image}
+                      src={activeMedia?.url || selectedUnit.thumbnail || selectedUnit.image}
                       fill
                       alt="Gallery image"
                       className="object-cover transition-all duration-500"
@@ -127,9 +127,9 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                 {/* Thumbnails */}
                 <div className="flex gap-4 overflow-x-auto py-2 px-2 custom-scrollbar justify-start items-center">
                   {[
-                    { type: 'image' as const, url: selectedUnit.image },
+                    { type: 'image' as const, url: selectedUnit.thumbnail || selectedUnit.image },
                     ...(selectedUnit.image_gallery || []).map(url => ({ type: 'image' as const, url }))
-                  ].map((media, idx) => (
+                  ].filter(media => media.url).map((media, idx) => (
                     <div
                       key={idx}
                       onClick={() => setActiveMedia(media)}

@@ -11,7 +11,7 @@ type Props = {
 async function getMappedPlot(slug: string, plotSlug: string) {
   try {
     const res = await projectService.getPlotDetails(plotSlug);
-    const plotData = res.data as any;
+    const plotData = res.data;
     if (!plotData) return null;
 
     const project: ProjectDetail = {
@@ -35,7 +35,7 @@ async function getMappedPlot(slug: string, plotSlug: string) {
       plotNo: plotData.plot_no,
       roadSize: plotData.road_size || plotData.roadSize || "N/A",
       facing: plotData.facing || "N/A",
-      status: (plotData.status || "Available") as any,
+      status: (plotData.status || "Available") as PlotDetail['status'],
       pricePerSqft: plotData.price_per_sqft || plotData.pricePerSqft || (plotData.land_area > 0 ? Math.round(plotData.price / plotData.land_area) : 0),
       totalPrice: plotData.price || plotData.total_price || plotData.totalPrice || 0,
       description: plotData.description || `Examine the premium plot no. ${plotData.plot_no} with a land area of ${plotData.land_area} sqft located at ${project.project_location}.`,

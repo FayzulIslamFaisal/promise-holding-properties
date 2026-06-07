@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ProjectPlotsWrapper from "@/components/plots-list/ProjectPlotsWrapper";
 import { projectService } from "@/services";
 import { PlotDetail } from "@/data/dummyPlots";
-import { ProjectDetail } from "@/types/api";
+import { ProjectDetail, ApiPlot } from "@/types/api";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -59,7 +59,7 @@ const ProjectDetailsPage = async ({
         buildings: [],
       };
 
-      plots = (plotsData.plots || []).map((plot: any) => ({
+      plots = (plotsData.plots || []).map((plot: ApiPlot) => ({
         id: String(plot.id),
         name: plot.name || `${plotsData.project_name} - Plot ${plot.plot_no}`,
         slug: plot.slug,
@@ -71,7 +71,7 @@ const ProjectDetailsPage = async ({
         plotNo: plot.plot_no,
         roadSize: plot.road_size || plot.roadSize || "N/A",
         facing: plot.facing || "N/A",
-        status: (plot.status || "Available") as any,
+        status: (plot.status || "Available") as PlotDetail['status'],
         pricePerSqft: plot.price_per_sqft || plot.pricePerSqft || (plot.land_area > 0 ? Math.round(plot.price / plot.land_area) : 0),
         totalPrice: plot.price || plot.total_price || plot.totalPrice || 0,
         description: plot.description || `Examine the premium plot no. ${plot.plot_no} with a land area of ${plot.land_area} sqft located at ${plotsData.project_location}.`,
