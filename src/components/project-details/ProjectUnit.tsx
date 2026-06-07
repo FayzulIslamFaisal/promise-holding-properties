@@ -133,7 +133,7 @@ const ProjectUnit = ({ project }: ProjectUnitProps) => {
                     <div
                       key={idx}
                       onClick={() => setActiveMedia(media)}
-                      className={`h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${activeMedia?.url === media.url
+                      className={`relative h-20 w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${activeMedia?.url === media.url
                         ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[var(--bg-body)] scale-105 opacity-100 shadow-lg'
                         : 'opacity-50 hover:opacity-80'
                         }`}

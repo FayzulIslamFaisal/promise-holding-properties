@@ -1,5 +1,5 @@
 import { apiClient } from "@/lib/api-client";
-import type { ApiResponse, Project, ProjectDetail, ConnectExploreRequest, ConnectExploreResponse, NewsletterResponse } from "@/types/api";
+import type { ApiResponse, Project, ProjectDetail, ConnectExploreRequest, ConnectExploreResponse, NewsletterResponse, ProjectPlotsData, PlotDetailsData } from "@/types/api";
 
 export const projectService = {
   async getProjects(product_status?: string) {
@@ -10,6 +10,16 @@ export const projectService = {
   /** Get project details by slug */
   async getProjectDetails(slug: string) {
     return apiClient.get<ApiResponse<ProjectDetail>>(`/project-details/${slug}`);
+  },
+
+  /** Get project plots by project slug */
+  async getProjectPlots(slug: string) {
+    return apiClient.get<ApiResponse<ProjectPlotsData>>(`/project-plots/${slug}`);
+  },
+
+  /** Get plot details by slug */
+  async getPlotDetails(slug: string) {
+    return apiClient.get<ApiResponse<PlotDetailsData>>(`/plot-details/${slug}`);
   },
 
   /** Submit connect & explore form */

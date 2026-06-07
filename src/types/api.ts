@@ -351,3 +351,52 @@ export interface NewsletterResponse {
   success: boolean;
   message: string;
 }
+
+// ---------------------------------------------------------------------------
+// Project Plots
+// ---------------------------------------------------------------------------
+export interface ApiPlot {
+  id: number;
+  plot_no: string;
+  land_area: number;
+  price: number;
+  image: string;
+  slug: string;
+}
+
+export interface ProjectPlotsData {
+  id: number;
+  project_name: string;
+  project_location: string;
+  product_status: string;
+  google_map_link: string;
+  project_image: string;
+  project_slug: string;
+  plots: ApiPlot[];
+}
+
+// ---------------------------------------------------------------------------
+// Plot Details
+// ---------------------------------------------------------------------------
+export interface PlotProject {
+  id: number;
+  project_name: string;
+  project_location: string;
+  product_status: string;
+  google_map_link: string;
+  project_image: string;
+  project_slug: string;
+}
+
+export interface PlotDetailsData {
+  id: number;
+  plot_no: string;
+  land_area: number;
+  price: number;
+  image: string;
+  slug: string;
+  project: PlotProject;
+  buildings: Building[];
+}
+
+
