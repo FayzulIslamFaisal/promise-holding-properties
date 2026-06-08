@@ -1,23 +1,14 @@
 'use client';
 
-import {
-  CheckCircle2,
-} from "lucide-react";
 import dynamic from 'next/dynamic';
 import { PlotDetail } from "@/data/dummyPlots";
 import { ProjectDetail } from "@/types/api";
 import PlotInfo from "./PlotInfo";
-// import PlotPricing from "./PlotPricing";
+import PlotGallerySlider from "./PlotGallerySlider";
 import ProjectUnit from "../project-details/ProjectUnit";
 import SecondaryBanner from '@/components/common/SecondaryBanner';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, FreeMode, Autoplay } from "swiper/modules";
+import SectionTitle from "../common/SectionTitle";
 import Image from "next/image";
-
-// Re-use existing swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
 
 // Dynamically import project-details components to keep layout exactly the same
 const ProjectFeature = dynamic(() => import('../project-details/ProjectFeature'), { ssr: false });
@@ -38,37 +29,61 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
     );
   }
 
-  // Map features to items with CheckCircle2 icon
-  const featureItems = (plot.features || []).map(fName => ({
-    title: fName,
-    icon: <CheckCircle2 className="w-8 h-8 text-primary" />
-  }));
+  // Destructure Plot and Project details
+  const {
+    name: plotName,
+    image: plotImage,
+    features: plotFeatures = [],
+    gallery: plotGallery = [],
+    size,
+    sizeSqft,
+    status: plotStatus
+  } = plot;
+
+  const {
+    project_name: projectName = "Promise Assets",
+    project_location: projectLocation = ""
+  } = project || {};
+
+  // Extract the first building (as one plot contains one building)
+  const building = project?.buildings?.[0];
+
+  // Combine and deduplicate plot and building features
+  const combinedFeatures: any[] = [];
+  const seenFeatures = new Set<string>();
+
+  const addFeature = (feat: any) => {
+    const title = typeof feat === "string" ? feat : feat?.title || feat?.name || "";
+    if (title && !seenFeatures.has(title.toLowerCase())) {
+      seenFeatures.add(title.toLowerCase());
+      combinedFeatures.push(feat);
+    }
+  };
+
+  (plotFeatures || []).forEach(addFeature);
+  (building?.features || []).forEach(addFeature);
 
   // Construct images for the slider
   const sliderDescParts = [];
-  if (plot.size || plot.sizeSqft) {
-    sliderDescParts.push(`Size: ${plot.size || `${plot.sizeSqft.toLocaleString()} sqft`}`);
+  if (size || sizeSqft) {
+    sliderDescParts.push(`Size: ${size || `${sizeSqft.toLocaleString()} sqft`}`);
   }
-  if (plot.status) {
-    sliderDescParts.push(`Status: ${plot.status}`);
+  if (plotStatus) {
+    sliderDescParts.push(`Status: ${plotStatus}`);
   }
   const sliderDesc = sliderDescParts.join(" | ");
 
-  const sliderImages = (plot.gallery || []).map((imgUrl, index) => ({
-    id: index,
-    src: imgUrl,
-    alt: `${plot.name} Gallery ${index + 1}`,
-    title: plot.name,
-    description: sliderDesc
-  }));
+  const sliderImages: { id: string | number; src: string; title: string; description: string }[] = [];
 
-  if (sliderImages.length === 0 && plot.image) {
-    sliderImages.push({
-      id: 0,
-      src: plot.image,
-      alt: plot.name,
-      title: plot.name,
-      description: sliderDesc
+  // Only add Building Gallery images
+  if (building?.building_gallery && building.building_gallery.length > 0) {
+    building.building_gallery.forEach((item: any) => {
+      sliderImages.push({
+        id: `building-gallery-${item.id}`,
+        src: item.image,
+        title: item.title || building.building_name,
+        description: `Gallery image for ${building.building_name}`
+      });
     });
   }
 
@@ -79,9 +94,9 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
       <>
         {/* Hero Section */}
         <SecondaryBanner
-          title={plot.name}
-          subtitle={`Premium Plot in ${project?.project_name || "Promise Assets"}`}
-          imageSrc={plot.image}
+          title={plotName}
+          subtitle={`Premium Plot in ${projectName}`}
+          imageSrc={plotImage}
         />
 
         {/* Error Message Section */}
@@ -110,75 +125,19 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
     <>
       {/* Hero Section */}
       <SecondaryBanner
-        title={plot.name}
-        subtitle={`Premium Plot in ${project?.project_name || "Promise Assets"}`}
-        imageSrc={plot.image}
+        title={plotName}
+        subtitle={`Premium Plot in ${projectName}`}
+        imageSrc={plotImage}
       />
 
       {/* Property Information */}
-      <PlotInfo plot={plot} />
+      <PlotInfo plot={plot} building={building} />
 
       {/* Features */}
-      {featureItems.length > 0 && <ProjectFeature items={featureItems} />}
+      {combinedFeatures.length > 0 && <ProjectFeature items={combinedFeatures} />}
 
-      {/* Image Gallery Slider */}
-      <section className="px-4">
-        <div className="container mx-auto pt-10 pb-10 md:pb-14 md:pt-14 border-b border-primary/40">
-          <Swiper
-            spaceBetween={10}
-            loop={sliderImages.length > 1}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            modules={[FreeMode, Navigation, Autoplay]}
-            className="mySwiper2 mb-4 rounded-lg shadow-lg"
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              660: { slidesPerView: 1 },
-              768: { slidesPerView: 1 },
-              1024: { slidesPerView: 1 },
-              1200: { slidesPerView: 1 },
-            }}
-          >
-            {sliderImages.map((image) => (
-              <SwiperSlide key={image.id}>
-                <div className="relative group h-[calc(100vh-200px)] rounded-lg w-full overflow-hidden transform transition-transform duration-300 ease-in-out shadow-lg hover:shadow-2xl">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-                  />
-
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90 group-hover:via-primary/30" />
-
-                  {/* Centered Title & Description */}
-                  <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-                    <div className="bg-black/20 backdrop-blur-sm p-4 rounded-lg max-w-2xl text-white">
-                      <h2 className="text-xl md:text-4xl font-bold mb-2">{image.title}</h2>
-                      <p className="text-base md:text-lg">{image.description}</p>
-                    </div>
-                  </div>
-
-                </div>
-              </SwiperSlide>
-            ))}
-
-            <div className="swiper-button-prev custom-prev" />
-            <div className="swiper-button-next custom-next" />
-          </Swiper>
-        </div>
-      </section>
-
-      {/* Pricing Section - Commented out for now
-      <PlotPricing pricePerSqft={plot.pricePerSqft} defaultAreaSqft={plot.sizeSqft} />
-      */}
+      {/* Image Gallery Slider Component */}
+      <PlotGallerySlider images={sliderImages} />
 
       {/* Project Units */}
       {project && <ProjectUnit project={project} />}

@@ -11,9 +11,11 @@ import {
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { PlotDetail } from "@/data/dummyPlots";
+import { Building } from "@/types/api";
 
 interface PlotInfoProps {
   plot: PlotDetail;
+  building?: Building;
 }
 
 interface PropertyDetail {
@@ -22,7 +24,7 @@ interface PropertyDetail {
   value: string;
 }
 
-const PlotInfo = ({ plot }: PlotInfoProps) => {
+const PlotInfo = ({ plot, building }: PlotInfoProps) => {
 
   const propertyDetails: PropertyDetail[] = [];
 
@@ -33,11 +35,18 @@ const PlotInfo = ({ plot }: PlotInfoProps) => {
       value: plot.type,
     });
   }
-  if (plot.size || plot.sizeSqft) {
+  if (plot.sizeSqft) {
+    const decVal = (plot.sizeSqft / 435.6).toFixed(2);
     propertyDetails.push({
       icon: <Ruler className="w-5 h-5" />,
       label: "Plot Area",
-      value: plot.size ? `${plot.size} (${plot.sizeSqft.toLocaleString()} sqft)` : `${plot.sizeSqft.toLocaleString()} sqft`,
+      value: `${plot.sizeSqft.toLocaleString()} sqft (${decVal} dec)`,
+    });
+  } else if (plot.size) {
+    propertyDetails.push({
+      icon: <Ruler className="w-5 h-5" />,
+      label: "Plot Area",
+      value: plot.size,
     });
   }
   if (plot.plotNo) {
@@ -80,12 +89,31 @@ const PlotInfo = ({ plot }: PlotInfoProps) => {
       value: plot.status,
     });
   }
-  if (plot.googleMapLink) {
-    propertyDetails.push({
-      icon: <MapPin className="w-5 h-5" />,
-      label: "Map",
-      value: "View Link",
-    });
+  
+  // Add Building Details to AT A GLANCE Grid if present
+  if (building) {
+    if (building.building_name) {
+      propertyDetails.push({
+        icon: <Building2 className="w-5 h-5" />,
+        label: "Building Name",
+        value: building.building_name,
+      });
+    }
+    if (building.building_type) {
+      propertyDetails.push({
+        icon: <Layers3 className="w-5 h-5" />,
+        label: "Building Type",
+        value: building.building_type,
+      });
+    }
+    if (building.building_area_sqft) {
+      const decVal = (building.building_area_sqft / 435.6).toFixed(2);
+      propertyDetails.push({
+        icon: <Ruler className="w-5 h-5" />,
+        label: "Building Area",
+        value: `${building.building_area_sqft.toLocaleString()} sqft (${decVal} dec)`,
+      });
+    }
   }
 
   return (
@@ -111,12 +139,20 @@ const PlotInfo = ({ plot }: PlotInfoProps) => {
               {/* Header Section */}
               <div className="space-y-4 animate-slide-up">
                 <h2 className="text-3xl lg:text-4xl font-bold dark:text-white text-[var(--brand-dark)]  ">
-                  {plot.name}
+                  {building?.building_name ? building.building_name : plot.name}
                 </h2>
                 {plot.description && (
                   <p className="text-base dark:text-white/80 text-[var(--brand-dark)]/80 leading-relaxed">
                     {plot.description}
                   </p>
+                )}
+                {building?.details && (
+                  <div className="pt-2">
+                    <div 
+                      className="prose dark:prose-invert max-w-none text-sm text-gray-600 dark:text-gray-300 leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: building.details }}
+                    />
+                  </div>
                 )}
                 {plot.location && (
                   <div className="flex items-center gap-3">
@@ -133,7 +169,7 @@ const PlotInfo = ({ plot }: PlotInfoProps) => {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <h3 className="text-xl font-semibold dark:text-white text-[var(--brand-dark)] uppercase ">
-                    Plot Details
+                    Plot & Building Details
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
