@@ -243,7 +243,7 @@ export interface Building {
   features: ProjectFeature[];
   future_image: string;
   banner_image: string;
-  building_gallery: string[];
+  building_gallery: { id: number; image: string; title?: string }[];
   parking_slots: ParkingSlot[];
   units: ProjectUnit[];
 }

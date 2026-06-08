@@ -7,8 +7,7 @@ import PlotInfo from "./PlotInfo";
 import PlotGallerySlider from "./PlotGallerySlider";
 import ProjectUnit from "../project-details/ProjectUnit";
 import SecondaryBanner from '@/components/common/SecondaryBanner';
-import SectionTitle from "../common/SectionTitle";
-import Image from "next/image";
+import type { ProjectFeatureItem } from "../project-details/ProjectFeature";
 
 // Dynamically import project-details components to keep layout exactly the same
 const ProjectFeature = dynamic(() => import('../project-details/ProjectFeature'), { ssr: false });
@@ -34,25 +33,20 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
     name: plotName,
     image: plotImage,
     features: plotFeatures = [],
-    gallery: plotGallery = [],
-    size,
-    sizeSqft,
-    status: plotStatus
   } = plot;
 
   const {
     project_name: projectName = "Promise Assets",
-    project_location: projectLocation = ""
   } = project || {};
 
   // Extract the first building (as one plot contains one building)
   const building = project?.buildings?.[0];
 
   // Combine and deduplicate plot and building features
-  const combinedFeatures: any[] = [];
+  const combinedFeatures: ProjectFeatureItem[] = [];
   const seenFeatures = new Set<string>();
 
-  const addFeature = (feat: any) => {
+  const addFeature = (feat: ProjectFeatureItem) => {
     const title = typeof feat === "string" ? feat : feat?.title || feat?.name || "";
     if (title && !seenFeatures.has(title.toLowerCase())) {
       seenFeatures.add(title.toLowerCase());
@@ -63,21 +57,11 @@ const PlotDetailWrapper = ({ project, plot }: PlotDetailWrapperProps) => {
   (plotFeatures || []).forEach(addFeature);
   (building?.features || []).forEach(addFeature);
 
-  // Construct images for the slider
-  const sliderDescParts = [];
-  if (size || sizeSqft) {
-    sliderDescParts.push(`Size: ${size || `${sizeSqft.toLocaleString()} sqft`}`);
-  }
-  if (plotStatus) {
-    sliderDescParts.push(`Status: ${plotStatus}`);
-  }
-  const sliderDesc = sliderDescParts.join(" | ");
-
   const sliderImages: { id: string | number; src: string; title: string; description: string }[] = [];
 
   // Only add Building Gallery images
   if (building?.building_gallery && building.building_gallery.length > 0) {
-    building.building_gallery.forEach((item: any) => {
+    building.building_gallery.forEach((item) => {
       sliderImages.push({
         id: `building-gallery-${item.id}`,
         src: item.image,

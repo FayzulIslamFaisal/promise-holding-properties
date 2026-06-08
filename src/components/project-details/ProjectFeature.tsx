@@ -6,11 +6,19 @@ import { useState } from "react"
 import SectionTitle from "../common/SectionTitle"
 import { CheckCircle2 } from "lucide-react"
 
+export interface ProjectFeatureItemObject {
+  title?: string;
+  name?: string;
+  icon?: React.ReactNode;
+}
+
+export type ProjectFeatureItem = string | ProjectFeatureItemObject;
+
 const ProjectFeature = ({
   items,
   className,
 }: {
-  items: any[]
+  items: ProjectFeatureItem[]
   className?: string
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)

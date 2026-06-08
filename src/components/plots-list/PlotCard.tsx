@@ -43,7 +43,7 @@ const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
   return (
     <Link 
       href={`/project/${projectSlug}/plot/${plot.slug}`} 
-      className="block w-full"
+      className={`block w-full ${className || ''}`}
     >
       <motion.div
         className="relative aspect-[2/3] w-full overflow-hidden rounded-xl cursor-pointer group"
