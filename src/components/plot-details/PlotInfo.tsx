@@ -24,52 +24,69 @@ interface PropertyDetail {
 
 const PlotInfo = ({ plot }: PlotInfoProps) => {
 
-  const propertyDetails: PropertyDetail[] = [
-    plot.type ? {
+  const propertyDetails: PropertyDetail[] = [];
+
+  if (plot.type) {
+    propertyDetails.push({
       icon: <Building2 className="w-5 h-5" />,
       label: "Type",
       value: plot.type,
-    } : null,
-    plot.size || plot.sizeSqft ? {
+    });
+  }
+  if (plot.size || plot.sizeSqft) {
+    propertyDetails.push({
       icon: <Ruler className="w-5 h-5" />,
       label: "Plot Area",
       value: plot.size ? `${plot.size} (${plot.sizeSqft.toLocaleString()} sqft)` : `${plot.sizeSqft.toLocaleString()} sqft`,
-    } : null,
-    plot.plotNo ? {
+    });
+  }
+  if (plot.plotNo) {
+    propertyDetails.push({
       icon: <Layers3 className="w-5 h-5" />,
       label: "Plot No",
       value: plot.plotNo,
-    } : null,
-    plot.facing ? {
+    });
+  }
+  if (plot.facing) {
+    propertyDetails.push({
       icon: <Compass className="w-5 h-5" />,
       label: "Facing",
       value: plot.facing,
-    } : null,
-    plot.roadSize ? {
+    });
+  }
+  if (plot.roadSize) {
+    propertyDetails.push({
       icon: <ArrowLeftRight className="w-5 h-5" />,
       label: "Road Width",
       value: plot.roadSize,
-    } : null,
-    plot.totalPrice ? {
+    });
+  }
+  if (plot.totalPrice) {
+    const priceVal = plot.totalPrice >= 10000000 
+      ? `${(plot.totalPrice / 10000000).toFixed(2)} Crore BDT` 
+      : plot.totalPrice >= 100000 
+        ? `${(plot.totalPrice / 100000).toFixed(2)} Lac BDT` 
+        : `${plot.totalPrice.toLocaleString()} BDT`;
+    propertyDetails.push({
       icon: <Activity className="w-5 h-5" />,
       label: "Price",
-      value: plot.totalPrice >= 10000000 
-        ? `${(plot.totalPrice / 10000000).toFixed(2)} Crore BDT` 
-        : plot.totalPrice >= 100000 
-          ? `${(plot.totalPrice / 100000).toFixed(2)} Lac BDT` 
-          : `${plot.totalPrice.toLocaleString()} BDT`,
-    } : null,
-    plot.status ? {
+      value: priceVal,
+    });
+  }
+  if (plot.status) {
+    propertyDetails.push({
       icon: <Activity className="w-5 h-5" />,
       label: "Status",
       value: plot.status,
-    } : null,
-    plot.googleMapLink ? {
+    });
+  }
+  if (plot.googleMapLink) {
+    propertyDetails.push({
       icon: <MapPin className="w-5 h-5" />,
       label: "Map",
       value: "View Link",
-    } : null,
-  ].filter((item) => item !== null) as unknown as PropertyDetail[];
+    });
+  }
 
   return (
     <section className="px-4">

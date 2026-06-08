@@ -50,21 +50,12 @@ const ProjectPlotsWrapper = ({ project, plots, projectSlug }: ProjectPlotsWrappe
               </p>
             </div>
           ) : (
-            <div className={`grid gap-6 py-8 justify-items-center justify-center ${
-              plots.length === 1 
-                ? "grid-cols-1 max-w-[380px] mx-auto" 
-                : plots.length === 2 
-                  ? "grid-cols-1 sm:grid-cols-2 max-w-[800px] mx-auto" 
-                  : plots.length === 3 
-                    ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-[1200px] mx-auto" 
-                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto"
-            }`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-8 justify-items-center justify-center">
               {plots.map((plot) => (
                 <PlotCard 
                   key={plot.id} 
                   plot={plot} 
                   projectSlug={projectSlug}
-                  className="w-full max-w-[380px]" 
                 />
               ))}
             </div>
