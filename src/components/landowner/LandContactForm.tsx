@@ -102,7 +102,7 @@ const LandContactForm = () => {
         {/* Left Column */}
         <div className="col-span-1">
           <p className="text-lg md:text-2xl  font-semibold text-[var(--brand-dark)] dark:text-white">Land Information</p>
-          <div className="relative">
+          {/* <div className="relative">
             <input
               type="text"
               id="locality"
@@ -122,7 +122,7 @@ const LandContactForm = () => {
             >
               Locality *
             </label>
-          </div>
+          </div> */}
 
           <div className="relative">
             <input
@@ -132,6 +132,7 @@ const LandContactForm = () => {
               onChange={(e) => handleInputChange("address", e.target.value)}
               onFocus={() => handleFocus("address")}
               onBlur={handleBlur}
+              required
               className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary transition-all duration-200 outline-none peer"
             />
             <label
@@ -154,6 +155,7 @@ const LandContactForm = () => {
               onChange={(e) => handleInputChange("landSize", e.target.value)}
               onFocus={() => handleFocus("landSize")}
               onBlur={handleBlur}
+              required
               className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary transition-all duration-200 outline-none peer"
             />
             <label
@@ -164,7 +166,7 @@ const LandContactForm = () => {
                   : "top-6 text-[var(--brand-dark)] dark:text-white"
               }`}
             >
-              Land Size
+              Land Size *
             </label>
           </div>
 
@@ -198,6 +200,7 @@ const LandContactForm = () => {
               onChange={(e) => handleInputChange("landCategory", e.target.value)}
               onFocus={() => handleFocus("landCategory")}
               onBlur={handleBlur}
+              required
               className="w-full pe-4 pt-8 pb-1 text-[var(--brand-dark)] dark:text-white bg-transparent border-b border-[var(--brand-dark)] dark:border-primary focus:border-primary transition-all duration-200 outline-none peer"
             />
             <label
@@ -208,7 +211,7 @@ const LandContactForm = () => {
                   : "top-6 text-[var(--brand-dark)] dark:text-white"
               }`}
             >
-              Land Category
+              Land Category * (Residential / Commercial)
             </label>
           </div>
 

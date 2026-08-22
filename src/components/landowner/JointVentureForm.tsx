@@ -16,14 +16,14 @@ const JointVentureForm = () => {
                 </h2>
                 <div className="flex-1">
                     <Link
-                        href="tel:09606445544"
+                        href="tel:01958063331"
                         className="btn-glow-accent inline-block " 
                         >
                         <div className="flex items-center gap-4">
                             <Phone className="w-8 h-8" />
                             <div>
                                 <p className="text-sm">Talk to our Land Experts</p>
-                                <p className="font-semibold text-xl tracking-wider">09647 444 444</p>
+                                <p className="font-semibold text-xl tracking-wider">01958063331</p>
                             </div>
                         </div>
                     </Link>

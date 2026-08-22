@@ -19,8 +19,8 @@ export default function ContactCard() {
   
   const siteAddress = settings?.general_settings?.site_address || "Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207, Bangladesh";
   const siteEmail = settings?.general_settings?.site_email || "info@promiseassets.com";
-  const sitePhone = settings?.general_settings?.site_phone || "09647 444 444";
-  const siteName = settings?.general_settings?.site_name || "Promise Assets";
+  const sitePhone = settings?.general_settings?.site_phone || "09647 444 444 | 01958 063 331";
+  const siteWhatsApp = "01958 063 331";
 
   const contactItems: ContactItem[] = [
   {
@@ -36,12 +36,12 @@ export default function ContactCard() {
   {
     icon: <Phone className="w-10 h-10" />,
     title: "Phone Number",
-    details: [sitePhone]
+    details: sitePhone ? sitePhone.split('|').map(p => p.trim()) : []
   },
   {
     icon: <MessageCircle className="w-10 h-10" />,
-    title: "Project Name",
-    details: [siteName]
+    title: "WhatsApp",
+    details: [siteWhatsApp]
   }
 ]
 
@@ -97,14 +97,42 @@ export default function ContactCard() {
                             {item.title}
                         </h3>
                         <div className="space-y-1">
-                            {item.details.map((detail, detailIndex) => (
-                            <p
-                                key={detailIndex}
-                                className="text-[var(--brand-dark)] dark:text-white text-sm leading-relaxed transition-colors duration-300"
-                            >
-                                {detail}
-                            </p>
-                            ))}
+                            {item.details.map((detail, detailIndex) => {
+                              if (item.title === "Phone Number") {
+                                return (
+                                  <a
+                                    key={detailIndex}
+                                    href={`tel:${detail.replace(/\s+/g, '')}`}
+                                    className="block text-[var(--brand-dark)] dark:text-white text-sm leading-relaxed transition-colors duration-300 hover:text-primary dark:hover:text-primary"
+                                  >
+                                    {detail}
+                                  </a>
+                                );
+                              }
+                              if (item.title === "WhatsApp") {
+                                const rawNum = detail.replace(/[^0-9]/g, '');
+                                const waUrl = rawNum.startsWith('88') ? `https://wa.me/${rawNum}` : `https://wa.me/88${rawNum}`;
+                                return (
+                                  <a
+                                    key={detailIndex}
+                                    href={waUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block text-[var(--brand-dark)] dark:text-white text-sm leading-relaxed transition-colors duration-300 hover:text-primary dark:hover:text-primary"
+                                  >
+                                    {detail}
+                                  </a>
+                                );
+                              }
+                              return (
+                                <p
+                                  key={detailIndex}
+                                  className="text-[var(--brand-dark)] dark:text-white text-sm leading-relaxed transition-colors duration-300"
+                                >
+                                  {detail}
+                                </p>
+                              );
+                            })}
                         </div>
                         </div>
                     </motion.div>

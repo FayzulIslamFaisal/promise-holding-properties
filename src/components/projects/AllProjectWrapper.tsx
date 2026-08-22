@@ -1,7 +1,11 @@
 import SecondaryBanner from "@/components/common/SecondaryBanner"
-import AllProjectContent from "./AllProjectContent"
+import ProjectTabViews from "@/components/home-page/ProjectTabViews"
 
-const AllProjectWrapper = () => {
+interface Props {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+const AllProjectWrapper = ({ searchParams }: Props) => {
   return (
     <>
       <SecondaryBanner 
@@ -9,10 +13,9 @@ const AllProjectWrapper = () => {
         subtitle="Find your perfect home"
         imageSrc="/assets/images/contact/banner.jpg"
       />
-      <AllProjectContent />
+      <ProjectTabViews searchParams={searchParams} />
     </>
   )
 }
-
 
 export default AllProjectWrapper

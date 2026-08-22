@@ -9,9 +9,10 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-const ProjectPage = () => {
+const ProjectPage = async ({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) => {
+  const params = await searchParams;
   return (
-    <AllProjectWrapper />
+    <AllProjectWrapper searchParams={params} />
   )
 }
 

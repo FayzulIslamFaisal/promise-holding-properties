@@ -3,7 +3,7 @@ import SecondaryBanner from "@/components/common/SecondaryBanner"
 
 const LandownerSlider = dynamic(() => import('./LandownerSlider'));
 const JointVentureForm = dynamic(() => import('./JointVentureForm'));
-const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial'));
+// const ProjectTestimonial = dynamic(() => import('../home-page/ProjectTestimonial'));
 
 const LandownerWrapper = () => {
   return (
@@ -15,7 +15,7 @@ const LandownerWrapper = () => {
       />
       <LandownerSlider />
       <JointVentureForm />
-      <ProjectTestimonial autoplay={true} />
+      {/* <ProjectTestimonial autoplay={true} /> */}
     </>
   )
 }

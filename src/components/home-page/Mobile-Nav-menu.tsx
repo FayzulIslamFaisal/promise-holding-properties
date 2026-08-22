@@ -15,7 +15,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
     { id: 1, path: '/', label: 'Home' },
     { id: 2, path: '/about', label: 'About Us' },
     { id: 3, path: '/services', label: 'Services' },
-    { id: 5, path: '/career', label: 'Career' },
+    // { id: 5, path: '/career', label: 'Career' },
     { id: 4, path: '/contact', label: 'Contact' },
   ];
 

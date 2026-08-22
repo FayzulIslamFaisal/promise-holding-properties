@@ -54,7 +54,7 @@ const FooterWidgetArea = () => {
     const quickLinks: QuickLink[] = [
       { id: 2, title: "Our Services", path: "/services" },
       { id: 3, title: "About Us", path: "/about" },
-      { id: 5, title: "Careers", path: "/career" },
+      // { id: 5, title: "Careers", path: "/career" },
       { id: 4, title: "Contact Us", path: "/contact" },
     ],
     companyLinks: CompanyLink[] = [
@@ -97,10 +97,19 @@ const FooterWidgetArea = () => {
                   {settings?.general_settings.site_address || "Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207."}
                 </span>
               </p>
-              <p className="text-gray-300 flex items-center gap-2">
-                <PhoneCallIcon className="size-4 text-white" />
-                <span>{settings?.general_settings.site_phone || "09647 444 444"}</span>
-              </p>
+              <div className="text-gray-300 flex items-start gap-2">
+                <PhoneCallIcon className="size-4 text-white mt-1 flex-shrink-0" />
+                <div className="flex flex-col leading-tight">
+                  {(settings?.general_settings?.site_phone || "09647 444 444 | 01958 063 331")
+                    .split('|')
+                    .map((p) => p.trim())
+                    .map((phone, idx) => (
+                      <a key={idx} href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:underline">
+                        {phone}
+                      </a>
+                    ))}
+                </div>
+              </div>
               <p className="text-gray-300 flex items-center gap-2">
                 <MailCheck className="size-4 text-white" />
                 <span>{settings?.general_settings.site_email || "info@promiseassets.com"}</span>

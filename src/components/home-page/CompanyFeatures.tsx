@@ -1,6 +1,6 @@
 
 // CompanyFeatures.tsx
-import { Users, BadgeCheck, Clock, Headset } from "lucide-react"
+import { Landmark, ShieldCheck, Clock, TrendingUp } from "lucide-react"
 
 interface FeatureItem {
   id: number
@@ -11,23 +11,23 @@ interface FeatureItem {
 const featureItems: FeatureItem[] = [
   {
     id: 1,
-    icon: Users,
-    title: "Government approved project",
+    icon: Landmark,
+    title: "Government & RAJUK Approved",
   },
   {
     id: 2,
-    icon: BadgeCheck,
-    title: "100% transparent policies",
+    icon: ShieldCheck,
+    title: "100% Legal & Clear Title",
   },
   {
     id: 3,
     icon: Clock,
-    title: "Clear Title / NA / NOC",
+    title: "On-Time Project Handover",
   },
   {
     id: 4,
-    icon: Headset,
-    title: "High returns on Investments",
+    icon: TrendingUp,
+    title: "High Return on Investment",
   },
 ]
 

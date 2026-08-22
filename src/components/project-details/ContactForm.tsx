@@ -101,7 +101,7 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
                 : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
-            Full Name
+            Full Name *
           </label>
         </div>
 
@@ -123,7 +123,7 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
                 : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
-            Phone Number
+            Phone Number *
           </label>
         </div>
 
@@ -145,7 +145,7 @@ const ContactForm = ({ title = "Connect & Explore", subtitle }: ContactFormProps
                 : "top-6 text-[var(--brand-dark)] dark:text-white"
             }`}
           >
-            Email Address
+            Email Address (optional)
           </label>
         </div>
 
