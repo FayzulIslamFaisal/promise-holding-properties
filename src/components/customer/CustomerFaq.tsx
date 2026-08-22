@@ -19,16 +19,16 @@ const CustomerFaq = () => {
                                 What is the process for buying a property?
                                 </p>
                                 <p className="mt-1 text-primary text-sm">
-                                Answer a common requirements as a natural approach to perfection depths.
+                                We guide you step-by-step from property selection, site visits, legal verification, documentation, booking, to final registration and handover.
                                 </p>
                             </div>
 
                             <div>
                                 <p className="font-semibold text-[var(--brand-dark)] dark:text-white text-sm md:text-base">
-                                Are there any additional fees or charges?
+                                Are there any additional hidden fees or charges?
                                 </p>
                                 <p className="mt-1 text-primary text-sm">
-                                More information on any tanning fees or charges.
+                                We maintain 100% pricing transparency. All utility connections, registration fees, and documentation costs are clearly specified upfront without any hidden charges.
                                 </p>
                             </div>
                             </div>

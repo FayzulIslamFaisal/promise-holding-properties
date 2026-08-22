@@ -14,9 +14,10 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
   const navLinks = [
     { id: 1, path: '/', label: 'Home' },
     { id: 2, path: '/about', label: 'About Us' },
-    { id: 3, path: '/services', label: 'Services' },
-    // { id: 5, path: '/career', label: 'Career' },
-    { id: 4, path: '/contact', label: 'Contact' },
+    { id: 3, path: '/project', label: 'Projects' },
+    { id: 4, path: '/landowner', label: 'Landowner' },
+    { id: 5, path: '/services', label: 'Services' },
+    { id: 6, path: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -76,7 +77,7 @@ const MobileNavMenu = ({ onMobileMenuToggle, isMobileMenuOpen }: MobileNavMenuPr
         <div className="absolute bottom-10 left-8 right-8">
            <div className="p-5 rounded-3xl bg-primary/10 border border-primary/20 text-center backdrop-blur-md">
               <p className="text-[10px] text-primary font-black uppercase tracking-[0.3em] mb-2">Get in Touch</p>
-              <p className="text-sm font-bold text-white tracking-wider">+880 1234 567890</p>
+              <p className="text-xs font-bold text-white tracking-wider">09647 444 444 | 01958 063 331</p>
            </div>
         </div>
       </div>
