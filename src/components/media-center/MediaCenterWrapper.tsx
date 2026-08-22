@@ -7,7 +7,8 @@ const MediaCenterWrapper = () => {
       <SecondaryBanner 
         title="Insights"
         subtitle="Latest Market Analysis & Updates"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="PRESS & MARKET INSIGHTS"
+        imageSrc="/assets/images/banners/media-banner.jpg"
       />
       <MediaCenterContent />
     </>

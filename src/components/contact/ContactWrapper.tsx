@@ -9,7 +9,8 @@ const ContactWrapper = () => {
       <SecondaryBanner 
         title="Get In Touch"
         subtitle="We are here to assist you"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="24/7 CUSTOMER ASSISTANCE"
+        imageSrc="/assets/images/banners/contact-banner.jpg"
       />
       <ContactCard />
       <ContactForm title="Contact Us" subtitle="We're here to help!" />

@@ -10,7 +10,8 @@ const ServiceWrapper = () => {
       <SecondaryBanner
         title="Professional Services"
         subtitle="Excellence in every detail"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="COMPREHENSIVE SOLUTIONS"
+        imageSrc="/assets/images/banners/services-banner.jpg"
       />
       <OurServices />
       <WhyChooseOurServices />

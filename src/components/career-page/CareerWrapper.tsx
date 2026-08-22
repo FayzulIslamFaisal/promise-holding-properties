@@ -11,7 +11,8 @@ const CareerWrapper = () => {
       <SecondaryBanner
         title="Build Your Future With Us"
         subtitle="Careers at Promise Assets"
-        imageSrc="/assets/images/slider/banner3.png"
+        badge="JOIN OUR TEAM"
+        imageSrc="/assets/images/banners/career-banner.jpg"
       />
       <OpenPositions />
       <WhyJoinUs />

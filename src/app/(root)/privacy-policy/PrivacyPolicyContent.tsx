@@ -39,7 +39,8 @@ const PrivacyPolicyContent = () => {
     <SecondaryBanner 
       title="Data Protection"
       subtitle="Your Security is Our Priority"
-      imageSrc="/assets/images/projects/project11.jpg"
+      badge="DATA SECURITY & TRUST"
+      imageSrc="/assets/images/banners/privacy-policy-banner-v2.jpg"
     />
 
 

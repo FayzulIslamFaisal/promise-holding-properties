@@ -7,7 +7,8 @@ const RelatedProjectWrapper = () => {
       <SecondaryBanner 
         title="Related Projects"
         subtitle="Discover similar properties"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="DISCOVER FEATURED PROPERTIES"
+        imageSrc="/assets/images/banners/related-projects-banner.jpg"
       />
       <RelatedProjectContent />
     </>

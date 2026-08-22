@@ -7,7 +7,8 @@ const AgentListWrapper = () => {
       <SecondaryBanner 
         title="Our Experts"
         subtitle="Professional Real Estate Agents"
-        imageSrc="/assets/images/media-center/img1.jpg"
+        badge="CERTIFIED PROPERTY CONSULTANTS"
+        imageSrc="/assets/images/banners/agents-banner.jpg"
       />
       <AgentListCard />
     </>

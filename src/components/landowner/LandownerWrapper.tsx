@@ -11,7 +11,8 @@ const LandownerWrapper = () => {
       <SecondaryBanner 
         title="Joint Venture"
         subtitle="Partner with the best"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="STRATEGIC JOINT VENTURE"
+        imageSrc="/assets/images/banners/landowner-banner.jpg"
       />
       <LandownerSlider />
       <JointVentureForm />

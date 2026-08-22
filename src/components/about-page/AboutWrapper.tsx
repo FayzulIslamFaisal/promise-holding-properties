@@ -14,7 +14,8 @@ const AboutWrapper = () => {
         <SecondaryBanner 
             title="Innovation in Real Estate"
             subtitle="Building the Future"
-            imageSrc="/assets/images/contact/banner.jpg"
+            badge="OUR STORY & HERITAGE"
+            imageSrc="/assets/images/banners/about-banner.jpg"
         />
         <OurStory />
         <OurValues />

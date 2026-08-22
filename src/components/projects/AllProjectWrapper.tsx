@@ -11,7 +11,8 @@ const AllProjectWrapper = ({ searchParams }: Props) => {
       <SecondaryBanner 
         title="Explore Properties"
         subtitle="Find your perfect home"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="EXPERT REAL ESTATE PORTFOLIO"
+        imageSrc="/assets/images/banners/projects-banner.jpg"
       />
       <ProjectTabViews searchParams={searchParams} />
     </>

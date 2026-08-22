@@ -12,7 +12,8 @@ const CustomerEnquiryWrapper = () => {
       <SecondaryBanner 
         title="Customer Support"
         subtitle="We are here for you"
-        imageSrc="/assets/images/contact/banner.jpg"
+        badge="PERSONALIZED CLIENT ADVISORY"
+        imageSrc="/assets/images/banners/customer-enquiry-banner.jpg"
       />
       <CustomerHighLights />
       <CustomerForm />
