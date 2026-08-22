@@ -28,7 +28,7 @@ const ProjectPlotsWrapper = ({ project, plots, projectSlug }: ProjectPlotsWrappe
           <div className="flex justify-center mb-8">
             <Link 
               href={`/project/${projectSlug}/details`}
-              className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors shadow-md"
+              className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
               <ArrowLeft size={18} />
               View Project Details
@@ -50,7 +50,7 @@ const ProjectPlotsWrapper = ({ project, plots, projectSlug }: ProjectPlotsWrappe
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-8 justify-items-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 py-6">
               {plots.map((plot) => (
                 <PlotCard 
                   key={plot.id} 

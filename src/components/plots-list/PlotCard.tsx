@@ -17,13 +17,13 @@ interface PlotCardProps {
 const getBadgeClass = (status: string | undefined) => {
   switch (status?.toLowerCase()) {
     case 'available':
-      return '!bg-green-500 !text-white';
+      return '!bg-emerald-600 !text-white';
     case 'booked':
-      return '!bg-blue-500 !text-white';
+      return '!bg-amber-600 !text-white';
     case 'sold':
-      return '!bg-red-500 !text-white';
+      return '!bg-rose-600 !text-white';
     default:
-      return '!bg-gray-500 !text-white';
+      return '!bg-gray-600 !text-white';
   }
 };
 
@@ -46,8 +46,8 @@ const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
       className={`block w-full ${className || ''}`}
     >
       <motion.div
-        className="relative aspect-[2/3] w-full overflow-hidden rounded-xl cursor-pointer group"
-        whileHover={{ scale: 1.02 }}
+        className="relative h-[360px] sm:h-[380px] md:h-[400px] w-full overflow-hidden rounded-2xl cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-300"
+        whileHover={{ scale: 1.01 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         {/* Background Image */}
@@ -56,65 +56,66 @@ const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
             src={plot.image || "/placeholder.svg"}
             alt={plot.name}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
         
-        {/* Primary Gradient Overlay from Bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90 group-hover:via-primary/30" />
+        {/* Dark Gradient Overlay for High Text Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 transition-opacity duration-300 group-hover:from-black/95 group-hover:via-black/50" />
         
-        {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-between text-white">
+        {/* Content Overlay - Everything INSIDE the Image */}
+        <div className="absolute inset-0 flex flex-col justify-between text-white p-5 sm:p-6 z-10">
           {/* Top: Category Badge & Size */}
-          <div className="flex justify-between items-start pt-6 px-6">
+          <div className="flex justify-between items-center">
             {plot.status ? (
               <Badge 
-                className={`px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 capitalize ${badgeClass}`}
+                className={`px-3.5 py-1 text-xs sm:text-sm font-semibold rounded-full shadow-xl border-0 capitalize ${badgeClass}`}
               >
                 {plot.status}
               </Badge>
             ) : (
               <div />
             )}
+            
             <Badge 
-              className="px-3 py-1.5 text-sm font-medium rounded-full shadow-xl border-0 z-10 bg-black/40 backdrop-blur-sm text-white flex items-center gap-1"
+              className="px-3.5 py-1 text-xs sm:text-sm font-semibold rounded-full shadow-xl border-0 bg-black/50 backdrop-blur-md text-white flex items-center gap-1.5"
             >
-              <Ruler size={12} />
+              <Ruler size={14} className="text-primary-foreground" />
               {plot.size}
             </Badge>
           </div>
           
-          {/* Bottom: Plot Info */}
-          <div className="space-y-4 p-6 transform transition-transform duration-300 group-hover:-translate-y-2">
+          {/* Bottom: Plot Title, Location/Address, Price, Button - All inside image */}
+          <div className="space-y-3 transform transition-transform duration-300 group-hover:-translate-y-1">
             <div>
-              <h3 className="text-white text-2xl font-bold leading-tight drop-shadow-sm mb-1">
+              <h3 className="text-white text-xl sm:text-2xl font-bold leading-tight drop-shadow-md mb-1.5">
                 {plot.name}
               </h3>
               
-              <div className="flex items-center space-x-2 text-white/90 drop-shadow-sm mb-2">
-                <MapPin size={16} className="text-white/90" />
-                <span className="text-sm font-medium">{plot.location}</span>
+              <div className="flex items-center space-x-2 text-white/90 drop-shadow-sm mb-2.5">
+                <MapPin size={16} className="text-white/90 flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium">{plot.location}</span>
               </div>
 
-              <div className="flex items-center space-x-1 text-white font-extrabold drop-shadow-sm">
-                <span className="text-lg text-primary-foreground bg-primary/25 px-2 py-0.5 rounded text-sm">
+              <div className="flex items-center space-x-2">
+                <span className="text-xs sm:text-sm font-extrabold text-white bg-primary px-3 py-1 rounded-lg shadow-lg">
                   {formatPrice(plot.totalPrice)}
                 </span>
               </div>
             </div>
 
             <Button 
-              className="w-full bg-white/10 text-white hover:bg-white/90 hover:!text-primary transition-all duration-300 rounded-lg font-bold tracking-wider group/btn shadow-lg border-0"
+              className="w-auto px-5 bg-white/15 text-white hover:bg-white hover:!text-primary transition-all duration-300 rounded-xl font-bold tracking-wider group/btn shadow-lg border border-white/20 backdrop-blur-sm py-2.5 text-xs sm:text-sm"
             >
-              View Plot Details
+              <span>View Plot Details</span>
               <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
             </Button>
           </div>
         </div>
         
-        {/* Hover Shadow Effect */}
+        {/* Subtle Hover Border Ring */}
         <div
-          className="absolute inset-0 rounded-xl shadow-card-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-primary/60 transition-colors duration-300 pointer-events-none"
         />
       </motion.div>
     </Link>
