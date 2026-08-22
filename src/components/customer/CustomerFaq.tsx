@@ -54,12 +54,12 @@ const CustomerFaq = () => {
                                 </div>
                             </li>
                             <li className="flex items-center gap-3">
-                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary">
+                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary flex-shrink-0">
                                 <Mail className="h-4 w-4 text-white" aria-hidden="true" />
                                 </span>
-                                <span className="text-[var(--brand-dark)] dark:text-white text-sm md:text-base">
-                            info@promiseholding.com
-                                </span>
+                                <a href="mailto:info@promiseassets.com" className="text-[var(--brand-dark)] dark:text-white text-sm md:text-base hover:underline">
+                                    info@promiseassets.com
+                                </a>
                             </li>
                             </ul>
 

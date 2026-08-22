@@ -109,6 +109,17 @@ export default function ContactCard() {
                                   </a>
                                 );
                               }
+                              if (item.title === "Email Address") {
+                                return (
+                                  <a
+                                    key={detailIndex}
+                                    href={`mailto:${detail}`}
+                                    className="block text-[var(--brand-dark)] dark:text-white text-sm leading-relaxed transition-colors duration-300 hover:text-primary dark:hover:text-primary"
+                                  >
+                                    {detail}
+                                  </a>
+                                );
+                              }
                               if (item.title === "WhatsApp") {
                                 const rawNum = detail.replace(/[^0-9]/g, '');
                                 const waUrl = rawNum.startsWith('88') ? `https://wa.me/${rawNum}` : `https://wa.me/88${rawNum}`;

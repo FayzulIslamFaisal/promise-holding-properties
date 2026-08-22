@@ -112,7 +112,9 @@ const FooterWidgetArea = () => {
               </div>
               <p className="text-gray-300 flex items-center gap-2">
                 <MailCheck className="size-4 text-white" />
-                <span>{settings?.general_settings.site_email || "info@promiseassets.com"}</span>
+                <a href={`mailto:${settings?.general_settings?.site_email || "info@promiseassets.com"}`} className="hover:underline">
+                  {settings?.general_settings?.site_email || "info@promiseassets.com"}
+                </a>
               </p>
             </div>
           </div>
