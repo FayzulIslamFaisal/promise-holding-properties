@@ -45,7 +45,7 @@ const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
             </div>
           )}
 
-          <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-3 [text-shadow:_0_2px_6px_rgba(0,0,0,0.9)] leading-tight animate-in fade-in zoom-in duration-700 max-w-full md:max-w-4xl mx-auto">
+          <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-3 [text-shadow:_0_2px_6px_rgba(0,0,0,0.6)] leading-tight animate-in fade-in zoom-in duration-700 max-w-full md:max-w-4xl mx-auto">
             {title}
           </h1>
 
