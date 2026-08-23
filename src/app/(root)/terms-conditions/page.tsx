@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import SecondaryBanner from "@/components/common/SecondaryBanner";
 
 
-import { Building2, Shield, Users, FileText, CreditCard, Scale, Phone, AlertTriangle, Lock, Eye } from "lucide-react"
+import { Building2, Shield, Users, FileText, CreditCard, Scale, Phone, AlertTriangle } from "lucide-react"
 
 const termsData = [
     {
