@@ -15,7 +15,7 @@ const AboutWrapper = () => {
             title="Innovation in Real Estate"
             subtitle="Building the Future"
             badge="OUR STORY & HERITAGE"
-            imageSrc="/assets/images/banners/about-banner.jpg"
+            imageSrc="/assets/images/banners/About.png"
         />
         <OurStory />
         <OurValues />

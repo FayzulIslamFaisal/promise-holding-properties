@@ -12,7 +12,7 @@ const LandownerWrapper = () => {
         title="Joint Venture"
         subtitle="Partner with the best"
         badge="STRATEGIC JOINT VENTURE"
-        imageSrc="/assets/images/banners/landowner-banner.jpg"
+        imageSrc="/assets/images/banners/Landowner.png"
       />
       <LandownerSlider />
       <JointVentureForm />

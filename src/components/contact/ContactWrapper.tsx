@@ -10,7 +10,7 @@ const ContactWrapper = () => {
         title="Get In Touch"
         subtitle="We are here to assist you"
         badge="24/7 CUSTOMER ASSISTANCE"
-        imageSrc="/assets/images/banners/contact-banner.jpg"
+        imageSrc="/assets/images/banners/Contact.png"
       />
       <ContactCard />
       <ContactForm title="Contact Us" subtitle="We're here to help!" />

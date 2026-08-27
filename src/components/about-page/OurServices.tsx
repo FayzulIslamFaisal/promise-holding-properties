@@ -18,27 +18,27 @@ const fallbackServices: ServiceItem[] = [
       title: "Property Buying & Selling",
       description:
         "Expert guidance through every step of buying or selling your property with market insights and negotiation expertise.",
-      icon: <Home className="h-8 w-8 text-primary" />,
+      icon: <Home className="h-6 w-6 text-white" />,
     },
     {
       id: 2,
       title: "Rental & Leasing",
       description:
         "Comprehensive rental services including tenant screening, lease management, and property marketing.",
-      icon: <Key className="h-8 w-8 text-primary" />,
+      icon: <Key className="h-6 w-6 text-white" />,
     },
     {
       id: 3,
       title: "Property Management",
       description: "Full-service property management including maintenance, rent collection, and tenant relations.",
-      icon: <Settings className="h-8 w-8 text-primary" />,
+      icon: <Settings className="h-6 w-6 text-white" />,
     },
     {
       id: 4,
       title: "Investment Consultancy",
       description:
         "Strategic investment advice to help you build and optimize your real estate portfolio for maximum returns.",
-      icon: <TrendingUp className="h-8 w-8 text-primary" />,
+      icon: <TrendingUp className="h-6 w-6 text-white" />,
     },
 ]
 
@@ -56,7 +56,7 @@ const OurServices = async () => {
         id: s.id,
         title: s.title,
         description: s.description,
-        icon: <Image src={s.icon} alt={s.title} width={32} height={32} className="h-8 w-8 object-contain" />,
+        icon: <Image src={s.icon} alt={s.title} width={32} height={32} className="h-7 w-7 object-contain" />,
       }))
     : fallbackServices
 
@@ -75,7 +75,9 @@ const OurServices = async () => {
               <Card key={service.id} className="p-8 gap-4 highlight-box" variant={"hoverEffect"}>
                 <CardHeader className="pb-0 px-0">
                   <CardTitle className="flex items-center gap-4 text-xl">
-                    {service.icon}
+                    <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shrink-0 p-2.5 text-white shadow-sm">
+                      {service.icon}
+                    </div>
                     {service.title}
                   </CardTitle>
                 </CardHeader>

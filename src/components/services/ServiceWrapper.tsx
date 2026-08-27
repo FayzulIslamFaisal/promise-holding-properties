@@ -11,7 +11,7 @@ const ServiceWrapper = () => {
         title="Professional Services"
         subtitle="Excellence in every detail"
         badge="COMPREHENSIVE SOLUTIONS"
-        imageSrc="/assets/images/banners/services-banner.jpg"
+        imageSrc="/assets/images/banners/Services.png"
       />
       <OurServices />
       <WhyChooseOurServices />
