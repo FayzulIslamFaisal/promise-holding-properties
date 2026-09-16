@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<title>রিয়েল এস্টেট প্রজেক্ট ও ওয়েবসাইট ডেটা কালেকশন ডিক্লারেশন</title>
+<style>
+  body {
+    font-family: 'Segoe UI', 'Kalpurush', 'SolaimanLipi', Arial, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin: 40px;
+  }
+  h1 {
+    color: #0d47a1;
+    border-bottom: 3px solid #0d47a1;
+    padding-bottom: 10px;
+    font-size: 22pt;
+    text-align: center;
+  }
+  h2 {
+    color: #1565c0;
+    margin-top: 25px;
+    border-bottom: 1.5px solid #1565c0;
+    padding-bottom: 6px;
+    font-size: 16pt;
+  }
+  h3 {
+    color: #2e7d32;
+    margin-top: 20px;
+    font-size: 13pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  th, td {
+    border: 1px solid #b0bec5;
+    padding: 10px;
+    text-align: left;
+    font-size: 11pt;
+  }
+  th {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    font-weight: bold;
+  }
+  tr:nth-child(even) {
+    background-color: #f9fbfd;
+  }
+  ul, ol {
+    margin-left: 25px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  .highlight-box {
+    background-color: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
+  .project-card {
+    border: 1px solid #cfd8dc;
+    padding: 14px 18px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #fcfcfc;
+  }
+  .badge {
+    background-color: #1565c0;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 10pt;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>📋 রিয়েল এস্টেট প্রজেক্ট ও ওয়েবসাইট ডেটা কালেকশন ডিক্লারেশন</h1>
+<p style="text-align: center; font-size: 12pt; color: #555;"><strong>(Project & Website Data Requirements)</strong></p>
+
+<div class="highlight-box">
+  <p>এই ডকুমেন্টে আমাদের ওয়েবসাইট এবং অ্যাডমিন ড্যাশবোর্ডে নতুন প্রজেক্ট, প্লট, বিল্ডিং, ফ্ল্যাট/ইউনিট এবং পার্কিং যুক্ত করার জন্য কি কি তথ্য ও মিডিয়া ফাইল (ছবি) প্রয়োজন তা বিস্তারিতভাবে উল্লেখ করা হলো।</p>
+</div>
+
+<h2>📌 সূচিপত্র (Table of Contents)</h2>
+<ol>
+  <li><strong>ওয়েবসাইটের পেজসমূহ ও ব্যানার ইমেজের সাইজ তালিকা (Website Pages & Banner Dimensions)</strong></li>
+  <li><strong>প্রজেক্ট হায়ারার্কি ও প্রয়োজনীয় ডাটা স্পেসিফিকেশন (Data Hierarchy & Specifications)</strong>
+    <ul>
+      <li>১. প্রজেক্টের তথ্য (Project Level Data)</li>
+      <li>২. প্লটের তথ্য (Plot Level Data)</li>
+      <li>৩. বিল্ডিংয়ের তথ্য (Building Level Data)</li>
+      <li>৪. ফ্ল্যাট/ইউনিটের তথ্য (Unit / Flat Level Data)</li>
+      <li>৫. পার্কিং স্লটের তথ্য (Parking Slot Level Data)</li>
+    </ul>
+  </li>
+  <li><strong>কোম্পানির প্রজেক্টসমূহের তালিকা ও ডাটা প্রদান নির্দেশনা (Company Projects Data Checklist)</strong></li>
+</ol>
+
+<hr>
+
+<h2>🌐 ১. ওয়েবসাইটের পেজ ব্যানার ও সাইজ বিবরণ (Website Pages & Banner Dimensions)</h2>
+
+<p>ওয়েবসাইটের বিভিন্ন পেজে প্রদর্শনের জন্য প্রতিটি পেজের অনুকূলে হাই-রেজুলেশন ব্যানার ছবি প্রয়োজন। নিচে ব্যানারগুলোর রেশিও ও প্রস্তাবিত পিক্সেল সাইজ দেওয়া হলো:</p>
+
+<ul>
+  <li><strong>ডেস্কটপ রেশিও (Desktop Banner Ratio):</strong> <code>4:1</code> (দৈর্ঘ্য : উচ্চতা) ➔ <strong>সুপারিশকৃত সাইজ:</strong> <code>1920 x 480 px</code> (সর্বনিম্ন <code>1280 x 320 px</code>)</li>
+  <li><strong>মোবাইল রেশিও (Mobile Banner Ratio):** <code>16:9</code> ➔ <strong>সুপারিশকৃত সাইজ:</strong> <code>1280 x 720 px</code></li>
+</ul>
+
+<h3>পেজ তালিকা ও ব্যানার ইমেজের বিবরণ:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>পেজের নাম (Page Name)</th>
+      <th>ইউআরএল / লিংক (URL Route)</th>
+      <th>ব্যানারের রেশিও (Aspect Ratio)</th>
+      <th>সাইজ (Recommended Dimensions)</th>
+      <th>যে ধরণের ছবি লাগবে (Description)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Home Page (হিরো স্লাইডার)</strong></td>
+      <td><code>/</code></td>
+      <td>1920:800 / 16:9</td>
+      <td>1920 x 800 px</td>
+      <td>হোম পেজের মূল আকর্ষণীয় স্লাইডার ব্যানার ছবি।</td>
+    </tr>
+    <tr>
+      <td><strong>About Us (আমাদের কথা)</strong></td>
+      <td><code>/about</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>কোম্পানির পরিচয়, ঐতিহ্য ও ব্র্যান্ডিং সম্পর্কিত ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Services (সেবাসমূহ)</strong></td>
+      <td><code>/services</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>রিয়েল এস্টেট ও কনস্ট্রাকশন সার্ভিস সংক্রান্ত ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Projects (সকল প্রজেক্ট)</strong></td>
+      <td><code>/project</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>বহুতল ভবন ও রেসিডেন্সিয়াল প্রজেক্টের লিস্ট ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Land Projects (জমি/ল্যান্ড প্রজেক্ট)</strong></td>
+      <td><code>/land-project</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>ল্যান্ড প্রজেক্ট এবং প্লটিং প্রজেক্টের ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Landowner / Joint Venture</strong></td>
+      <td><code>/landowner</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>জমিদারদের সাথে যৌথ উদ্যোগের (JV) প্রচারণামূলক ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Contact Us (যোগাযোগ)</strong></td>
+      <td><code>/contact</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>কাস্টমার সাপোর্ট ও যোগাযোগের ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Career (ক্যারিয়ার)</strong></td>
+      <td><code>/career</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>নিয়োগ ও জব সার্কুলার পেজের ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Agent List (এজেন্ট তালিকা)</strong></td>
+      <td><code>/agent-list</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>এজেন্সী বা সেলস পার্টনারদের পেজের ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Media Center / Insights (ব্লগ)</strong></td>
+      <td><code>/insights</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>নিউজ, প্রেস রিলিজ ও আর্টিকেলের হেডার ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Customer Enquiry (অনুসন্ধান)</strong></td>
+      <td><code>/customer</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>কাস্টমার এনকোয়ারি ফর্ম পেজের ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Terms & Conditions (শর্তাবলী)</strong></td>
+      <td><code>/terms-conditions</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>টার্মস এন্ড কন্ডিশনস পেজের ব্যানার।</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy Policy (গোপনীয়তা নীতি)</strong></td>
+      <td><code>/privacy-policy</code></td>
+      <td>4:1 (Desktop) / 16:9 (Mobile)</td>
+      <td>1920 x 480 px</td>
+      <td>প্রাইভেসি পলিসি পেজের ব্যানার।</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>🏗️ ২. প্রজেক্টের মূল ডাটা স্ট্রাকচার ও প্রয়োজনীয় তথ্যসমূহ</h2>
+
+<p>ওয়েবসাইটে যেকোনো প্রজেক্ট সঠিকভাবে সাজাতে ডাটাগুলো নিচের পর্যায়ক্রমিক স্ট্রাকচারে (Hierarchy) জমা দিতে হবে:</p>
+
+<div style="background: #f5f5f5; padding: 15px; border-radius: 5px; font-family: monospace; line-height: 1.4;">
+[Project / প্রজেক্ট]<br>
+&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;├── [Plot / প্লট]<br>
+&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;└── [Building / বিল্ডিং]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── [Unit / Flat / ফ্ল্যাট]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── [Parking Slot / পার্কিং]
+</div>
+
+<h3>🏢 ১. প্রজেক্ট পর্যায় (Project Level Data):</h3>
+<p>প্রতিটি প্রজেক্ট যুক্ত করার সময় নিম্নলিখিত তথ্যসমূহ প্রদান করতে হবে:</p>
+<ul>
+  <li><strong>Project Name (প্রজেক্টের নাম):</strong> প্রজেক্টের অফিশিয়াল নাম।</li>
+  <li><strong>Project Status (স্ট্যাটাস):</strong> প্রজেক্টটি অ্যাক্টিভ (Active) নাকি ইন-অ্যাক্টিভ (Inactive)।</li>
+  <li><strong>Product Type (প্রোডাক্টের ধরন):</strong> প্রজেক্টের বর্তমান অবস্থা — রানিং (Running), আপকামিং (Upcoming) নাকি সম্পন্ন (Completed)।</li>
+  <li><strong>Location (ঠিকানা):</strong> প্রজেক্টটি কোথায় অবস্থিত তার পূর্ণাঙ্গ ঠিকানা।</li>
+  <li><strong>Google Map Link (গুগল ম্যাপ লিংক):</strong> প্রজেক্টের সঠিক গুগল ম্যাপ লোকেশন লিংক।</li>
+  <li><strong>Project Banner Image:</strong> প্রজেক্ট ডিটেইলস পেজের মূল ব্যানার ছবি (<code>1920 x 480 px</code> বা <code>4:1</code> রেশিও)।</li>
+  <li><strong>Project Thumbnail Image:</strong> প্রজেক্ট কার্ডে দেখানোর জন্য পোর্ট্রেট ছবি (<code>600 x 800 px</code> বা <code>3:4</code> রেশিও)।</li>
+</ul>
+
+<h3>🏞️ ২. প্লট পর্যায় (Plot Level Data):</h3>
+<p>যদি কোনো ল্যান্ড প্রজেক্ট বা জমির প্রজেক্ট হয়, তবে তার অধীনে প্লটের তথ্যগুলো লাগবে:</p>
+<ul>
+  <li><strong>Project Name:</strong> এটি কোন প্রজেক্টের অধীনে অবস্থিত।</li>
+  <li><strong>Plot No.:</strong> প্লটের নির্দিষ্ট নম্বর বা আইডি (যেমন: Plot 001)।</li>
+  <li><strong>Land Area (Sqft):</strong> প্লটের মোট আয়তন (বর্গফুটে)।</li>
+  <li><strong>Price (BDT):</strong> প্লটের নির্ধারিত মোট মূল্য (টাকায়)।</li>
+  <li><strong>Status:</strong> প্লটটি কি বিক্রির জন্য উপলব্ধ (Active) নাকি বুকড/বন্ধ (Inactive)।</li>
+  <li><strong>Plot Image/Layout:</strong> প্লটের লেআউট ম্যাপ বা ছবি (<code>1200 x 675 px</code> বা <code>16:9</code> রেশিও)।</li>
+</ul>
+
+<h3>🏬 ৩. বিল্ডিং পর্যায় (Building Level Data):</h3>
+<p>কোনো প্রজেক্ট বা প্লটের আওতায় বহুতল বিল্ডিং যুক্ত করতে গেলে নিচের তথ্যগুলো লাগবে:</p>
+<ul>
+  <li><strong>Building Code:</strong> বিল্ডিংয়ের ইউনিক আইডেন্টিফায়ার কোড।</li>
+  <li><strong>Project Name & Plot No.:</strong> বিল্ডিংটি কোন প্রজেক্ট এবং কোন প্লট নম্বরে অবস্থিত।</li>
+  <li><strong>Building Name:</strong> বিল্ডিংয়ের নির্দিষ্ট নাম (যেমন: Maple Court)।</li>
+  <li><strong>Building Area (Decimal & Sqft):</strong> বিল্ডিংয়ের মোট জমির পরিমাণ (শতাংশে এবং বর্গফুটে)।</li>
+  <li><strong>Type of Building:</strong> বিল্ডিংয়ের ধরন — রেসিডেন্সিয়াল (Residential), কমার্শিয়াল (Commercial) নাকি মিক্সড (Mixed)।</li>
+  <li><strong>Visibility Status:</strong> অ্যাক্টিভ (Active) নাকি ইন-অ্যাক্টিভ (Inactive)।</li>
+  <li><strong>Description:</strong> বিল্ডিংয়ের বিস্তারিত সুবিধা ও নান্দনিক বর্ণনা।</li>
+  <li><strong>Features & Amenities (সুবিধাসমূহ):** বিল্ডিংয়ে বিদ্যমান সুবিধার তালিকা — যেমন: লিফট (Elevator), পার্কিং (Parking), ২৪/৭ সিকিউরিটি (Security), সুইমিং পুল (Swimming Pool), জিম (Gym), খেলার মাঠ (Playground), বাগান (Garden), সিসিটিভি (CCTV), জেনারেটর (Generator), পানি সরবরাহ (Water Supply), ওয়াইফাই (Wifi), ফায়ার সেফটি (Fire Safety), কমিউনিটি হল (Community Hall), ছাদ (Rooftop), ট্যারেস (Terrace), এবং স্টোরেজ (Storage)।</li>
+  <li><strong>Building Gallery Images:</strong> বিল্ডিংয়ের অভ্যন্তরীণ ও বাহ্যিক একাধিক গ্যালারি ছবি এবং প্রতিটির শিরোনাম।</li>
+  <li><strong>Feature & Banner Image:</strong> বিল্ডিংয়ের ফিচারড ছবি (<code>1200 x 675 px</code>) এবং ব্যানার ছবি (<code>1920 x 480 px</code> বা <code>4:1</code> রেশিও)।</li>
+</ul>
+
+<h3>🏠 ৪. ফ্ল্যাট/ইউনিট পর্যায় (Unit / Flat Data Requirements):</h3>
+<p>বিল্ডিংয়ের মধ্যে থাকা প্রতিটি ফ্ল্যাট বা ইউনিটের জন্য যা তথ্য লাগবে:</p>
+<ul>
+  <li><strong>Building Name:</strong> ফ্ল্যাটটি কোন বিল্ডিংয়ের অন্তর্ভুক্ত।</li>
+  <li><strong>Unit Name/Type:</strong> ইউনিটের নাম বা টাইপ (যেমন: Type A, Deluxe, Flat 4B)।</li>
+  <li><strong>Gross Area & Usable Area (Sqft):</strong> ইউনিটের মোট আয়তন এবং ব্যবহারযোগ্য আয়তন।</li>
+  <li><strong>Unit Quantity:</strong> এই টাইপের মোট কতটি ইউনিট রয়েছে।</li>
+  <li><strong>Per Unit Amount & Discount (BDT):</strong> ফ্ল্যাটের নির্ধারিত মূল্য এবং ছাড়ের পরিমাণ।</li>
+  <li><strong>UDL Area (dec):</strong> ইউডিএল এরিয়া (যদি থাকে)।</li>
+  <li><strong>Status:</strong> বিক্রিযোগ্য (Active) নাকি বুকড (Inactive)।</li>
+  <li><strong>Specifications (ঘরের সংখ্যা):</strong> ফ্ল্যাটের বেডরুম সংখ্যা, বাথরুম সংখ্যা, এবং বারান্দার সংখ্যা।</li>
+  <li><strong>Agreement Text:</strong> ইউনিটের চুক্তি ও নিয়মাবলী সংক্রান্ত টেক্সট।</li>
+  <li><strong>Unit Thumbnail & Gallery Images:</strong> ফ্ল্যাটের থাম্বনেল ছবি (<code>800 x 600 px</code>) এবং বেডরুম, ড্রয়িং, কিচেন ও ওয়াশরুমের গ্যালারি ছবিসমূহ।</li>
+  <li><strong>Installment Details:</strong> ডাউনপেমেন্ট, বুকিং মানি এবং কিস্তির তথ্য।</li>
+</ul>
+
+<h3>🚗 ৫. পার্কিং স্লট পর্যায় (Parking Slot Data Requirements):</h3>
+<p>বিল্ডিংয়ের পার্কিং লটের তথ্য:</p>
+<ul>
+  <li><strong>Building Name:</strong> পার্কিংটি কোন বিল্ডিংয়ের অন্তর্ভুক্ত।</li>
+  <li><strong>Parking Quantity:</strong> মোট পার্কিং স্লট সংখ্যা।</li>
+  <li><strong>Parking Type:</strong> পার্কিংয়ের ধরন — কার পার্কিং (Car), বাইক পার্কিং (Bike), নাকি বড় গাড়ি/এসইউভি (SUV)।</li>
+  <li><strong>Per Parking Area (sqft) & Amount (BDT):</strong> প্রতি পার্কিংয়ের আয়তন ও নির্ধারিত মূল্য।</li>
+  <li><strong>Status:</strong> খালি (Active) নাকি বরাদ্দকৃত (Inactive)।</li>
+  <li><strong>Features:</strong> কভার্ড পার্কিং, সিসিটিভি ক্যামেরা, ২৪/৭ সিকিউরিটি গার্ড, সহজ যাতায়াত পথ এবং ফায়ার সেফটি।</li>
+  <li><strong>Parking Image:</strong> পার্কিং লেআউট বা পার্কিং এলাকার ছবি (<code>1200 x 675 px</code>)।</li>
+</ul>
+
+<hr>
+
+<h2>🏢 ৩. কোম্পানির প্রজেক্টসমূহের তালিকা ও ডাটা প্রদান নির্দেশনা</h2>
+
+<p>আমাদের <strong>Promise Assets Limited</strong> এর অধীনে থাকা নিচের ৭টি প্রজেক্টের প্রতিটির ক্ষেত্রে ওপরে উল্লেখিত <strong>সকল ডাটা (Project, Plot, Building, Unit/Flat এবং Parking Slot)</strong> পর্যায়ক্রমিকভাবে সংগ্রহ ও প্রদান করতে হবে:</p>
+
+<div class="project-card">
+  <h3>1. Promise Haven City</h3>
+  <p>📍 <strong>লোকেশন:</strong> Uttara, Uttarkhan, Dhaka</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, আওতাধীন Plot Data, Building Data, প্রতিটি Unit/Flat Data এবং Parking Slot Data প্রদান করতে হবে।</p>
+</div>
+
+<div class="project-card">
+  <h3>2. Promise Height</h3>
+  <p>📍 <strong>লোকেশন:</strong> Shahid Minar Road, Kallayanpur, Dhaka</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, আওতাধীন Building Data, ফ্ল্যাট/টাইপ অনুযায়ী Unit Data এবং Parking Slot Data প্রদান করতে হবে।</p>
+</div>
+
+<div class="project-card">
+  <h3>3. The Promise Hotel & Resort</h3>
+  <p>📍 <strong>লোকেশন:</strong> Inani, Cox’s Bazar</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, রিসোর্ট ও কটেজের Building Data, স্যুট/কক্ষ অনুযায়ী Unit Data এবং সুবিধা ও গ্যালারি ছবি প্রদান করতে হবে।</p>
+</div>
+
+<div class="project-card">
+  <h3>4. Promise Trade Center</h3>
+  <p>📍 <strong>লোকেশন:</strong> Uttara, Sector 18, Diabari, Dhaka</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, কমার্শিয়াল Building Data, শপ/অফিস অনুযায়ী Unit Data এবং Parking Slot Data প্রদান করতে হবে।</p>
+</div>
+
+<div class="project-card">
+  <h3>5. Promise Highway City</h3>
+  <p>📍 <strong>লোকেশন:</strong> Modonpur, Sonargaon</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, প্রজেক্টের মাস্টার প্ল্যান, আওতাধীন সকল Plot Data (স্কয়ারফিট, কাঠা ও প্লট ম্যাপ) প্রদান করতে হবে।</p>
+</div>
+
+<div class="project-card">
+  <h3>6. Promise Birulia City</h3>
+  <p>📍 <strong>লোকেশন:</strong> Birulia, Savar, Dhaka</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, প্রজেক্ট লেআউট ও আওতাধীন সকল Plot Data (স্কয়ারফিট, কাঠা, মূল্য ও লেআউট ছবি) প্রদান করতে হবে।</p>
+</div>
+
+<div class="project-card">
+  <h3>7. Promise Tower</h3>
+  <p>📍 <strong>লোকেশন:</strong> Road 1, Plot no. 1&3, Uttara, Sector 17/E, Dhaka</p>
+  <p>👉 <strong>প্রয়োজনীয় ডাটা:</strong> এই প্রজেক্টের Project Level Data, টাওয়ারের Building Data, টাইপ ভিত্তিক Unit/Flat Data এবং Parking Slot Data প্রদান করতে হবে।</p>
+</div>
+
+<hr>
+<p style="text-align: center; color: #666; font-style: italic;">*উপরে উল্লিখিত প্রতিটি প্রজেক্টের সম্পূর্ণ ডাটা পাওয়ার সাথে সাথেই সিস্টেমে যুক্ত করে ওয়েবসাইট ও পোর্টালে লাইভ করা হবে।*</p>
+
+</body>
+</html>

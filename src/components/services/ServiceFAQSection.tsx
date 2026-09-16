@@ -6,59 +6,73 @@ import { FaqItem } from "@/types/api";
 const fallbackFaqs: FaqItem[] = [
   {
     id: 1,
-    question: "How do I start the home buying process?",
+    question: 'What is the "Shared Land Development" model?',
     answer:
-      "Begin with a consultation where we discuss your budget, preferences, and timeline. We then provide pre-approval assistance and start searching for properties that match your criteria.",
-    status: 1
+      'The Shared Land Development model allows multiple buyers to collectively purchase a parcel of land and jointly develop residential apartments at actual construction cost. By eliminating third-party developer profit margins, buyers can acquire premium flats and land shares at 30-40% lower costs than conventional market rates.',
+    status: 1,
   },
   {
     id: 2,
-    question: "What documents do I need to sell my property?",
+    question: "Where is Promise Haven City located?",
     answer:
-      "You'll need property deeds, tax records, mortgage information, HOA documents (if applicable), and any recent appraisals. We'll provide a complete checklist during our initial meeting.",
-    status: 1
+      "Promise Haven City is strategically located in an upcoming prime residential zone with rapid connectivity to Dhaka city centers, major expressways, metro access, top educational institutions, and healthcare facilities. Contact our team for detailed site maps and guided visits.",
+    status: 1,
   },
   {
     id: 3,
-    question: "How long does the typical transaction take?",
+    question: "How do I book a land share or flat in this project?",
     answer:
-      "Most transactions take 30-45 days from offer acceptance to closing. However, cash purchases can close in as little as 2 weeks, while complex transactions may take longer.",
-    status: 1
+      "Booking is simple: visit our corporate office or book online by submitting your NID/passport copy, passport-size photographs, and completing the initial booking money. You will receive an official allotment receipt, verified project documentation, and legal deed agreements.",
+    status: 1,
   },
   {
     id: 4,
-    question: "Do you provide property management services?",
+    question: "Can I pay for my property share in installments?",
     answer:
-      "Yes, we offer comprehensive property management including tenant screening, rent collection, maintenance coordination, and financial reporting for investment properties.",
-    status: 1
+      "Yes, we offer flexible, construction-linked installment plans. After the initial down payment for the land share, construction expenses are distributed across easy monthly or quarterly milestones tailored to your financial convenience.",
+    status: 1,
   },
   {
     id: 5,
-    question: "What are your commission rates?",
+    question: "What happens if my booking is canceled or I want a refund?",
     answer:
-      "Our commission rates are competitive and vary based on the property type and services required. We provide transparent pricing with no hidden fees during our initial consultation.",
-    status: 1
+      "Our policies are completely transparent. If you choose to cancel your booking within the stipulated agreement period, your invested funds will be processed for refund according to the terms outlined in your deed and booking contract with zero hidden penalties.",
+    status: 1,
   },
   {
     id: 6,
-    question: "Can you help with investment property analysis?",
+    question: "How are the specific flats or units distributed among buyers?",
     answer:
-      "We provide detailed market analysis, ROI calculations, cash flow projections, and investment strategy recommendations to help you make informed decisions.",
-    status: 1
+      "Unit and floor allocations are carried out transparently through a democratic lottery system or priority-based selection among registered shareholders, supervised by an independent legal committee to ensure 100% fair distribution.",
+    status: 1,
   },
   {
     id: 7,
-    question: "Do you work with first-time homebuyers?",
+    question: "Who manages the construction work and architectural design?",
     answer:
-      "Yes, we specialize in helping first-time buyers navigate the process. We provide education on financing options, guide you through inspections, and ensure you understand each step.",
-    status: 1
+      "The entire architectural planning, structural engineering, and construction supervision are managed by renowned architectural firms and Promise Holding's certified engineering team adhering to Bangladesh National Building Code (BNBC) and RAJUK standards.",
+    status: 1,
   },
   {
     id: 8,
-    question: "What areas do you serve?",
+    question: "Is car parking included with every flat share?",
     answer:
-      "We serve the entire metropolitan area including downtown, suburban communities, and surrounding counties. Contact us to confirm service availability in your specific area.",
-    status: 1
+      "Car parking spaces are systematically planned across basement and ground levels. Depending on your share type and allotment package, dedicated covered car parking is either included or available through standard mutual allocation.",
+    status: 1,
+  },
+  {
+    id: 9,
+    question: "Can I sell or transfer my share to someone else during the project?",
+    answer:
+      "Yes, shareholders have full legal rights to transfer, assign, or sell their land share and flat entitlement to a third party with formal authorization and record updating through Promise Holding's legal desk.",
+    status: 1,
+  },
+  {
+    id: 10,
+    question: "What amenities will be available in the completed buildings?",
+    answer:
+      "Completed projects feature high-speed European lifts, 24/7 solar backup generators, CCTV security, fire safety systems, rooftop gardens, community hall, gym facilities, modern water purification, and children's play zones.",
+    status: 1,
   },
 ];
 
@@ -73,32 +87,58 @@ const ServiceFAQSection = async () => {
 
   const faqs = faqsRes.length > 0 ? faqsRes : fallbackFaqs;
 
+  const mid = Math.ceil(faqs.length / 2);
+  const leftFaqs = faqs.slice(0, mid);
+  const rightFaqs = faqs.slice(mid);
+
   return (
     <section className="px-4">
       <div className="container mx-auto sectionSpaceBorder">
-        <SectionTitle title="Frequently Asked Questions" subtitle="Have a question? We've got answers!"  border_b={true} />
-        <div className="max-w-[100%] lg:max-w-[70%] mx-auto p-4 border border-primary/30 bg-primary/20 dark:bg-[var(--brand-dark)] rounded-lg shadow-2xl">
-        <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq) => (
-            <AccordionItem
-              key={faq.id}
-              value={`item-${faq.id}`}
-              className="border border-primary/30 rounded-lg px-6 bg-primary/10 hover:bg-primary/20 dark:bg-[var(--brand-dark)]"
-            >
-              <AccordionTrigger className="text-left text-md md:text-lg font-bold text-[var(--brand-dark)] dark:text-primary hover:no-underline focus:outline-none">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-[var(--brand-dark)] dark:text-white text-base pt-2 pb-4">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+        <SectionTitle
+          title="Frequently Asked Questions"
+          subtitle="Have a question? We've got answers!"
+          border_b={true}
+        />
+
+        {/* 2-column grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
+          <Accordion type="single" collapsible className="space-y-4">
+            {leftFaqs.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={`item-${faq.id}`}
+                className="border border-primary/30 rounded-xl px-5 bg-primary/10 hover:bg-primary/15 dark:bg-[var(--brand-dark)] transition-colors"
+              >
+                <AccordionTrigger className="text-left text-sm sm:text-base md:text-lg font-semibold text-[var(--brand-dark)] dark:text-primary hover:no-underline focus:outline-none [&>svg]:text-primary">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-[var(--brand-dark)] dark:text-white text-sm sm:text-base pt-2 pb-4 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {rightFaqs.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={`item-${faq.id}`}
+                className="border border-primary/30 rounded-xl px-5 bg-primary/10 hover:bg-primary/15 dark:bg-[var(--brand-dark)] transition-colors"
+              >
+                <AccordionTrigger className="text-left text-sm sm:text-base md:text-lg font-semibold text-light-black dark:text-white hover:text-primary active:text-primary hover:no-underline focus:outline-none [&>svg]:text-primary">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-light-black dark:text-white text-sm sm:text-base pt-2 pb-4 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );
 };
 
 export default ServiceFAQSection;
-
