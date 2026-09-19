@@ -29,7 +29,7 @@ const OurServiceCard: React.FC<OurServiceCardProps> = ({ service, index = 0 }) =
   const displayNumber = service.number || String(index + 1).padStart(2, "0");
 
   return (
-    <div className="group relative bg-white dark:bg-zinc-900/90 rounded-[24px] border border-[#f0ece1] dark:border-zinc-800 p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-6px_rgba(197,154,63,0.12)] hover:border-[#c59a3f]/40 hover:-translate-y-1 transition-all duration-300 min-h-[290px]">
+    <div className="group relative bg-white dark:bg-[#1e1a14]/90 rounded-[24px] border border-primary/25 dark:border-primary/35 hover:border-primary dark:hover:border-primary p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-[0_4px_20px_rgba(197,154,63,0.06)] hover:shadow-[0_16px_36px_-6px_rgba(197,154,63,0.18)] hover:-translate-y-1 transition-all duration-300 min-h-[290px]">
       {/* Background Dynamic Image Watermark (Same PNG icon with reduced opacity) */}
       {isImageString ? (
         <div className="absolute -bottom-6 -right-6 w-36 h-36 md:w-44 md:h-44 pointer-events-none select-none opacity-[0.10] dark:opacity-[0.06] transition-transform duration-500 group-hover:scale-110 group-hover:opacity-15">
