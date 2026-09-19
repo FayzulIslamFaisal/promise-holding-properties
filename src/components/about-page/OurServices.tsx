@@ -1,95 +1,49 @@
-import { OurService } from "@/types/api"
-import { Home, Key, Settings, TrendingUp } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
-import SectionTitle from "../common/SectionTitle"
-import Image from "next/image"
-import { companyServiceService } from "@/services"
-
-interface ServiceItem {
-  id: number
-  title: string
-  description: string
-  icon: React.ReactNode
-}
-
-const fallbackServices: ServiceItem[] = [
-    {
-      id: 1,
-      title: "Property Buying & Selling",
-      description:
-        "Expert guidance through every step of buying or selling your property with market insights and negotiation expertise.",
-      icon: <Home className="h-6 w-6 text-white" />,
-    },
-    {
-      id: 2,
-      title: "Rental & Leasing",
-      description:
-        "Comprehensive rental services including tenant screening, lease management, and property marketing.",
-      icon: <Key className="h-6 w-6 text-white" />,
-    },
-    {
-      id: 3,
-      title: "Property Management",
-      description: "Full-service property management including maintenance, rent collection, and tenant relations.",
-      icon: <Settings className="h-6 w-6 text-white" />,
-    },
-    {
-      id: 4,
-      title: "Investment Consultancy",
-      description:
-        "Strategic investment advice to help you build and optimize your real estate portfolio for maximum returns.",
-      icon: <TrendingUp className="h-6 w-6 text-white" />,
-    },
-]
+import { OurService } from "@/types/api";
+import SectionTitle from "../common/SectionTitle";
+import { companyServiceService } from "@/services";
+import OurServiceCard from "@/components/services/OurServiceCard";
 
 const OurServices = async () => {
-  let servicesRes: OurService[] = [];
+  let services: OurService[] = [];
   try {
     const res = await companyServiceService.getOurServices();
-    servicesRes = res.data || [];
+    services = res.data || [];
   } catch (error) {
     console.error("Error fetching services:", error);
   }
 
-  const services: ServiceItem[] = (servicesRes && servicesRes.length)
-    ? servicesRes.map((s) => ({
-        id: s.id,
-        title: s.title,
-        description: s.description,
-        icon: <Image src={s.icon} alt={s.title} width={32} height={32} className="h-7 w-7 object-contain" />,
-      }))
-    : fallbackServices
-
   return (
     <section className="px-4">
-        <div className="container mx-auto sectionSpaceBorder">
-          
-          <SectionTitle
-              title="Our Services"
-              border_b={true}
-              subtitle="Comprehensive real estate solutions tailored to your needs"
-          />
+      <div className="container mx-auto sectionSpaceBorder">
+        <SectionTitle
+          title="Our Services"
+          border_b={true}
+          subtitle="Comprehensive real estate solutions tailored to your needs"
+        />
 
-          <div className="grid md:grid-cols-2 gap-5">
-            {services.map((service) => (
-              <Card key={service.id} className="p-8 gap-4 highlight-box" variant={"hoverEffect"}>
-                <CardHeader className="pb-0 px-0">
-                  <CardTitle className="flex items-center gap-4 text-xl">
-                    <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shrink-0 p-2.5 text-white shadow-sm">
-                      {service.icon}
-                    </div>
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-0">
-                  <p className="text-lg darkLight-text-color leading-relaxed">{service.description}</p>
-                </CardContent>
-              </Card>
+        {services && services.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mt-8 md:mt-12">
+            {services.map((service, index) => (
+              <OurServiceCard
+                key={service.id || index}
+                service={service}
+                index={index}
+              />
             ))}
           </div>
-        </div>
-      </section>
-  )
-}
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-xl font-semibold text-gray-700 dark:text-zinc-300">
+              No services found
+            </p>
+            <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">
+              Please check back later or contact us for more information.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
 
-export default OurServices
+export default OurServices;

@@ -1,70 +1,46 @@
 import { OurService } from "@/types/api";
-import { Briefcase, Home, TrendingUp, Users } from "lucide-react";
 import OurServiceCard from "./OurServiceCard";
-import type { ServiceCardData } from "./OurServiceCard";
 import SectionTitle from "../common/SectionTitle";
 import { companyServiceService } from "@/services";
 
-const fallbackServices: ServiceCardData[] = [
-  {
-    id: 1,
-    icon: Home,
-    title: "Property Sales",
-    description:
-      "Expert guidance through every step of buying or selling your luxury property with personalized service.",
-    tags: [
-      "Professional tenant screening",
-      "Automated rent collection",
-      "Maintenance coordination",
-      "Property inspections",
-    ],
-  },
-  {
-    id: 2,
-    icon: TrendingUp,
-    title: "Investment Advisory",
-    description:
-      "Strategic real estate investment consulting to maximize your portfolio returns and long-term wealth.",
-    tags: ["Portfolio analysis", "Risk management", "Market insights", "Long-term planning"],
-  },
-  {
-    id: 3,
-    icon: Users,
-    title: "Property Management",
-    description:
-      "Comprehensive property management services ensuring your investments are maintained to the highest standards.",
-    tags: ["Tenant communication", "Rent collection", "Maintenance scheduling", "Financial reporting"],
-  },
-  {
-    id: 4,
-    icon: Briefcase,
-    title: "Real Estate Consulting",
-    description:
-      "Tailored advice to help clients navigate complex real estate markets and make informed decisions.",
-    tags: ["Market research", "Investment strategies", "Risk assessment", "Client support"],
-  },
-];
-
 const OurServices = async () => {
-  let servicesRes: OurService[] = [];
+  let services: OurService[] = [];
   try {
     const res = await companyServiceService.getOurServices();
-    servicesRes = res.data || [];
+    services = res.data || [];
   } catch (error) {
     console.error("Error fetching services:", error);
   }
 
-  const services: (OurService | ServiceCardData)[] = (servicesRes && servicesRes.length) ? servicesRes : fallbackServices;
-
   return (
     <section className="px-4">
-      <div className="container mx-auto border-b border-primary/40 py-10 md:py-12">
-        <SectionTitle title="Our Services" subtitle="Comprehensive real estate solutions tailored to your needs" border_b={true} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
-          {services.map((service: OurService | ServiceCardData) => (
-            <OurServiceCard key={service.id} service={service as OurService & ServiceCardData} />
-          ))}
-        </div>
+      <div className="container mx-auto border-b border-primary/40 py-10 md:py-16">
+        <SectionTitle
+          title="Our Services"
+          subtitle="Comprehensive real estate solutions tailored to your needs"
+          border_b={true}
+        />
+
+        {services && services.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mx-auto mt-8 md:mt-12">
+            {services.map((service: OurService, index: number) => (
+              <OurServiceCard
+                key={service.id || index}
+                service={service}
+                index={index}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-xl font-semibold text-gray-700 dark:text-zinc-300">
+              No services found
+            </p>
+            <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">
+              Please check back later or contact us for more information.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
