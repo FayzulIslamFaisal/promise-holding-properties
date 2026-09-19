@@ -12,139 +12,6 @@ export interface ServiceCardData {
   number?: string;
 }
 
-// ---------------------------------------------------------------------------
-// Outline Watermark SVGs
-// ---------------------------------------------------------------------------
-
-const BuildingWatermark = () => (
-  <svg
-    viewBox="0 0 160 160"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-40 h-40 md:w-48 md:h-48 text-[#ebdcc2]/85 dark:text-[#382c1b]/35 absolute -bottom-4 -right-4 pointer-events-none select-none transition-transform duration-500 group-hover:scale-105"
-  >
-    {/* Left wing with rounded top */}
-    <path d="M18 150 V80 C18 68 26 62 38 62 H50 V150" />
-    {/* Right wing with rounded top */}
-    <path d="M110 150 V80 C110 68 122 62 134 62 H142 V150" />
-    {/* Main central tower with rounded top */}
-    <path d="M50 150 V34 C50 20 60 14 74 14 H86 C100 14 110 20 110 34 V150" />
-    {/* Arched entrance at bottom */}
-    <path d="M66 150 V118 C66 108 72 102 80 102 C88 102 94 108 94 118 V150" />
-    {/* Window slots */}
-    <rect x="64" y="42" width="12" height="18" rx="3" />
-    <rect x="84" y="42" width="12" height="18" rx="3" />
-  </svg>
-);
-
-const CompassWatermark = () => (
-  <svg
-    viewBox="0 0 160 160"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-44 h-44 md:w-52 md:h-52 text-[#ebdcc2]/85 dark:text-[#382c1b]/35 absolute top-1/2 -translate-y-1/2 -right-6 pointer-events-none select-none transition-transform duration-500 group-hover:scale-105"
-  >
-    {/* Outer circle */}
-    <circle cx="85" cy="80" r="58" />
-    {/* Diamond compass needle rotated */}
-    <g transform="rotate(28 85 80)">
-      <polygon points="85,28 116,80 85,132 54,80" />
-    </g>
-  </svg>
-);
-
-const TrendingWatermark = () => (
-  <svg
-    viewBox="0 0 160 160"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-40 h-40 md:w-48 md:h-48 text-[#ebdcc2]/85 dark:text-[#382c1b]/35 absolute -bottom-4 -right-4 pointer-events-none select-none transition-transform duration-500 group-hover:scale-105"
-  >
-    {/* Zigzag trend line */}
-    <polyline points="20,130 65,85 95,108 142,48" />
-    {/* Arrow head */}
-    <polyline points="108,48 142,48 142,82" />
-  </svg>
-);
-
-const PalmWatermark = () => (
-  <svg
-    viewBox="0 0 160 160"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-40 h-40 md:w-48 md:h-48 text-[#ebdcc2]/85 dark:text-[#382c1b]/35 absolute -bottom-4 -right-4 pointer-events-none select-none transition-transform duration-500 group-hover:scale-105"
-  >
-    {/* Curved trunk on right */}
-    <path d="M128 152 C 120 110, 105 78, 88 64" />
-    <path d="M140 152 C 130 112, 114 80, 94 64" />
-    {/* Palm fronds / leaves */}
-    <path d="M90 64 C 70 36, 35 40, 20 56 C 42 62, 68 64, 90 64" />
-    <path d="M90 64 C 74 20, 98 10, 120 24 C 108 38, 100 50, 90 64" />
-    <path d="M90 64 C 60 60, 38 82, 35 106 C 56 92, 74 82, 90 64" />
-    <path d="M90 64 C 112 52, 140 60, 154 78 C 136 84, 116 78, 90 64" />
-  </svg>
-);
-
-function getWatermark(index: number, title?: string) {
-  const t = (title || "").toLowerCase();
-  if (
-    t.includes("house") ||
-    t.includes("housing") ||
-    t.includes("building") ||
-    t.includes("hotel") ||
-    t.includes("architect")
-  ) {
-    return BuildingWatermark;
-  }
-  if (
-    t.includes("purbachal") ||
-    t.includes("city") ||
-    t.includes("smart") ||
-    t.includes("plan") ||
-    t.includes("urban") ||
-    t.includes("land")
-  ) {
-    return CompassWatermark;
-  }
-  if (
-    t.includes("invest") ||
-    t.includes("solution") ||
-    t.includes("advisory") ||
-    t.includes("wealth") ||
-    t.includes("market")
-  ) {
-    return TrendingWatermark;
-  }
-  if (
-    t.includes("resort") ||
-    t.includes("beach") ||
-    t.includes("cox") ||
-    t.includes("tourist") ||
-    t.includes("vacation")
-  ) {
-    return PalmWatermark;
-  }
-
-  const list = [BuildingWatermark, CompassWatermark, TrendingWatermark, PalmWatermark];
-  return list[index % list.length];
-}
-
-// ---------------------------------------------------------------------------
-// Card Component
-// ---------------------------------------------------------------------------
-
 interface OurServiceCardProps {
   service: ServiceCardData;
   index?: number;
@@ -158,14 +25,28 @@ const OurServiceCard: React.FC<OurServiceCardProps> = ({ service, index = 0 }) =
 
   const iconSrc = isImageString ? encodeURI(service.icon as string) : "";
   const CustomIcon = typeof service.icon === "function" ? service.icon : null;
-  const Watermark = getWatermark(index, service.title);
 
   const displayNumber = service.number || String(index + 1).padStart(2, "0");
 
   return (
     <div className="group relative bg-white dark:bg-zinc-900/90 rounded-[24px] border border-[#f0ece1] dark:border-zinc-800 p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_-6px_rgba(197,154,63,0.12)] hover:border-[#c59a3f]/40 hover:-translate-y-1 transition-all duration-300 min-h-[290px]">
-      {/* Background Outline Watermark */}
-      <Watermark />
+      {/* Background Dynamic Image Watermark (Same PNG icon with reduced opacity) */}
+      {isImageString ? (
+        <div className="absolute -bottom-6 -right-6 w-36 h-36 md:w-44 md:h-44 pointer-events-none select-none opacity-[0.10] dark:opacity-[0.06] transition-transform duration-500 group-hover:scale-110 group-hover:opacity-15">
+          <Image
+            src={iconSrc}
+            alt=""
+            width={180}
+            height={180}
+            unoptimized
+            className="w-full h-full object-contain [filter:brightness(0)_saturate(100%)_invert(67%)_sepia(48%)_saturate(548%)_hue-rotate(6deg)_brightness(92%)_contrast(87%)] dark:[filter:brightness(0)_invert(1)]"
+          />
+        </div>
+      ) : CustomIcon ? (
+        <div className="absolute -bottom-6 -right-6 w-36 h-36 md:w-44 md:h-44 pointer-events-none select-none opacity-[0.10] dark:opacity-[0.06] text-[#c59a3f] transition-transform duration-500 group-hover:scale-110 group-hover:opacity-15">
+          <CustomIcon className="w-full h-full" strokeWidth={1} />
+        </div>
+      ) : null}
 
       {/* Top Row: Dynamic Icon Container & Number */}
       <div className="relative z-10 flex items-center justify-between mb-5">
