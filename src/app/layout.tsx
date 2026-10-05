@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "@/components/providers/SessionProvider";
 import { settingService } from "@/services";
 import { SettingsProvider } from "@/providers/SettingsProvider";
+import { SiteVisitProvider } from "@/providers/SiteVisitProvider";
 
 export const dynamic = "force-dynamic";
 
@@ -77,15 +78,17 @@ export default async function RootLayout({
               enableSystem={false}
               defaultTheme="dark"
             >
-              <HeaderSection />
-              <main>
-                {children}
-              </main>
-              <footer>
-                <CompanyFeatures />
-                <FooterSection />
-              </footer>
-              <Toaster />
+              <SiteVisitProvider>
+                <HeaderSection />
+                <main>
+                  {children}
+                </main>
+                <footer>
+                  <CompanyFeatures />
+                  <FooterSection />
+                </footer>
+                <Toaster />
+              </SiteVisitProvider>
             </ThemeProvider>
           </SettingsProvider>
         </SessionProvider>

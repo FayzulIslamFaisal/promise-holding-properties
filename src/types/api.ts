@@ -437,5 +437,46 @@ export interface PlotDetailsData {
   googleMapLink?: string;
 }
 
+// ---------------------------------------------------------------------------
+// Site Visits
+// ---------------------------------------------------------------------------
+export interface AvailableSlot {
+  id: number;
+  name: string;
+  time: string;
+  date: string;
+  day_name?: string;
+  formatted_date?: string;
+  is_custom?: boolean;
+}
 
+export interface AvailableSlotsResponse {
+  status: string;
+  message?: string;
+  available_slots?: AvailableSlot[];
+  data?: AvailableSlot[];
+}
 
+export interface SiteVisitVisitor {
+  name: string;
+  mobile_number: string;
+  is_primary: 0 | 1;
+}
+
+export interface BookSiteVisitRequest {
+  project_id: number;
+  visit_date: string; // YYYY-MM-DD
+  slot_name: string;
+  time_slot_id?: number | null;
+  custom_time?: string | null;
+  is_custom_slot: boolean;
+  pickup_type: 1 | 2; // 1 = Custom, 2 = Office
+  custom_pickup_address?: string | null;
+  visitors: SiteVisitVisitor[];
+}
+
+export interface BookSiteVisitResponse {
+  status: string;
+  message: string;
+  data?: unknown;
+}

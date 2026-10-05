@@ -13,3 +13,4 @@ export { valueService } from "./value.service";
 export { metricService } from "./metric.service";
 export { blogService } from "./blog.service";
 export { settingService } from "./setting.service";
+export { siteVisitService } from "./site-visit.service";
