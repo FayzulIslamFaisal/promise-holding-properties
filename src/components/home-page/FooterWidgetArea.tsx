@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { useSettings } from '@/providers/SettingsProvider';
 import { toast } from 'sonner';
 import { projectService } from '@/services';
+import GoogleReviewButton, { GOOGLE_REVIEW_URL } from '@/components/common/GoogleReviewButton';
 
 interface QuickLink {
   id: number;
@@ -56,6 +57,7 @@ const FooterWidgetArea = () => {
       { id: 3, title: "About Us", path: "/about" },
       // { id: 5, title: "Careers", path: "/career" },
       { id: 4, title: "Contact Us", path: "/contact" },
+      { id: 5, title: "Review Us on Google", path: GOOGLE_REVIEW_URL },
     ],
     companyLinks: CompanyLink[] = [
        { 
@@ -117,23 +119,36 @@ const FooterWidgetArea = () => {
                 </a>
               </p>
             </div>
+
+            {/* Google Review Card */}
+            <div className="pt-1">
+              <GoogleReviewButton variant="card" />
+            </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="text-lg tracking-wider">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
-              {quickLinks.map((item) => (
-                <li
-                  key={item?.id}
-                  className="hover:text-white transition-colors duration-300"
-                >
-                  <Link href={item?.path} className="flex items-center gap-1">
-                    <ChevronRight className="size-4" />
-                    {item?.title}
-                  </Link>
-                </li>
-              ))}
+              {quickLinks.map((item) => {
+                const isExternal = item?.path.startsWith('http');
+                return (
+                  <li
+                    key={item?.id}
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    <Link
+                      href={item?.path}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      className="flex items-center gap-1"
+                    >
+                      <ChevronRight className="size-4" />
+                      {item?.title}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

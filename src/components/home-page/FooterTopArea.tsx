@@ -11,6 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { LucideIcon } from "lucide-react";
 import { useSettings } from '@/providers/SettingsProvider';
+import GoogleReviewButton from '@/components/common/GoogleReviewButton';
 
 const FooterTopArea = () => {
     const settings = useSettings();
@@ -59,29 +60,34 @@ const FooterTopArea = () => {
                         </Link>
                     </div>
 
-                    {/* Social Icons */}
-                    <div className="flex items-center gap-4 justify-start md:justify-end flex-wrap">
-                        <span className="text-sm md:text-base font-semibold text-white">
-                            Follow Us:
-                        </span>
+                    {/* Google Review & Social Icons */}
+                    <div className="flex items-center gap-4 sm:gap-6 justify-start md:justify-end flex-wrap">
+                        {/* Google Review Button */}
+                        <GoogleReviewButton variant="top-bar" />
+
                         <div className="flex items-center gap-3">
-                            {socialIcons.map((item, index) => {
-                                const IconComponent = item.icon;
-                                return (
-                                    <Link
-                                        key={index}
-                                        href={item.href}
-                                        target="_blank"
-                                        className="bg-primary text-white 
-                                        hover:bg-black hover:text-white 
-                                        p-2 rounded-md border border-primary transition-all duration-300 
-                                        shadow-md hover:shadow-[0_4px_15px_rgba(255,255,255,0.6)] 
-                                        hover:-translate-y-1 transform hover:border-[var(--border-subtle)]"
-                                    >
-                                        <IconComponent className={item.className} />
-                                    </Link>
-                                );
-                            })}
+                            <span className="text-sm md:text-base font-semibold text-white">
+                                Follow Us:
+                            </span>
+                            <div className="flex items-center gap-3">
+                                {socialIcons.map((item, index) => {
+                                    const IconComponent = item.icon;
+                                    return (
+                                        <Link
+                                            key={index}
+                                            href={item.href}
+                                            target="_blank"
+                                            className="bg-primary text-white 
+                                            hover:bg-black hover:text-white 
+                                            p-2 rounded-md border border-primary transition-all duration-300 
+                                            shadow-md hover:shadow-[0_4px_15px_rgba(255,255,255,0.6)] 
+                                            hover:-translate-y-1 transform hover:border-[var(--border-subtle)]"
+                                        >
+                                            <IconComponent className={item.className} />
+                                        </Link>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>

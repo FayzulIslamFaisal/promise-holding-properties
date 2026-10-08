@@ -37,7 +37,7 @@ async function getMappedPlot(slug: string, plotSlug: string) {
       roadSize: plotData.road_size || plotData.roadSize || "",
       facing: plotData.facing || "",
       status: (plotData.status || "") as PlotDetail['status'],
-      pricePerSqft: plotData.price_per_sqft || plotData.pricePerSqft || (plotData.land_area > 0 ? Math.round(plotData.price / plotData.land_area) : 0),
+      pricePerSqft: plotData.price_per_sqft || plotData.pricePerSqft || plotData.price || 0,
       totalPrice: plotData.price || plotData.total_price || plotData.totalPrice || 0,
       description: plotData.description || "",
       image: plotData.image,

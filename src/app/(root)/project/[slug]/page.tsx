@@ -73,7 +73,7 @@ const ProjectDetailsPage = async ({
         roadSize: plot.road_size || plot.roadSize || "",
         facing: plot.facing || "",
         status: (plot.status || "") as PlotDetail['status'],
-        pricePerSqft: plot.price_per_sqft || plot.pricePerSqft || (plot.land_area > 0 ? Math.round(plot.price / plot.land_area) : 0),
+        pricePerSqft: plot.price_per_sqft || plot.pricePerSqft || plot.price || 0,
         totalPrice: plot.price || plot.total_price || plot.totalPrice || 0,
         description: plot.description || "",
         image: plot.image,

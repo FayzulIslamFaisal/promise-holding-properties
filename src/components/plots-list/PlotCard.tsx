@@ -30,14 +30,14 @@ const getBadgeClass = (status: string | undefined) => {
 const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
   const badgeClass = getBadgeClass(plot.status);
 
-  // Formatted price (e.g. 2.05 Crore BDT)
-  const formatPrice = (price: number) => {
-    if (price >= 10000000) {
-      return `${(price / 10000000).toFixed(2)} Crore BDT`;
-    } else if (price >= 100000) {
-      return `${(price / 100000).toFixed(2)} Lac BDT`;
+  // Formatted price (e.g. 5,200 BDT / sqft)
+  const formatPrice = () => {
+    const rate = plot.pricePerSqft || plot.totalPrice;
+    
+    if (rate) {
+      return `${rate.toLocaleString()} BDT / sqft`;
     }
-    return `${price.toLocaleString()} BDT`;
+    return null;
   };
 
   return (
@@ -97,11 +97,13 @@ const PlotCard = ({ plot, projectSlug, className }: PlotCardProps) => {
                 <span className="text-xs sm:text-sm font-medium">{plot.location}</span>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <span className="text-xs sm:text-sm font-extrabold text-white bg-primary px-3 py-1 rounded-lg shadow-lg">
-                  {formatPrice(plot.totalPrice)}
-                </span>
-              </div>
+              {formatPrice() && (
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs sm:text-sm font-extrabold text-white bg-primary px-3 py-1 rounded-lg shadow-lg">
+                    {formatPrice()}
+                  </span>
+                </div>
+              )}
             </div>
 
             <Button 

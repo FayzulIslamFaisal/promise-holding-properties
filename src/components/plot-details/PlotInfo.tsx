@@ -70,16 +70,13 @@ const PlotInfo = ({ plot, building }: PlotInfoProps) => {
       value: plot.roadSize,
     });
   }
-  if (plot.totalPrice) {
-    const priceVal = plot.totalPrice >= 10000000 
-      ? `${(plot.totalPrice / 10000000).toFixed(2)} Crore BDT` 
-      : plot.totalPrice >= 100000 
-        ? `${(plot.totalPrice / 100000).toFixed(2)} Lac BDT` 
-        : `${plot.totalPrice.toLocaleString()} BDT`;
+  const plotPriceRate = plot.pricePerSqft || plot.totalPrice;
+
+  if (plotPriceRate) {
     propertyDetails.push({
       icon: <Activity className="w-5 h-5" />,
       label: "Price",
-      value: priceVal,
+      value: `${plotPriceRate.toLocaleString()} BDT / sqft`,
     });
   }
   if (plot.status) {
@@ -142,14 +139,14 @@ const PlotInfo = ({ plot, building }: PlotInfoProps) => {
                   {building?.building_name ? building.building_name : plot.name}
                 </h2>
                 {plot.description && (
-                  <p className="text-base dark:text-white/80 text-[var(--brand-dark)]/80 leading-relaxed">
+                  <p className="text-base text-black dark:text-white leading-relaxed">
                     {plot.description}
                   </p>
                 )}
                 {building?.details && (
                   <div className="pt-2">
                     <div 
-                      className="prose dark:prose-invert max-w-none text-sm text-gray-600 dark:text-gray-300 leading-relaxed"
+                      className="prose dark:prose-invert max-w-none text-sm text-black dark:text-white leading-relaxed [&_*]:!text-black dark:[&_*]:!text-white [&_strong]:!text-primary dark:[&_strong]:!text-primary [&_a]:!text-primary dark:[&_a]:!text-primary"
                       dangerouslySetInnerHTML={{ __html: building.details }}
                     />
                   </div>

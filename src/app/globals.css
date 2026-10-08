@@ -299,6 +299,26 @@ body {
 }
 
 /* === Prose / Dynamic HTML Styles === */
+.prose {
+  color: #000;
+}
+
+.prose p,
+.prose span,
+.prose li {
+  color: inherit;
+}
+
+.dark .prose {
+  color: #fff !important;
+}
+
+.dark .prose p,
+.dark .prose span,
+.dark .prose li {
+  color: #fff !important;
+}
+
 .prose p {
   margin-bottom: 1.5rem;
   line-height: 1.8;
