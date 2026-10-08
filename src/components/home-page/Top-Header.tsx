@@ -6,7 +6,10 @@ import { useSettings } from '@/providers/SettingsProvider';
 
 const TopHeader = () => {
   const settings = useSettings();
-  const sitePhone = settings?.general_settings?.site_phone || "09647 444 444 | 01958 063 331";
+  const rawPhone = settings?.general_settings?.site_phone;
+  const sitePhone = (rawPhone && rawPhone.toLowerCase() !== 'admin' && /\d/.test(rawPhone))
+    ? rawPhone
+    : "09647 444 444 | 01958 063 331";
   const phoneNumbers = sitePhone ? sitePhone.split('|').map((p) => p.trim()) : [];
 
   return (

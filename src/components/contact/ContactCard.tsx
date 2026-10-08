@@ -19,7 +19,10 @@ export default function ContactCard() {
   
   const siteAddress = settings?.general_settings?.site_address || "Khaja Super Market, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207, Bangladesh";
   const siteEmail = settings?.general_settings?.site_email || "info@promiseassets.com";
-  const sitePhone = settings?.general_settings?.site_phone || "09647 444 444 | 01958 063 331";
+  const rawPhone = settings?.general_settings?.site_phone;
+  const sitePhone = (rawPhone && rawPhone.toLowerCase() !== 'admin' && /\d/.test(rawPhone))
+    ? rawPhone
+    : "09647 444 444 | 01958 063 331";
   const siteWhatsApp = "01958 063 331";
 
   const contactItems: ContactItem[] = [

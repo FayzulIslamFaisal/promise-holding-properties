@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { useSettings } from '@/providers/SettingsProvider';
 import { toast } from 'sonner';
 import { projectService } from '@/services';
-import GoogleReviewButton, { GOOGLE_REVIEW_URL } from '@/components/common/GoogleReviewButton';
+import { GOOGLE_REVIEW_URL } from '@/components/common/GoogleReviewButton';
 
 interface QuickLink {
   id: number;
@@ -102,14 +102,21 @@ const FooterWidgetArea = () => {
               <div className="text-gray-300 flex items-start gap-2">
                 <PhoneCallIcon className="size-4 text-white mt-1 flex-shrink-0" />
                 <div className="flex flex-col leading-tight">
-                  {(settings?.general_settings?.site_phone || "09647 444 444 | 01958 063 331")
-                    .split('|')
-                    .map((p) => p.trim())
-                    .map((phone, idx) => (
-                      <a key={idx} href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:underline">
-                        {phone}
-                      </a>
-                    ))}
+                  {(() => {
+                    const rawPhone = settings?.general_settings?.site_phone;
+                    const phoneToDisplay = (rawPhone && rawPhone.toLowerCase() !== 'admin' && /\d/.test(rawPhone))
+                      ? rawPhone
+                      : "09647 444 444 | 01958 063 331";
+
+                    return phoneToDisplay
+                      .split('|')
+                      .map((p) => p.trim())
+                      .map((phone, idx) => (
+                        <a key={idx} href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:underline">
+                          {phone}
+                        </a>
+                      ));
+                  })()}
                 </div>
               </div>
               <p className="text-gray-300 flex items-center gap-2">
@@ -118,11 +125,6 @@ const FooterWidgetArea = () => {
                   {settings?.general_settings?.site_email || "info@promiseassets.com"}
                 </a>
               </p>
-            </div>
-
-            {/* Google Review Card */}
-            <div className="pt-1">
-              <GoogleReviewButton variant="card" />
             </div>
           </div>
 

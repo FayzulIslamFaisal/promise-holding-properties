@@ -271,11 +271,16 @@ export default function BookSiteVisitModal({
 
   const handleSlipAction = () => {
     if (!confirmedData) return;
+    const rawPhone = settings?.general_settings?.site_phone;
+    const slipPhone = (rawPhone && rawPhone.toLowerCase() !== 'admin' && /\d/.test(rawPhone))
+      ? rawPhone
+      : "09647 444 444 | 01958 063 331";
+
     openSiteVisitSlip(
       confirmedData,
       officeAddress,
       settings?.general_settings?.site_name,
-      settings?.general_settings?.site_phone
+      slipPhone
     );
   };
 
